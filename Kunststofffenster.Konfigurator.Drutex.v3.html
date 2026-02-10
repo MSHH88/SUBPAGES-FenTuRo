@@ -268,6 +268,7 @@ iframe {
 <link rel="stylesheet" id="flatsome-shop-css" href="./Kunststofffenster.Konfigurator.Drutex_files/flatsome-shop.css" type="text/css" media="all">
 <link rel="stylesheet" id="flatsome-style-css" href="./Kunststofffenster.Konfigurator.Drutex_files/style.css" type="text/css" media="all">
 <link rel="stylesheet" id="wc-gzdp-theme-flatsome-css" href="./Kunststofffenster.Konfigurator.Drutex_files/wc-gzdp-theme-flatsome-styles.css" type="text/css" media="all">
+<link rel="stylesheet" href="https://cdn03.plentymarkets.com/xbqx3akj5qia/frontend/assets/easy2021.min.css?v=2026012010ceeed">
 <script type="text/template" id="tmpl-variation-template">
 	<div class="woocommerce-variation-description">{{{ data.variation.variation_description }}}</div>
 	<div class="woocommerce-variation-price">{{{ data.variation.price_html }}}</div>
@@ -3136,15 +3137,18 @@ li.cat-item.cat-item-432 {
 
 /* ============================================
    MEGAMENU STRUCTURAL CSS
-   (replaces external easy2021.min.css rules)
+   Matches easy2021.min.css rendering from the 
+   live homepage-v1. Required because this subpage
+   uses Flatsome CSS which conflicts with easy2021.
    ============================================ */
 
-/* Main navbar container */
+/* Navbar container - glassmorphism matching homepage-v1 */
 .navbar.megamenu {
-    background: rgba(247, 247, 247, 0.95);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    background: rgba(255, 255, 255, 0.90);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(204, 204, 204, 0.3);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
     position: relative;
     z-index: 98;
     padding: 0;
@@ -3155,18 +3159,21 @@ li.cat-item.cat-item-432 {
     max-width: 1470px;
     margin: 0 auto;
     padding: 0 15px;
+    display: block;
 }
 
 .navbar.megamenu .row {
     display: flex;
     flex-wrap: wrap;
+    position: relative;
+    margin: 0;
 }
 
 .main-navbar-collapsable {
     width: 100%;
 }
 
-/* Main menu list - spread items across full width like homepage-v1 */
+/* Main menu - horizontal flex, spread across full width */
 .mainmenu {
     list-style: none;
     padding: 0;
@@ -3177,38 +3184,45 @@ li.cat-item.cat-item-432 {
     width: 100%;
 }
 
-/* Top level menu items */
+/* Top-level menu items */
 .mainmenu > li {
     position: relative;
+    list-style: none;
+    flex: 1 1 auto;
+    text-align: center;
 }
 
 .mainmenu > li > a {
     display: block;
-    padding: 15px 18px;
+    padding: 18px 20px;
     color: #333333;
     text-decoration: none;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 500;
     font-family: Inter, Manrope, sans-serif;
     white-space: nowrap;
+    line-height: 1.4;
 }
 
-/* Dropdown containers - hidden by default, shown on hover */
+/* ---- Dropdown panels ---- */
+/* Hidden by default, shown on hover */
 .mainmenu > li > ul.collapse {
     display: none;
     position: absolute;
     top: 100%;
-    left: 0;
-    min-width: 700px;
-    max-width: 900px;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 950px;
+    max-width: 1100px;
     background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    border-radius: 0 0 12px 12px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(204, 204, 204, 0.3);
+    border-radius: 0 0 16px 16px;
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.12),
+                0 4px 16px rgba(0, 0, 0, 0.06);
     z-index: 999;
-    padding: 15px 0 20px;
+    padding: 24px 0 28px;
     list-style: none;
 }
 
@@ -3217,22 +3231,45 @@ li.cat-item.cat-item-432 {
     display: block;
 }
 
-/* Mega-dropdown wrapper (created by JS) */
+/* Bridge gap between menu item and dropdown */
+.mainmenu > li.ddown::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    display: none;
+}
+.mainmenu > li.ddown:hover::after {
+    display: block;
+}
+
+/* li_bottom second UL - flows after li_top */
+.mainmenu > li > ul.collapse.li_bottom {
+    margin-top: 0;
+    position: absolute;
+    top: 100%;
+}
+
+/* Mega-dropdown wrapper (created by JS for items with li_top + li_bottom) */
 .mega-dropdown {
     display: none;
     position: absolute;
     top: 100%;
-    left: 0;
-    min-width: 700px;
-    max-width: 900px;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 950px;
+    max-width: 1100px;
     background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    border-radius: 0 0 12px 12px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(204, 204, 204, 0.3);
+    border-radius: 0 0 16px 16px;
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.12),
+                0 4px 16px rgba(0, 0, 0, 0.06);
     z-index: 999;
-    padding: 15px 0 20px;
+    padding: 24px 0 28px;
 }
 
 .mainmenu > li.ddown:hover > .mega-dropdown {
@@ -3251,39 +3288,20 @@ li.cat-item.cat-item-432 {
     box-shadow: none;
     min-width: auto;
     max-width: none;
+    transform: none;
+    left: auto;
 }
 
 .mega-dropdown > ul.collapse.li_bottom {
     border-top: 1px solid rgba(0, 0, 0, 0.04);
-    padding-top: 10px;
-    margin-top: 10px;
+    padding-top: 12px;
+    margin-top: 12px;
 }
 
-/* Hide raw collapse ULs when mega-dropdown exists */
-.mainmenu > li.ddown:hover > ul.collapse {
-    display: none;
-}
+/* Note: Items with 2+ collapse ULs have them moved into .mega-dropdown by JS.
+   Items with 1 collapse UL keep it as direct child and use standard hover. */
 
-/* Bridge gap to prevent dropdown closing */
-.mainmenu > li.ddown::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    height: 8px;
-    display: none;
-}
-.mainmenu > li.ddown:hover::after {
-    display: block;
-}
-
-/* li_bottom: hide the inline margin-top from original */
-.mainmenu > li > ul.collapse.li_bottom {
-    margin-top: 0;
-}
-
-/* Multi-column layout */
+/* ---- Multi-column grid layout inside dropdowns ---- */
 .mainmenu > li > ul.collapse > li {
     list-style: none;
     width: 100%;
@@ -3291,11 +3309,11 @@ li.cat-item.cat-item-432 {
 
 ul.collapse-inner {
     list-style: none;
-    padding: 0 25px;
+    padding: 0 32px;
     margin: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 0 30px;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 4px 40px;
 }
 
 .collapse-inner > li {
@@ -3304,34 +3322,43 @@ ul.collapse-inner {
     min-width: 220px;
 }
 
-/* Category headers */
+/* Column break for multi-column layout */
+.collapse-inner > li.forcedColBreak {
+    break-before: column;
+    grid-column-start: auto;
+}
+
+/* Category headers (bold labels) */
 .collapse-inner .bold,
 .collapse-inner p.bold {
     font-weight: 700;
-    font-size: 14px;
+    font-size: 15px;
     color: #333;
-    margin: 0 0 8px 0;
-    padding: 6px 0;
+    margin: 0 0 10px 0;
+    padding: 8px 0 4px;
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
+    line-height: 1.4;
 }
 
+/* Menu item padding */
 .menuPadding, .menuPadding2 {
     padding: 3px 0;
     list-style: none;
 }
 
+/* Level 2 links - submenu items */
 .level2 a {
     color: #333333;
     text-decoration: none;
-    font-size: 13.5px;
+    font-size: 14.5px;
     font-weight: 400;
-    line-height: 1.8;
+    line-height: 2;
     display: inline-block;
 }
 
-/* Icon glassmorphism in nav */
+/* Icon glassmorphism in navigation */
 .icon-glassmorphism {
     display: inline-flex;
     align-items: center;
@@ -3349,21 +3376,21 @@ ul.collapse-inner {
     color: #6690CC;
 }
 
-/* CTA buttons in dropdowns */
+/* CTA buttons in dropdown menus */
 .btn.menu-block-button {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
     background: #6690CC;
     color: white;
     border: none;
     border-radius: 8px;
-    padding: 10px 18px;
-    font-size: 13px;
+    padding: 12px 20px;
+    font-size: 14px;
     font-weight: 600;
     text-decoration: none;
     transition: all 0.3s ease;
-    margin-top: 8px;
+    margin-top: 10px;
 }
 
 .btn.menu-block-button:hover {
@@ -3371,6 +3398,11 @@ ul.collapse-inner {
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(102, 144, 204, 0.4);
     color: white;
+}
+
+/* No-padding items (images) */
+.collapse-inner > li.no-padding {
+    padding: 0;
 }
 
 /* Responsive - hide on mobile */
@@ -6199,6 +6231,9 @@ function updateBox() {
         }
     </script>
 
+    <!-- easy2021 navigation JS (same as homepage-v1) -->
+    <script defer src="https://cdn03.plentymarkets.com/xbqx3akj5qia/frontend/assets/easy2021.min.js?v=2026012010ceeed"></script>
+
     <!-- Navigation: Merge li_top/li_bottom into single dropdown wrappers -->
     <script>
     (function() {
@@ -6208,7 +6243,8 @@ function updateBox() {
             for (var i = 0; i < ddownItems.length; i++) {
                 var li = ddownItems[i];
                 var collapseULs = li.querySelectorAll(':scope > ul.collapse');
-                if (collapseULs.length > 0) {
+                if (collapseULs.length > 1) {
+                    // Only merge if there are multiple collapse ULs (li_top + li_bottom)
                     var wrapper = document.createElement('div');
                     wrapper.className = 'mega-dropdown';
                     for (var j = 0; j < collapseULs.length; j++) {
