@@ -2307,7 +2307,579 @@ li.cat-item.cat-item-432 {
 }
 :not(.a14b7-ext-1-269)>.a14b7-ext-1-311>ul>li>a {
     pointer-events: none !important;
-}</style><style type="text/css" data-aphrodite=""></style><script async="" defer="" type="text/javascript" src="./Kunststofffenster.Konfigurator.Drutex_files/v2"></script></head>
+}</style><style type="text/css" data-aphrodite=""></style><script async="" defer="" type="text/javascript" src="./Kunststofffenster.Konfigurator.Drutex_files/v2"></script>
+<!-- V1 HEADER REDESIGN STYLES -->
+<style>
+/* V1 Header styling */
+.site-header {
+    position: relative;
+    width: 100%;
+    height: 155px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    margin: 0;
+    z-index: 100;
+}
+
+/* Logo link (hitbox) styling */
+.site-header .logo-link {
+    display: block;
+    height: 150px;
+    margin-top: 2.5px;
+    margin-left: 2.5px;
+    margin-bottom: 2.5px;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    padding: 0;
+    line-height: 0;
+    font-size: 0;
+}
+
+/* Logo image styling */
+.site-header .logo-image {
+    height: 150px;
+    width: auto;
+    display: block;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    object-fit: contain;
+}
+
+/* Icons with iOS Glass Lens Effect - positioned individually */
+.site-header .icon-new {
+    position: absolute;
+    top: 51.5px;
+    z-index: 110;
+    width: 44px;
+    height: 44px;
+    border-radius: 11px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: 
+        radial-gradient(ellipse 100% 100% at 50% 20%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
+        linear-gradient(135deg, rgba(102, 144, 204, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at center, rgba(102, 144, 204, 0.35) 0%, rgba(102, 144, 204, 0.18) 50%, rgba(150, 150, 150, 0.15) 100%);
+    border: 1px solid rgba(102, 144, 204, 0.4);
+    box-shadow:
+        inset 0 1px 2px rgba(255, 255, 255, 0.6),
+        0 1px 1px rgba(102, 144, 204, 0.3),
+        inset 0 -1px 2px rgba(0, 0, 0, 0.1),
+        0 4px 12px rgba(102, 144, 204, 0.25),
+        0 2px 6px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+/* Curved top highlight (glass lens effect) */
+.site-header .icon-new::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 40%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.3) 40%, transparent 100%);
+    border-radius: 50% 50% 80% 80% / 60% 60% 40% 40%;
+    pointer-events: none;
+}
+
+.site-header .icon-new:hover {
+    transform: scale(1.15) translateY(-4px);
+    background:
+        radial-gradient(ellipse 100% 100% at 50% 20%, rgba(255, 255, 255, 0.5) 0%, transparent 50%),
+        linear-gradient(135deg, rgba(102, 144, 204, 0.4) 0%, transparent 50%),
+        radial-gradient(circle at center, rgba(102, 144, 204, 0.55) 0%, rgba(102, 144, 204, 0.35) 50%, rgba(102, 144, 204, 0.25) 100%);
+    border: 1px solid rgba(102, 144, 204, 0.6);
+    box-shadow:
+        inset 0 1px 2px rgba(255, 255, 255, 0.7),
+        0 1px 2px rgba(102, 144, 204, 0.4),
+        inset 0 -1px 2px rgba(0, 0, 0, 0.1),
+        0 8px 24px rgba(102, 144, 204, 0.4),
+        0 4px 12px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+.site-header .icon-new:hover::after {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.4) 40%, transparent 100%);
+}
+
+.site-header .icon-new svg {
+    width: 24px;
+    height: 24px;
+    stroke: #333;
+    stroke-width: 2;
+    fill: none;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+/* Individual icon positioning (no container) */
+#searchIcon:not(.sticky) {
+    left: calc(100% - 414px);
+}
+
+#accountIcon:not(.sticky) {
+    left: calc(100% - 361px);
+}
+
+#cartIcon:not(.sticky) {
+    left: calc(100% - 308px);
+}
+
+.site-header .icon-new:hover svg {
+    stroke: #222;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+}
+
+.site-header .icon-new.active {
+    transform: scale(1.15) translateY(-4px);
+    background: radial-gradient(circle at center, rgba(102, 144, 204, 0.55) 0%, rgba(102, 144, 204, 0.35) 100%);
+    border: 1px solid rgba(102, 144, 204, 0.7);
+    box-shadow: 
+        0 0 0 1px rgba(102, 144, 204, 0.4),
+        0 8px 24px rgba(102, 144, 204, 0.4),
+        0 4px 12px rgba(0, 0, 0, 0.15),
+        inset 0 1px 2px rgba(255, 255, 255, 0.7),
+        inset 0 -1px 2px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6px);
+}
+
+.site-header .icon-new.active::after {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.4) 40%, transparent 100%);
+}
+
+/* STICKY HEADER STYLES */
+.site-header.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    height: 80px;
+    background: transparent;
+    backdrop-filter: none;
+    box-shadow: none;
+    transition: all 0.3s ease;
+}
+
+/* Sticky Logo - 50% smaller */
+.site-header .logo-link.sticky {
+    position: fixed;
+    top: 15px;
+    left: 20px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.site-header .logo-link.sticky .logo-image {
+    height: 75px;
+    width: auto;
+    transition: all 0.3s ease;
+}
+
+/* Sticky Icons */
+.site-header .icon-new.sticky {
+    position: fixed;
+    top: 20px;
+    width: 35px;
+    height: 35px;
+    border-radius: 8px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+/* Adjust sticky icon positions - top right corner */
+#searchIcon.sticky {
+    right: 140px;
+}
+
+#accountIcon.sticky {
+    right: 90px;
+}
+
+#cartIcon.sticky {
+    right: 40px;
+}
+
+/* Sticky icon SVG scaling */
+.site-header .icon-new.sticky svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Hide separator and contact when sticky */
+.site-header.sticky .separator-line,
+.site-header.sticky .contact-section {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+/* V1 Overlay for dropdown backdrop */
+.v1-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.v1-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Search Dropdown */
+.search-dropdown {
+    position: fixed;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-20px);
+    width: 600px;
+    max-width: 90vw;
+    background: rgba(255, 255, 255, 0.005);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 2px rgba(255, 255, 255, 0.5);
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.search-dropdown.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.search-input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-input-container svg {
+    position: absolute;
+    left: 20px;
+    width: 24px;
+    height: 24px;
+    stroke: #666;
+    stroke-width: 2;
+    fill: none;
+}
+
+.search-dropdown input {
+    width: 100%;
+    padding: 18px 20px 18px 60px;
+    font-size: 18px;
+    border: 2px solid rgba(102, 144, 204, 0.3);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.search-dropdown input:focus {
+    border-color: rgba(102, 144, 204, 0.6);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 0 4px rgba(102, 144, 204, 0.1);
+}
+
+/* Cart Dropdown */
+.cart-dropdown {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    width: 300px;
+    max-height: 400px;
+    background: rgba(255, 255, 255, 0.005);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 2px rgba(255, 255, 255, 0.5);
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+}
+
+.cart-dropdown.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.cart-dropdown .cart-header {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.cart-dropdown .empty-cart-message {
+    padding: 10px 20px 20px 20px;
+    text-align: center;
+    color: #999;
+    font-size: 14px;
+}
+
+/* Account Dropdown */
+.account-dropdown {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    width: 320px;
+    background: rgba(255, 255, 255, 0.005);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 2px rgba(255, 255, 255, 0.5);
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.account-dropdown.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.account-dropdown .account-header {
+    font-size: 22px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.account-dropdown .account-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.account-dropdown .account-form input {
+    padding: 14px 16px;
+    font-size: 15px;
+    border: 2px solid rgba(102, 144, 204, 0.3);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.account-dropdown .account-form input:focus {
+    border-color: rgba(102, 144, 204, 0.6);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 0 4px rgba(102, 144, 204, 0.1);
+}
+
+.account-login {
+    padding: 14px;
+    background: linear-gradient(135deg, #6690CC 0%, #5580BB 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 8px;
+}
+
+.account-login:hover {
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 6px 16px rgba(102, 144, 204, 0.4);
+    background: linear-gradient(135deg, #7AA0DD 0%, #6690CC 100%);
+}
+
+.account-separator {
+    margin: 20px 0;
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.account-signup-text {
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.account-register {
+    width: 100%;
+    padding: 14px;
+    background: rgba(255, 255, 255, 0.15);
+    color: #6690CC;
+    border: 2px solid #6690CC;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.account-register:hover {
+    background: #6690CC;
+    color: white;
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 6px 16px rgba(102, 144, 204, 0.4);
+}
+
+/* Contact Section */
+.site-header .contact-section {
+    position: absolute;
+    top: 40px;
+    right: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-item {
+    display: grid;
+    grid-template-columns: 31px 1fr;
+    gap: 10px;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.contact-icon {
+    position: relative;
+    width: 31px;
+    height: 31px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: 
+        radial-gradient(ellipse 100% 100% at 50% 20%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
+        linear-gradient(135deg, rgba(102, 144, 204, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at center, rgba(102, 144, 204, 0.35) 0%, rgba(102, 144, 204, 0.18) 50%, rgba(150, 150, 150, 0.15) 100%);
+    border: 1px solid rgba(102, 144, 204, 0.4);
+    box-shadow:
+        inset 0 1px 2px rgba(255, 255, 255, 0.6),
+        0 1px 1px rgba(102, 144, 204, 0.3),
+        inset 0 -1px 2px rgba(0, 0, 0, 0.1),
+        0 4px 12px rgba(102, 144, 204, 0.25),
+        0 2px 6px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.contact-icon::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 40%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.3) 40%, transparent 100%);
+    border-radius: 50% 50% 80% 80% / 60% 60% 40% 40%;
+    pointer-events: none;
+}
+
+.contact-icon svg {
+    width: 17px;
+    height: 17px;
+    stroke: #333;
+    stroke-width: 2;
+    fill: none;
+    position: relative;
+    z-index: 1;
+}
+
+.contact-item:hover .contact-icon {
+    transform: scale(1.15);
+}
+
+.contact-text {
+    font-size: 14px;
+    color: #666;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    white-space: nowrap;
+}
+
+.contact-item:hover .contact-text {
+    font-weight: bold;
+    color: #666;
+    letter-spacing: -0.03em;
+    text-shadow: 
+        0 0 12px rgba(102, 144, 204, 0.6),
+        0 0 24px rgba(102, 144, 204, 0.4),
+        0 0 36px rgba(102, 144, 204, 0.2);
+}
+
+/* Separator Line */
+.site-header .separator-line {
+    position: absolute;
+    top: 0;
+    right: 239px;
+    width: 1px;
+    height: 155px;
+    background: linear-gradient(
+        to bottom,
+        rgba(102, 144, 204, 0) 0%,
+        rgba(102, 144, 204, 0.2) 5%,
+        rgba(102, 144, 204, 0.4) 10%,
+        #666 30%,
+        #666 70%,
+        rgba(102, 144, 204, 0.4) 90%,
+        rgba(102, 144, 204, 0.2) 95%,
+        rgba(102, 144, 204, 0) 100%
+    );
+    box-shadow: 0 0 2px 0.75px rgba(102, 144, 204, 0.4);
+    z-index: 50;
+    pointer-events: none;
+}
+</style>
+</head>
 
 <body class="wp-singular page-template page-template-page-blank page-template-page-blank-php page page-id-420 page-child parent-pageid-402 wp-theme-flatsome wp-child-theme-flatsome-child theme-flatsome woocommerce-js boxed lightbox nav-dropdown-has-arrow" style="min-height: auto;">
 
@@ -2317,1835 +2889,93 @@ li.cat-item.cat-item-432 {
 <div id="wrapper">
 
 	
-	<header id="header" class="header has-sticky sticky-jump" style="height: 227.484px;">
-		<div class="header-wrapper stuck">
-			<div id="top-bar" class="header-top hide-for-sticky flex-has-center">
-    <div class="flex-row container">
-      <div class="flex-col hide-for-medium flex-left">
-          <ul class="nav nav-left medium-nav-center nav-small  nav-divided">
-              <li class="html custom html_nav_position_text"><!-- Begin eTrusted bootstrap tag -->
-<script src="./Kunststofffenster.Konfigurator.Drutex_files/v2(1)" async="" defer=""></script>
-<!-- End eTrusted bootstrap tag -->
-<!-- Begin eTrusted widget tag -->
-<etrusted-widget data-etrusted-widget-id="wdg-7badf713-f293-4320-9d43-3ff12316371e"><template shadowrootmode="closed"><etrusted-trusted-stars-service-widget data-etrusted-widget-id="wdg-7badf713-f293-4320-9d43-3ff12316371e" data-theme="light" data-font-style="default" style="--accent-color: #DF1713;"><template shadowrootmode="open"><style type="text/css">@import "https://integrations.etrusted.com/applications/trusted-stars-service-widget/2.14.6/index.css"</style><div class="trusted-stars-service-widget display-style-small">
-    <div class="wrapper">
-      <div class="content" tabindex="1">
-        <etrusted-tss-star-rating rating="4.76" theme="light">
-      <div class="star-rating">
-        <div class="filled"></div><div class="filled"></div><div class="filled"></div><div class="filled"></div>
-        
-              <div class="star-rating__fraction">
-                <div class="star">
-                  <div class="empty"></div>
-                </div>
-                <div class="star" style="width: 75.99999999999997%">
-                  <div class="filled"></div>
-                </div>
-              </div>
-              
-            
-      </div>
-    </etrusted-tss-star-rating>
-        <div class="grade-value">
-          4,76
-        </div>
-        <div class="grade-summary">
-          Hervorragend
-        </div>
-        <div class="grade-count">
-          7.034 Bewertungen
-        </div>
-        <div class="logo"></div>
-      </div>
-    </div>
-  </div></template><script type="text/props">{"manifest":{"id":"wdg-7badf713-f293-4320-9d43-3ff12316371e","account":{"id":"acc-20e75b92-5379-4e5f-8132-6e47e7924732"},"reference":{"type":"channel","id":"chl-8ed58e86-b287-49ff-82d2-06fb0782c3d3"},"touchpoint":"all","application":{"type":"trusted_stars_service","url":"https://integrations.etrusted.com/applications/trusted-stars-service-widget/v2"},"configuration":{"url":"https://integrations.etrusted.com/configurations/v1/wdg-7badf713-f293-4320-9d43-3ff12316371e.json"},"feeds":{"channels":{"url":"https://integrations.etrusted.com/feeds/channels/v1/chl-8ed58e86-b287-49ff-82d2-06fb0782c3d3/feed.json"},"grades":{"url":"https://integrations.etrusted.com/feeds/grades/v1/channels/chl-8ed58e86-b287-49ff-82d2-06fb0782c3d3/touchpoints/all/feed.json"}}}}</script><style type="text/css">etrusted-widget {display: block;}</style></etrusted-trusted-stars-service-widget></template></etrusted-widget>
-<!-- End eTrusted widget tag --></li>          </ul>
-      </div>
-
-      <div class="flex-col hide-for-medium flex-center">
-          <ul class="nav nav-center nav-small  nav-divided">
-              <li class="html custom html_topbar_right"><div style="display: flex; gap: 20px; align-items: center;">
-  <div style="display: flex; align-items: center; gap: 5px;">
-    <span><img draggable="false" role="img" class="emoji" alt="✔" src="./Kunststofffenster.Konfigurator.Drutex_files/2714.svg"></span>
-    <span>Maßgefertigte Fenster &amp; Türen</span>
-  </div>
-  <div style="display: flex; align-items: center; gap: 5px;">
-    <span"><img draggable="false" role="img" class="emoji" alt="✔" src="./Kunststofffenster.Konfigurator.Drutex_files/2714.svg">
-    <span>Top Qualität zum besten Preis</span>
-  </span"></div>
-  <div style="display: flex; align-items: center; gap: 5px;">
-    <span><img draggable="false" role="img" class="emoji" alt="✔" src="./Kunststofffenster.Konfigurator.Drutex_files/2714.svg"></span>
-    <span>ab 10 Elementen versandkostenfrei</span>
-  </div>
-  <div style="display: flex; align-items: center; gap: 5px;">
-    <span><img draggable="false" role="img" class="emoji" alt="✔" src="./Kunststofffenster.Konfigurator.Drutex_files/2714.svg"></span>
-    <span>2% Skonto bei Vorkasse</span>
-  </div>
-</div>
-</li>          </ul>
-      </div>
-
-      <div class="flex-col hide-for-medium flex-right">
-         <ul class="nav top-bar-nav nav-right nav-small  nav-divided">
-              
-<li class="account-item has-icon">
-
-	<a href="https://www.fenstermaxx24.com/mein-konto/" class="nav-top-link nav-top-not-logged-in is-small" title="Anmelden">
-					<span>
-			Anmelden / Registrieren			</span>
-				</a>
-
-
-
-
-</li>
-          </ul>
-      </div>
-
-            <div class="flex-col show-for-medium flex-grow">
-          <ul class="nav nav-center nav-small mobile-nav  nav-divided">
-              <li class="html custom html_nav_position_text_top"><div class="topbar-slider">
-  <div class="slide" style="display: none;">
-  </div>
-  <div class="slide" style="display: none;"><img draggable="false" role="img" class="emoji" alt="✔" src="./Kunststofffenster.Konfigurator.Drutex_files/2714.svg">&nbsp;Maßgefertigte Fenster &amp; Türen</div>
-  <div class="slide" style="display: none;"><img draggable="false" role="img" class="emoji" alt="✔" src="./Kunststofffenster.Konfigurator.Drutex_files/2714.svg">&nbsp;ab 10 Elementen versandkostenfrei</div>
-  <div class="slide" style=""><img draggable="false" role="img" class="emoji" alt="✔" src="./Kunststofffenster.Konfigurator.Drutex_files/2714.svg">&nbsp;Top Qualität zum besten Preis</div>
-  <div class="slide" style="display: none;"><img draggable="false" role="img" class="emoji" alt="✔" src="./Kunststofffenster.Konfigurator.Drutex_files/2714.svg">&nbsp;2% Skonto bei Vorkasse</div>
-</div>
-</li>          </ul>
-      </div>
-      
-    </div>
-</div>
-<div id="masthead" class="header-main ">
-      <div class="header-inner flex-row container logo-left medium-logo-center" role="navigation">
-
-          <!-- Logo -->
-          <div id="logo" class="flex-col logo">
-            
-<!-- Header logo -->
-<a href="https://www.fenstermaxx24.com/" title="Fenstermaxx24 – Fenster online konfigurieren &amp; direkt bestellen" rel="home">
-		<img width="1" height="1" src="./Kunststofffenster.Konfigurator.Drutex_files/fenstermaxx24-logo-2.svg" class="header_logo header-logo" alt="Fenstermaxx24 – Fenster online konfigurieren &amp; direkt bestellen"><img width="1" height="1" src="./Kunststofffenster.Konfigurator.Drutex_files/fenstermaxx24-logo-2.svg" class="header-logo-dark" alt="Fenstermaxx24 – Fenster online konfigurieren &amp; direkt bestellen"></a>
-          </div>
-
-          <!-- Mobile Left Elements -->
-          <div class="flex-col show-for-medium flex-left">
-            <ul class="mobile-nav nav nav-left ">
-              <li class="nav-icon has-icon">
-  		<a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-fenster/#" data-open="#main-menu" data-pos="center" data-bg="main-menu-overlay" data-color="" class="is-small" aria-label="Menü" aria-controls="main-menu" aria-expanded="false">
-
-		  <i class="icon-menu"></i>
-		  		</a>
-	</li>
-            </ul>
-          </div>
-
-          <!-- Left Elements -->
-          <div class="flex-col hide-for-medium flex-left
-            flex-grow">
-            <ul class="header-nav header-nav-main nav nav-left  nav-uppercase">
-                          </ul>
-          </div>
-
-          <!-- Right Elements -->
-          <div class="flex-col hide-for-medium flex-right">
-            <ul class="header-nav header-nav-main nav nav-right  nav-uppercase">
-              <li class="html custom html_top_right_text"><!-- Wrapper für alle drei Elemente -->
-<div style="display:flex; align-items:center; gap:20px; font-size:14px; flex-wrap:wrap;">
-
-  <!-- Hotline -->
-  <div style="display:flex; align-items:center; gap:8px;">
-    <!-- Icon -->
-    <a href="tel:03043970759" style="display:block; width:28px; height:28px; flex-shrink:0;">
-    <img src="./Kunststofffenster.Konfigurator.Drutex_files/icon_telefon_red.png" alt="Hotline Icon" style="width:100%; height:100%; object-fit:contain;">
-  </a>
-    <!-- Text -->
-    <div style="display:flex; flex-direction:column; gap:1px; line-height:1.2;">
-      <div style="display:flex; align-items:center; gap:6px; font-size:13px;">
-        <div style="font-weight:bold;">Hotline</div>
-        <div style="font-size:11px;">(9-16 Uhr)</div>
-      </div>
-      <div style="font-size:13px; line-height:1.2;">
-        <a href="tel:03043970759" style="text-decoration:none; color:inherit;">
-          030 439 707 59
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Montageservice -->
-  <div style="display:flex; align-items:center; gap:8px;">
-    <!-- Icon -->
-    <a href="https://www.fenstermaxx24.com/service/montage-service/" style="display:block; width:28px; height:28px; flex-shrink:0;">
-    <img src="./Kunststofffenster.Konfigurator.Drutex_files/icon_werkzeug_red.png" alt="Montageservice" style="width:100%; height:100%; object-fit:contain;">
-  </a>
-    <!-- Text -->
-    <div style="display:flex; flex-direction:column; gap:1px; line-height:1.2;">
-      <div style="display:flex; align-items:center; gap:6px; font-size:13px;">
-        <div style="font-weight:bold;">Montageservice</div>
-      </div>
-      <div style="font-size:13px; line-height:1.2;">
-        <a href="https://www.fenstermaxx24.com/service/montage-service/" style="text-decoration:none; color:inherit;">
-          Professioneller Einbau
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- E-Mail -->
-  <div style="display:flex; align-items:flex-start; gap:8px;">
-    <!-- Icon -->
-    <a href="https://www.fenstermaxx24.com/service/kontakt/" style="display:block; width:28px; height:28px; flex-shrink:0;">
-      <img src="./Kunststofffenster.Konfigurator.Drutex_files/icon_mail_red.png" alt="E-Mail Icon" style="width:100%; height:100%; object-fit:contain;">
- </a>
-    <!-- Text -->
-    <div style="line-height:1.2;">
-      <div style="font-weight:bold; font-size:13px;">E-Mail</div>
-      <div>
-        <a href="mailto:info@fenstermaxx24.com" style="text-decoration:none; color:inherit; font-size:13px;">
-          info@fenstermaxx24.com
-        </a>
-      </div>
-    </div>
-  </div>
-
-</div></li><li class="header-divider"></li><li class="cart-item has-icon">
-
-<a href="https://www.fenstermaxx24.com/warenkorb/" class="header-cart-link is-small off-canvas-toggle nav-top-link" title="Warenkorb" data-open="#cart-popup" data-class="off-canvas-cart" data-pos="right">
-
-<span class="header-cart-title">
-           <span class="cart-price"><span class="woocommerce-Price-amount amount"><bdi>0,00&nbsp;<span class="woocommerce-Price-currencySymbol">€</span></bdi></span></span>
-  </span>
-
-    		<span class="cart-icon image-icon">
-			<strong>0</strong>
-		</span>
-		
-  </a>
-
-
-
-  <!-- Cart Sidebar Popup -->
-  <div id="cart-popup" class="mfp-hide">
-  <div class="cart-popup-inner inner-padding cart-popup-inner--sticky">
-      <div class="cart-popup-title text-center">
-          <span class="heading-font uppercase">Warenkorb</span>
-          <div class="is-divider"></div>
-      </div>
-	  <div class="widget_shopping_cart">
-		  <div class="widget_shopping_cart_content">
-
-	<div class="ux-mini-cart-empty flex flex-row-col text-center pt pb">
-				<div class="ux-mini-cart-empty-icon">
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 19" style="opacity:.1;height:80px;">
-				<path d="M8.5 0C6.7 0 5.3 1.2 5.3 2.7v2H2.1c-.3 0-.6.3-.7.7L0 18.2c0 .4.2.8.6.8h15.7c.4 0 .7-.3.7-.7v-.1L15.6 5.4c0-.3-.3-.6-.7-.6h-3.2v-2c0-1.6-1.4-2.8-3.2-2.8zM6.7 2.7c0-.8.8-1.4 1.8-1.4s1.8.6 1.8 1.4v2H6.7v-2zm7.5 3.4 1.3 11.5h-14L2.8 6.1h2.5v1.4c0 .4.3.7.7.7.4 0 .7-.3.7-.7V6.1h3.5v1.4c0 .4.3.7.7.7s.7-.3.7-.7V6.1h2.6z" fill-rule="evenodd" clip-rule="evenodd" fill="currentColor"></path>
+	<!-- V1 HEADER INTEGRATION -->
+	<header class="site-header">
+		<a href="https://www.fenstermaxx24.com/" class="logo-link" onclick="handleLogoClick(event)">
+			<img src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663028449717/xHNkqSOeBdZSQVyZ.webp" alt="FenTuRo Logo" class="logo-image">
+		</a>
+		<!-- Search Icon -->
+		<div class="icon-new" id="searchIcon" data-dropdown="search">
+			<svg viewBox="0 0 24 24">
+				<circle cx="11" cy="11" r="8"></circle>
+				<path d="m21 21-4.35-4.35"></path>
 			</svg>
 		</div>
-				<p class="woocommerce-mini-cart__empty-message empty">Es befinden sich keine Produkte im Warenkorb.</p>
-					<p class="return-to-shop">
-				<a class="button primary wc-backward" href="https://www.fenstermaxx24.com/shop/">
-					Zurück zum Shop				</a>
-			</p>
-				
-                    <div class="svenster-mini-cart-buttons">
-                        <a href="https://www.fenstermaxx24.com/warenkorb/" class="svenster-cart-btn">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" class="svenster-cart-icon">
-                                <path d="M24 48C10.7 48 0 58.7 0 72C0 85.3 10.7 96 24 96L69.3 96C73.2 96 76.5 98.8 77.2 102.6L129.3 388.9C135.5 423.1 165.3 448 200.1 448L456 448C469.3 448 480 437.3 480 424C480 410.7 469.3 400 456 400L200.1 400C188.5 400 178.6 391.7 176.5 380.3L171.4 352L475 352C505.8 352 532.2 330.1 537.9 299.8L568.9 133.9C572.6 114.2 557.5 96 537.4 96L124.7 96L124.3 94C119.5 67.4 96.3 48 69.2 48L24 48zM208 576C234.5 576 256 554.5 256 528C256 501.5 234.5 480 208 480C181.5 480 160 501.5 160 528C160 554.5 181.5 576 208 576zM432 576C458.5 576 480 554.5 480 528C480 501.5 458.5 480 432 480C405.5 480 384 501.5 384 528C384 554.5 405.5 576 432 576z"></path>
-                            </svg>
-                            Warenkorb
-                        </a>
-                        <a href="https://www.fenstermaxx24.com/kasse/" class="svenster-checkout-btn">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" class="svenster-checkout-icon">
-                                <path d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"></path>
-                            </svg>
-                            Kasse
-                        </a>
-                    </div>
-                </div>
-
-
-</div>
-	  </div>
-              </div>
-  </div>
-
-</li>
-            </ul>
-          </div>
-
-          <!-- Mobile Right Elements -->
-          <div class="flex-col show-for-medium flex-right">
-            <ul class="mobile-nav nav nav-right ">
-              <li class="cart-item has-icon">
-
-
-		<a href="https://www.fenstermaxx24.com/warenkorb/" class="header-cart-link is-small off-canvas-toggle nav-top-link" title="Warenkorb" data-open="#cart-popup" data-class="off-canvas-cart" data-pos="right">
-
-    		<span class="cart-icon image-icon">
-			<strong>0</strong>
-		</span>
-		
-  </a>
-
-</li>
-            </ul>
-          </div>
-
-      </div>
-
-      </div>
-<div id="wide-nav" class="header-bottom wide-nav nav-dark">
-    <div class="flex-row container">
-
-                        <div class="flex-col hide-for-medium flex-left">
-                <ul class="nav header-nav header-bottom-nav nav-left  nav-size-large nav-spacing-medium nav-prompts-overlay">
-                    <li id="menu-item-9417" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9417 menu-item-design-container-width menu-item-has-block has-dropdown"><a href="https://www.fenstermaxx24.com/konfigurator" class="nav-top-link" aria-expanded="false" aria-haspopup="menu">Konfigurator<i class="icon-angle-down"></i></a><div class="sub-menu nav-dropdown">
-	<section class="section" id="section_1210138015">
-		<div class="section-bg fill">
-									
-			
-
+		<!-- Account Icon -->
+		<div class="icon-new" id="accountIcon" data-dropdown="account">
+			<svg viewBox="0 0 24 24">
+				<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+				<circle cx="12" cy="7" r="4"></circle>
+			</svg>
 		</div>
-
-		
-
-		<div class="section-content relative">
-			
-
-<div class="row" id="row-402407356">
-
-
-	<div id="col-893439587" class="col medium-4 small-12 large-4">
-				<div class="col-inner">
-			
-			
-
-	<div class="ux-menu stack stack-col justify-start">
-		
-
-	<div class="ux-menu-title flex menu-highlight">
-		Fensterkonfigurator	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/konfigurator/konfigurator-fenster/">
-						<span class="ux-menu-link__text">
-				Kunststofffenster			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/konfigurator/pvc-alu-fenster/">
-						<span class="ux-menu-link__text">
-				Kunststoff-Alu Fenster			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/konfigurator/alu-fenster/">
-						<span class="ux-menu-link__text">
-				Alu Fenster			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/konfigurator/holz-fenster/">
-						<span class="ux-menu-link__text">
-				Holzfenster			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/konfigurator/holz-alu-fenster/">
-						<span class="ux-menu-link__text">
-				Holz-Alu Fenster			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/konfigurator/alu-schiebefenster/">
-						<span class="ux-menu-link__text">
-				Schiebefenster			</span>
-		</a>
-	</div>
-	
-
-
-	</div>
-	
-<a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-fenster/" class="button secondary is-outline is-smaller" style="border-radius:99px;">
-	<i class="icon-pen-alt-fill" aria-hidden="true"></i>	<span>zum Fenster-Konfigurator</span>
-	</a>
-
-
-
+		<!-- Cart Icon -->
+		<div class="icon-new" id="cartIcon" data-dropdown="cart">
+			<svg viewBox="0 0 24 24">
+				<circle cx="9" cy="21" r="1"></circle>
+				<circle cx="20" cy="21" r="1"></circle>
+				<path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+			</svg>
 		</div>
-					</div>
-
-	
-
-	<div id="col-554107641" class="col medium-4 small-12 large-4">
-				<div class="col-inner">
-			
-			
-
-	<div class="ux-menu stack stack-col justify-start">
-		
-
-	<div class="ux-menu-title flex">
-		Türenkonfigurator	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/konfigurator/konfigurator-haustueren/">
-						<span class="ux-menu-link__text">
-				Kunststoff Haustür			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/konfigurator/alu-haustuer/">
-						<span class="ux-menu-link__text">
-				Alu Haustür			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/konfigurator/holz-haustuer/">
-						<span class="ux-menu-link__text">
-				Holz Haustür			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/konfigurator/konfigurator-nebeneingangstueren/">
-						<span class="ux-menu-link__text">
-				Kunststoff Nebeneingangstüren			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/konfigurator/alu-nebentuer/">
-						<span class="ux-menu-link__text">
-				Alu Nebeneingangstüren			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/konfigurator/holz-nebeneingangstuer/">
-						<span class="ux-menu-link__text">
-				Holz Nebeneingangstüren			</span>
-		</a>
-	</div>
-	
-
-
-	</div>
-	
-<a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-haustueren/" class="button secondary is-outline is-smaller" style="border-radius:99px;">
-	<i class="icon-pen-alt-fill" aria-hidden="true"></i>	<span>zum Türen-Konfigurator</span>
-	</a>
-
-
-
-		</div>
-					</div>
-
-	
-
-	<div id="col-751949723" class="col medium-4 small-12 large-4">
-				<div class="col-inner">
-			
-			
-
-	<div class="ux-menu stack stack-col justify-start">
-		
-
-	<div class="ux-menu-title flex">
-		Balkontürkonfigurator	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/konfigurator/konfigurator-balkontueren/">
-						<span class="ux-menu-link__text">
-				Kunststoff Balkontür			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/konfigurator/gealan-balkontuer-pvc-alu/">
-						<span class="ux-menu-link__text">
-				Kunststoff-Alu Balkontür			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/konfigurator/alu-balkontuer/">
-						<span class="ux-menu-link__text">
-				Alu Balkontür			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/konfigurator/holz-balkontuer/">
-						<span class="ux-menu-link__text">
-				Holz Balkontür			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/konfigurator/holz-alu-balkontuer/">
-						<span class="ux-menu-link__text">
-				Holz-Alu Balkontür			</span>
-		</a>
-	</div>
-	
-
-
-	</div>
-	
-<a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-balkontueren/" class="button secondary is-outline is-smaller" style="border-radius:99px;">
-	<i class="icon-pen-alt-fill" aria-hidden="true"></i>	<span>zum Balkontür-Konfigurator</span>
-	</a>
-
-
-
-		</div>
-					</div>
-
-	
-
-</div>
-<div class="is-divider divider clearfix" style="max-width:100%;height:1px;"></div>
-
-<div class="row" id="row-2000078221">
-
-
-	<div id="col-92640820" class="col medium-4 small-12 large-4">
-				<div class="col-inner">
-			
-			
-
-	<div class="ux-menu stack stack-col justify-start">
-		
-
-	<div class="ux-menu-title flex">
-		Terrassentürkonfigurator	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/konfigurator/konfigurator-parallel-schiebe-kipp-tueren-psk/">
-						<span class="ux-menu-link__text">
-				Parallel-Schiebe-Kipptür			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/konfigurator/gealan-schiebetuer/">
-						<span class="ux-menu-link__text">
-				Smart-Slide-Schiebetür			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/konfigurator/alu-faltschiebetuer/">
-						<span class="ux-menu-link__text">
-				Falt-Schiebetür			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/konfigurator/alu-insektenschutz-plissee/">
-						<span class="ux-menu-link__text">
-				Insektenschutz-Plissee			</span>
-		</a>
-	</div>
-	
-
-
-	</div>
-	
-
-		</div>
-					</div>
-
-	
-
-	<div id="col-950463912" class="col medium-4 small-12 large-4">
-				<div class="col-inner">
-			
-			
-
-	<div class="ux-menu stack stack-col justify-start">
-		
-
-	<div class="ux-menu-title flex">
-		Rolladenkonfigurator	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/konfigurator/konfigurator-aufsatzrollladen/">
-						<span class="ux-menu-link__text">
-				Aufsatzrollläden			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/konfigurator/aufsatzrollladen-styropor/">
-						<span class="ux-menu-link__text">
-				Styropor Aufsatzrolläden			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/konfigurator/konfigurator-vorsatzrollladen/">
-						<span class="ux-menu-link__text">
-				Vorsatzrolläden			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/konfigurator/raffstores/">
-						<span class="ux-menu-link__text">
-				Raffstore			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/konfigurator/alu-insektenschutz-plissee/">
-						<span class="ux-menu-link__text">
-				Insektenschutz-Plissee			</span>
-		</a>
-	</div>
-	
-
-
-	</div>
-	
-
-		</div>
-					</div>
-
-	
-
-	<div id="col-1524807381" class="col medium-4 small-12 large-4">
-				<div class="col-inner text-center">
-			
-			
-
-	<div class="img has-hover x md-x lg-x y md-y lg-y" id="image_740448038">
-								<div class="img-inner dark">
-			<img width="1200" height="1200" src="./Kunststofffenster.Konfigurator.Drutex_files/Fenstermaxx24_Fenster-und-Tueren-online-konfigurieren.jpg" class="attachment-original size-original" alt="Fenstermaxx24 – Fenstermaxx24 Fenster und Tueren online konfigurieren" decoding="async" fetchpriority="high" srcset="https://www.fenstermaxx24.com/wp-content/uploads/2025/07/Fenstermaxx24_Fenster-und-Tueren-online-konfigurieren.jpg 1200w, https://www.fenstermaxx24.com/wp-content/uploads/2025/07/Fenstermaxx24_Fenster-und-Tueren-online-konfigurieren-300x300.jpg 300w, https://www.fenstermaxx24.com/wp-content/uploads/2025/07/Fenstermaxx24_Fenster-und-Tueren-online-konfigurieren-1024x1024.jpg 1024w, https://www.fenstermaxx24.com/wp-content/uploads/2025/07/Fenstermaxx24_Fenster-und-Tueren-online-konfigurieren-150x150.jpg 150w, https://www.fenstermaxx24.com/wp-content/uploads/2025/07/Fenstermaxx24_Fenster-und-Tueren-online-konfigurieren-768x768.jpg 768w, https://www.fenstermaxx24.com/wp-content/uploads/2025/07/Fenstermaxx24_Fenster-und-Tueren-online-konfigurieren-600x600.jpg 600w, https://www.fenstermaxx24.com/wp-content/uploads/2025/07/Fenstermaxx24_Fenster-und-Tueren-online-konfigurieren-100x100.jpg 100w" sizes="(max-width: 1200px) 100vw, 1200px">						
-					</div>
-								
-<style>
-#image_740448038 {
-  width: 60%;
-}
-</style>
-	</div>
-	
-
-
-		</div>
-					</div>
-
-	
-
-</div>
-
-		</div>
-
-		
-<style>
-#section_1210138015 {
-  padding-top: 30px;
-  padding-bottom: 30px;
-}
-</style>
-	</section>
-	</div></li>
-<li id="menu-item-474688" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-474688 menu-item-design-container-width menu-item-has-block has-dropdown"><a href="https://www.fenstermaxx24.com/fenster/" class="nav-top-link" aria-expanded="false" aria-haspopup="menu">Fenster<i class="icon-angle-down"></i></a><div class="sub-menu nav-dropdown">
-	<section class="section" id="section_1064255166">
-		<div class="section-bg fill">
-									
-			
-
-		</div>
-
-		
-
-		<div class="section-content relative">
-			
-
-<div class="row" id="row-1634626520">
-
-
-	<div id="col-1426904888" class="col medium-4 small-12 large-4">
-				<div class="col-inner">
-			
-			
-
-	<div class="ux-menu stack stack-col justify-start">
-		
-
-	<div class="ux-menu-title flex menu-highlight">
-		Materialarten	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/fenster/kunststofffenster/">
-						<span class="ux-menu-link__text">
-				Kunststofffenster			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/fenster/kunststoff-alu-fenster/">
-						<span class="ux-menu-link__text">
-				Kunststoff-Alu Fenster			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/fenster/pvc-fenster/">
-						<span class="ux-menu-link__text">
-				PVC Fenster			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/fenster/holzfenster/">
-						<span class="ux-menu-link__text">
-				Holzfenster			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/fenster/aluminium-fenster/">
-						<span class="ux-menu-link__text">
-				Aluminium Fenster			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/fenster/holz-alu-fenster/">
-						<span class="ux-menu-link__text">
-				Holz-Alu Fenster			</span>
-		</a>
-	</div>
-	
-
-
-	</div>
-	
-<a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-fenster/" class="button secondary is-outline is-smaller" style="border-radius:99px;">
-	<i class="icon-pen-alt-fill" aria-hidden="true"></i>	<span>zum Fenster-Konfigurator</span>
-	</a>
-
-
-
-		</div>
-					</div>
-
-	
-
-	<div id="col-284183202" class="col medium-4 small-12 large-4">
-				<div class="col-inner">
-			
-			
-
-	<div class="ux-menu stack stack-col justify-start">
-		
-
-	<div class="ux-menu-title flex">
-		Fensterhersteller	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/fenster/drutex">
-						<span class="ux-menu-link__text">
-				Drutex Fenster			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/fenster/gealan">
-						<span class="ux-menu-link__text">
-				Gealan Fenster			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/fenster/aluplast">
-						<span class="ux-menu-link__text">
-				Aluplast Fenster			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/fenster/salamander">
-						<span class="ux-menu-link__text">
-				Salamander Fenster			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/fenster/veka">
-						<span class="ux-menu-link__text">
-				Veka Fenster			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/fenster/trocal">
-						<span class="ux-menu-link__text">
-				Trocal Fenster			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/fenster/koemmerling">
-						<span class="ux-menu-link__text">
-				Kömmerling Fenster			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/fenster/schueco">
-						<span class="ux-menu-link__text">
-				Schüco Fenster			</span>
-		</a>
-	</div>
-	
-
-
-	</div>
-	
-<a href="https://www.fenstermaxx24.com/fensterhersteller" class="button secondary is-outline is-smaller" style="border-radius:99px;">
-		<span>Alle Fensterhersteller</span>
-	</a>
-
-
-
-		</div>
-					</div>
-
-	
-
-	<div id="col-474979511" class="col medium-4 small-12 large-4">
-				<div class="col-inner text-center">
-			
-			
-
-	<div class="img has-hover x md-x lg-x y md-y lg-y" id="image_1987454185">
-								<div class="img-inner dark">
-			<img width="1200" height="1200" src="./Kunststofffenster.Konfigurator.Drutex_files/Fenstermaxx24_Fenster-und-Tueren-online-konfigurieren.jpg" class="attachment-original size-original" alt="Fenstermaxx24 – Fenstermaxx24 Fenster und Tueren online konfigurieren" decoding="async" srcset="https://www.fenstermaxx24.com/wp-content/uploads/2025/07/Fenstermaxx24_Fenster-und-Tueren-online-konfigurieren.jpg 1200w, https://www.fenstermaxx24.com/wp-content/uploads/2025/07/Fenstermaxx24_Fenster-und-Tueren-online-konfigurieren-300x300.jpg 300w, https://www.fenstermaxx24.com/wp-content/uploads/2025/07/Fenstermaxx24_Fenster-und-Tueren-online-konfigurieren-1024x1024.jpg 1024w, https://www.fenstermaxx24.com/wp-content/uploads/2025/07/Fenstermaxx24_Fenster-und-Tueren-online-konfigurieren-150x150.jpg 150w, https://www.fenstermaxx24.com/wp-content/uploads/2025/07/Fenstermaxx24_Fenster-und-Tueren-online-konfigurieren-768x768.jpg 768w, https://www.fenstermaxx24.com/wp-content/uploads/2025/07/Fenstermaxx24_Fenster-und-Tueren-online-konfigurieren-600x600.jpg 600w, https://www.fenstermaxx24.com/wp-content/uploads/2025/07/Fenstermaxx24_Fenster-und-Tueren-online-konfigurieren-100x100.jpg 100w" sizes="(max-width: 1200px) 100vw, 1200px">						
-					</div>
-								
-<style>
-#image_1987454185 {
-  width: 60%;
-}
-</style>
-	</div>
-	
-
-
-		</div>
-					</div>
-
-	
-
-</div>
-
-		</div>
-
-		
-<style>
-#section_1064255166 {
-  padding-top: 30px;
-  padding-bottom: 30px;
-}
-</style>
-	</section>
-	</div></li>
-<li id="menu-item-474705" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-474705 menu-item-design-container-width menu-item-has-block has-dropdown"><a href="https://www.fenstermaxx24.com/tueren/" class="nav-top-link" aria-expanded="false" aria-haspopup="menu">Türen<i class="icon-angle-down"></i></a><div class="sub-menu nav-dropdown">
-	<section class="section" id="section_152630611">
-		<div class="section-bg fill">
-									
-			
-
-		</div>
-
-		
-
-		<div class="section-content relative">
-			
-
-<div class="row" id="row-1686358845">
-
-
-	<div id="col-1731732942" class="col medium-4 small-12 large-4">
-				<div class="col-inner">
-			
-			
-
-	<div class="ux-menu stack stack-col justify-start">
-		
-
-	<div class="ux-menu-title flex menu-highlight">
-		Haustüren	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/tueren/haustueren/haustuer-kunststoff/">
-						<span class="ux-menu-link__text">
-				Kunststoff Haustüren			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/tueren/haustueren/haustuer-holz/">
-						<span class="ux-menu-link__text">
-				Holz Haustüren			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/tueren/haustueren/haustuer-aluminium">
-						<span class="ux-menu-link__text">
-				Aluminium Haustüren			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/tueren/haustueren/">
-						<span class="ux-menu-link__text">
-				Haustüren-Übersicht			</span>
-		</a>
-	</div>
-	
-
-
-	</div>
-	
-<a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-haustueren/" class="button secondary is-outline is-smaller" style="border-radius:99px;">
-	<i class="icon-pen-alt-fill" aria-hidden="true"></i>	<span>zum Haustüren-Konfigurator</span>
-	</a>
-
-
-
-		</div>
-					</div>
-
-	
-
-	<div id="col-1589789474" class="col medium-4 small-12 large-4">
-				<div class="col-inner">
-			
-			
-
-	<div class="ux-menu stack stack-col justify-start">
-		
-
-	<div class="ux-menu-title flex">
-		Nebeneingangstüren	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/tueren/nebeneingangstueren/nebeneingangstueren-aus-kunststoff">
-						<span class="ux-menu-link__text">
-				Nebeneingangstüren Kunststoff			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/tueren/nebeneingangstueren/nebeneingangstueren-aus-holz">
-						<span class="ux-menu-link__text">
-				Nebeneingangstüren Holz			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/tueren/nebeneingangstueren/nebeneingangstueren-aus-aluminium">
-						<span class="ux-menu-link__text">
-				Nebeneingangstüren Aluminium			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/tueren/brandschutztueren">
-						<span class="ux-menu-link__text">
-				Brandschutztüren			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/tueren/nebeneingangstueren/">
-						<span class="ux-menu-link__text">
-				Nebeneingangstüren-Übersicht			</span>
-		</a>
-	</div>
-	
-
-
-	</div>
-	
-<a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-nebeneingangstueren/" class="button secondary is-outline is-smaller" style="border-radius:99px;">
-	<i class="icon-pen-alt-fill" aria-hidden="true"></i>	<span>Nebeneingangstür konfigurieren</span>
-	</a>
-
-
-
-		</div>
-					</div>
-
-	
-
-	<div id="col-1537973148" class="col medium-4 small-12 large-4">
-				<div class="col-inner">
-			
-			
-
-	<div class="ux-menu stack stack-col justify-start">
-		
-
-	<div class="ux-menu-title flex">
-		Türen Hersteller	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/pirnar-haustueren">
-						<span class="ux-menu-link__text">
-				PIRNAR Türen			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/shop/produktionsware/haustueren/fm/">
-						<span class="ux-menu-link__text">
-				FM Türen			</span>
-		</a>
-	</div>
-	
-
-
-	</div>
-	
-
-		</div>
-					</div>
-
-	
-
-</div>
-
-		</div>
-
-		
-<style>
-#section_152630611 {
-  padding-top: 30px;
-  padding-bottom: 30px;
-}
-</style>
-	</section>
-	</div></li>
-<li id="menu-item-474717" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-474717 menu-item-design-container-width menu-item-has-block has-dropdown"><a href="https://www.fenstermaxx24.com/balkontueren/" class="nav-top-link" aria-expanded="false" aria-haspopup="menu">Balkontüren<i class="icon-angle-down"></i></a><div class="sub-menu nav-dropdown">
-	<section class="section" id="section_974314052">
-		<div class="section-bg fill">
-									
-			
-
-		</div>
-
-		
-
-		<div class="section-content relative">
-			
-
-<div class="row row-collapse" id="row-1269049781">
-
-
-	<div id="col-1390472634" class="col medium-12 small-12 large-3">
-				<div class="col-inner">
-			
-			
-
-	<div class="ux-menu stack stack-col justify-start">
-		
-
-	<div class="ux-menu-title flex menu-highlight">
-		Balkontüren	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/balkontueren/balkontueren-aus-holz-aluminium">
-						<span class="ux-menu-link__text">
-				Holz Alu Balkontüren			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/balkontueren/kunststoff-alu">
-						<span class="ux-menu-link__text">
-				Kunststoff Aluminium Balkontüren			</span>
-		</a>
-	</div>
-	
-
-
-	</div>
-	
-	<div id="gap-982395159" class="gap-element clearfix" style="display:block; height:auto;">
-		
-<style>
-#gap-982395159 {
-  padding-top: 20px;
-}
-</style>
-	</div>
-	
-
-<a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-balkontueren/" class="button secondary is-outline is-small" style="border-radius:99px;">
-	<i class="icon-pen-alt-fill" aria-hidden="true"></i>	<span>Balkontür konfigurieren</span>
-	</a>
-
-
-	<div id="gap-515561728" class="gap-element clearfix" style="display:block; height:auto;">
-		
-<style>
-#gap-515561728 {
-  padding-top: 10px;
-}
-</style>
-	</div>
-	
-
-
-		</div>
-				
-<style>
-#col-1390472634 > .col-inner {
-  padding: 0px 15px 0px 15px;
-}
-@media (min-width:850px) {
-  #col-1390472634 > .col-inner {
-    padding: 0 0px 0px 0px;
-  }
-}
-</style>
-	</div>
-
-	
-
-	<div id="col-1370566809" class="col medium-12 small-12 large-9">
-				<div class="col-inner">
-			
-			
-
-<div class="row" id="row-1705280733">
-
-
-	<div id="col-777621113" class="col medium-4 small-12 large-4">
-				<div class="col-inner">
-			
-			
-
-	<div class="box has-hover   has-hover box-text-bottom">
-
-		<div class="box-image">
-			<a href="https://www.fenstermaxx24.com/balkontueren/kunststoff-balkontuer">			<div class="image-glow image-cover" style="padding-top:90%;">
-				<img width="600" height="600" src="./Kunststofffenster.Konfigurator.Drutex_files/Fenstermaxx24_Balkontueren-online-konfigurieren_Kunststoff.jpg" class="attachment- size-" alt="Fenstermaxx24 – Fenstermaxx24 Balkontueren online konfigurieren Kunststoff" decoding="async" srcset="https://www.fenstermaxx24.com/wp-content/uploads/2025/12/Fenstermaxx24_Balkontueren-online-konfigurieren_Kunststoff.jpg 600w, https://www.fenstermaxx24.com/wp-content/uploads/2025/12/Fenstermaxx24_Balkontueren-online-konfigurieren_Kunststoff-300x300.jpg 300w, https://www.fenstermaxx24.com/wp-content/uploads/2025/12/Fenstermaxx24_Balkontueren-online-konfigurieren_Kunststoff-150x150.jpg 150w, https://www.fenstermaxx24.com/wp-content/uploads/2025/12/Fenstermaxx24_Balkontueren-online-konfigurieren_Kunststoff-100x100.jpg 100w" sizes="(max-width: 600px) 100vw, 600px">											</div>
-			</a>		</div>
-
-		<div class="box-text text-left">
-			<div class="box-text-inner">
-				
-
-	<div id="gap-51316658" class="gap-element clearfix" style="display:block; height:auto;">
-		
-<style>
-#gap-51316658 {
-  padding-top: 15px;
-}
-</style>
-	</div>
-	
-
-	<div id="text-196177200" class="text">
-		
-
-<p><strong>Kunststoff Balkontüren</strong></p>
-		
-<style>
-#text-196177200 {
-  font-size: 1rem;
-  text-align: left;
-  color: #212529;
-}
-#text-196177200 > * {
-  color: #212529;
-}
-</style>
-	</div>
-	
-	<div id="text-690790699" class="text">
-		
-
-<p>Pflegeleicht, effizient und vielseitig</p>
-		
-<style>
-#text-690790699 {
-  text-align: left;
-}
-</style>
-	</div>
-	
-<a href="https://www.fenstermaxx24.com/balkontueren/kunststoff-balkontuer" class="button primary is-link" style="padding:0 0px 0px 0px;">
-		<span>mehr erfahren</span>
-	<i class="icon-angle-right" aria-hidden="true"></i></a>
-
-
-
+		<!-- Separator Line -->
+		<div class="separator-line"></div>
+		<!-- Contact Section -->
+		<div class="contact-section">
+			<div class="contact-item">
+				<div class="contact-icon">
+					<svg viewBox="0 0 24 24">
+						<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+					</svg>
+				</div>
+				<span class="contact-text">0721 96884688</span>
+			</div>
+			<div class="contact-item">
+				<div class="contact-icon">
+					<svg viewBox="0 0 24 24">
+						<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+						<polyline points="22,6 12,13 2,6"></polyline>
+					</svg>
+				</div>
+				<span class="contact-text">fenturo@fenster.de</span>
 			</div>
 		</div>
-	</div>
-	
-
-		</div>
-					</div>
-
-	
-
-	<div id="col-1837546272" class="col medium-4 small-12 large-4">
-				<div class="col-inner">
-			
-			
-
-	<div class="box has-hover   has-hover box-text-bottom">
-
-		<div class="box-image">
-			<a href="https://www.fenstermaxx24.com/balkontueren/balkontueren-aus-holz">			<div class="image-glow image-cover" style="padding-top:90%;">
-				<img width="600" height="600" src="./Kunststofffenster.Konfigurator.Drutex_files/Fenstermaxx24_Balkontueren-online-konfigurieren_Holz.jpg" class="attachment- size-" alt="Fenstermaxx24 – Fenstermaxx24 Balkontueren online konfigurieren Holz" decoding="async" srcset="https://www.fenstermaxx24.com/wp-content/uploads/2025/12/Fenstermaxx24_Balkontueren-online-konfigurieren_Holz.jpg 600w, https://www.fenstermaxx24.com/wp-content/uploads/2025/12/Fenstermaxx24_Balkontueren-online-konfigurieren_Holz-300x300.jpg 300w, https://www.fenstermaxx24.com/wp-content/uploads/2025/12/Fenstermaxx24_Balkontueren-online-konfigurieren_Holz-150x150.jpg 150w, https://www.fenstermaxx24.com/wp-content/uploads/2025/12/Fenstermaxx24_Balkontueren-online-konfigurieren_Holz-100x100.jpg 100w" sizes="(max-width: 600px) 100vw, 600px">											</div>
-			</a>		</div>
-
-		<div class="box-text text-left">
-			<div class="box-text-inner">
-				
-
-	<div id="gap-1105295937" class="gap-element clearfix" style="display:block; height:auto;">
-		
-<style>
-#gap-1105295937 {
-  padding-top: 15px;
-}
-</style>
-	</div>
-	
-
-	<div id="text-1149064896" class="text">
-		
-
-<p><strong>Holz Balkontüren</strong></p>
-		
-<style>
-#text-1149064896 {
-  font-size: 1rem;
-  text-align: left;
-  color: #212529;
-}
-#text-1149064896 > * {
-  color: #212529;
-}
-</style>
-	</div>
-	
-<p>Natürlich, warm und hochwertig</p>
-<a href="https://www.fenstermaxx24.com/balkontueren/balkontueren-aus-holz" class="button primary is-link" style="padding:0 0px 0px 0px;">
-		<span>mehr erfahren</span>
-	<i class="icon-angle-right" aria-hidden="true"></i></a>
-
-
-
-			</div>
-		</div>
-	</div>
-	
-
-		</div>
-					</div>
-
-	
-
-	<div id="col-813468053" class="col medium-4 small-12 large-4">
-				<div class="col-inner">
-			
-			
-
-	<div class="box has-hover   has-hover box-text-bottom">
-
-		<div class="box-image">
-			<a href="https://www.fenstermaxx24.com/balkontueren/balkontueren-aus-aluminium">			<div class="image-glow image-cover" style="padding-top:90%;">
-				<img width="600" height="600" src="./Kunststofffenster.Konfigurator.Drutex_files/Fenstermaxx24_Balkontueren-online-konfigurieren_Alu.jpg" class="attachment- size-" alt="Fenstermaxx24 – Fenstermaxx24 Balkontueren online konfigurieren Alu" decoding="async" srcset="https://www.fenstermaxx24.com/wp-content/uploads/2025/12/Fenstermaxx24_Balkontueren-online-konfigurieren_Alu.jpg 600w, https://www.fenstermaxx24.com/wp-content/uploads/2025/12/Fenstermaxx24_Balkontueren-online-konfigurieren_Alu-300x300.jpg 300w, https://www.fenstermaxx24.com/wp-content/uploads/2025/12/Fenstermaxx24_Balkontueren-online-konfigurieren_Alu-150x150.jpg 150w, https://www.fenstermaxx24.com/wp-content/uploads/2025/12/Fenstermaxx24_Balkontueren-online-konfigurieren_Alu-100x100.jpg 100w" sizes="(max-width: 600px) 100vw, 600px">											</div>
-			</a>		</div>
-
-		<div class="box-text text-left">
-			<div class="box-text-inner">
-				
-
-	<div id="gap-1491717915" class="gap-element clearfix" style="display:block; height:auto;">
-		
-<style>
-#gap-1491717915 {
-  padding-top: 15px;
-}
-</style>
-	</div>
-	
-
-	<div id="text-2031163846" class="text">
-		
-
-<p><strong>Aluminium Balkontüren</strong></p>
-		
-<style>
-#text-2031163846 {
-  font-size: 1rem;
-  text-align: left;
-  color: #212529;
-}
-#text-2031163846 > * {
-  color: #212529;
-}
-</style>
-	</div>
-	
-<p>Modern, langlebig und energieeffizient</p>
-<a href="https://www.fenstermaxx24.com/balkontueren/balkontueren-aus-aluminium" class="button primary is-link" style="padding:0 0px 0px 0px;">
-		<span>mehr erfahren</span>
-	<i class="icon-angle-right" aria-hidden="true"></i></a>
-
-
-
-			</div>
-		</div>
-	</div>
-	
-
-		</div>
-					</div>
-
-	
-
-</div>
-
-		</div>
-				
-<style>
-#col-1370566809 > .col-inner {
-  padding: 0px 15px 0px 15px;
-  margin: 10px 0px 0px 0px;
-}
-@media (min-width:850px) {
-  #col-1370566809 > .col-inner {
-    padding: 0 0px 0px 0px;
-  }
-}
-</style>
-	</div>
-
-	
-
-</div>
-
-		</div>
-
-		
-<style>
-#section_974314052 {
-  padding-top: 30px;
-  padding-bottom: 30px;
-}
-</style>
-	</section>
-	</div></li>
-<li id="menu-item-474727" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-474727 menu-item-design-container-width menu-item-has-block has-dropdown"><a href="https://www.fenstermaxx24.com/terrassentueren/" class="nav-top-link" aria-expanded="false" aria-haspopup="menu">Terrassentüren<i class="icon-angle-down"></i></a><div class="sub-menu nav-dropdown">
-	<section class="section" id="section_831315295">
-		<div class="section-bg fill">
-									
-			
-
-		</div>
-
-		
-
-		<div class="section-content relative">
-			
-
-<div class="row" id="row-62107886">
-
-
-	<div id="col-1853464930" class="col medium-4 small-12 large-4">
-				<div class="col-inner">
-			
-			
-
-	<div class="ux-menu stack stack-col justify-start">
-		
-
-	<div class="ux-menu-title flex menu-highlight">
-		Parallel-Schiebe-Kipp-Türen (PSK)	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/terrassentueren/parallel-schiebe-kipp-tueren/psk-tueren-aus-kunststoff">
-						<span class="ux-menu-link__text">
-				PSK Tür - Kunststoff			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/terrassentueren/parallel-schiebe-kipp-tueren/parallel-kipp-schiebetueren-aus-holz">
-						<span class="ux-menu-link__text">
-				PSK Tür - Holz			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/terrassentueren/parallel-schiebe-kipp-tueren/parallel-kipp-schiebetueren-aluminium">
-						<span class="ux-menu-link__text">
-				PSK Tür - Aluminium			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/terrassentueren/parallel-schiebe-kipp-tueren/parallel-kipp-schiebetueren-aus-holz-aluminium">
-						<span class="ux-menu-link__text">
-				PSK Tür - Holz-Aluminium			</span>
-		</a>
-	</div>
-	
-
-
-	</div>
-	
-<a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-parallel-schiebe-kipp-tueren-psk/" class="button secondary is-outline is-smaller" style="border-radius:99px;">
-	<i class="icon-pen-alt-fill" aria-hidden="true"></i>	<span>zum PSK-Tür Konfigurator</span>
-	</a>
-
-
-
-		</div>
-					</div>
-
-	
-
-	<div id="col-743821229" class="col medium-4 small-12 large-4">
-				<div class="col-inner">
-			
-			
-
-	<div class="ux-menu stack stack-col justify-start">
-		
-
-	<div class="ux-menu-title flex">
-		Hebeschiebetüren (HST)	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/terrassentueren/hebe-schiebe-tueren/hs-tueren-aus-kunststoff">
-						<span class="ux-menu-link__text">
-				HS-Tür - Kunststoff			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/terrassentueren/hebe-schiebe-tueren/hebe-schiebetueren-holz">
-						<span class="ux-menu-link__text">
-				HS-Tür - Holz			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/terrassentueren/hebe-schiebe-tueren/hs-tueren-aus-aluminium">
-						<span class="ux-menu-link__text">
-				HS-Tür - Aluminium			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/terrassentueren/hebe-schiebe-tueren/hs-tueren-aus-holz-aluminium">
-						<span class="ux-menu-link__text">
-				HS-Tür - Holz-Alu			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/terrassentueren/hebe-schiebe-tueren">
-						<span class="ux-menu-link__text">
-				Hebeschiebetüren-Übersicht			</span>
-		</a>
-	</div>
-	
-
-
-	</div>
-	
-<a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-hebe-schiebe-tueren-hs/" class="button secondary is-outline is-smaller" style="border-radius:99px;">
-	<i class="icon-pen-alt-fill" aria-hidden="true"></i>	<span>zum Hebeschiebetür Konfigurator</span>
-	</a>
-
-
-
-		</div>
-					</div>
-
-	
-
-	<div id="col-680360967" class="col medium-4 small-12 large-4">
-				<div class="col-inner">
-			
-			
-
-	<div class="ux-menu stack stack-col justify-start">
-		
-
-	<div class="ux-menu-title flex">
-		Faltschiebetüren (FST)	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/terrassentueren/faltanlagen/faltanlagen-aus-holz">
-						<span class="ux-menu-link__text">
-				FST Tür - Holz			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/terrassentueren/faltanlagen/faltanlagen-aus-aluminium">
-						<span class="ux-menu-link__text">
-				FST Tür - Aluminium			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/terrassentueren/faltanlagen/">
-						<span class="ux-menu-link__text">
-				Faltanlagen-Übersicht			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-title flex">
-		Wintergärten	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/terrassentueren/wintergaerten/">
-						<span class="ux-menu-link__text">
-				Wintergartensysteme			</span>
-		</a>
-	</div>
-	
-
-
-	</div>
-	
-
-		</div>
-					</div>
-
-	
-
-</div>
-
-		</div>
-
-		
-<style>
-#section_831315295 {
-  padding-top: 30px;
-  padding-bottom: 30px;
-}
-</style>
-	</section>
-	</div></li>
-<li id="menu-item-474738" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-474738 menu-item-design-container-width menu-item-has-block has-dropdown"><a href="https://www.fenstermaxx24.com/rolllaeden/" class="nav-top-link" aria-expanded="false" aria-haspopup="menu">Rollläden<i class="icon-angle-down"></i></a><div class="sub-menu nav-dropdown">
-	<section class="section" id="section_1008232638">
-		<div class="section-bg fill">
-									
-			
-
-		</div>
-
-		
-
-		<div class="section-content relative">
-			
-
-<div class="row" id="row-174731127">
-
-
-	<div id="col-2067959297" class="col medium-4 small-12 large-4">
-				<div class="col-inner">
-			
-			
-
-	<div class="ux-menu stack stack-col justify-start">
-		
-
-	<div class="ux-menu-title flex menu-highlight">
-		Rollläden	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/rolllaeden/aufsatzrolllaeden-aus-kunststoff">
-						<span class="ux-menu-link__text">
-				Kunststoff Aufsatzrollläden			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/rolllaeden/aufsatzrolllaeden-aus-kunststoff/aufsatzrollladen-rs-styropor">
-						<span class="ux-menu-link__text">
-				Styropor Aufsatzrollladen			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/rolllaeden/adaptionsrolllaeden-aus-aluminium">
-						<span class="ux-menu-link__text">
-				Aluminium Vorsatzrollladen			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/rolllaeden">
-						<span class="ux-menu-link__text">
-				Rollläden-Übersicht			</span>
-		</a>
-	</div>
-	
-
-
-	</div>
-	
-
-		</div>
-					</div>
-
-	
-
-	<div id="col-339144782" class="col medium-4 small-12 large-4">
-				<div class="col-inner">
-			
-			
-
-	<div class="ux-menu stack stack-col justify-start">
-		
-
-	<div class="ux-menu-title flex">
-		Rollladen Konfiguratoren	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/konfigurator/konfigurator-aufsatzrollladen/">
-						<span class="ux-menu-link__text">
-				Aufsatzrollladen Konfigurator			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/konfigurator/aufsatzrollladen-styropor/">
-						<span class="ux-menu-link__text">
-				Styropor Aufsatzrollladen Konfigurator			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/konfigurator/konfigurator-vorsatzrollladen/">
-						<span class="ux-menu-link__text">
-				Vorsatzrollladen Konfigurator			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/konfigurator/raffstores/">
-						<span class="ux-menu-link__text">
-				Raffstore Konfigurator			</span>
-		</a>
-	</div>
-	
-
-	<div class="ux-menu-link flex menu-item">
-		<a class="ux-menu-link__link flex" href="https://www.fenstermaxx24.com/konfigurator/alu-insektenschutz-plissee/">
-						<span class="ux-menu-link__text">
-				Insektenschutz-Plissee Konfigurator			</span>
-		</a>
-	</div>
-	
-
-
-	</div>
-	
-
-		</div>
-					</div>
-
-	
-
-	<div id="col-926430595" class="col medium-4 small-12 large-4">
-				<div class="col-inner text-center">
-			
-			
-
-	<div class="img has-hover x md-x lg-x y md-y lg-y" id="image_1342267237">
-								<div class="img-inner dark">
-			<img width="1200" height="1200" src="./Kunststofffenster.Konfigurator.Drutex_files/Fenstermaxx24_Fenster-und-Tueren-online-konfigurieren.jpg" class="attachment-original size-original" alt="Fenstermaxx24 – Fenstermaxx24 Fenster und Tueren online konfigurieren" decoding="async" srcset="https://www.fenstermaxx24.com/wp-content/uploads/2025/07/Fenstermaxx24_Fenster-und-Tueren-online-konfigurieren.jpg 1200w, https://www.fenstermaxx24.com/wp-content/uploads/2025/07/Fenstermaxx24_Fenster-und-Tueren-online-konfigurieren-300x300.jpg 300w, https://www.fenstermaxx24.com/wp-content/uploads/2025/07/Fenstermaxx24_Fenster-und-Tueren-online-konfigurieren-1024x1024.jpg 1024w, https://www.fenstermaxx24.com/wp-content/uploads/2025/07/Fenstermaxx24_Fenster-und-Tueren-online-konfigurieren-150x150.jpg 150w, https://www.fenstermaxx24.com/wp-content/uploads/2025/07/Fenstermaxx24_Fenster-und-Tueren-online-konfigurieren-768x768.jpg 768w, https://www.fenstermaxx24.com/wp-content/uploads/2025/07/Fenstermaxx24_Fenster-und-Tueren-online-konfigurieren-600x600.jpg 600w, https://www.fenstermaxx24.com/wp-content/uploads/2025/07/Fenstermaxx24_Fenster-und-Tueren-online-konfigurieren-100x100.jpg 100w" sizes="(max-width: 1200px) 100vw, 1200px">						
-					</div>
-								
-<style>
-#image_1342267237 {
-  width: 60%;
-}
-</style>
-	</div>
-	
-
-
-		</div>
-					</div>
-
-	
-
-</div>
-
-		</div>
-
-		
-<style>
-#section_1008232638 {
-  padding-top: 30px;
-  padding-bottom: 30px;
-}
-</style>
-	</section>
-	</div></li>
-                </ul>
-            </div>
-            
-            
-                        <div class="flex-col hide-for-medium flex-right flex-grow">
-              <ul class="nav header-nav header-bottom-nav nav-right  nav-size-large nav-spacing-medium nav-prompts-overlay">
-                   <li class="header-search-form search-form html relative has-icon">
-	<div class="header-search-form-wrapper">
-		<div class="searchform-wrapper ux-search-box relative is-normal"><form role="search" method="get" class="searchform" action="https://www.fenstermaxx24.com/">
-	<div class="flex-row relative">
-						<div class="flex-col flex-grow">
-			<label class="screen-reader-text" for="woocommerce-product-search-field-0">Suche nach:</label>
-			<input type="search" id="woocommerce-product-search-field-0" class="search-field mb-0" placeholder="Suchbegriff / Artikelnummer" value="" name="s" autocomplete="off">
-			<input type="hidden" name="post_type" value="product">
-					</div>
-		<div class="flex-col">
-			<button type="submit" value="Suchen" class="ux-search-submit submit-button secondary button  icon mb-0" aria-label="Übermitteln">
-				<i class="icon-search"></i>			</button>
-		</div>
-	</div>
-	<div class="live-search-results text-left z-top"><div class="autocomplete-suggestions" style="position: absolute; display: none; max-height: 300px; z-index: 9999;"></div></div>
-</form>
-</div>	</div>
-</li>
-              </ul>
-            </div>
-            
-                          <div class="flex-col show-for-medium flex-grow">
-                  <ul class="nav header-bottom-nav nav-center mobile-nav  nav-size-large nav-spacing-medium nav-prompts-overlay">
-                      <li class="header-search-form search-form html relative has-icon">
-	<div class="header-search-form-wrapper">
-		<div class="searchform-wrapper ux-search-box relative is-normal"><form role="search" method="get" class="searchform" action="https://www.fenstermaxx24.com/">
-	<div class="flex-row relative">
-						<div class="flex-col flex-grow">
-			<label class="screen-reader-text" for="woocommerce-product-search-field-1">Suche nach:</label>
-			<input type="search" id="woocommerce-product-search-field-1" class="search-field mb-0" placeholder="Suchbegriff / Artikelnummer" value="" name="s" autocomplete="off">
-			<input type="hidden" name="post_type" value="product">
-					</div>
-		<div class="flex-col">
-			<button type="submit" value="Suchen" class="ux-search-submit submit-button secondary button  icon mb-0" aria-label="Übermitteln">
-				<i class="icon-search"></i>			</button>
-		</div>
-	</div>
-	<div class="live-search-results text-left z-top"><div class="autocomplete-suggestions" style="position: absolute; display: none; max-height: 300px; z-index: 9999;"></div></div>
-</form>
-</div>	</div>
-</li>
-                  </ul>
-              </div>
-            
-    </div>
-</div>
-
-<div class="header-bg-container fill"><div class="header-bg-image fill"></div><div class="header-bg-color fill"></div></div>		</div>
 	</header>
 
+	<!-- V1 Overlay for dropdown backdrop -->
+	<div class="v1-overlay" id="v1overlay"></div>
+
+	<!-- Search Dropdown -->
+	<div class="search-dropdown" id="searchDropdown">
+		<div class="search-input-container">
+			<svg viewBox="0 0 24 24">
+				<circle cx="11" cy="11" r="8"></circle>
+				<path d="m21 21-4.35-4.35"></path>
+			</svg>
+			<input type="text" placeholder="Suchen..." autofocus>
+		</div>
+	</div>
+
+	<!-- Cart Dropdown -->
+	<div class="cart-dropdown" id="cartDropdown">
+		<div class="cart-header">Warenkorb</div>
+		<div class="cart-items">
+			<p class="empty-cart-message">Ihr Warenkorb ist leer</p>
+		</div>
+	</div>
+
+	<!-- Account Dropdown -->
+	<div class="account-dropdown" id="accountDropdown">
+		<div class="account-header">Anmelden</div>
+		<div class="account-form">
+			<input type="email" placeholder="E-Mail-Adresse">
+			<input type="password" placeholder="Passwort">
+			<button class="account-login">Anmelden</button>
+		</div>
+		<hr class="account-separator">
+		<div class="account-signup-text">Noch kein Konto?</div>
+		<button class="account-register">Registrieren</button>
+	</div>
+
+	<!-- Countdown Banner (preserved from original) -->
 	<div class="header-block block-html-after-header z-1" style="position:relative;top:-1px;"><div id="countdown-wrapper" class="ux-container d-print-none" style="background:#000;">
   <div class="text-center p-10" style="padding:10px 0; color:#fff; font-size:16px;"> <strong>40%</strong> Rabatt auf Fenster &amp; Türen nach Maß</div>
 </div></div>
@@ -6612,6 +5442,142 @@ function updateBox() {
     setTimeout(requestIframeData, 1000);
     setInterval(requestIframeData, 3000);
 })();
+</script>
+
+<!-- V1 HEADER JAVASCRIPT -->
+<script>
+(function() {
+    // Dropdown functionality
+    var v1overlay = document.getElementById('v1overlay');
+    var dropdowns = {
+        search: document.getElementById('searchDropdown'),
+        cart: document.getElementById('cartDropdown'),
+        account: document.getElementById('accountDropdown')
+    };
+    var icons = {
+        search: document.getElementById('searchIcon'),
+        cart: document.getElementById('cartIcon'),
+        account: document.getElementById('accountIcon')
+    };
+
+    var activeDropdown = null;
+
+    function closeAllDropdowns() {
+        var dropdownKeys = ['search', 'cart', 'account'];
+        for (var i = 0; i < dropdownKeys.length; i++) {
+            var key = dropdownKeys[i];
+            if (dropdowns[key]) dropdowns[key].classList.remove('active');
+            if (icons[key]) icons[key].classList.remove('active');
+        }
+        if (v1overlay) v1overlay.classList.remove('active');
+        activeDropdown = null;
+    }
+
+    function toggleDropdown(dropdownName) {
+        if (activeDropdown === dropdownName) {
+            closeAllDropdowns();
+        } else {
+            closeAllDropdowns();
+            if (dropdowns[dropdownName]) dropdowns[dropdownName].classList.add('active');
+            if (icons[dropdownName]) icons[dropdownName].classList.add('active');
+            if (dropdownName === 'search' && v1overlay) {
+                v1overlay.classList.add('active');
+            }
+            activeDropdown = dropdownName;
+        }
+    }
+
+    // Icon click handlers
+    var iconKeys = ['search', 'cart', 'account'];
+    for (var i = 0; i < iconKeys.length; i++) {
+        (function(name) {
+            if (icons[name]) {
+                icons[name].addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    toggleDropdown(name);
+                });
+            }
+        })(iconKeys[i]);
+    }
+
+    // Overlay click to close
+    if (v1overlay) v1overlay.addEventListener('click', closeAllDropdowns);
+
+    // Prevent dropdown clicks from closing
+    var dropdownKeys2 = ['search', 'cart', 'account'];
+    for (var i = 0; i < dropdownKeys2.length; i++) {
+        var key = dropdownKeys2[i];
+        if (dropdowns[key]) {
+            dropdowns[key].addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        }
+    }
+
+    // ESC key to close
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeAllDropdowns();
+        }
+    });
+
+    // Click outside to close
+    document.addEventListener('click', function(e) {
+        if (activeDropdown && 
+            !e.target.closest('.icon-new') && 
+            !e.target.closest('.search-dropdown') &&
+            !e.target.closest('.cart-dropdown') &&
+            !e.target.closest('.account-dropdown')) {
+            closeAllDropdowns();
+        }
+    });
+
+    // STICKY HEADER FUNCTIONALITY
+    var header = document.querySelector('.site-header');
+    var logo = document.querySelector('.site-header .logo-link');
+    var actionIcons = document.querySelectorAll('.site-header .icon-new');
+    
+    var isSticky = false;
+
+    function handleScroll() {
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (scrollTop > 100 && !isSticky) {
+            isSticky = true;
+            if (header) header.classList.add('sticky');
+            if (logo) logo.classList.add('sticky');
+            actionIcons.forEach(function(icon) { icon.classList.add('sticky'); });
+        } else if (scrollTop <= 100 && isSticky) {
+            isSticky = false;
+            if (header) header.classList.remove('sticky');
+            if (logo) logo.classList.remove('sticky');
+            actionIcons.forEach(function(icon) { icon.classList.remove('sticky'); });
+        }
+    }
+
+    // Throttled scroll event
+    var scrollTimeout;
+    window.addEventListener('scroll', function() {
+        if (scrollTimeout) {
+            window.cancelAnimationFrame(scrollTimeout);
+        }
+        scrollTimeout = window.requestAnimationFrame(handleScroll);
+    });
+})();
+</script>
+
+<!-- Logo Click Handler -->
+<script>
+function handleLogoClick(event) {
+    event.preventDefault();
+    var isHomepage = window.location.pathname === '/' || 
+                      window.location.pathname.indexOf('homepage') !== -1;
+    if (isHomepage) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+        window.location.href = 'https://www.fenstermaxx24.com/';
+    }
+}
 </script>
 
     
