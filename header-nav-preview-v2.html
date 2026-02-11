@@ -1066,13 +1066,17 @@ nav.navbar.megamenu .mainmenu > li:nth-child(6) > ul.collapse {
 .navblock-konfigurator .konfig-sections-row {
     display: flex;
     flex-wrap: nowrap;
+    flex-direction: row;
     gap: 10px;
     padding: 10px;
     justify-content: flex-start;
+    align-items: flex-start;
 }
 
-/* Konfigurator column: each section as a column */
+/* Konfigurator column: each section as a VERTICAL column */
 .navblock-konfigurator .konfig-column {
+    display: flex;
+    flex-direction: column;
     flex: 0 0 auto;
     min-width: 140px;
     max-width: 200px;
@@ -1088,7 +1092,7 @@ nav.navbar.megamenu .mainmenu > li:nth-child(6) > ul.collapse {
     margin-bottom: 2px;
 }
 
-/* Konfigurator button in each column */
+/* Konfigurator button BELOW the links in each column */
 .navblock-konfigurator .konfig-column .btn.menu-block-button {
     display: block;
     margin-top: 8px;
