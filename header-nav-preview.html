@@ -1030,56 +1030,101 @@ nav.navbar.megamenu .mainmenu > li:nth-child(6) > ul.collapse {
 }
 
 /* Konfigurator dropdown: 100% width across screen */
-nav.navbar.megamenu .mainmenu > li.navblock-konfigurator > ul.collapse {
+/* Konfigurator width handled by .konfig-mega-wrapper */
+
+/* Konfigurator section: mega-dropdown wrapper for 5 columns in 1 row */
+.konfig-mega-wrapper {
+    display: none;
+    position: absolute;
+    top: 100%;
     left: 0;
     right: 0;
     width: 100vw;
     max-width: 100vw;
-    min-width: 100vw;
     transform: translateX(calc(-1 * var(--nav-offset-left, 0px)));
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     border-radius: 0 0 12px 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    z-index: 1000;
 }
 
-/* Konfigurator section: 5-column layout with buttons below */
-nav.navbar.megamenu .navblock-konfigurator .konfig-columns {
+.navblock-konfigurator:hover > .konfig-mega-wrapper {
     display: flex;
-    justify-content: space-between;
-    padding: 8px 20px 4px;
-    gap: 12px;
+    flex-wrap: nowrap;
 }
-nav.navbar.megamenu .navblock-konfigurator .konfig-col {
-    flex: 1;
+
+/* Both ULs inside wrapper: inline, no absolute positioning */
+.konfig-mega-wrapper > ul.collapse {
+    position: relative;
+    display: block;
+    top: auto;
+    left: auto;
+    right: auto;
+    transform: none;
+    width: auto;
     min-width: 0;
+    max-width: none;
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
+    backdrop-filter: none;
+    margin-top: 0;
 }
-nav.navbar.megamenu .navblock-konfigurator .konfig-col .level1 p.bold {
-    font-size: 12px;
-    margin-bottom: 6px;
+
+/* li_top: 3 sections = 60% width */
+.konfig-mega-wrapper > ul.collapse.li_top {
+    flex: 3;
 }
-nav.navbar.megamenu .navblock-konfigurator .konfig-col .level2 a,
-nav.navbar.megamenu .navblock-konfigurator .konfig-col .level2 {
-    font-size: 11.5px;
-    line-height: 1.3;
-    list-style: none;
+
+/* li_bottom: 2 sections = 40% width */
+.konfig-mega-wrapper > ul.collapse.li_bottom {
+    flex: 2;
 }
-nav.navbar.megamenu .navblock-konfigurator .konfig-col .level1 {
-    list-style: none;
+
+/* Konfigurator collapse-inner: columns based on parent */
+.konfig-mega-wrapper > ul.collapse.li_top > li > ul.collapse-inner {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0 12px;
+    padding: 10px 20px 8px;
 }
-/* Buttons row below sections */
-nav.navbar.megamenu .navblock-konfigurator .konfig-buttons-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 4px 20px 8px;
-    gap: 12px;
-    border-top: 1px solid rgba(102, 144, 204, 0.15);
-    margin-top: 4px;
+
+.konfig-mega-wrapper > ul.collapse.li_bottom > li > ul.collapse-inner {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 12px;
+    padding: 10px 20px 8px;
 }
-nav.navbar.megamenu .navblock-konfigurator .konfig-buttons-row li {
-    list-style: none;
-}
-nav.navbar.megamenu .navblock-konfigurator .konfig-buttons-row .btn.menu-block-button {
+
+/* Konfigurator: smaller font to fit 5 columns */
+.navblock-konfigurator .level1 p.bold {
     font-size: 11px;
-    padding: 6px 12px;
-    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.navblock-konfigurator .level2 a {
+    font-size: 10.5px;
+    line-height: 1.3;
+    padding: 1px 0;
+}
+
+/* Konfigurator: remove forced column break */
+.navblock-konfigurator .forcedColBreak {
+    grid-column-start: auto;
+}
+
+/* Konfigurator: smaller CTA buttons */
+.navblock-konfigurator .btn.menu-block-button {
+    font-size: 9.5px;
+    padding: 5px 10px;
+    margin-top: 6px;
+}
+
+/* Hide the original collapse ULs when inside wrapper (JS moves them) */
+.navblock-konfigurator > ul.collapse {
+    display: none;
 }
 
 nav.navbar.megamenu .mainmenu > li:hover > ul.collapse {
@@ -2193,100 +2238,44 @@ nav.navbar.megamenu .main-navbar-collapsable ul.mainmenu > li > ul.collapse.li_b
             }
         }
 
-        // Calculate Konfigurator dropdown offset for full-width positioning
+        // Konfigurator mega-dropdown: merge li_top + li_bottom into flex wrapper
         (function() {
-            function setKonfiguratorOffset() {
+            document.addEventListener('DOMContentLoaded', function() {
                 var konfItem = document.querySelector('.navblock-konfigurator');
-                if (konfItem) {
+                if (!konfItem) return;
+
+                var liTop = konfItem.querySelector('ul.collapse.li_top');
+                var liBottom = konfItem.querySelector('ul.collapse.li_bottom');
+                if (!liTop || !liBottom) return;
+
+                // Create wrapper div
+                var wrapper = document.createElement('div');
+                wrapper.className = 'konfig-mega-wrapper';
+
+                // Insert wrapper before liTop
+                konfItem.insertBefore(wrapper, liTop);
+
+                // Move both ULs into wrapper
+                wrapper.appendChild(liTop);
+                wrapper.appendChild(liBottom);
+
+                // Remove inline margin-top from li_bottom
+                liBottom.style.marginTop = '0';
+
+                // Set offset for full-width positioning
+                function setOffset() {
                     var rect = konfItem.getBoundingClientRect();
-                    konfItem.style.setProperty('--nav-offset-left', rect.left + 'px');
+                    wrapper.style.setProperty('--nav-offset-left', rect.left + 'px');
                 }
-            }
-            document.addEventListener('DOMContentLoaded', setKonfiguratorOffset);
-            var resizeTimer;
-            window.addEventListener('resize', function() {
-                clearTimeout(resizeTimer);
-                resizeTimer = setTimeout(setKonfiguratorOffset, 150);
+                setOffset();
+
+                var resizeTimer;
+                window.addEventListener('resize', function() {
+                    clearTimeout(resizeTimer);
+                    resizeTimer = setTimeout(setOffset, 150);
+                });
             });
         })();
-    </script>
-
-    <!-- Merge Konfigurator li_top + li_bottom into single 5-column layout -->
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var konfNav = document.querySelector('.navblock-konfigurator');
-        if (!konfNav) return;
-        var collapses = konfNav.querySelectorAll(':scope > ul.collapse');
-        if (collapses.length < 2) return;
-        
-        var liTop = collapses[0];
-        var liBottom = collapses[1];
-        
-        // Get inner content from both
-        var topInner = liTop.querySelector('.collapse-inner');
-        var bottomInner = liBottom.querySelector('.collapse-inner');
-        if (!topInner || !bottomInner) return;
-        
-        // Collect all sections from both ULs
-        // A section = one level1 header + its level2 links + optional button
-        function extractSections(innerEl) {
-            var sections = [];
-            var currentSection = null;
-            var children = Array.from(innerEl.children);
-            for (var i = 0; i < children.length; i++) {
-                var child = children[i];
-                if (child.classList.contains('level1') && child.querySelector('p.bold')) {
-                    // New section header
-                    if (currentSection) sections.push(currentSection);
-                    currentSection = { header: child, links: [], button: null };
-                } else if (child.querySelector('a.btn.menu-block-button')) {
-                    // Button for current section
-                    if (currentSection) currentSection.button = child;
-                } else if (child.classList.contains('level2') || child.classList.contains('level1')) {
-                    // Link or spacer
-                    if (currentSection) currentSection.links.push(child);
-                }
-            }
-            if (currentSection) sections.push(currentSection);
-            return sections;
-        }
-        
-        var allSections = extractSections(topInner).concat(extractSections(bottomInner));
-        
-        // Build new 5-column layout
-        var columnsContainer = document.createElement('div');
-        columnsContainer.className = 'konfig-columns';
-        
-        var buttonsRow = document.createElement('div');
-        buttonsRow.className = 'konfig-buttons-row';
-        
-        for (var s = 0; s < allSections.length; s++) {
-            var sec = allSections[s];
-            var col = document.createElement('div');
-            col.className = 'konfig-col';
-            col.appendChild(sec.header);
-            for (var l = 0; l < sec.links.length; l++) {
-                col.appendChild(sec.links[l]);
-            }
-            columnsContainer.appendChild(col);
-            
-            if (sec.button) {
-                buttonsRow.appendChild(sec.button);
-            }
-        }
-        
-        // Replace old content
-        var wrapper = topInner.parentNode; // the <li> wrapping collapse-inner
-        wrapper.innerHTML = '';
-        wrapper.appendChild(columnsContainer);
-        wrapper.appendChild(buttonsRow);
-        
-        // Remove li_bottom entirely
-        liBottom.parentNode.removeChild(liBottom);
-        
-        // Remove li_top class
-        liTop.classList.remove('li_top');
-    });
     </script>
 
     <script defer src="https://cdn03.plentymarkets.com/xbqx3akj5qia/frontend/assets/easy2021.min.js?v=2026012010ceeed"></script>
