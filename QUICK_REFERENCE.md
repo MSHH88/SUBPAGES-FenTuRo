@@ -51,7 +51,7 @@
 
 | Use | Value |
 |-----|-------|
-| Primary Purple | `#E6690CC` |
+| Primary (Orange) | `#E6690C` |
 | Navy Blue | `#000C49` |
 | Header BG (normal) | `rgba(255, 255, 255, 0.95)` |
 | Header BG (sticky) | `transparent` |

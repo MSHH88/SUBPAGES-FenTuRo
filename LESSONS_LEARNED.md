@@ -210,15 +210,15 @@ Z-INDEX HIERARCHY:
 
 **❌ BAD:**
 ```css
-.button { background: #E6690CC; }
-.link { color: #E6690CC; }
-.accent { border-color: #E6690CC; }
+.button { background: #E6690C; }
+.link { color: #E6690C; }
+.accent { border-color: #E6690C; }
 ```
 
 **✅ GOOD:**
 ```css
 :root {
-    --color-primary: #E6690CC;
+    --color-primary: #E6690C;
 }
 .button { background: var(--color-primary); }
 .link { color: var(--color-primary); }
@@ -254,9 +254,12 @@ Z-INDEX HIERARCHY:
 
 ### Colors
 
+> **Note:** Some older documentation files contain `#E6690CC` (7 characters) which is invalid. 
+> The correct hex code is `#E6690C` (6 characters). Verify colors in homepage-v1.html for accuracy.
+
 | Usage | Color |
 |-------|-------|
-| Primary Purple | #E6690CC |
+| Primary (Orange) | #E6690C |
 | Navy Blue | #000C49 |
 | Header BG (normal) | rgba(255, 255, 255, 0.95) |
 | Header BG (sticky) | transparent |
