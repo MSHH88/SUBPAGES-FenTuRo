@@ -1077,6 +1077,7 @@ nav.navbar.megamenu .level1 p.bold {
 /* Level 2 links */
 nav.navbar.megamenu .level2 a {
     font-size: 14px;
+    line-height: 1.4;
     color: #333333;
     text-decoration: none;
     display: block;
@@ -2160,7 +2161,11 @@ nav.navbar.megamenu .main-navbar-collapsable ul.mainmenu > li > ul.collapse.li_b
                 }
             }
             document.addEventListener('DOMContentLoaded', setKonfiguratorOffset);
-            window.addEventListener('resize', setKonfiguratorOffset);
+            var resizeTimer;
+            window.addEventListener('resize', function() {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(setKonfiguratorOffset, 150);
+            });
         })();
     </script>
 
