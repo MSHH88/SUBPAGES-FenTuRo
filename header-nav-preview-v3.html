@@ -52,7 +52,9 @@
             position: absolute;
             top: 100%;
             left: 0;
-            background: #ffffff;
+            background: rgba(255, 255, 255, 0.1); /* 10% opaque white */
+            backdrop-filter: blur(10px); /* 10px blur */
+            -webkit-backdrop-filter: blur(10px);
             box-shadow: 0 10px 40px rgba(0,0,0,0.15);
             border-radius: 0 0 8px 8px;
             opacity: 0;
@@ -71,37 +73,48 @@
             top: -8px;
             left: 30px;
             border: 8px solid transparent;
-            border-bottom-color: #ffffff;
+            border-bottom-color: rgba(255, 255, 255, 0.3); /* visible against blur */
+        }
+        
+        /* FENSTER: LEFT edge touches LEFT side of screen */
+        .nav-item.fenster .dropdown {
+            left: 0;
+            right: auto;
+            transform: translateY(-10px) scale(0.98);
+            border-radius: 0 0 8px 0; /* only right corner rounded */
+        }
+        .nav-item.fenster:hover .dropdown {
+            transform: translateY(0) scale(1);
+        }
+        .nav-item.fenster .dropdown::before {
+            left: 80px; /* arrow positioned near left */
         }
         
         /* CENTER DROPDOWNS for middle items */
-        .nav-item.fenster .dropdown,
         .nav-item.balkontueren .dropdown,
         .nav-item.terrassentueren .dropdown {
             left: 50%;
             transform: translateX(-50%) translateY(-10px) scale(0.98);
         }
-        .nav-item.fenster:hover .dropdown,
         .nav-item.balkontueren:hover .dropdown,
         .nav-item.terrassentueren:hover .dropdown {
             transform: translateX(-50%) translateY(0) scale(1);
         }
-        .nav-item.fenster .dropdown::before,
         .nav-item.balkontueren .dropdown::before,
         .nav-item.terrassentueren .dropdown::before {
             left: 50%;
             transform: translateX(-50%);
         }
         
-        /* RIGHT 2 DROPDOWNS: right border touches screen edge */
+        /* RIGHT 2 DROPDOWNS (Türen, Rollläden): right border touches screen edge */
         .nav-item.open-left .dropdown {
             left: auto;
-            right: -20px; /* extends to screen edge (accounts for body margin) */
+            right: 0; /* right edge touches screen */
             border-radius: 0 0 0 8px; /* only left corner rounded */
         }
         .nav-item.open-left .dropdown::before {
             left: auto;
-            right: 40px;
+            right: 80px;
         }
         
         .nav-item:hover .dropdown {
