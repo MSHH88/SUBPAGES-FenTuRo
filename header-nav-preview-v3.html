@@ -52,7 +52,7 @@
             position: absolute;
             top: 100%;
             left: 0;
-            background: rgba(255, 255, 255, 0.1); /* 10% opaque white */
+            background: rgba(255, 255, 255, 0.2); /* 20% opaque white */
             backdrop-filter: blur(10px); /* 10px blur */
             -webkit-backdrop-filter: blur(10px);
             box-shadow: 0 10px 40px rgba(0,0,0,0.15);
@@ -76,43 +76,41 @@
             border-bottom-color: rgba(255, 255, 255, 0.3); /* visible against blur */
         }
         
-        /* FENSTER: LEFT edge touches LEFT side of screen */
-        .nav-item.fenster .dropdown {
-            left: 0;
-            right: auto;
-            transform: translateY(-10px) scale(0.98);
-            border-radius: 0 0 8px 0; /* only right corner rounded */
-        }
-        .nav-item.fenster:hover .dropdown {
-            transform: translateY(0) scale(1);
-        }
-        .nav-item.fenster .dropdown::before {
-            left: 80px; /* arrow positioned near left */
-        }
-        
-        /* CENTER DROPDOWNS for middle items */
-        .nav-item.balkontueren .dropdown,
-        .nav-item.terrassentueren .dropdown {
+        /* SMART POSITIONING - JavaScript will handle edge detection */
+        /* Default: try to center, JS adjusts if needed */
+        .nav-item:not(.konfigurator) .dropdown {
+            /* Initial position - will be adjusted by JS */
             left: 50%;
             transform: translateX(-50%) translateY(-10px) scale(0.98);
         }
-        .nav-item.balkontueren:hover .dropdown,
-        .nav-item.terrassentueren:hover .dropdown {
+        .nav-item:not(.konfigurator):hover .dropdown {
             transform: translateX(-50%) translateY(0) scale(1);
         }
-        .nav-item.balkontueren .dropdown::before,
-        .nav-item.terrassentueren .dropdown::before {
-            left: 50%;
-            transform: translateX(-50%);
+        
+        /* When JS applies edge-left class (dropdown touches left screen edge) */
+        .nav-item.edge-left .dropdown {
+            left: 0 !important;
+            transform: translateY(-10px) scale(0.98) !important;
+            border-radius: 0 0 8px 0;
+        }
+        .nav-item.edge-left:hover .dropdown {
+            transform: translateY(0) scale(1) !important;
+        }
+        .nav-item.edge-left .dropdown::before {
+            left: 80px;
         }
         
-        /* RIGHT 2 DROPDOWNS (Türen, Rollläden): right border touches screen edge */
-        .nav-item.open-left .dropdown {
-            left: auto;
-            right: 0; /* right edge touches screen */
-            border-radius: 0 0 0 8px; /* only left corner rounded */
+        /* When JS applies edge-right class (dropdown touches right screen edge) */
+        .nav-item.edge-right .dropdown {
+            left: auto !important;
+            right: 0 !important;
+            transform: translateY(-10px) scale(0.98) !important;
+            border-radius: 0 0 0 8px;
         }
-        .nav-item.open-left .dropdown::before {
+        .nav-item.edge-right:hover .dropdown {
+            transform: translateY(0) scale(1) !important;
+        }
+        .nav-item.edge-right .dropdown::before {
             left: auto;
             right: 80px;
         }
@@ -462,7 +460,7 @@
                 </li>
 
                 <!-- ========== TÜREN ========== -->
-                <li class="nav-item open-left tueren">
+                <li class="nav-item tueren">
                     <a href="https://www.fenstermaxx24.com/tueren" class="nav-link">Türen</a>
                     <div class="dropdown">
                         <div class="dropdown-inner">
@@ -508,7 +506,7 @@
                 </li>
 
                 <!-- ========== ROLLLÄDEN ========== -->
-                <li class="nav-item open-left rolllaeden">
+                <li class="nav-item rolllaeden">
                     <a href="https://www.fenstermaxx24.com/rolllaeden" class="nav-link">Rollläden</a>
                     <div class="dropdown">
                         <div class="dropdown-inner">
@@ -538,6 +536,58 @@
         </div>
     </nav>
     <!-- END NAVIGATION MENU CODE -->
+
+    <!-- SMART DROPDOWN POSITIONING SCRIPT -->
+    <script>
+        /**
+         * Smart Dropdown Positioning
+         * - Default: Center dropdown below nav item
+         * - If left edge would go off-screen: align to left edge of screen
+         * - If right edge would go off-screen: align to right edge of screen
+         */
+        function positionDropdowns() {
+            const navItems = document.querySelectorAll('.nav-item:not(.konfigurator)');
+            const viewportWidth = window.innerWidth;
+            
+            navItems.forEach(navItem => {
+                const dropdown = navItem.querySelector('.dropdown');
+                if (!dropdown) return;
+                
+                // Get nav item position
+                const navRect = navItem.getBoundingClientRect();
+                const navCenter = navRect.left + (navRect.width / 2);
+                
+                // Get dropdown width
+                const dropdownWidth = dropdown.offsetWidth || 800; // default 800px
+                
+                // Calculate where centered dropdown would be
+                const centeredLeft = navCenter - (dropdownWidth / 2);
+                const centeredRight = navCenter + (dropdownWidth / 2);
+                
+                // Remove previous edge classes
+                navItem.classList.remove('edge-left', 'edge-right');
+                
+                // Check edges
+                if (centeredLeft < 0) {
+                    // Would go off LEFT edge → align to left
+                    navItem.classList.add('edge-left');
+                } else if (centeredRight > viewportWidth) {
+                    // Would go off RIGHT edge → align to right
+                    navItem.classList.add('edge-right');
+                }
+                // Otherwise: stays centered (default CSS)
+            });
+        }
+        
+        // Run on load and resize
+        window.addEventListener('load', positionDropdowns);
+        window.addEventListener('resize', positionDropdowns);
+        
+        // Also run when hovering to ensure correct positioning
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('mouseenter', positionDropdowns);
+        });
+    </script>
 
     <!-- DEMO CONTENT (for preview only) -->
     <main class="demo-content">
