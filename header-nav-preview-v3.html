@@ -29,7 +29,7 @@
         }
         .nav-menu { 
             display: flex; 
-            gap: 76px; /* 2cm spacing between nav items */
+            gap: 110px; /* increased spacing between nav items */
         }
         .nav-item { 
             position: relative; 
@@ -46,7 +46,7 @@
             background: rgba(255,255,255,0.1); 
         }
 
-        /* DROPDOWN BASE */
+        /* DROPDOWN BASE - Default opens right+down */
         .dropdown {
             position: absolute;
             top: 100%;
@@ -62,13 +62,20 @@
             min-height: 350px;
             max-height: 400px;
         }
+        
+        /* RIGHT 2 DROPDOWNS: open left+down to stay on screen */
+        .nav-item.open-left .dropdown {
+            left: auto;
+            right: 0;
+        }
+        
         .nav-item:hover .dropdown {
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
         }
 
-        /* KONFIGURATOR DROPDOWN - FULL WIDTH, SPREAD LEFT TO RIGHT */
+        /* KONFIGURATOR DROPDOWN - FULL WIDTH, height decreased by 40px */
         .nav-item.konfigurator { 
             position: static; 
         }
@@ -77,6 +84,8 @@
             right: 0;
             width: 100vw;
             border-radius: 0;
+            min-height: 310px;
+            max-height: 360px;
         }
         .konfigurator .dropdown-inner {
             display: flex;
@@ -96,6 +105,23 @@
             justify-content: space-between;
             gap: 30px;
             padding: 19px 30px; /* 25% less vertical padding */
+        }
+        
+        /* SPECIFIC CONTAINER HEIGHTS */
+        /* Balkontüren: decrease by 40px */
+        .nav-item.balkontueren .dropdown {
+            min-height: 310px;
+            max-height: 360px;
+        }
+        /* Terrassentüren: decrease by 80px */
+        .nav-item.terrassentueren .dropdown {
+            min-height: 270px;
+            max-height: 320px;
+        }
+        /* Rollläden: decrease by 80px */
+        .nav-item.rolllaeden .dropdown {
+            min-height: 270px;
+            max-height: 320px;
         }
 
         /* SECTION COLUMN */
@@ -325,7 +351,7 @@
                 </li>
 
                 <!-- ========== BALKONTÜREN ========== -->
-                <li class="nav-item">
+                <li class="nav-item balkontueren">
                     <a href="https://www.fenstermaxx24.com/balkontueren" class="nav-link">Balkontüren</a>
                     <div class="dropdown">
                         <div class="dropdown-inner">
@@ -349,7 +375,7 @@
                 </li>
 
                 <!-- ========== TERRASSENTÜREN ========== -->
-                <li class="nav-item">
+                <li class="nav-item terrassentueren">
                     <a href="https://www.fenstermaxx24.com/terrassentueren" class="nav-link">Terrassentüren</a>
                     <div class="dropdown">
                         <div class="dropdown-inner">
@@ -388,7 +414,7 @@
                 </li>
 
                 <!-- ========== TÜREN ========== -->
-                <li class="nav-item">
+                <li class="nav-item open-left tueren">
                     <a href="https://www.fenstermaxx24.com/tueren" class="nav-link">Türen</a>
                     <div class="dropdown">
                         <div class="dropdown-inner">
@@ -434,7 +460,7 @@
                 </li>
 
                 <!-- ========== ROLLLÄDEN ========== -->
-                <li class="nav-item">
+                <li class="nav-item open-left rolllaeden">
                     <a href="https://www.fenstermaxx24.com/rolllaeden" class="nav-link">Rollläden</a>
                     <div class="dropdown">
                         <div class="dropdown-inner">
