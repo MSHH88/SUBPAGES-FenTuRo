@@ -87,9 +87,9 @@
             transform: translateX(-50%) translateY(0) scale(1);
         }
         
-        /* When JS applies edge-left class (dropdown touches left screen edge) */
+        /* Edge-left: dropdown left edge touches SCREEN left edge */
+        /* Position is set dynamically via JavaScript */
         .nav-item.edge-left .dropdown {
-            left: 0 !important;
             transform: translateY(-10px) scale(0.98) !important;
             border-radius: 0 0 8px 0;
         }
@@ -100,10 +100,9 @@
             left: 80px;
         }
         
-        /* When JS applies edge-right class (dropdown touches right screen edge) */
+        /* Edge-right: dropdown right edge touches SCREEN right edge */
+        /* Position is set dynamically via JavaScript */
         .nav-item.edge-right .dropdown {
-            left: auto !important;
-            right: 0 !important;
             transform: translateY(-10px) scale(0.98) !important;
             border-radius: 0 0 0 8px;
         }
@@ -159,10 +158,15 @@
             min-height: 310px;
             max-height: 360px;
         }
-        /* Terrassentüren: decrease by 80px */
+        /* Terrassentüren: decrease by 80px, wider for PSK header */
         .nav-item.terrassentueren .dropdown {
             min-height: 270px;
             max-height: 320px;
+            width: 900px; /* wider to fit "Parallel-Schiebe-Kipp-Türen (PSK)" on 1 line */
+        }
+        /* Türen: wider for Nebeneingangstüren links */
+        .nav-item.tueren .dropdown {
+            width: 950px; /* wider to fit long links on 1 line */
         }
         /* Rollläden: decrease by 80px */
         .nav-item.rolllaeden .dropdown {
@@ -185,6 +189,7 @@
             padding-bottom: 6px; /* 25% less: was 8px */
             border-bottom: 2px solid #6690CC;
             font-family: 'Berlin Sans FB Demi', 'Segoe UI Semibold', 'Arial Black', sans-serif;
+            white-space: nowrap; /* Prevent header wrapping */
         }
         .section-links {
             display: flex;
@@ -199,6 +204,7 @@
             padding: 3px 0; /* 25% less: was 4px */
             transition: color 0.2s;
             font-family: 'Berlin Sans FB Demi', 'Segoe UI Semibold', 'Arial Black', sans-serif;
+            white-space: nowrap; /* Prevent link text wrapping */
         }
         .section-links a:hover { 
             color: #6690CC; 
@@ -542,8 +548,8 @@
         /**
          * Smart Dropdown Positioning
          * - Default: Center dropdown below nav item
-         * - If left edge would go off-screen: align to left edge of screen
-         * - If right edge would go off-screen: align to right edge of screen
+         * - If left edge would go off-screen: ALIGN LEFT EDGE TO SCREEN LEFT (left: 0 fixed)
+         * - If right edge would go off-screen: ALIGN RIGHT EDGE TO SCREEN RIGHT (right: 0 fixed)
          */
         function positionDropdowns() {
             const navItems = document.querySelectorAll('.nav-item:not(.konfigurator)');
@@ -553,29 +559,42 @@
                 const dropdown = navItem.querySelector('.dropdown');
                 if (!dropdown) return;
                 
-                // Get nav item position
+                // Get nav item position relative to viewport
                 const navRect = navItem.getBoundingClientRect();
                 const navCenter = navRect.left + (navRect.width / 2);
                 
                 // Get dropdown width
-                const dropdownWidth = dropdown.offsetWidth || 800; // default 800px
+                const dropdownWidth = dropdown.offsetWidth || 800;
                 
                 // Calculate where centered dropdown would be
                 const centeredLeft = navCenter - (dropdownWidth / 2);
                 const centeredRight = navCenter + (dropdownWidth / 2);
                 
-                // Remove previous edge classes
+                // Remove previous edge classes and inline styles
                 navItem.classList.remove('edge-left', 'edge-right');
+                dropdown.style.left = '';
+                dropdown.style.right = '';
+                dropdown.style.transform = '';
                 
-                // Check edges
+                // Check edges and SET POSITION RELATIVE TO SCREEN
                 if (centeredLeft < 0) {
-                    // Would go off LEFT edge → align to left
+                    // Would go off LEFT edge → position at screen left (left: 0)
                     navItem.classList.add('edge-left');
+                    // Calculate how far left the dropdown needs to move to hit screen edge
+                    dropdown.style.left = `-${navRect.left}px`;
+                    dropdown.style.right = 'auto';
                 } else if (centeredRight > viewportWidth) {
-                    // Would go off RIGHT edge → align to right
+                    // Would go off RIGHT edge → position at screen right (right: 0)
                     navItem.classList.add('edge-right');
+                    // Calculate how far right the dropdown needs to move to hit screen edge
+                    const rightEdge = viewportWidth - navRect.right;
+                    dropdown.style.right = `-${rightEdge}px`;
+                    dropdown.style.left = 'auto';
+                } else {
+                    // Center it
+                    const centerOffset = navCenter - (dropdownWidth / 2) - navRect.left;
+                    dropdown.style.left = `${centerOffset}px`;
                 }
-                // Otherwise: stays centered (default CSS)
             });
         }
         
