@@ -4,6 +4,45 @@
 
 ---
 
+## ⛔ STOP - READ BEFORE ANY CHANGES
+
+### MANDATORY ANALYSIS STEPS
+1. **Find existing HTML structure** - What elements exist?
+2. **Find existing CSS** - What layout system? (Grid/Flexbox?)
+3. **Identify key classes** - What classes create the current layout?
+4. **NEVER create custom HTML/CSS that's incompatible with existing code**
+5. **ALWAYS use existing classes where possible**
+
+### EXISTING NAVIGATION MENU STRUCTURE
+```
+- Uses CSS Grid (NOT Flexbox)
+- .collapse-inner = Grid container
+- .level1 = Section headers
+- .level2 = Links
+- .menuPadding = General spacing
+- .forcedColBreak = Forces new column in grid
+```
+
+### ❌ DON'T DO THIS:
+```html
+<!-- WRONG - Custom incompatible structure -->
+<div class="konfig-sections-row">
+    <div class="konfig-column">...</div>
+</div>
+```
+
+### ✅ DO THIS INSTEAD:
+```html
+<!-- RIGHT - Use existing structure -->
+<ul class="collapse-inner">
+    <li class="level1 menuPadding">Header</li>
+    <li class="level2 menuPadding">Link</li>
+    <li class="level1 forcedColBreak">Next Column Header</li>
+</ul>
+```
+
+---
+
 ## 🚨 CRITICAL CSS RULES (Copy exactly)
 
 ### Sticky Header (MUST INCLUDE ALL 4)

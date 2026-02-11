@@ -6,13 +6,103 @@
 
 ---
 
+## ⛔ CRITICAL MISTAKES - NEVER REPEAT THESE
+
+### MISTAKE #1: Creating Incompatible Code Structure
+
+**What I Did Wrong (Session 3 - Konfigurator Redesign):**
+- User asked to merge 5 sections into one row with buttons below
+- I **IGNORED the existing code structure** and created custom HTML/CSS:
+  - Created `div.konfig-sections-row` with flexbox
+  - Created `div.konfig-column` divs
+  - Created `ul.konfig-links` lists
+- This was **COMPLETELY INCOMPATIBLE** with the existing code which uses:
+  - CSS Grid with `.collapse-inner`
+  - `level1`, `level2`, `menuPadding` classes
+  - `forcedColBreak` class to create columns
+
+**The Result:** Total layout failure. Links scattered, buttons misaligned, nothing worked.
+
+**What I Should Have Done:**
+1. **FIRST** - Analyze the EXISTING HTML structure
+2. **SECOND** - Analyze the EXISTING CSS that styles it
+3. **THIRD** - Understand HOW the existing code creates columns (CSS Grid + forcedColBreak)
+4. **FOURTH** - Make changes that WORK WITH the existing structure, not replace it
+
+**Correct Approach:**
+```html
+<!-- USE EXISTING STRUCTURE -->
+<ul class="collapse-inner">
+    <li class="level1 menuPadding"><p class="bold">Fensterkonfigurator</p></li>
+    <li class="level2 menuPadding"><a href="...">Link</a></li>
+    <li class="menuPadding"><a class="btn menu-block-button">Button</a></li>
+    <li class="level1 menuPadding forcedColBreak"><p class="bold">Balkontürkonfigurator</p></li>
+    <!-- etc -->
+</ul>
+```
+
+```css
+/* MODIFY existing CSS, don't create new incompatible structure */
+.navblock-konfigurator .collapse-inner {
+    grid-template-columns: repeat(5, minmax(150px, 1fr));  /* Just change column count */
+}
+```
+
+---
+
+### MISTAKE #2: Not Analyzing Before Coding
+
+**What I Did Wrong:**
+- User EXPLICITLY told me to analyze the code first
+- I looked at the code superficially
+- I then wrote my own custom solution without understanding how the existing layout system works
+
+**The Lesson:**
+> **BEFORE writing ANY code, I MUST:**
+> 1. Find the EXACT HTML element I'm modifying
+> 2. Find ALL CSS rules that apply to it
+> 3. Understand the LAYOUT SYSTEM (Grid? Flexbox? Float?)
+> 4. Understand any JavaScript that manipulates it
+> 5. Make changes that INTEGRATE with existing code
+
+---
+
+### MISTAKE #3: Repeated Failures Without Stopping
+
+**What I Did Wrong:**
+- User complained the layout was wrong
+- Instead of reverting my changes and starting fresh, I kept adding more broken code
+- Each "fix" made things worse
+
+**The Lesson:**
+> **When a structural change fails, STOP and:**
+> 1. Revert to original working state
+> 2. Re-analyze the existing code
+> 3. Plan a new approach that works WITH existing code
+> 4. Get user approval before implementing
+
+---
+
+## 📋 MANDATORY CHECKLIST - BEFORE ANY CODE CHANGES
+
+- [ ] Have I found the EXACT HTML element(s) to modify?
+- [ ] Have I found ALL CSS rules that style these elements?
+- [ ] Do I understand what LAYOUT SYSTEM is used? (Grid/Flexbox/etc)
+- [ ] Have I checked for JavaScript that affects this element?
+- [ ] Will my changes WORK WITH the existing structure?
+- [ ] Am I using EXISTING CSS classes where possible?
+- [ ] Have I avoided creating new HTML structure that breaks existing CSS?
+
+---
+
 ## 📋 EXECUTIVE SUMMARY
 
-This document captures key lessons learned from two previous development sessions:
+This document captures key lessons learned from development sessions:
 1. **Session 1:** Homepage redesign (frontend-glass-configurator repo)
 2. **Session 2:** Subpage configurator redesign (SUBPAGES-FenTuRo repo)
+3. **Session 3:** Konfigurator navigation redesign - FAILED due to incompatible code
 
-Both sessions had complications that could have been avoided with better planning and understanding of the codebase. This document serves as a reference to prevent repeating those mistakes.
+All sessions had complications that could have been avoided with better planning and understanding of the codebase. This document serves as a reference to prevent repeating those mistakes.
 
 ---
 
