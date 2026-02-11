@@ -1029,102 +1029,23 @@ nav.navbar.megamenu .mainmenu > li:nth-child(6) > ul.collapse {
     transform: none;
 }
 
-/* Konfigurator dropdown: 100% width across screen */
-/* Konfigurator width handled by .konfig-mega-wrapper */
+/* Konfigurator section: font-size 12px */
+.navblock-konfigurator .level1 p.bold {
+    font-size: 12px;
+}
+.navblock-konfigurator .level2 a {
+    font-size: 12px;
+}
+.navblock-konfigurator .btn.menu-block-button {
+    font-size: 12px;
+}
 
-/* Konfigurator section: mega-dropdown wrapper for 5 columns in 1 row */
-.konfig-mega-wrapper {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
+/* Konfigurator expanded: 100% width */
+.navblock-konfigurator > ul.collapse {
     width: 100vw;
     max-width: 100vw;
+    left: 0;
     transform: translateX(calc(-1 * var(--nav-offset-left, 0px)));
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border-radius: 0 0 12px 12px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-    z-index: 1000;
-}
-
-.navblock-konfigurator:hover > .konfig-mega-wrapper {
-    display: flex;
-    flex-wrap: nowrap;
-}
-
-/* Both ULs inside wrapper: inline, no absolute positioning */
-.konfig-mega-wrapper > ul.collapse {
-    position: relative;
-    display: block;
-    top: auto;
-    left: auto;
-    right: auto;
-    transform: none;
-    width: auto;
-    min-width: 0;
-    max-width: none;
-    background: transparent;
-    box-shadow: none;
-    border-radius: 0;
-    backdrop-filter: none;
-    margin-top: 0;
-}
-
-/* li_top: 3 sections = 60% width */
-.konfig-mega-wrapper > ul.collapse.li_top {
-    flex: 3;
-}
-
-/* li_bottom: 2 sections = 40% width */
-.konfig-mega-wrapper > ul.collapse.li_bottom {
-    flex: 2;
-}
-
-/* Konfigurator collapse-inner: columns based on parent */
-.konfig-mega-wrapper > ul.collapse.li_top > li > ul.collapse-inner {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0 12px;
-    padding: 10px 20px 8px;
-}
-
-.konfig-mega-wrapper > ul.collapse.li_bottom > li > ul.collapse-inner {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0 12px;
-    padding: 10px 20px 8px;
-}
-
-/* Konfigurator: smaller font to fit 5 columns */
-.navblock-konfigurator .level1 p.bold {
-    font-size: 11px;
-    margin-bottom: 4px;
-}
-
-.navblock-konfigurator .level2 a {
-    font-size: 10.5px;
-    line-height: 1.3;
-    padding: 1px 0;
-}
-
-/* Konfigurator: remove forced column break */
-.navblock-konfigurator .forcedColBreak {
-    grid-column-start: auto;
-}
-
-/* Konfigurator: smaller CTA buttons */
-.navblock-konfigurator .btn.menu-block-button {
-    font-size: 9.5px;
-    padding: 5px 10px;
-    margin-top: 6px;
-}
-
-/* Hide the original collapse ULs when inside wrapper (JS moves them) */
-.navblock-konfigurator > ul.collapse {
-    display: none;
 }
 
 nav.navbar.megamenu .mainmenu > li:hover > ul.collapse {
@@ -1362,37 +1283,37 @@ nav.navbar.megamenu .collapse {
                                                                                                                             
                                                                     <a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-fenster"
                                                                        title="Kunststofffenster konfigurieren" class=""
-                                                                       data-catId="877">Kunststofffenster</a>
+                                                                       data-catId="877">Kunststofffenster Konfigurator</a>
                                                                                                                                                                                                                                                                                         </li>
                                                                                                                                                                                                                                                                                                                                                                                                                                                          <li class="level2 menuPadding ">                                                                                                              
                                                                                                                             
                                                                     <a href="https://www.fenstermaxx24.com/konfigurator/pvc-alu-fenster"
                                                                        title="Kunststoff/PVC-Alu Fenster konfigurieren" class=""
-                                                                       data-catId="1861">Kunststoff-Alu Fenster</a>
+                                                                       data-catId="1861">Kunststoff-Alu Fenster Konfigurator</a>
                                                                                                                                                                                                                                                                                         </li>
                                                                                                                                                                                                                                                                                                                                                                                                                                                          <li class="level2 menuPadding ">                                                                                                              
                                                                                                                             
                                                                     <a href="https://www.fenstermaxx24.com/konfigurator/alu-fenster"
                                                                        title="Alu Fenster konfigurieren" class=""
-                                                                       data-catId="1367">Alu Fenster</a>
+                                                                       data-catId="1367">Alu Fenster Konfigurator</a>
                                                                                                                                                                                                                                                                                         </li>
                                                                                                                                                                                                                                                                                                                                                                                                                                                          <li class="level2 menuPadding ">                                                                                                              
                                                                                                                             
                                                                     <a href="https://www.fenstermaxx24.com/konfigurator/holz-fenster"
                                                                        title="Holzfenster konfigurieren" class=""
-                                                                       data-catId="1381">Holzfenster</a>
+                                                                       data-catId="1381">Holzfenster Konfigurator</a>
                                                                                                                                                                                                                                                                                         </li>
                                                                                                                                                                                                                                                                                                                                                                                                                                                          <li class="level2 menuPadding ">                                                                                                              
                                                                                                                             
                                                                     <a href="https://www.fenstermaxx24.com/konfigurator/holz-alu-fenster"
                                                                        title="Holz-Alu Fensterkonfigurieren" class=""
-                                                                       data-catId="1392">Holz-Alu Fenster</a>
+                                                                       data-catId="1392">Holz-Alu Fenster Konfigurator</a>
                                                                                                                                                                                                                                                                                         </li>
                                                                                                                                                                                                                                                                                                                                                                                                                                                          <li class="level2 menuPadding ">                                                                                                              
                                                                                                                             
                                                                     <a href="https://www.fenstermaxx24.com/konfigurator/alu-schiebefenster"
                                                                        title="Schiebefenster konfigurieren" class=""
-                                                                       data-catId="1369">Schiebefenster</a>
+                                                                       data-catId="1369">Schiebefenster Konfigurator</a>
                                                                                                                                                                                                                                                                                         </li>
                                                                                                                                                                                                                                                                                                                                                                                                                                                          <li class="menuPadding ">
 
@@ -1411,31 +1332,31 @@ nav.navbar.megamenu .collapse {
                                                                                                                             
                                                                     <a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-balkontueren"
                                                                        title="Kunststoff Balkontüren konfigurieren" class=""
-                                                                       data-catId="878">Kunststoff Balkontüren</a>
+                                                                       data-catId="878">Kunststoff Balkontür Konfigurator</a>
                                                                                                                                                                                                                                                                                         </li>
                                                                                                                                                                                                                                                                                                                                                                                                                                                          <li class="level2 menuPadding ">                                                                                                              
                                                                                                                             
                                                                     <a href="https://www.fenstermaxx24.com/konfigurator/gealan-balkontuer-pvc-alu"
                                                                        title="Kunststoff/PVC-Alu Balkontür konfigurieren" class=""
-                                                                       data-catId="1830">Kunststoff-Alu Balkontüren</a>
+                                                                       data-catId="1830">Kunststoff-Alu Balkontür Konfigurator</a>
                                                                                                                                                                                                                                                                                         </li>
                                                                                                                                                                                                                                                                                                                                                                                                                                                          <li class="level2 menuPadding ">                                                                                                              
                                                                                                                             
                                                                     <a href="https://www.fenstermaxx24.com/konfigurator/alu-balkontuer"
                                                                        title="Alu Balkontüren konfigurieren" class=""
-                                                                       data-catId="1366">Alu Balkontüren</a>
+                                                                       data-catId="1366">Alu Balkontür Konfigurator</a>
                                                                                                                                                                                                                                                                                         </li>
                                                                                                                                                                                                                                                                                                                                                                                                                                                          <li class="level2 menuPadding ">                                                                                                              
                                                                                                                             
                                                                     <a href="https://www.fenstermaxx24.com/konfigurator/holz-balkontuer"
                                                                        title="Holz Balkontüren konfigurieren" class=""
-                                                                       data-catId="1382">Holz Balkontüren</a>
+                                                                       data-catId="1382">Holz Balkontür Konfigurator</a>
                                                                                                                                                                                                                                                                                         </li>
                                                                                                                                                                                                                                                                                                                                                                                                                                                          <li class="level2 menuPadding ">                                                                                                              
                                                                                                                             
                                                                     <a href="https://www.fenstermaxx24.com/konfigurator/holz-alu-balkontuer"
                                                                        title="Holz-Alu Balkontüren konfigurieren" class=""
-                                                                       data-catId="1393">Holz-Alu Balkontüren</a>
+                                                                       data-catId="1393">Holz-Alu Balkontür Konfigurator</a>
                                                                                                                                                                                                                                                                                         </li>
                                                                                                                                                                                                                                                                                                                                                                                                                                                          <li class="menuPadding ">
 
@@ -1454,25 +1375,25 @@ nav.navbar.megamenu .collapse {
                                                                                                                             
                                                                     <a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-parallel-schiebe-kipp-tueren-psk"
                                                                        title="Parallel-Schiebe-Kipptüren konfigurieren" class=""
-                                                                       data-catId="881">Parallel-Schiebe-Kipptüren</a>
+                                                                       data-catId="881">Parallel-Schiebe-Kipptür Konfigurator</a>
                                                                                                                                                                                                                                                                                         </li>
                                                                                                                                                                                                                                                                                                                                                                                                                                                          <li class="level2 menuPadding ">                                                                                                              
                                                                                                                             
                                                                     <a href="https://www.fenstermaxx24.com/konfigurator/gealan-schiebetuer/"
                                                                        title="Smart-Slide-Schiebetüren konfigurieren" class=""
-                                                                       data-catId="1509">Smart-Slide-Schiebetüren</a>
+                                                                       data-catId="1509">Smart-Slide-Schiebetür Konfigurator</a>
                                                                                                                                                                                                                                                                                         </li>
                                                                                                                                                                                                                                                                                                                                                                                                                                                          <li class="level2 menuPadding ">                                                                                                              
                                                                                                                             
                                                                     <a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-hebe-schiebe-tueren-hs"
                                                                        title="Hebe-Schiebetüren konfigurieren" class=""
-                                                                       data-catId="880">Hebe-Schiebetüren</a>
+                                                                       data-catId="880">Hebe-Schiebetür Konfigurator</a>
                                                                                                                                                                                                                                                                                         </li>
                                                                                                                                                                                                                                                                                                                                                                                                                                                          <li class="level2 menuPadding ">                                                                                                              
                                                                                                                             
                                                                     <a href="https://www.fenstermaxx24.com/konfigurator/alu-faltschiebetuer"
                                                                        title="Falt-Schiebetüren konfigurieren" class=""
-                                                                       data-catId="1379">Falt-Schiebetüren</a>
+                                                                       data-catId="1379">Falt-Schiebetür Konfigurator</a>
                                                                                                                                                                                                                                                                                         </li>
                                                                                                                                                                         </ul>
                                             </li>
@@ -1487,37 +1408,37 @@ nav.navbar.megamenu .collapse {
                                                                                                                             
                                                                     <a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-haustueren"
                                                                        title="Kunststoff Haustüren konfigurieren" class=""
-                                                                       data-catId="879">Kunststoff Haustüren</a>
+                                                                       data-catId="879">Kunststoff Haustür Konfigurator</a>
                                                                                                                                                                                                                                                                                         </li>
                                                                                                                                                                                                                                                                                                                                                                                                                                                          <li class="level2 menuPadding ">                                                                                                              
                                                                                                                             
                                                                     <a href="https://www.fenstermaxx24.com/konfigurator/alu-haustuer"
                                                                        title="Alu Haustüren konfigurieren" class=""
-                                                                       data-catId="1371">Alu Haustüren</a>
+                                                                       data-catId="1371">Alu Haustür Konfigurator</a>
                                                                                                                                                                                                                                                                                         </li>
                                                                                                                                                                                                                                                                                                                                                                                                                                                          <li class="level2 menuPadding ">                                                                                                              
                                                                                                                             
                                                                     <a href="https://www.fenstermaxx24.com/konfigurator/holz-haustuer"
                                                                        title="Holz Haustüren konfigurieren" class=""
-                                                                       data-catId="1410">Holz Haustüren</a>
+                                                                       data-catId="1410">Holz Haustür Konfigurator</a>
                                                                                                                                                                                                                                                                                         </li>
                                                                                                                                                                                                                                                                                                                                                                                                                                                          <li class="level2 menuPadding ">                                                                                                              
                                                                                                                             
                                                                     <a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-nebeneingangstueren"
                                                                        title="Kunststoff Nebeneingangstüren konfigurieren" class=""
-                                                                       data-catId="1043">Kunststoff Nebeneingangstüren</a>
+                                                                       data-catId="1043">Kunststoff Nebeneingangstüren Konfigurator</a>
                                                                                                                                                                                                                                                                                         </li>
                                                                                                                                                                                                                                                                                                                                                                                                                                                          <li class="level2 menuPadding ">                                                                                                              
                                                                                                                             
                                                                     <a href="https://www.fenstermaxx24.com/konfigurator/alu-nebentuer"
                                                                        title="Alu Nebeneingangstüren konfigurieren" class=""
-                                                                       data-catId="1370">Alu Nebeneingangstüren</a>
+                                                                       data-catId="1370">Alu Nebeneingangstüren Konfigurator</a>
                                                                                                                                                                                                                                                                                         </li>
                                                                                                                                                                                                                                                                                                                                                                                                                                                          <li class="level2 menuPadding ">                                                                                                              
                                                                                                                             
                                                                     <a href="https://www.fenstermaxx24.com/konfigurator/holz-nebeneingangstuer"
                                                                        title="Holz Nebeneingangstüren konfigurieren" class=""
-                                                                       data-catId="1383">Holz Nebeneingangstüren</a>
+                                                                       data-catId="1383">Holz Nebeneingangstüren Konfigurator</a>
                                                                                                                                                                                                                                                                                         </li>
                                                                                                                                                                                                                                                                                                                                                                                                                                                          <li class="menuPadding ">
 
@@ -1536,31 +1457,31 @@ nav.navbar.megamenu .collapse {
                                                                                                                             
                                                                     <a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-aufsatzrollladen"
                                                                        title="Aufsatzrollladen konfigurieren" class=""
-                                                                       data-catId="1064">Aufsatzrollladen</a>
+                                                                       data-catId="1064">Aufsatzrollladen Konfigurator</a>
                                                                                                                                                                                                                                                                                         </li>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <li class="level2 menuPadding2 ">                                                                                                              
                                                                                                                             
                                                                     <a href="https://www.fenstermaxx24.com/konfigurator/aufsatzrollladen-styropor"
                                                                        title="Styropor Aufsatzrollladen konfigurieren" class=""
-                                                                       data-catId="1373">Styropor Aufsatzrollladen</a>
+                                                                       data-catId="1373">Styropor Aufsatzrollladen Konfigurator</a>
                                                                                                                                                                                                                                                                                         </li>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <li class="level2 menuPadding2 ">                                                                                                              
                                                                                                                             
                                                                     <a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-vorsatzrollladen"
                                                                        title="Vorsatzrollladen konfigurieren" class=""
-                                                                       data-catId="1063">Vorsatzrollladen</a>
+                                                                       data-catId="1063">Vorsatzrollladen Konfigurator</a>
                                                                                                                                                                                                                                                                                         </li>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <li class="level2 menuPadding2 ">                                                                                                              
                                                                                                                             
                                                                     <a href="https://www.fenstermaxx24.com/konfigurator/raffstores"
                                                                        title="Raffstore konfigurieren" class=""
-                                                                       data-catId="1439">Raffstore</a>
+                                                                       data-catId="1439">Raffstore Konfigurator</a>
                                                                                                                                                                                                                                                                                         </li>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <li class="level2 menuPadding2 ">                                                                                                              
                                                                                                                             
                                                                     <a href="https://www.fenstermaxx24.com/konfigurator/alu-insektenschutz-plissee"
                                                                        title="Insektenschutz-Plissee konfigurieren" class=""
-                                                                       data-catId="1720">Insektenschutz-Plissee</a>
+                                                                       data-catId="1720">Insektenschutz-Plissee Konfigurator</a>
                                                                                                                                                                                                                                                                                         </li>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <li class="menuPadding2 ">
 
@@ -1571,6 +1492,14 @@ nav.navbar.megamenu .collapse {
                                                                 </a>
                                                             
                                                                                                                                                             </li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <li class="level1 no-padding  forcedColBreak">
+                                                                                                            <a href=" https://www.fenstermaxx24.com/konfigurator#jump_video"
+                                                           title="blockimage">
+                                                            <img loading="lazy" src="https://cdn03.plentymarkets.com/xbqx3akj5qia/frontend/img/erklaervideo-preview.webp"
+                                                                 alt="blockimage"
+                                                                 class="img-fluid menu-block-image">
+                                                        </a>
+                                                                                                    </li>
                                                                                                                                                                         </ul>
                                             </li>
                                             </ul>
@@ -2238,46 +2167,26 @@ nav.navbar.megamenu .main-navbar-collapsable ul.mainmenu > li > ul.collapse.li_b
             }
         }
 
-        // Konfigurator mega-dropdown: merge li_top + li_bottom into flex wrapper
+    </script>
+
+
+        // Konfigurator full-width offset calculation
         (function() {
-            document.addEventListener('DOMContentLoaded', function() {
-                var konfItem = document.querySelector('.navblock-konfigurator');
+            document.addEventListener("DOMContentLoaded", function() {
+                var konfItem = document.querySelector(".navblock-konfigurator");
                 if (!konfItem) return;
-
-                var liTop = konfItem.querySelector('ul.collapse.li_top');
-                var liBottom = konfItem.querySelector('ul.collapse.li_bottom');
-                if (!liTop || !liBottom) return;
-
-                // Create wrapper div
-                var wrapper = document.createElement('div');
-                wrapper.className = 'konfig-mega-wrapper';
-
-                // Insert wrapper before liTop
-                konfItem.insertBefore(wrapper, liTop);
-
-                // Move both ULs into wrapper
-                wrapper.appendChild(liTop);
-                wrapper.appendChild(liBottom);
-
-                // Remove inline margin-top from li_bottom
-                liBottom.style.marginTop = '0';
-
-                // Set offset for full-width positioning
                 function setOffset() {
                     var rect = konfItem.getBoundingClientRect();
-                    wrapper.style.setProperty('--nav-offset-left', rect.left + 'px');
+                    konfItem.style.setProperty("--nav-offset-left", rect.left + "px");
                 }
                 setOffset();
-
                 var resizeTimer;
-                window.addEventListener('resize', function() {
+                window.addEventListener("resize", function() {
                     clearTimeout(resizeTimer);
                     resizeTimer = setTimeout(setOffset, 150);
                 });
             });
         })();
-    </script>
-
     <script defer src="https://cdn03.plentymarkets.com/xbqx3akj5qia/frontend/assets/easy2021.min.js?v=2026012010ceeed"></script>
 
 
