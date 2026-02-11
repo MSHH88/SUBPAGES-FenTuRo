@@ -1029,15 +1029,15 @@ nav.navbar.megamenu .mainmenu > li:nth-child(6) > ul.collapse {
     transform: none;
 }
 
-/* Konfigurator section: font-size reduced by 15% */
+/* Konfigurator section: font-size 10px */
 .navblock-konfigurator .level1 p.bold {
-    font-size: 9px;
+    font-size: 10px;
 }
 .navblock-konfigurator .level2 a {
-    font-size: 9px;
+    font-size: 10px;
 }
 .navblock-konfigurator .btn.menu-block-button {
-    font-size: 7px;
+    font-size: 8px;
 }
 
 /* Konfigurator expanded: 100% width */
@@ -1052,36 +1052,13 @@ nav.navbar.megamenu .mainmenu > li:hover > ul.collapse {
     display: block;
 }
 
-/* Hide li_bottom — its content will be merged via JS */
+/* Keep li_bottom hidden until parent is hovered */
 nav.navbar.megamenu .mainmenu > li > ul.collapse.li_bottom {
     display: none;
 }
 
-/* Konfigurator 5-column layout (after JS merge) */
-.navblock-konfigurator .konfig-sections-row {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 2px 10px;
-    padding: 0 10px;
-    list-style: none;
-    width: 100%;
-}
-
-/* Each section column */
-.navblock-konfigurator .konfig-section-col {
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-}
-
-/* Buttons row below sections */
-.navblock-konfigurator .konfig-buttons-row {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    padding: 6px 10px 4px;
-    border-top: 1px solid rgba(102, 144, 204, 0.15);
-    margin-top: 4px;
+nav.navbar.megamenu .mainmenu > li:hover > ul.collapse.li_bottom {
+    display: block;
 }
 
 /* Collapse-inner grid layout for columns */
@@ -2186,13 +2163,11 @@ nav.navbar.megamenu .main-navbar-collapsable ul.mainmenu > li > ul.collapse.li_b
     </script>
 
 
-        // Konfigurator: merge li_top + li_bottom into 5-column layout with buttons below
+        // Konfigurator full-width offset calculation
         (function() {
             document.addEventListener("DOMContentLoaded", function() {
                 var konfItem = document.querySelector(".navblock-konfigurator");
                 if (!konfItem) return;
-
-                // Offset calculation for full-width
                 function setOffset() {
                     var rect = konfItem.getBoundingClientRect();
                     konfItem.style.setProperty("--nav-offset-left", rect.left + "px");
@@ -2203,69 +2178,6 @@ nav.navbar.megamenu .main-navbar-collapsable ul.mainmenu > li > ul.collapse.li_b
                     clearTimeout(resizeTimer);
                     resizeTimer = setTimeout(setOffset, 150);
                 });
-
-                // Get li_top and li_bottom ULs
-                var liTop = konfItem.querySelector("ul.collapse.li_top");
-                var liBottom = konfItem.querySelector("ul.collapse.li_bottom");
-                if (!liTop) return;
-
-                // Get all collapse-inner items from both ULs
-                var topInner = liTop.querySelector(".collapse-inner");
-                var bottomInner = liBottom ? liBottom.querySelector(".collapse-inner") : null;
-                if (!topInner) return;
-
-                var allItems = Array.from(topInner.children);
-                if (bottomInner) {
-                    allItems = allItems.concat(Array.from(bottomInner.children));
-                }
-
-                // Separate into sections (each section = header + links) and buttons
-                var sections = [];
-                var buttons = [];
-                var currentSection = null;
-
-                allItems.forEach(function(item) {
-                    if (item.querySelector && item.querySelector(".btn.menu-block-button")) {
-                        buttons.push(item.querySelector(".btn.menu-block-button").cloneNode(true));
-                    } else if (item.classList && (item.classList.contains("level1"))) {
-                        currentSection = { header: item, links: [] };
-                        sections.push(currentSection);
-                    } else if (item.classList && item.classList.contains("level2") && currentSection) {
-                        currentSection.links.push(item);
-                    }
-                });
-
-                // Build 5-column grid
-                var sectionsRow = document.createElement("div");
-                sectionsRow.className = "konfig-sections-row";
-
-                sections.forEach(function(sec) {
-                    var col = document.createElement("div");
-                    col.className = "konfig-section-col";
-                    col.appendChild(sec.header.cloneNode(true));
-                    sec.links.forEach(function(link) {
-                        col.appendChild(link.cloneNode(true));
-                    });
-                    sectionsRow.appendChild(col);
-                });
-
-                // Build buttons row
-                var buttonsRow = document.createElement("div");
-                buttonsRow.className = "konfig-buttons-row";
-                buttons.forEach(function(btn) {
-                    buttonsRow.appendChild(btn);
-                });
-
-                // Clear li_top content and replace with new structure
-                var topLi = topInner.parentElement; // the <li> wrapping collapse-inner
-                topInner.style.display = "none";
-                topLi.appendChild(sectionsRow);
-                topLi.appendChild(buttonsRow);
-
-                // Hide li_bottom completely
-                if (liBottom) {
-                    liBottom.style.display = "none";
-                }
             });
         })();
     <script defer src="https://cdn03.plentymarkets.com/xbqx3akj5qia/frontend/assets/easy2021.min.js?v=2026012010ceeed"></script>
