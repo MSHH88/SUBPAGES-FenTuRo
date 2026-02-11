@@ -986,8 +986,8 @@ nav.navbar.megamenu .mainmenu > li {
 nav.navbar.megamenu .mainmenu > li > a {
     display: block;
     padding: 10px 12px;
-    font-size: 12px;
-    font-weight: 700;
+    font-size: 13px;
+    font-weight: 600;
     color: #333333;
     text-decoration: none;
     white-space: nowrap;
@@ -1029,6 +1029,17 @@ nav.navbar.megamenu .mainmenu > li:nth-child(6) > ul.collapse {
     transform: none;
 }
 
+/* Konfigurator dropdown: 100% width across screen */
+nav.navbar.megamenu .mainmenu > li.navblock-konfigurator > ul.collapse {
+    left: 0;
+    right: 0;
+    width: 100vw;
+    max-width: 100vw;
+    min-width: 100vw;
+    transform: translateX(calc(-1 * var(--nav-offset-left, 0px)));
+    border-radius: 0 0 12px 12px;
+}
+
 nav.navbar.megamenu .mainmenu > li:hover > ul.collapse {
     display: block;
 }
@@ -1053,8 +1064,8 @@ nav.navbar.megamenu .collapse-inner {
 
 /* Level 1 category headers */
 nav.navbar.megamenu .level1 p.bold {
-    font-weight: 700;
-    font-size: 16.5px;
+    font-weight: 600;
+    font-size: 14px;
     color: #333333;
     margin-bottom: 8px;
     display: flex;
@@ -1065,8 +1076,7 @@ nav.navbar.megamenu .level1 p.bold {
 
 /* Level 2 links */
 nav.navbar.megamenu .level2 a {
-    font-size: 15px;
-    line-height: 1.4;
+    font-size: 14px;
     color: #333333;
     text-decoration: none;
     display: block;
@@ -1084,7 +1094,7 @@ nav.navbar.megamenu .btn.menu-block-button {
     align-items: center;
     gap: 8px;
     padding: 10px 18px;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 600;
     color: #ffffff;
     background: linear-gradient(135deg, #6690CC 0%, #5A7FB8 100%);
@@ -1473,14 +1483,6 @@ nav.navbar.megamenu .collapse {
                                                                 </a>
                                                             
                                                                                                                                                             </li>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <li class="level1 no-padding  forcedColBreak">
-                                                                                                            <a href=" https://www.fenstermaxx24.com/konfigurator#jump_video"
-                                                           title="blockimage">
-                                                            <img loading="lazy" src="https://cdn03.plentymarkets.com/xbqx3akj5qia/frontend/img/erklaervideo-preview.webp"
-                                                                 alt="blockimage"
-                                                                 class="img-fluid menu-block-image">
-                                                        </a>
-                                                                                                    </li>
                                                                                                                                                                         </ul>
                                             </li>
                                             </ul>
@@ -2147,6 +2149,19 @@ nav.navbar.megamenu .main-navbar-collapsable ul.mainmenu > li > ul.collapse.li_b
                 window.location.href = '/';
             }
         }
+
+        // Calculate Konfigurator dropdown offset for full-width positioning
+        (function() {
+            function setKonfiguratorOffset() {
+                var konfItem = document.querySelector('.navblock-konfigurator');
+                if (konfItem) {
+                    var rect = konfItem.getBoundingClientRect();
+                    konfItem.style.setProperty('--nav-offset-left', rect.left + 'px');
+                }
+            }
+            document.addEventListener('DOMContentLoaded', setKonfiguratorOffset);
+            window.addEventListener('resize', setKonfiguratorOffset);
+        })();
     </script>
 
     <script defer src="https://cdn03.plentymarkets.com/xbqx3akj5qia/frontend/assets/easy2021.min.js?v=2026012010ceeed"></script>
