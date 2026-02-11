@@ -1029,16 +1029,16 @@ nav.navbar.megamenu .mainmenu > li:nth-child(6) > ul.collapse {
     transform: none;
 }
 
-/* Konfigurator section: font-size reduced by 15% (10px → 8.5px, 8px → 6.8px) */
+/* Konfigurator section: font-size increased by 15% */
 .navblock-konfigurator .level1-header {
-    font-size: 8.5px;
+    font-size: 11.3px;
     font-weight: 600;
     color: #333333;
     margin-bottom: 4px;
     font-family: 'Berlin Sans FB Demi', 'Berlin Sans FB', 'Segoe UI Semibold', 'Arial Black', sans-serif;
 }
 .navblock-konfigurator .konfig-links a {
-    font-size: 8.5px;
+    font-size: 11.3px;
     font-weight: 500;
     line-height: 1.3;
     color: #333333;
@@ -1051,7 +1051,7 @@ nav.navbar.megamenu .mainmenu > li:nth-child(6) > ul.collapse {
     text-decoration: underline;
 }
 .navblock-konfigurator .btn.menu-block-button {
-    font-size: 6.8px;
+    font-size: 9px;
 }
 
 /* Konfigurator expanded: 100% width */
@@ -1088,16 +1088,10 @@ nav.navbar.megamenu .mainmenu > li:nth-child(6) > ul.collapse {
     margin-bottom: 2px;
 }
 
-/* Konfigurator buttons row: flex container below sections */
-.navblock-konfigurator .konfig-buttons-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: flex-start;
-    padding: 8px 10px;
-    margin-top: 4px;
-    border-top: 1px solid rgba(0,0,0,0.08);
-    list-style: none;
+/* Konfigurator button in each column */
+.navblock-konfigurator .konfig-column .btn.menu-block-button {
+    display: block;
+    margin-top: 8px;
 }
 
 nav.navbar.megamenu .mainmenu > li:hover > ul.collapse {
@@ -1329,6 +1323,9 @@ nav.navbar.megamenu .collapse {
                         <li><a href="https://www.fenstermaxx24.com/konfigurator/holz-alu-fenster" title="Holz-Alu Fenster konfigurieren">Holz-Alu Fenster</a></li>
                         <li><a href="https://www.fenstermaxx24.com/konfigurator/alu-schiebefenster" title="Schiebefenster konfigurieren">Schiebefenster</a></li>
                     </ul>
+                    <a class="btn menu-block-button" href="https://www.fenstermaxx24.com/konfigurator/konfigurator-fenster" title="Fenster konfigurieren">
+                        <span class="icon-glassmorphism icon-sage-green" style="width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" style="width:12px;height:12px;"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Zum Fenster-Konfigurator
+                    </a>
                 </div>
                 
                 <!-- Column 2: Balkontürkonfigurator -->
@@ -1341,6 +1338,9 @@ nav.navbar.megamenu .collapse {
                         <li><a href="https://www.fenstermaxx24.com/konfigurator/holz-balkontuer" title="Holz Balkontüren konfigurieren">Holz Balkontüren</a></li>
                         <li><a href="https://www.fenstermaxx24.com/konfigurator/holz-alu-balkontuer" title="Holz-Alu Balkontüren konfigurieren">Holz-Alu Balkontüren</a></li>
                     </ul>
+                    <a class="btn menu-block-button" href="https://www.fenstermaxx24.com/konfigurator/konfigurator-balkontueren" title="Balkontüren konfigurieren">
+                        <span class="icon-glassmorphism icon-sage-green" style="width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" style="width:12px;height:12px;"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Zum Balkontür-Konfigurator
+                    </a>
                 </div>
                 
                 <!-- Column 3: Terrassentürkonfigurator -->
@@ -1365,6 +1365,9 @@ nav.navbar.megamenu .collapse {
                         <li><a href="https://www.fenstermaxx24.com/konfigurator/alu-nebentuer" title="Alu Nebeneingangstüren konfigurieren">Alu Nebeneingangstüren</a></li>
                         <li><a href="https://www.fenstermaxx24.com/konfigurator/holz-nebeneingangstuer" title="Holz Nebeneingangstüren konfigurieren">Holz Nebeneingangstüren</a></li>
                     </ul>
+                    <a class="btn menu-block-button" href="https://www.fenstermaxx24.com/konfigurator/konfigurator-haustueren" title="Türen konfigurieren">
+                        <span class="icon-glassmorphism icon-sage-green" style="width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" style="width:12px;height:12px;"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Zum Türen-Konfigurator
+                    </a>
                 </div>
                 
                 <!-- Column 5: Rolladenkonfigurator -->
@@ -1377,23 +1380,11 @@ nav.navbar.megamenu .collapse {
                         <li><a href="https://www.fenstermaxx24.com/konfigurator/raffstores" title="Raffstore konfigurieren">Raffstore</a></li>
                         <li><a href="https://www.fenstermaxx24.com/konfigurator/alu-insektenschutz-plissee" title="Insektenschutz-Plissee konfigurieren">Insektenschutz-Plissee</a></li>
                     </ul>
+                    <a class="btn menu-block-button" href="https://www.fenstermaxx24.com/konfigurator/konfigurator-aufsatzrollladen" title="Rollladen konfigurieren">
+                        <span class="icon-glassmorphism icon-sage-green" style="width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" style="width:12px;height:12px;"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Zum Rollladen-Konfigurator
+                    </a>
                 </div>
             </div>
-        </li>
-        <!-- Buttons Row: All 4 CTA buttons in one row below sections -->
-        <li class="konfig-buttons-row">
-            <a class="btn menu-block-button" href="https://www.fenstermaxx24.com/konfigurator/konfigurator-fenster" title="Fenster konfigurieren">
-                <span class="icon-glassmorphism icon-sage-green" style="width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" style="width:12px;height:12px;"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Zum Fenster-Konfigurator
-            </a>
-            <a class="btn menu-block-button" href="https://www.fenstermaxx24.com/konfigurator/konfigurator-balkontueren" title="Balkontüren konfigurieren">
-                <span class="icon-glassmorphism icon-sage-green" style="width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" style="width:12px;height:12px;"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Zum Balkontür-Konfigurator
-            </a>
-            <a class="btn menu-block-button" href="https://www.fenstermaxx24.com/konfigurator/konfigurator-haustueren" title="Türen konfigurieren">
-                <span class="icon-glassmorphism icon-sage-green" style="width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" style="width:12px;height:12px;"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Zum Türen-Konfigurator
-            </a>
-            <a class="btn menu-block-button" href="https://www.fenstermaxx24.com/konfigurator/konfigurator-aufsatzrollladen" title="Rollladen konfigurieren">
-                <span class="icon-glassmorphism icon-sage-green" style="width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" style="width:12px;height:12px;"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Zum Rollladen-Konfigurator
-            </a>
         </li>
     </ul>
 </li>
