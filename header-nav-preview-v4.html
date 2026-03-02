@@ -157,7 +157,7 @@
         .nav-item.balkontueren .dropdown {
             min-height: 110px;
             max-height: 150px;
-            width: 320px; /* reduced by 60% (40% of 800px) */
+            width: 330px; /* 320px + 10px for button text to fit */
             /* Force center - not affected by edge detection */
             left: 50% !important;
             right: auto !important;
@@ -191,16 +191,16 @@
         /* Türen: narrower, shorter by 2cm (~76px), smaller gap between sections */
         .nav-item.tueren .dropdown {
             width: 650px; /* narrower to fit 2 sections closer */
-            min-height: 244px; /* reduced by 76px from 320px */
-            max-height: 284px; /* reduced by 76px from 360px */
+            min-height: 183px; /* 244px reduced by 25% */
+            max-height: 213px; /* 284px reduced by 25% */
         }
         .nav-item.tueren .dropdown-inner {
             gap: 20px; /* smaller gap between 2 sections */
         }
         /* Rollläden: decrease by 80px */
         .nav-item.rolllaeden .dropdown {
-            min-height: 270px;
-            max-height: 320px;
+            min-height: 202px; /* 270px reduced by 25% */
+            max-height: 240px; /* 320px reduced by 25% */
         }
         /* Fenster: compact size (reduced by ~70% since only 1 link per column) */
         .nav-item.fenster .dropdown {
