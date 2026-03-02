@@ -153,10 +153,11 @@
         }
         
         /* SPECIFIC CONTAINER HEIGHTS */
-        /* Balkontüren: decrease by 40px - FORCE CENTERED */
+        /* Balkontüren: decrease by 40px, width reduced by 60% - FORCE CENTERED */
         .nav-item.balkontueren .dropdown {
             min-height: 310px;
             max-height: 360px;
+            width: 320px; /* reduced by 60% (40% of 800px) */
             /* Force center - not affected by edge detection */
             left: 50% !important;
             right: auto !important;
@@ -187,9 +188,14 @@
             left: 50%;
             transform: translateX(-50%);
         }
-        /* Türen: wider for Nebeneingangstüren links */
+        /* Türen: narrower, shorter by 2cm (~76px), smaller gap between sections */
         .nav-item.tueren .dropdown {
-            width: 950px; /* wider to fit long links on 1 line */
+            width: 650px; /* narrower to fit 2 sections closer */
+            min-height: 244px; /* reduced by 76px from 320px */
+            max-height: 284px; /* reduced by 76px from 360px */
+        }
+        .nav-item.tueren .dropdown-inner {
+            gap: 20px; /* smaller gap between 2 sections */
         }
         /* Rollläden: decrease by 80px */
         .nav-item.rolllaeden .dropdown {
@@ -397,7 +403,6 @@
                                     <a href="https://www.fenstermaxx24.com/fenster/aluminium-fenster">Aluminium Fenster</a>
                                     <a href="https://www.fenstermaxx24.com/fenster/holz-alu-fenster">Holz Alu Fenster</a>
                                     <a href="https://www.fenstermaxx24.com/inhalte/produkte/pvc-fenster">PVC Fenster</a>
-                                    <a href="https://www.fenstermaxx24.com/shop/lagerware/fenster">Fenster Sonderposten</a>
                                 </div>
                                 <a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-fenster" class="section-btn">
                                     <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -412,8 +417,6 @@
                                     <a href="https://www.fenstermaxx24.com/fenster/aluplast">Aluplast Fenster</a>
                                     <a href="https://www.fenstermaxx24.com/fenster/salamander">Salamander Fenster</a>
                                     <a href="https://www.fenstermaxx24.com/fenster/veka">Veka Fenster</a>
-                                    <a href="https://www.fenstermaxx24.com/fenster/trocal">Trocal Fenster</a>
-                                    <a href="https://www.fenstermaxx24.com/fenster/koemmerling">Kömmerling Fenster</a>
                                     <a href="https://www.fenstermaxx24.com/fenster/schueco">Schüco Fenster</a>
                                 </div>
                                 <a href="https://www.fenstermaxx24.com/fensterhersteller" class="section-btn">
