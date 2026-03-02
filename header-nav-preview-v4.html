@@ -208,12 +208,12 @@
         .nav-item.tueren .dropdown-inner {
             gap: 12px; /* sections even closer together for narrower width */
         }
-        /* Rollläden: decrease by 80px, width reduced by 30% (800 → 560px) - ALIGN TO RIGHT SCREEN EDGE */
+        /* Rollläden: decrease by 80px, width +15px to fit text - ALIGN RIGHT EDGE TO SCREEN RIGHT */
         .nav-item.rolllaeden .dropdown {
             min-height: 202px; /* 270px reduced by 25% */
             max-height: 240px; /* 320px reduced by 25% */
-            width: 560px;
-            /* Force right edge alignment - dropdown ends at screen right */
+            width: 575px; /* 560px + 15px to fit all words */
+            /* Force right edge alignment - dropdown right edge touches screen right */
             left: auto !important;
             right: 0 !important;
             transform: translateY(-10px) scale(0.98) !important;
@@ -229,22 +229,22 @@
         .nav-item.rolllaeden .dropdown-inner {
             gap: 15px; /* sections closer together */
         }
-        /* Fenster: compact size, width reduced by 30% (800 → 560px) - ALIGN TO LEFT SCREEN EDGE */
+        /* Fenster: compact size, width reduced by 30% (800 → 560px) - FORCE CENTERED */
         .nav-item.fenster .dropdown {
             min-height: 110px;
             max-height: 150px;
             width: 560px;
-            /* Force left edge alignment - dropdown starts at screen left */
-            left: 0 !important;
+            /* Force center - not affected by edge detection */
+            left: 50% !important;
             right: auto !important;
-            transform: translateY(-10px) scale(0.98) !important;
-            border-radius: 0 0 8px 0;
+            transform: translateX(-50%) translateY(-10px) scale(0.98) !important;
         }
         .nav-item.fenster:hover .dropdown {
-            transform: translateY(0) scale(1) !important;
+            transform: translateX(-50%) translateY(0) scale(1) !important;
         }
         .nav-item.fenster .dropdown::before {
-            left: 80px;
+            left: 50%;
+            transform: translateX(-50%);
         }
         .nav-item.fenster .dropdown-inner {
             gap: 15px; /* sections closer together */
