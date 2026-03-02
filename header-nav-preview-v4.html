@@ -36,7 +36,7 @@
         }
         .nav-link {
             display: block;
-            padding: 13px 20px; /* Reduced from 15px (15% less height) */
+            padding: 9px 20px; /* Reduced by 2mm more (~4px per side) for sleeker look */
             color: #ffffff;
             font-size: 14px;
             font-weight: 600;
@@ -305,13 +305,19 @@
             font-size: 14px;
             font-weight: 500;
             color: #333333;
-            padding: 3px 0; /* 25% less: was 4px */
-            transition: color 0.2s;
+            padding: 3px 6px; /* Added horizontal padding for glow effect */
+            margin-left: -6px; /* Compensate for added padding */
+            border-radius: 4px;
+            transition: all 0.25s ease;
             font-family: 'Berlin Sans FB Demi', 'Segoe UI Semibold', 'Arial Black', sans-serif;
             white-space: nowrap; /* Prevent link text wrapping */
+            position: relative;
         }
         .section-links a:hover { 
-            color: #6690CC; 
+            color: #333333; /* Stay black, no blue */
+            font-weight: 700; /* Bold on hover */
+            background: radial-gradient(ellipse at center, rgba(102, 144, 204, 0.25) 0%, transparent 70%);
+            text-shadow: 0 0 8px rgba(102, 144, 204, 0.4); /* Light blue glow */
         }
         .section-btn {
             margin-top: 11px; /* 25% less: was 15px */
