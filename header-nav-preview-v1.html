@@ -228,34 +228,22 @@
         .nav-item.tueren .dropdown-inner {
             gap: 12px; /* sections even closer together for narrower width */
         }
-        /* Rollläden: decrease by 80px, width +15px to fit text - CENTERED but constrained to screen right */
+        /* Rollläden: decrease by 80px, width +15px to fit text - JavaScript edge detection */
         .nav-item.rolllaeden .dropdown {
             min-height: 202px; /* 270px reduced by 25% */
             max-height: 240px; /* 320px reduced by 25% */
             width: 575px; /* 560px + 15px to fit all words */
-            /* Centered by default, JS will constrain if needed */
-            left: 50%;
-            transform: translateX(-50%) translateY(-10px) scale(0.98);
-        }
-        .nav-item.rolllaeden:hover .dropdown {
-            transform: translateX(-50%) translateY(0) scale(1);
-        }
-        /* When constrained to right edge */
-        .nav-item.rolllaeden.constrained-right .dropdown {
-            left: auto !important;
-            right: 0 !important;
-            transform: translateY(-10px) scale(0.98) !important;
-            border-radius: 0 0 0 8px;
-        }
-        .nav-item.rolllaeden.constrained-right:hover .dropdown {
-            transform: translateY(0) scale(1) !important;
-        }
-        .nav-item.rolllaeden.constrained-right .dropdown::before {
-            left: auto;
-            right: 80px;
         }
         .nav-item.rolllaeden .dropdown-inner {
             gap: 15px; /* sections closer together */
+        }
+        /* When JavaScript detects right edge constraint */
+        .nav-item.rolllaeden.edge-right .dropdown {
+            border-radius: 0 0 0 8px; /* Only left corner rounded */
+        }
+        .nav-item.rolllaeden.edge-right .dropdown::before {
+            left: auto;
+            right: 30px;
         }
         /* Fenster: compact size, width reduced by 30% (800 → 560px) - FORCE CENTERED */
         .nav-item.fenster .dropdown {
@@ -326,11 +314,11 @@
             align-items: center;
             gap: 6px;
             padding: 8px 14px; /* 25% less vertical: was 10px */
-            /* Glassmorphism effect with light blue */
-            background: linear-gradient(135deg, rgba(102, 144, 204, 0.4) 0%, rgba(102, 144, 204, 0.15) 100%);
+            /* Glassmorphism effect with MORE POTENT light blue */
+            background: linear-gradient(135deg, rgba(102, 144, 204, 0.6) 0%, rgba(102, 144, 204, 0.35) 100%);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(102, 144, 204, 0.3);
+            border: 1px solid rgba(102, 144, 204, 0.5);
             color: #333333; /* Dark text for contrast on glass */
             font-size: 13px; /* 1px less: was 14px */
             font-weight: 600;
@@ -339,14 +327,14 @@
             width: fit-content;
             font-family: 'Berlin Sans FB Demi', 'Segoe UI Semibold', 'Arial Black', sans-serif;
             box-shadow: 
-                0 4px 15px rgba(102, 144, 204, 0.2),
+                0 4px 15px rgba(102, 144, 204, 0.35),
                 inset 0 1px 0 rgba(255, 255, 255, 0.4); /* Glass highlight */
         }
         .section-btn:hover {
-            background: linear-gradient(135deg, rgba(102, 144, 204, 0.55) 0%, rgba(102, 144, 204, 0.25) 100%);
+            background: linear-gradient(135deg, rgba(102, 144, 204, 0.75) 0%, rgba(102, 144, 204, 0.45) 100%);
             transform: translateY(-2px);
             box-shadow: 
-                0 6px 20px rgba(102, 144, 204, 0.35),
+                0 6px 20px rgba(102, 144, 204, 0.5),
                 inset 0 1px 0 rgba(255, 255, 255, 0.5);
         }
         .section-btn svg { 
@@ -442,6 +430,9 @@
                                     <a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-hebe-schiebe-tueren-hs">Hebe-Schiebetüren</a>
                                     <a href="https://www.fenstermaxx24.com/konfigurator/alu-faltschiebetuer">Falt-Schiebetüren</a>
                                 </div>
+                                <a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-parallel-schiebe-kipp-tueren-psk/" class="section-btn" target="_blank">
+                                    Zum Terassen-Konfigurator
+                                </a>
                             </div>
 
                             <!-- Column 4: Türenkonfigurator -->
@@ -601,7 +592,7 @@
                                     <a href="#FenTuRo-Rolllaeden-Uebersicht">Rollläden Übersicht</a>
                                     <a href="#FenTuRo-Rolllaeden-Hersteller">Rollläden Hersteller</a>
                                 </div>
-                                <a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-aufsatzrollladen" class="section-btn">Zum Rollläden Konfigurator</a>
+                                <a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-aufsatzrollladen" class="section-btn">Zum Rollladen Konfigurator</a>
                             </div>
                             <div class="section-col">
                                 <h3 class="section-header">Rollladen Konfiguratoren</h3>
@@ -609,7 +600,7 @@
                                     <a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-aufsatzrollladen">Aufsatzrollladen Konfigurator</a>
                                     <a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-vorsatzrollladen">Vorsatzrollladen Konfigurator</a>
                                     <a href="https://www.fenstermaxx24.com/konfigurator/raffstores">Raffstore Konfigurator</a>
-                                    <a href="https://www.fenstermaxx24.com/konfigurator/alu-insektenschutz-plissee">Insektenschutz-Plissee Konfigurator</a>
+                                    <a href="https://www.fenstermaxx24.com/konfigurator/alu-insektenschutz-plissee">Insektenschutz Konfigurator</a>
                                 </div>
                             </div>
                         </div>
@@ -627,38 +618,15 @@
          * - Default: Center dropdown below nav item
          * - If left edge would go off-screen: ALIGN LEFT EDGE TO SCREEN LEFT (left: 0 fixed)
          * - If right edge would go off-screen: ALIGN RIGHT EDGE TO SCREEN RIGHT (right: 0 fixed)
+         * - Applies to: rolllaeden (will trigger right edge detection)
          */
         function positionDropdowns() {
             const viewportWidth = window.innerWidth;
             
-            // SPECIAL HANDLING FOR ROLLLÄDEN: Try to center, but constrain to right edge
-            const rolllaeden = document.querySelector('.nav-item.rolllaeden');
-            if (rolllaeden) {
-                const dropdown = rolllaeden.querySelector('.dropdown');
-                if (dropdown) {
-                    const navRect = rolllaeden.getBoundingClientRect();
-                    const navCenter = navRect.left + (navRect.width / 2);
-                    const dropdownWidth = 575; // Fixed width
-                    
-                    // Calculate where centered dropdown would be
-                    const centeredLeft = navCenter - (dropdownWidth / 2);
-                    const centeredRight = navCenter + (dropdownWidth / 2);
-                    
-                    // Check if centered would go off right edge
-                    if (centeredRight > viewportWidth) {
-                        // Would go off right edge → constrain to right
-                        rolllaeden.classList.add('constrained-right');
-                    } else {
-                        // Can center normally
-                        rolllaeden.classList.remove('constrained-right');
-                    }
-                }
-            }
-            
             // Only apply edge detection to items that need it
-            // SKIP: All items now have force positioning via CSS
-            // konfigurator (full width), fenster, rolllaeden, balkontueren, terrassentueren, tueren (centered)
-            const navItems = document.querySelectorAll('.nav-item:not(.konfigurator):not(.balkontueren):not(.terrassentueren):not(.tueren):not(.fenster):not(.rolllaeden)');
+            // SKIP: konfigurator (full width), fenster, balkontueren, terrassentueren, tueren (force centered)
+            // INCLUDE: rolllaeden (JavaScript edge detection - right edge = screen right)
+            const navItems = document.querySelectorAll('.nav-item:not(.konfigurator):not(.balkontueren):not(.terrassentueren):not(.tueren):not(.fenster)');
             
             navItems.forEach(navItem => {
                 const dropdown = navItem.querySelector('.dropdown');
