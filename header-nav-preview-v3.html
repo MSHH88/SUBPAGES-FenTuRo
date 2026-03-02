@@ -153,16 +153,39 @@
         }
         
         /* SPECIFIC CONTAINER HEIGHTS */
-        /* Balkontüren: decrease by 40px */
+        /* Balkontüren: decrease by 40px - FORCE CENTERED */
         .nav-item.balkontueren .dropdown {
             min-height: 310px;
             max-height: 360px;
+            /* Force center - not affected by edge detection */
+            left: 50% !important;
+            right: auto !important;
+            transform: translateX(-50%) translateY(-10px) scale(0.98) !important;
         }
-        /* Terrassentüren: decrease by 80px, wider for PSK header */
+        .nav-item.balkontueren:hover .dropdown {
+            transform: translateX(-50%) translateY(0) scale(1) !important;
+        }
+        .nav-item.balkontueren .dropdown::before {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Terrassentüren: decrease by 80px, wider for PSK header - FORCE CENTERED */
         .nav-item.terrassentueren .dropdown {
             min-height: 270px;
             max-height: 320px;
             width: 900px; /* wider to fit "Parallel-Schiebe-Kipp-Türen (PSK)" on 1 line */
+            /* Force center - not affected by edge detection */
+            left: 50% !important;
+            right: auto !important;
+            transform: translateX(-50%) translateY(-10px) scale(0.98) !important;
+        }
+        .nav-item.terrassentueren:hover .dropdown {
+            transform: translateX(-50%) translateY(0) scale(1) !important;
+        }
+        .nav-item.terrassentueren .dropdown::before {
+            left: 50%;
+            transform: translateX(-50%);
         }
         /* Türen: wider for Nebeneingangstüren links */
         .nav-item.tueren .dropdown {
@@ -552,7 +575,9 @@
          * - If right edge would go off-screen: ALIGN RIGHT EDGE TO SCREEN RIGHT (right: 0 fixed)
          */
         function positionDropdowns() {
-            const navItems = document.querySelectorAll('.nav-item:not(.konfigurator)');
+            // Only apply edge detection to items that need it
+            // SKIP: konfigurator (full width), balkontueren and terrassentueren (force centered)
+            const navItems = document.querySelectorAll('.nav-item:not(.konfigurator):not(.balkontueren):not(.terrassentueren)');
             const viewportWidth = window.innerWidth;
             
             navItems.forEach(navItem => {
