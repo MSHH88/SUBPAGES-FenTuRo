@@ -188,24 +188,32 @@
             left: 50%;
             transform: translateX(-50%);
         }
-        /* Türen: narrower, shorter by 2cm (~76px), smaller gap between sections */
+        /* Türen: narrower by 15% (650 → 552px), shorter by 2cm (~76px), smaller gap between sections */
         .nav-item.tueren .dropdown {
-            width: 650px; /* narrower to fit 2 sections closer */
+            width: 552px; /* 650px reduced by 15% */
             min-height: 183px; /* 244px reduced by 25% */
             max-height: 213px; /* 284px reduced by 25% */
         }
         .nav-item.tueren .dropdown-inner {
-            gap: 20px; /* smaller gap between 2 sections */
+            gap: 12px; /* sections even closer together for narrower width */
         }
-        /* Rollläden: decrease by 80px */
+        /* Rollläden: decrease by 80px, width reduced by 30% (800 → 560px) */
         .nav-item.rolllaeden .dropdown {
             min-height: 202px; /* 270px reduced by 25% */
             max-height: 240px; /* 320px reduced by 25% */
+            width: 560px;
         }
-        /* Fenster: compact size (reduced by ~70% since only 1 link per column) */
+        .nav-item.rolllaeden .dropdown-inner {
+            gap: 15px; /* sections closer together */
+        }
+        /* Fenster: compact size, width reduced by 30% (800 → 560px) */
         .nav-item.fenster .dropdown {
             min-height: 110px;
             max-height: 150px;
+            width: 560px;
+        }
+        .nav-item.fenster .dropdown-inner {
+            gap: 15px; /* sections closer together */
         }
 
         /* SECTION COLUMN */
