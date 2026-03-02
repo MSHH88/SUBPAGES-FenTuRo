@@ -228,27 +228,22 @@
         .nav-item.tueren .dropdown-inner {
             gap: 12px; /* sections even closer together for narrower width */
         }
-        /* Rollläden: decrease by 80px, width +15px to fit text - FORCE RIGHT EDGE */
+        /* Rollläden: decrease by 80px, width +15px to fit text - JavaScript edge detection */
         .nav-item.rolllaeden .dropdown {
             min-height: 202px; /* 270px reduced by 25% */
             max-height: 240px; /* 320px reduced by 25% */
             width: 575px; /* 560px + 15px to fit all words */
-            /* Force right edge - right side of box touches right side of screen */
-            left: auto !important;
-            right: 0 !important;
-            transform: translateY(-10px) scale(0.98);
-            border-radius: 0 0 0 8px; /* Only left corner rounded */
-        }
-        .nav-item.rolllaeden:hover .dropdown {
-            transform: translateY(0) scale(1);
-        }
-        /* Arrow positioned toward right side */
-        .nav-item.rolllaeden .dropdown::before {
-            left: auto;
-            right: 30px;
         }
         .nav-item.rolllaeden .dropdown-inner {
             gap: 15px; /* sections closer together */
+        }
+        /* When JavaScript detects right edge constraint */
+        .nav-item.rolllaeden.edge-right .dropdown {
+            border-radius: 0 0 0 8px; /* Only left corner rounded */
+        }
+        .nav-item.rolllaeden.edge-right .dropdown::before {
+            left: auto;
+            right: 30px;
         }
         /* Fenster: compact size, width reduced by 30% (800 → 560px) - FORCE CENTERED */
         .nav-item.fenster .dropdown {
@@ -623,17 +618,15 @@
          * - Default: Center dropdown below nav item
          * - If left edge would go off-screen: ALIGN LEFT EDGE TO SCREEN LEFT (left: 0 fixed)
          * - If right edge would go off-screen: ALIGN RIGHT EDGE TO SCREEN RIGHT (right: 0 fixed)
+         * - Applies to: rolllaeden (will trigger right edge detection)
          */
         function positionDropdowns() {
             const viewportWidth = window.innerWidth;
             
-            // ROLLLÄDEN: Now using CSS-only positioning (force right edge)
-            // No JavaScript needed anymore
-            
             // Only apply edge detection to items that need it
-            // SKIP: All items now have force positioning via CSS
-            // konfigurator (full width), fenster, rolllaeden, balkontueren, terrassentueren, tueren (centered)
-            const navItems = document.querySelectorAll('.nav-item:not(.konfigurator):not(.balkontueren):not(.terrassentueren):not(.tueren):not(.fenster):not(.rolllaeden)');
+            // SKIP: konfigurator (full width), fenster, balkontueren, terrassentueren, tueren (force centered)
+            // INCLUDE: rolllaeden (JavaScript edge detection - right edge = screen right)
+            const navItems = document.querySelectorAll('.nav-item:not(.konfigurator):not(.balkontueren):not(.terrassentueren):not(.tueren):not(.fenster)');
             
             navItems.forEach(navItem => {
                 const dropdown = navItem.querySelector('.dropdown');
