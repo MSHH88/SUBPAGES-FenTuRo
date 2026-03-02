@@ -153,11 +153,11 @@
         }
         
         /* SPECIFIC CONTAINER HEIGHTS */
-        /* Balkontüren: decrease by 40px, width reduced by 60% - FORCE CENTERED */
+        /* Balkontüren: same height as Fenster, width reduced by 60% - FORCE CENTERED */
         .nav-item.balkontueren .dropdown {
-            min-height: 310px;
-            max-height: 360px;
-            width: 320px; /* reduced by 60% (40% of 800px) */
+            min-height: 110px;
+            max-height: 150px;
+            width: 330px; /* 320px + 10px for button text to fit */
             /* Force center - not affected by edge detection */
             left: 50% !important;
             right: auto !important;
@@ -171,11 +171,11 @@
             transform: translateX(-50%);
         }
         
-        /* Terrassentüren: decrease by 80px, wider for PSK header - FORCE CENTERED */
+        /* Terrassentüren: simplified, 3 columns with buttons - FORCE CENTERED */
         .nav-item.terrassentueren .dropdown {
-            min-height: 270px;
-            max-height: 320px;
-            width: 900px; /* wider to fit "Parallel-Schiebe-Kipp-Türen (PSK)" on 1 line */
+            min-height: 150px;
+            max-height: 200px;
+            width: 826px; /* 700px + 18% to fit all text */
             /* Force center - not affected by edge detection */
             left: 50% !important;
             right: auto !important;
@@ -188,19 +188,66 @@
             left: 50%;
             transform: translateX(-50%);
         }
-        /* Türen: narrower, shorter by 2cm (~76px), smaller gap between sections */
+        /* Türen: narrower by 15% (650 → 552px), shorter by 2cm (~76px), smaller gap between sections - FORCE CENTERED */
         .nav-item.tueren .dropdown {
-            width: 650px; /* narrower to fit 2 sections closer */
-            min-height: 244px; /* reduced by 76px from 320px */
-            max-height: 284px; /* reduced by 76px from 360px */
+            width: 552px; /* 650px reduced by 15% */
+            min-height: 183px; /* 244px reduced by 25% */
+            max-height: 213px; /* 284px reduced by 25% */
+            /* Force center - not affected by edge detection */
+            left: 50% !important;
+            right: auto !important;
+            transform: translateX(-50%) translateY(-10px) scale(0.98) !important;
+        }
+        .nav-item.tueren:hover .dropdown {
+            transform: translateX(-50%) translateY(0) scale(1) !important;
+        }
+        .nav-item.tueren .dropdown::before {
+            left: 50%;
+            transform: translateX(-50%);
         }
         .nav-item.tueren .dropdown-inner {
-            gap: 20px; /* smaller gap between 2 sections */
+            gap: 12px; /* sections even closer together for narrower width */
         }
-        /* Rollläden: decrease by 80px */
+        /* Rollläden: decrease by 80px, width reduced by 30% (800 → 560px) - ALIGN TO RIGHT SCREEN EDGE */
         .nav-item.rolllaeden .dropdown {
-            min-height: 270px;
-            max-height: 320px;
+            min-height: 202px; /* 270px reduced by 25% */
+            max-height: 240px; /* 320px reduced by 25% */
+            width: 560px;
+            /* Force right edge alignment - dropdown ends at screen right */
+            left: auto !important;
+            right: 0 !important;
+            transform: translateY(-10px) scale(0.98) !important;
+            border-radius: 0 0 0 8px;
+        }
+        .nav-item.rolllaeden:hover .dropdown {
+            transform: translateY(0) scale(1) !important;
+        }
+        .nav-item.rolllaeden .dropdown::before {
+            left: auto;
+            right: 80px;
+        }
+        .nav-item.rolllaeden .dropdown-inner {
+            gap: 15px; /* sections closer together */
+        }
+        /* Fenster: compact size, width reduced by 30% (800 → 560px) - ALIGN TO LEFT SCREEN EDGE */
+        .nav-item.fenster .dropdown {
+            min-height: 110px;
+            max-height: 150px;
+            width: 560px;
+            /* Force left edge alignment - dropdown starts at screen left */
+            left: 0 !important;
+            right: auto !important;
+            transform: translateY(-10px) scale(0.98) !important;
+            border-radius: 0 0 8px 0;
+        }
+        .nav-item.fenster:hover .dropdown {
+            transform: translateY(0) scale(1) !important;
+        }
+        .nav-item.fenster .dropdown::before {
+            left: 80px;
+        }
+        .nav-item.fenster .dropdown-inner {
+            gap: 15px; /* sections closer together */
         }
 
         /* SECTION COLUMN */
@@ -397,12 +444,7 @@
                             <div class="section-col">
                                 <h3 class="section-header">Fenster</h3>
                                 <div class="section-links">
-                                    <a href="https://www.fenstermaxx24.com/fenster/kunststofffenster">Kunststofffenster</a>
-                                    <a href="https://www.fenstermaxx24.com/fenster/kunststoff-alu-fenster">Kunststoff-Alu Fenster</a>
-                                    <a href="https://www.fenstermaxx24.com/fenster/holzfenster">Holzfenster</a>
-                                    <a href="https://www.fenstermaxx24.com/fenster/aluminium-fenster">Aluminium Fenster</a>
-                                    <a href="https://www.fenstermaxx24.com/fenster/holz-alu-fenster">Holz Alu Fenster</a>
-                                    <a href="https://www.fenstermaxx24.com/inhalte/produkte/pvc-fenster">PVC Fenster</a>
+                                    <a href="#fenturo-fenster-material-uebersicht">Material Übersicht</a>
                                 </div>
                                 <a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-fenster" class="section-btn">
                                     <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -412,12 +454,7 @@
                             <div class="section-col">
                                 <h3 class="section-header">Fensterhersteller</h3>
                                 <div class="section-links">
-                                    <a href="https://www.fenstermaxx24.com/fenster/drutex">Drutex Fenster</a>
-                                    <a href="https://www.fenstermaxx24.com/fenster/gealan">Gealan Fenster</a>
-                                    <a href="https://www.fenstermaxx24.com/fenster/aluplast">Aluplast Fenster</a>
-                                    <a href="https://www.fenstermaxx24.com/fenster/salamander">Salamander Fenster</a>
-                                    <a href="https://www.fenstermaxx24.com/fenster/veka">Veka Fenster</a>
-                                    <a href="https://www.fenstermaxx24.com/fenster/schueco">Schüco Fenster</a>
+                                    <a href="#fenturo-fenster-hersteller-uebersicht">Hersteller Übersicht</a>
                                 </div>
                                 <a href="https://www.fenstermaxx24.com/fensterhersteller" class="section-btn">
                                     <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -436,12 +473,7 @@
                             <div class="section-col">
                                 <h3 class="section-header">Balkontüren</h3>
                                 <div class="section-links">
-                                    <a href="https://www.fenstermaxx24.com/balkontueren/kunststoff-balkontuer">Kunststoff Balkontüren</a>
-                                    <a href="https://www.fenstermaxx24.com/balkontueren/balkontueren-aus-holz">Holz Balkontüren</a>
-                                    <a href="https://www.fenstermaxx24.com/balkontueren/balkontueren-aus-aluminium">Aluminium Balkontüren</a>
-                                    <a href="https://www.fenstermaxx24.com/balkontueren/balkontueren-aus-holz-aluminium">Holz Alu Balkontüren</a>
-                                    <a href="https://www.fenstermaxx24.com/balkontueren/kunststoff-alu">Kunststoff Aluminium Balkontüren</a>
-                                    <a href="https://www.fenstermaxx24.com/shop/lagerware/balkontueren">Balkontüren Sonderposten</a>
+                                    <a href="#FenTuRo-Balkontüren-Material-Übersicht">Material Übersicht</a>
                                 </div>
                                 <a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-balkontueren" class="section-btn">
                                     <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -461,31 +493,23 @@
                                 <h3 class="section-header">Parallel-Schiebe-Kipp-Türen</h3>
                                 <div class="section-links">
                                     <a href="https://www.fenstermaxx24.com/terrassentueren/parallel-schiebe-kipp-tueren">PSK-Türen Übersicht</a>
-                                    <a href="https://www.fenstermaxx24.com/terrassentueren/parallel-schiebe-kipp-tueren/psk-tueren-aus-kunststoff">PSK Tür - Kunststoff</a>
-                                    <a href="https://www.fenstermaxx24.com/terrassentueren/parallel-schiebe-kipp-tueren/parallel-kipp-schiebetueren-aus-holz">PSK Tür - Holz</a>
-                                    <a href="https://www.fenstermaxx24.com/terrassentueren/parallel-schiebe-kipp-tueren/parallel-kipp-schiebetueren-aluminium">PSK Tür - Aluminium</a>
-                                    <a href="https://www.fenstermaxx24.com/terrassentueren/parallel-schiebe-kipp-tueren/parallel-kipp-schiebetueren-aus-holz-aluminium">PSK Tür - Holz-Aluminium</a>
                                 </div>
+                                <a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-parallel-schiebe-kipp-tueren-psk/" class="section-btn" target="_blank">Zum PSK Konfigurator</a>
                             </div>
                             <div class="section-col">
                                 <h3 class="section-header">Hebeschiebetüren (HST)</h3>
                                 <div class="section-links">
                                     <a href="https://www.fenstermaxx24.com/terrassentueren/hebe-schiebe-tueren">HST-Türen Übersicht</a>
-                                    <a href="https://www.fenstermaxx24.com/terrassentueren/hebe-schiebe-tueren/hs-tueren-aus-kunststoff">HS-Tür - Kunststoff</a>
-                                    <a href="https://www.fenstermaxx24.com/terrassentueren/hebe-schiebe-tueren/hebe-schiebetueren-holz">HS-Tür - Holz</a>
-                                    <a href="https://www.fenstermaxx24.com/terrassentueren/hebe-schiebe-tueren/hs-tueren-aus-aluminium">HS-Tür - Aluminium</a>
-                                    <a href="https://www.fenstermaxx24.com/terrassentueren/hebe-schiebe-tueren/hs-tueren-aus-holz-aluminium">HS-Tür - Holz-Alu</a>
                                 </div>
+                                <a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-hebe-schiebe-tueren-hs/" class="section-btn" target="_blank">Zum HST Konfigurator</a>
                             </div>
                             <div class="section-col">
                                 <h3 class="section-header">Weitere</h3>
                                 <div class="section-links">
-                                    <a href="https://www.fenstermaxx24.com/terrassentueren/faltanlagen">Faltschiebetüren (FST) / Faltanlagen</a>
-                                    <a href="https://www.fenstermaxx24.com/terrassentueren/faltanlagen/faltanlagen-aus-holz">FST Tür - Holz</a>
-                                    <a href="https://www.fenstermaxx24.com/terrassentueren/faltanlagen/faltanlagen-aus-aluminium">FST Tür - Aluminium</a>
+                                    <a href="https://www.fenstermaxx24.com/terrassentueren/faltanlagen">Faltschiebetüren (FST) Übersicht</a>
                                     <a href="https://www.fenstermaxx24.com/terrassentueren/wintergaerten">Wintergärten</a>
-                                    <a href="https://www.fenstermaxx24.com/shop/lagerware/schiebetueren">Sonderposten Schiebetüren</a>
                                 </div>
+                                <a href="https://www.fenstermaxx24.com/konfigurator/alu-faltschiebetuer/" class="section-btn" target="_blank">Zum FST Konfigurator</a>
                             </div>
                         </div>
                     </div>
@@ -499,14 +523,9 @@
                             <div class="section-col">
                                 <h3 class="section-header">Haustüren &amp; Hersteller</h3>
                                 <div class="section-links">
-                                    <a href="https://www.fenstermaxx24.com/tueren/haustueren">Haustüren Übersicht</a>
-                                    <a href="https://www.fenstermaxx24.com/pirnar-haustueren/">PIRNAR Türen</a>
-                                    <a href="https://www.fenstermaxx24.com/shop/produktionsware/nebeneingangstueren/fm/fm-aluminium-stahl-tueren">FM Türen</a>
+                                    <a href="#FenTuRo-Tueren-Material-Uebersicht">Material Übersicht</a>
+                                    <a href="#FenTuRo-Tueren-Hersteller-Uebersicht">Hersteller Übersicht</a>
                                 </div>
-                                <a href="https://www.haven-exclusive.com" target="_blank" class="section-btn">
-                                    <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                    HAVEN Exclusive
-                                </a>
                                 <a href="https://www.fenstermaxx24.com/konfigurator#jump_tueren" class="section-btn">
                                     <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                                     Zum Türen-Konfigurator
@@ -516,12 +535,12 @@
                                 <h3 class="section-header">Nebeneingangstüren</h3>
                                 <div class="section-links">
                                     <a href="https://www.fenstermaxx24.com/tueren/nebeneingangstueren">Nebeneingangstüren Übersicht</a>
-                                    <a href="https://www.fenstermaxx24.com/tueren/nebeneingangstueren/nebeneingangstueren-aus-kunststoff">Nebeneingangstüren Kunststoff</a>
-                                    <a href="https://www.fenstermaxx24.com/tueren/nebeneingangstueren/nebeneingangstueren-aus-holz">Nebeneingangstüren Holz</a>
-                                    <a href="https://www.fenstermaxx24.com/tueren/nebeneingangstueren/nebeneingangstueren-aus-aluminium">Nebeneingangstüren Aluminium</a>
-                                    <a href="https://www.fenstermaxx24.com/shop/lagerware/nebeneingangstueren">Nebeneingangstüren Sonderposten</a>
                                     <a href="https://www.fenstermaxx24.com/tueren/brandschutztueren">Brandschutztüren</a>
                                 </div>
+                                <a href="https://www.haven-exclusive.com" target="_blank" class="section-btn">
+                                    <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                    HAVEN Exclusive
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -535,17 +554,15 @@
                             <div class="section-col">
                                 <h3 class="section-header">Rollläden</h3>
                                 <div class="section-links">
-                                    <a href="https://www.fenstermaxx24.com/rolllaeden/aufsatzrolllaeden-aus-kunststoff">Kunststoff Aufsatzrollläden</a>
-                                    <a href="https://www.fenstermaxx24.com/rolllaeden/aufsatzrolllaeden-aus-kunststoff/aufsatzrollladen-rs-styropor">Styropor Aufsatzrollladen</a>
-                                    <a href="https://www.fenstermaxx24.com/rolllaeden/adaptionsrolllaeden-aus-aluminium">Aluminium Vorsatzrollladen</a>
-                                    <a href="https://www.fenstermaxx24.com/shop/lagerware/rolllaeden">Rollläden Sonderposten</a>
+                                    <a href="#FenTuRo-Rolllaeden-Uebersicht">Rollläden Übersicht</a>
+                                    <a href="#FenTuRo-Rolllaeden-Hersteller">Rollläden Hersteller</a>
                                 </div>
+                                <a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-aufsatzrollladen" class="section-btn">Zum Rollläden Konfigurator</a>
                             </div>
                             <div class="section-col">
                                 <h3 class="section-header">Rollladen Konfiguratoren</h3>
                                 <div class="section-links">
                                     <a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-aufsatzrollladen">Aufsatzrollladen Konfigurator</a>
-                                    <a href="https://www.fenstermaxx24.com/konfigurator/aufsatzrollladen-styropor">Styropor Aufsatzrollladen Konfigurator</a>
                                     <a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-vorsatzrollladen">Vorsatzrollladen Konfigurator</a>
                                     <a href="https://www.fenstermaxx24.com/konfigurator/raffstores">Raffstore Konfigurator</a>
                                     <a href="https://www.fenstermaxx24.com/konfigurator/alu-insektenschutz-plissee">Insektenschutz-Plissee Konfigurator</a>
@@ -569,8 +586,9 @@
          */
         function positionDropdowns() {
             // Only apply edge detection to items that need it
-            // SKIP: konfigurator (full width), balkontueren and terrassentueren (force centered)
-            const navItems = document.querySelectorAll('.nav-item:not(.konfigurator):not(.balkontueren):not(.terrassentueren)');
+            // SKIP: All items now have force positioning via CSS
+            // konfigurator (full width), fenster (left), rolllaeden (right), balkontueren, terrassentueren, tueren (centered)
+            const navItems = document.querySelectorAll('.nav-item:not(.konfigurator):not(.balkontueren):not(.terrassentueren):not(.tueren):not(.fenster):not(.rolllaeden)');
             const viewportWidth = window.innerWidth;
             
             navItems.forEach(navItem => {

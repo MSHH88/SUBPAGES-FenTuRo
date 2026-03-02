@@ -175,7 +175,7 @@
         .nav-item.terrassentueren .dropdown {
             min-height: 150px;
             max-height: 200px;
-            width: 700px; /* reduced width since fewer links */
+            width: 826px; /* 700px + 18% to fit all text */
             /* Force center - not affected by edge detection */
             left: 50% !important;
             right: auto !important;
@@ -188,29 +188,63 @@
             left: 50%;
             transform: translateX(-50%);
         }
-        /* Türen: narrower by 15% (650 → 552px), shorter by 2cm (~76px), smaller gap between sections */
+        /* Türen: narrower by 15% (650 → 552px), shorter by 2cm (~76px), smaller gap between sections - FORCE CENTERED */
         .nav-item.tueren .dropdown {
             width: 552px; /* 650px reduced by 15% */
             min-height: 183px; /* 244px reduced by 25% */
             max-height: 213px; /* 284px reduced by 25% */
+            /* Force center - not affected by edge detection */
+            left: 50% !important;
+            right: auto !important;
+            transform: translateX(-50%) translateY(-10px) scale(0.98) !important;
+        }
+        .nav-item.tueren:hover .dropdown {
+            transform: translateX(-50%) translateY(0) scale(1) !important;
+        }
+        .nav-item.tueren .dropdown::before {
+            left: 50%;
+            transform: translateX(-50%);
         }
         .nav-item.tueren .dropdown-inner {
             gap: 12px; /* sections even closer together for narrower width */
         }
-        /* Rollläden: decrease by 80px, width reduced by 30% (800 → 560px) */
+        /* Rollläden: decrease by 80px, width reduced by 30% (800 → 560px) - ALIGN TO RIGHT SCREEN EDGE */
         .nav-item.rolllaeden .dropdown {
             min-height: 202px; /* 270px reduced by 25% */
             max-height: 240px; /* 320px reduced by 25% */
             width: 560px;
+            /* Force right edge alignment - dropdown ends at screen right */
+            left: auto !important;
+            right: 0 !important;
+            transform: translateY(-10px) scale(0.98) !important;
+            border-radius: 0 0 0 8px;
+        }
+        .nav-item.rolllaeden:hover .dropdown {
+            transform: translateY(0) scale(1) !important;
+        }
+        .nav-item.rolllaeden .dropdown::before {
+            left: auto;
+            right: 80px;
         }
         .nav-item.rolllaeden .dropdown-inner {
             gap: 15px; /* sections closer together */
         }
-        /* Fenster: compact size, width reduced by 30% (800 → 560px) */
+        /* Fenster: compact size, width reduced by 30% (800 → 560px) - ALIGN TO LEFT SCREEN EDGE */
         .nav-item.fenster .dropdown {
             min-height: 110px;
             max-height: 150px;
             width: 560px;
+            /* Force left edge alignment - dropdown starts at screen left */
+            left: 0 !important;
+            right: auto !important;
+            transform: translateY(-10px) scale(0.98) !important;
+            border-radius: 0 0 8px 0;
+        }
+        .nav-item.fenster:hover .dropdown {
+            transform: translateY(0) scale(1) !important;
+        }
+        .nav-item.fenster .dropdown::before {
+            left: 80px;
         }
         .nav-item.fenster .dropdown-inner {
             gap: 15px; /* sections closer together */
@@ -552,8 +586,9 @@
          */
         function positionDropdowns() {
             // Only apply edge detection to items that need it
-            // SKIP: konfigurator (full width), balkontueren and terrassentueren (force centered)
-            const navItems = document.querySelectorAll('.nav-item:not(.konfigurator):not(.balkontueren):not(.terrassentueren)');
+            // SKIP: All items now have force positioning via CSS
+            // konfigurator (full width), fenster (left), rolllaeden (right), balkontueren, terrassentueren, tueren (centered)
+            const navItems = document.querySelectorAll('.nav-item:not(.konfigurator):not(.balkontueren):not(.terrassentueren):not(.tueren):not(.fenster):not(.rolllaeden)');
             const viewportWidth = window.innerWidth;
             
             navItems.forEach(navItem => {
