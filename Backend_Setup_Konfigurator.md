@@ -401,4 +401,286 @@ Once all data is gathered:
 
 ---
 
-*This document will be updated as more information is gathered from live analysis.*
+## 9. Detailed Code Analysis (From Reference HTML)
+
+### 9.1 PostMessage Event Handler (Lines 6342-6420)
+
+The parent page listens for messages from the configurator iframe:
+
+```javascript
+window.addEventListener('message', function(event) {
+    // Main event type: 'setFixedInfo'
+    if (event.data && event.data.data === 'setFixedInfo' && event.data.value) {
+        var html = event.data.value;
+        
+        // Extract old price from strikethrough HTML
+        var oldMatch = html.match(/<span[^>]*style="text-decoration:line-through"[^>]*>([^<]+)<\/span>/i);
+        
+        // Extract new price from strong tag with txt-red class
+        var newMatch = html.match(/<strong[^>]*(?:class="txt-red")?[^>]*>([^<]+)<\/strong>/i);
+    }
+});
+```
+
+**Key Insight:** The iframe sends formatted HTML containing prices, which the parent page parses.
+
+### 9.2 Iframe Element (Line 4226)
+
+```html
+<iframe loading="lazy" 
+        id="configurator-iframe" 
+        src="[CONFIGURATOR_URL]" 
+        width="100%" 
+        height="600px" 
+        style="border: 0px; width: 100%; height: 1785px;" 
+        frameborder="0">
+</iframe>
+```
+
+### 9.3 Price Extraction Methods (Multiple Fallbacks)
+
+The parent page uses **5 different methods** to extract prices:
+
+| Method | Priority | Source | Selector |
+|--------|----------|--------|----------|
+| 1 | Highest | PostMessage | `setFixedInfo` event |
+| 2 | High | DOM ID | `#topStrokePrice` |
+| 3 | Medium | Sidebar | `#sidebar_basket h2` |
+| 4 | Low | CSS Class | `.product-summary` text |
+| 5 | Fallback | Full Page | Body text search |
+
+### 9.4 Price Display Elements
+
+```javascript
+var oldElem = document.getElementById('p-old');  // Strikethrough (original) price
+var newElem = document.getElementById('p-new');  // Red (discounted) price
+var nameElem = document.getElementById('p-name'); // Product name
+```
+
+### 9.5 40% Discount Formula (Confirmed in Code)
+
+Found at lines 6373, 6465, 6565:
+
+```javascript
+// Calculate old price from new price (when only new price available)
+var oldPriceNum = priceNum / 0.6;
+
+// Reverse formula: oldPrice = newPrice / 0.6
+// Which means: newPrice = oldPrice × 0.6
+// Discount: 40% off original price
+```
+
+### 9.6 Price Formatting (German Locale)
+
+```javascript
+// Parse German price format: "1.234,56 €"
+var priceNum = parseFloat(newText
+    .replace(/[^\d,]/g, '')   // Remove non-digits except comma
+    .replace(/\./g, '')        // Remove thousand separators
+    .replace(',', '.')         // Convert decimal comma to point
+);
+
+// Format back to German: 
+var formatted = priceNum.toFixed(2).replace('.', ',');  // Decimal
+parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.'); // Thousands
+```
+
+### 9.7 Product URL Patterns (Configurator Variations)
+
+Found in HTML - different products use different pricing rules:
+
+| URL Pattern | Special Handling |
+|-------------|------------------|
+| `/alu-haustuer/` | Calculate old from new (40%) |
+| `/aufsatzrollladen/` | Calculate old from new (40%) |
+| `/vorsatzrollladen/` | Calculate old from new (40%) |
+| Other configurators | Both prices sent via PostMessage |
+
+### 9.8 Text Extraction Patterns
+
+**Price Patterns:**
+```javascript
+// Find Preisempfehlung (recommended price)
+/Preisempfehlung[:\s]*(\d{1,3}(?:\.\d{3})*,\d{2})\s*(?:EUR|€)/i
+
+// Find Angebotspreis (offer price)
+/Angebotspreis[^:]*[:\s]*(\d{1,3}(?:\.\d{3})*,\d{2})\s*(?:EUR|€)/i
+
+// Generic price extraction
+/(\d{1,3}(?:\.\d{3})*,\d{2})/
+```
+
+### 9.9 Iframe Communication Request
+
+```javascript
+// Parent page requests price info from iframe
+function requestIframeData() {
+    var iframes = document.querySelectorAll('iframe');
+    for (var i = 0; i < iframes.length; i++) {
+        try {
+            iframes[i].contentWindow.postMessage({action: 'getPriceInfo'}, '*');
+        } catch(e) {}
+    }
+}
+
+// Called on intervals
+setInterval(requestIframeData, 3000);
+```
+
+---
+
+## 10. Data Collection Instructions for Live Site
+
+### What You Need to Capture
+
+Using Chrome DevTools on the live website:
+
+#### Step 1: Open Network Tab
+1. Go to https://www.fenstermaxx24.com/konfigurator/konfigurator-fenster/
+2. Open DevTools (F12) → Network tab
+3. Check "Preserve log" checkbox
+4. Filter by "XHR" or "Fetch"
+
+#### Step 2: Capture Iframe Traffic
+1. Look for requests from the iframe domain (likely `conf.fenstermaxx24.com` or similar)
+2. Record:
+   - Request URL
+   - Request Method (GET/POST)
+   - Request Headers
+   - Request Payload (JSON body)
+   - Response Data
+
+#### Step 3: Test Configuration Changes
+Change these parameters and record the API calls:
+
+| Parameter | Test Values |
+|-----------|-------------|
+| Width (Breite) | 500mm, 800mm, 1200mm |
+| Height (Höhe) | 600mm, 1000mm, 1400mm |
+| Profile | Different profile selections |
+| Glass (Glas) | Standard, 3-fach, Sonnenschutz |
+| Color (Farbe) | White, different RAL colors |
+| Handle (Griff) | Different handle options |
+| Hardware (Beschlag) | Standard, enhanced security |
+
+#### Step 4: Document JSON Structure
+For each API call, document:
+
+```json
+{
+  "endpoint": "/api/price-calculation",
+  "method": "POST",
+  "payload": {
+    "product_type": "fenster",
+    "width_mm": 800,
+    "height_mm": 1000,
+    "profile_id": "drutex-iglo5",
+    "glass_type": "2-fach",
+    "color_inside": "white",
+    "color_outside": "white"
+  },
+  "response": {
+    "base_price": 350.00,
+    "surcharges": [...],
+    "discount_percent": 40,
+    "final_price": 210.00
+  }
+}
+```
+
+---
+
+## 11. Backend Requirements (Based on Analysis)
+
+### 11.1 Required Endpoints for Custom Backend
+
+| Endpoint | Method | Purpose |
+|----------|--------|---------|
+| `/api/products` | GET | List available window types |
+| `/api/products/{id}/profiles` | GET | Get profiles for product |
+| `/api/price/calculate` | POST | Calculate price for configuration |
+| `/api/options/glass` | GET | List glass options |
+| `/api/options/colors` | GET | List color options |
+| `/api/options/hardware` | GET | List hardware options |
+| `/api/cart/add` | POST | Add configured product to cart |
+
+### 11.2 Price Calculation Endpoint Request
+
+```typescript
+interface PriceCalculationRequest {
+  product_type: string;       // "fenster", "balkontuer", etc.
+  profile_id: string;         // "drutex-iglo5"
+  width_mm: number;           // 500-2500
+  height_mm: number;          // 500-2500
+  glass_type: string;         // "2-fach-standard"
+  color_inside: string;       // "white" or RAL code
+  color_outside: string;      // "white" or RAL code
+  handle_type: string;        // Handle selection
+  hardware_level: string;     // "standard", "rc2", etc.
+  additional_options: string[]; // ["thin_weld", "insect_screen"]
+}
+```
+
+### 11.3 Price Calculation Response
+
+```typescript
+interface PriceCalculationResponse {
+  base_price: number;         // Grundpreis
+  base_price_formatted: string; // "1.199,00 €"
+  
+  surcharges: Surcharge[];    // Additional costs
+  
+  subtotal: number;           // Before discount
+  discount_percent: number;   // 40 (for 40% Aktion)
+  discount_amount: number;    // Amount saved
+  
+  final_price: number;        // Angebotspreis
+  final_price_formatted: string; // "719,40 €"
+  
+  product_name: string;       // "Drutex IGLO 5 Kunststofffenster"
+  configuration_summary: string; // Human-readable config
+}
+
+interface Surcharge {
+  name: string;              // "Dünne Schweißnaht V-Perfect"
+  amount: number;            // 0.66
+  type: "fixed" | "percent";
+}
+```
+
+### 11.4 PostMessage Output Format
+
+For compatibility with existing frontend, backend should generate:
+
+```javascript
+// Send to parent window
+window.parent.postMessage({
+    data: 'setFixedInfo',
+    value: `${productName}<br>
+            <span style="text-decoration:line-through">${oldPrice} EUR</span><br>
+            <strong class="txt-red">${newPrice} EUR</strong>`
+}, '*');
+```
+
+---
+
+## Summary: What We Know (Updated)
+
+| Category | Status | Details |
+|----------|--------|---------|
+| Architecture | ✅ Complete | Iframe-based with PostMessage communication |
+| Parent Page Endpoints | ✅ Complete | 4 endpoints identified |
+| Communication Protocol | ✅ Complete | PRODUCT_CREATED & setFixedInfo events |
+| Price Display Logic | ✅ Complete | #p-old, #p-new, #p-name elements |
+| 40% Discount Formula | ✅ Complete | newPrice = oldPrice × 0.6 |
+| Price Parsing | ✅ Complete | German locale (1.234,56 €) |
+| PostMessage Format | ✅ Complete | HTML with strikethrough + strong tags |
+| Fallback Methods | ✅ Complete | 5 price extraction methods documented |
+| Special URL Handling | ✅ Complete | alu-haustuer, rollladen variants |
+| Iframe Internal API | ⏳ Pending | Requires live site network capture |
+| Full Parameter List | ⏳ Pending | Requires live configuration testing |
+| Base Price Tables | ⏳ Pending | Requires backend/database access |
+
+---
+
+*Document updated: 2026-03-02 (Phase 1 Extended Analysis from Reference HTML)*
