@@ -36,15 +36,35 @@
         }
         .nav-link {
             display: block;
-            padding: 15px 20px;
+            padding: 13px 20px; /* Reduced from 15px (15% less height) */
             color: #ffffff;
             font-size: 14px;
             font-weight: 600;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
+            position: relative;
         }
-        .nav-link:hover { 
-            background: rgba(255,255,255,0.15);
-            box-shadow: inset 0 -2px 0 #ffffff; /* bottom highlight */
+        
+        /* Elegant underline hover effect - animated slide in */
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 6px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ffffff, transparent);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        .nav-link:hover::after,
+        .nav-item.active .nav-link::after {
+            width: 80%;
+        }
+        
+        /* Subtle glow effect on hover */
+        .nav-link:hover,
+        .nav-item.active .nav-link {
+            text-shadow: 0 0 10px rgba(255,255,255,0.5);
         }
 
         /* DROPDOWN BASE - Default opens right+down */
@@ -672,8 +692,22 @@
         window.addEventListener('resize', positionDropdowns);
         
         // Also run when hovering to ensure correct positioning
+        // AND add/remove 'active' class for hover indicator
         document.querySelectorAll('.nav-item').forEach(item => {
-            item.addEventListener('mouseenter', positionDropdowns);
+            item.addEventListener('mouseenter', function() {
+                positionDropdowns();
+                // Remove active from all, add to current
+                document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            });
+            item.addEventListener('mouseleave', function() {
+                // Only remove active if not hovering on dropdown
+                setTimeout(() => {
+                    if (!this.matches(':hover')) {
+                        this.classList.remove('active');
+                    }
+                }, 100);
+            });
         });
     </script>
 
