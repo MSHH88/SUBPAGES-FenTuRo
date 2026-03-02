@@ -315,9 +315,10 @@
         }
         .section-links a:hover { 
             color: #333333; /* Stay black, no blue */
-            font-weight: 700; /* Bold on hover */
-            background: radial-gradient(ellipse at center, rgba(102, 144, 204, 0.25) 0%, transparent 70%);
-            text-shadow: 0 0 8px rgba(102, 144, 204, 0.4); /* Light blue glow */
+            font-weight: 600; /* Already bold */
+            transform: scale(1.05); /* 5% larger on hover */
+            background: radial-gradient(ellipse at center, rgba(102, 144, 204, 0.35) 0%, transparent 70%); /* 10% stronger shine */
+            text-shadow: 0 0 8px rgba(102, 144, 204, 0.5); /* 10% stronger glow */
         }
         .section-btn {
             margin-top: 11px; /* 25% less: was 15px */
@@ -325,22 +326,31 @@
             align-items: center;
             gap: 6px;
             padding: 8px 14px; /* 25% less vertical: was 10px */
-            background: linear-gradient(135deg, #6690CC 0%, #5A7FB8 100%);
-            color: #ffffff;
+            /* Glassmorphism effect with light blue */
+            background: linear-gradient(135deg, rgba(102, 144, 204, 0.4) 0%, rgba(102, 144, 204, 0.15) 100%);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(102, 144, 204, 0.3);
+            color: #333333; /* Dark text for contrast on glass */
             font-size: 13px; /* 1px less: was 14px */
             font-weight: 600;
-            border-radius: 6px;
-            transition: all 0.2s;
+            border-radius: 8px;
+            transition: all 0.25s ease;
             width: fit-content;
             font-family: 'Berlin Sans FB Demi', 'Segoe UI Semibold', 'Arial Black', sans-serif;
+            box-shadow: 
+                0 4px 15px rgba(102, 144, 204, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4); /* Glass highlight */
         }
         .section-btn:hover {
-            background: linear-gradient(135deg, #5A7FB8 0%, #4A6FA5 100%);
-            transform: translateY(-1px);
+            background: linear-gradient(135deg, rgba(102, 144, 204, 0.55) 0%, rgba(102, 144, 204, 0.25) 100%);
+            transform: translateY(-2px);
+            box-shadow: 
+                0 6px 20px rgba(102, 144, 204, 0.35),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
         }
         .section-btn svg { 
-            width: 12px; 
-            height: 12px; 
+            display: none; /* Remove checkmark/swoosh icon */
         }
 
         /* DEMO STYLING (for preview only) */
