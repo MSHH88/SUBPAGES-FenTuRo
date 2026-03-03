@@ -1,0 +1,525 @@
+{
+  "_meta": {
+    "document": "Complete Configuration Options Inventory",
+    "manufacturer": "Drutex",
+    "manufacturer_id": "h1",
+    "material": "Kunststoff (PVC)",
+    "material_id": "ma1",
+    "configurator_url": "https://confde.fenstermaxx24.com/confapp/Drutex/PVC-Fenster-bestellen-drutex/",
+    "captured_date": "2026-03-02",
+    "obj_konfig_total_properties": 85
+  },
+
+  "obj_konfig_schema": {
+    "breite": {"type": "integer", "unit": "mm", "default": 1000, "min": 600, "max": 1500, "description": "Window width"},
+    "hoehe": {"type": "integer", "unit": "mm", "default": 1000, "min": 450, "max": 1700, "description": "Window height"},
+    "hoehe_ol": {"type": "integer", "unit": "mm", "default": 0, "description": "Oberlicht (top light) height"},
+    "hoehe_ul": {"type": "integer", "unit": "mm", "default": 0, "description": "Unterlicht (bottom light) height"},
+    "mass_txt": {"type": "string", "default": "", "description": "Special dimension notes (free text)"},
+    "material": {"type": "string", "default": "ma1", "description": "Material ID"},
+    "hersteller": {"type": "string", "default": "h1", "description": "Manufacturer ID"},
+    "rab": {"type": "string", "default": "rab_0", "description": "Frame type"},
+    "kaempfer_ol": {"type": "string", "default": "kaempfer_ol_0", "description": "Top transom"},
+    "kaempfer_ul": {"type": "string", "default": "kaempfer_ul_0", "description": "Bottom transom"},
+    "profil": {"type": "string", "default": "p1", "description": "Profile ID"},
+    "art": {"type": "string", "default": "a1", "description": "Window art (wing count)"},
+    "typ": {"type": "string", "default": "typ1", "description": "Window type/subtype"},
+    "oer": {"type": "string", "default": "fn_1_drehkipp_rechts", "description": "Opening direction"},
+    "oer_oben": {"type": "string", "default": "-", "description": "Top light opening direction"},
+    "oer_unten": {"type": "string", "default": "-", "description": "Bottom light opening direction"},
+    "dekofarbe_rubrik": {"type": "string", "default": "fr1", "description": "Color category"},
+    "dekofarbe_textur": {"type": "string", "default": "fs1", "description": "Color texture"},
+    "dekofarbe_a": {"type": "string", "default": "fs1_01", "description": "Exterior color ID"},
+    "dekofarbe_i": {"type": "string", "default": "fs1_01_i", "description": "Interior color ID"},
+    "dfi": {"type": "string", "default": "dfi_0", "description": "Seal color interior"},
+    "dfa": {"type": "string", "default": "dfa_0", "description": "Seal color exterior"},
+    "kf": {"type": "string", "default": "kf_0", "description": "Core color"},
+    "glas": {"type": "string", "default": "g1", "description": "Glass type ID"},
+    "schallschutz": {"type": "string", "default": "schallschutz_nein", "description": "Sound protection toggle"},
+    "schallschutz_db": {"type": "string", "default": "schallschutz_stufe01", "description": "Sound protection level"},
+    "sicherheitsverglasung": {"type": "string", "default": "sicherheitsverglasung_0", "description": "Safety glass toggle"},
+    "sicherheitsverglasung_typ": {"type": "string", "default": "verglasung_typ_2_1", "description": "Safety glass type"},
+    "ornament": {"type": "string", "default": "ornament_0", "description": "Ornament glass toggle"},
+    "ornament_typ": {"type": "string", "default": "ornament_typ_1", "description": "Ornament type"},
+    "warme_kante": {"type": "string", "default": "wk_1", "description": "Warm edge spacer"},
+    "drv": {"type": "string", "default": "drv_0", "description": "Pressure equalization valve"},
+    "sprossen": {"type": "string", "default": "sprossen_0", "description": "Muntins toggle"},
+    "sprossenOU": {"type": "string", "default": "sprossenOU_0", "description": "Muntins in top/bottom light"},
+    "sprossen_breite": {"type": "string", "default": "sprossen_breite_8", "description": "Muntin width"},
+    "sprossen_farbe": {"type": "string", "default": "sprossen_farbe_8_1", "description": "Muntin color"},
+    "sprossen_vorlage": {"type": "string", "default": "sprossen_vorlage_1", "description": "Muntin pattern template"},
+    "roll": {"type": "string", "default": "roll_0", "description": "Roller shutter toggle"},
+    "roll_art": {"type": "string", "default": "roll_art_1", "description": "Roller shutter type"},
+    "roll_model": {"type": "string", "default": "roll_model_1", "description": "Roller shutter model"},
+    "roll_teil": {"type": "string", "default": "roll_teil_1", "description": "Roller shutter division"},
+    "roll_kh": {"type": "string", "default": "roll_kh_215", "description": "Roller shutter box height"},
+    "roll_fk": {"type": "string", "default": "roll_fk_0", "description": "Roller shutter color option"},
+    "roll_fs_schraege": {"type": "string", "default": "roll_fs_schraege_0", "description": "Roller shutter angle guide"},
+    "roll_fs_verlaengerung": {"type": "string", "default": "0", "description": "Roller shutter guide extension"},
+    "dekofarbe_fb": {"type": "string", "default": "fk1_01", "description": "Roller shutter box color"},
+    "roll_panzer": {"type": "string", "default": "roll_panzer_1", "description": "Roller shutter slat type"},
+    "roll_el": {"type": "string", "default": "roll_el_1", "description": "Roller shutter end slat"},
+    "roll_antriebart": {"type": "string", "default": "roll_antriebart_1", "description": "Roller shutter drive type"},
+    "roll_as": {"type": "string", "default": "roll_as_l", "description": "Roller shutter drive side"},
+    "roll_lambreite": {"type": "string", "default": "roll_lambreite_37 ", "description": "Roller shutter slat width"},
+    "roll_pt": {"type": "string", "default": "roll_pt_0", "description": "Roller shutter insect screen"},
+    "roll_sk": {"type": "string", "default": "roll_sk_0", "description": "Roller shutter side guide"},
+    "roll_ssm": {"type": "string", "default": "roll_ssm_0", "description": "Roller shutter wind lock"},
+    "roll_vm": {"type": "string", "default": "roll_vm_0", "description": "Roller shutter front panel"},
+    "fenstergriffe": {"type": "string", "default": "fenstergriffe_0", "description": "Handle selection toggle"},
+    "fenstergriffart": {"type": "string", "default": "fenstergriffart_1_1", "description": "Handle type and color"},
+    "fenstergriffart_ral": {"type": "string", "default": "", "description": "Handle custom RAL color"},
+    "oberlichtoeffner": {"type": "string", "default": "oberlichtoeffner_0", "description": "Top light opener"},
+    "main_handleside": {"type": "string", "default": "main_handleside_0", "description": "Main handle side"},
+    "ol_handleside": {"type": "string", "default": "ol_handleside_0", "description": "Top light handle side"},
+    "ul_handleside": {"type": "string", "default": "ul_handleside_0", "description": "Bottom light handle side"},
+    "griffhoehe": {"type": "string", "default": "griffhoehe_0", "description": "Handle height option"},
+    "griffhoehe_value": {"type": "string", "default": "183 mm", "description": "Handle height value"},
+    "aufbohrschutz": {"type": "string", "default": "aufbohrschutz_0", "description": "Drill protection"},
+    "sicherheitsbeschlaege": {"type": "string", "default": "sicherheitsbeschlaege_0", "description": "Security hardware toggle"},
+    "sicherheitsbeschlaegeart": {"type": "string", "default": "sicherheitsbeschlaege_art_1_1", "description": "Security hardware type"},
+    "verdeckt_beschlaege": {"type": "string", "default": "verdeckt_beschlaege_0", "description": "Concealed hardware"},
+    "montagevorbohrung": {"type": "string", "default": "montagevorbohrung_1", "description": "Pre-drilled mounting holes"},
+    "reedkontakt": {"type": "string", "default": "reedkontakte_0", "description": "Reed contact (alarm sensor)"},
+    "febaan": {"type": "string", "default": "febaan_0", "description": "Window sill connection"},
+    "fensterfalzluefter": {"type": "string", "default": "fensterfalzluefter_0", "description": "Window rebate ventilator toggle"},
+    "fensterfalzluefter_art": {"type": "string", "default": "fensterfalzluefter_art_1", "description": "Ventilator type"},
+    "dsd": {"type": "string", "default": "dsd_1", "description": "V-Perfect thin weld seam"},
+    "rahmenverbreiterung": {"type": "string", "default": "rahmenverbreiterung_0", "description": "Frame widening toggle"},
+    "unten": {"type": "string", "default": "unten_0", "description": "Frame widening bottom"},
+    "links": {"type": "string", "default": "links_0", "description": "Frame widening left"},
+    "rechts": {"type": "string", "default": "rechts_0", "description": "Frame widening right"},
+    "oben": {"type": "string", "default": "oben_0", "description": "Frame widening top"}
+  },
+
+  "profiles": [
+    {"id": "p1", "name": "Iglo 5 Classic", "uw_value": "≥ 0.89", "chambers": 5, "depth_mm": 70, "available_openings": ["fn_1_fest_ohne_fluegel", "fn_1_fest_fluegel", "fn_1_kipp", "fn_1_drehlinks", "fn_1_drehrechts", "fn_1_drehkipp_links", "fn_1_drehkipp_rechts"]},
+    {"id": "p2", "name": "Iglo 5", "uw_value": "≥ 0.89", "chambers": 5, "depth_mm": 70, "available_openings": ["fn_1_fest_ohne_fluegel", "fn_1_fest_fluegel", "fn_1_kipp", "fn_1_drehlinks", "fn_1_drehrechts", "fn_1_drehkipp_links", "fn_1_drehkipp_rechts"]},
+    {"id": "p3", "name": "Iglo Energy Classic", "uw_value": "≥ 0.79", "chambers": 6, "depth_mm": 82, "available_openings": ["fn_1_fest_ohne_fluegel", "fn_1_fest_fluegel", "fn_1_kipp", "fn_1_drehlinks", "fn_1_drehrechts", "fn_1_drehkipp_links", "fn_1_drehkipp_rechts"]},
+    {"id": "p4", "name": "Iglo Energy", "uw_value": "≥ 0.79", "chambers": 6, "depth_mm": 82, "available_openings": ["fn_1_fest_ohne_fluegel", "fn_1_fest_fluegel", "fn_1_kipp", "fn_1_drehlinks", "fn_1_drehrechts", "fn_1_drehkipp_links", "fn_1_drehkipp_rechts"]},
+    {"id": "p5", "name": "Iglo Light", "uw_value": "≥ 0.95", "chambers": 5, "depth_mm": 70, "available_openings": ["fn_1_fest_ohne_fluegel", "fn_1_fest_fluegel", "fn_1_kipp", "fn_1_drehlinks", "fn_1_drehrechts", "fn_1_drehkipp_links", "fn_1_drehkipp_rechts"]},
+    {"id": "p7", "name": "Iglo EXT (nach außen öffnend)", "uw_value": "≥ 0.89", "chambers": 5, "depth_mm": 70, "available_openings": ["fn_1_drehlinks_a", "fn_1_drehrechts_a"]}
+  ],
+
+  "opening_types": {
+    "standard": [
+      {"id": "fn_1_fest_ohne_fluegel", "name": "Fest ohne Flügel", "description": "Fixed without sash", "has_handle": false},
+      {"id": "fn_1_fest_fluegel", "name": "Fest mit Flügel", "description": "Fixed with sash", "has_handle": false},
+      {"id": "fn_1_kipp", "name": "Kipp", "description": "Tilt only", "has_handle": true},
+      {"id": "fn_1_drehlinks", "name": "Dreh Links", "description": "Turn left", "has_handle": true},
+      {"id": "fn_1_drehrechts", "name": "Dreh Rechts", "description": "Turn right", "has_handle": true},
+      {"id": "fn_1_drehkipp_links", "name": "Dreh-Kipp Links", "description": "Turn-tilt left", "has_handle": true},
+      {"id": "fn_1_drehkipp_rechts", "name": "Dreh-Kipp Rechts", "description": "Turn-tilt right", "has_handle": true}
+    ],
+    "iglo_ext_only": [
+      {"id": "fn_1_drehlinks_a", "name": "Dreh Links (nach außen)", "description": "Turn left outward opening", "has_handle": true},
+      {"id": "fn_1_drehrechts_a", "name": "Dreh Rechts (nach außen)", "description": "Turn right outward opening", "has_handle": true}
+    ],
+    "double_wing": [
+      {"id": "fn_2_festfluegel_festfluegel", "name": "Fest + Fest"},
+      {"id": "fn_2_drehlinks_drehrechts", "name": "Dreh Links + Dreh Rechts"},
+      {"id": "fn_2_drehkipp_drehkipp", "name": "Dreh-Kipp + Dreh-Kipp"},
+      {"id": "fn_2_drehkipp_festfluegel", "name": "Dreh-Kipp + Fest"},
+      {"id": "fn_2_festfluegel_drehkipp", "name": "Fest + Dreh-Kipp"},
+      {"id": "fn_2_drehkipp_dreh", "name": "Dreh-Kipp + Dreh"},
+      {"id": "fn_2_dreh_drehkipp", "name": "Dreh + Dreh-Kipp"},
+      {"id": "fn_2_drehkipp_drehkipp_stulp", "name": "Dreh-Kipp + Dreh-Kipp (Stulp)"}
+    ],
+    "triple_wing": [
+      {"id": "fn_3_fest_fest_fest", "name": "Fest + Fest + Fest"},
+      {"id": "fn_3_dk_fest_dk", "name": "Dreh-Kipp + Fest + Dreh-Kipp"},
+      {"id": "fn_3_dk_fest_dreh", "name": "Dreh-Kipp + Fest + Dreh"},
+      {"id": "fn_3_dreh_fest_dk", "name": "Dreh + Fest + Dreh-Kipp"},
+      {"id": "fn_3_dk_dk_dk", "name": "Dreh-Kipp + Dreh-Kipp + Dreh-Kipp"},
+      {"id": "fn_3_dk_dk_dk_stulp", "name": "DK + DK + DK (Stulp)"},
+      {"id": "fn_3_dk_dk_dk_stulp_2", "name": "DK + DK + DK (Stulp 2)"},
+      {"id": "fn_3_dk_fest_dk_stulp", "name": "DK + Fest + DK (Stulp)"}
+    ]
+  },
+
+  "window_art": [
+    {"id": "a1", "name": "Einflügliges Fenster", "description": "Single wing", "available_types": ["typ1", "typ1o1", "typ1o2", "typ1o3", "typ1u1", "typ1u2", "typ1u3"]},
+    {"id": "a2", "name": "Zweiflügliges Fenster", "description": "Double wing", "available_types": ["typ2"]},
+    {"id": "a3", "name": "Dreiflügliges Fenster", "description": "Triple wing", "available_types": ["typ3"]}
+  ],
+
+  "window_types": [
+    {"id": "typ1", "name": "Standard (Single)", "art": "a1", "has_oberlicht": false, "has_unterlicht": false},
+    {"id": "typ1o1", "name": "Mit Oberlicht (1-teilig)", "art": "a1", "has_oberlicht": true, "oberlicht_sections": 1, "oberlicht_openings": ["fn_1_oberlicht_f", "fn_1_oberlicht_ff", "fn_1_oberlicht_kipp"]},
+    {"id": "typ1o2", "name": "Mit Oberlicht (2-teilig)", "art": "a1", "has_oberlicht": true, "oberlicht_sections": 2, "oberlicht_openings": ["ob_f_f"]},
+    {"id": "typ1o3", "name": "Mit Oberlicht (3-teilig)", "art": "a1", "has_oberlicht": true, "oberlicht_sections": 3, "oberlicht_openings": ["ob_f_f_f"]},
+    {"id": "typ1u1", "name": "Mit Unterlicht (1-teilig)", "art": "a1", "has_unterlicht": true, "unterlicht_sections": 1, "unterlicht_openings": ["fn_1_unterlicht_f", "fn_1_unterlicht_ff", "fn_1_unterlicht_kipp"]},
+    {"id": "typ1u2", "name": "Mit Unterlicht (2-teilig)", "art": "a1", "has_unterlicht": true, "unterlicht_sections": 2, "unterlicht_openings": ["ub_f_f"]},
+    {"id": "typ1u3", "name": "Mit Unterlicht (3-teilig)", "art": "a1", "has_unterlicht": true, "unterlicht_sections": 3, "unterlicht_openings": ["ub_f_f_f"]},
+    {"id": "typ2", "name": "Standard (Double)", "art": "a2"},
+    {"id": "typ3", "name": "Standard (Triple)", "art": "a3"}
+  ],
+
+  "exterior_colors": [
+    {"id": "fs1_01", "name": "Weiss (ohne Dekorfarbe)", "ral_or_code": null, "tier": 0},
+    {"id": "fs1_02", "name": "Nussbaum", "ral_or_code": "2178007", "tier": 1},
+    {"id": "fs1_03", "name": "Golden Oak", "ral_or_code": "2178001", "tier": 1},
+    {"id": "fs1_04", "name": "Mahagoni", "ral_or_code": "2065021", "tier": 1},
+    {"id": "fs1_05", "name": "Winchester", "ral_or_code": "4601001", "tier": 1},
+    {"id": "fs1_06", "name": "Anthrazitgrau", "ral_or_code": "7016", "tier": 1},
+    {"id": "fs1_07", "name": "Schokobraun", "ral_or_code": "887505", "tier": 1},
+    {"id": "fs1_08", "name": "Mooreiche", "ral_or_code": "2052089", "tier": 4},
+    {"id": "fs1_09", "name": "Stahlblau", "ral_or_code": "5014005", "tier": 4},
+    {"id": "fs1_10", "name": "Basaltgrau", "ral_or_code": "701205", "tier": 1},
+    {"id": "fs1_11", "name": "Siena Noce", "ral_or_code": "2178012", "tier": 1},
+    {"id": "fs1_12", "name": "Siena Rosso", "ral_or_code": "3152009", "tier": 2},
+    {"id": "fs1_13", "name": "Weiss", "ral_or_code": "9016", "tier": 1},
+    {"id": "fs1_14", "name": "Cremeweiss", "ral_or_code": "9001", "tier": 1},
+    {"id": "fs1_15", "name": "Grau", "ral_or_code": "7040", "tier": 2},
+    {"id": "fs1_16", "name": "Dunkelbraun", "ral_or_code": "8014", "tier": 0},
+    {"id": "fs1_17", "name": "Braun", "ral_or_code": "8003", "tier": 2},
+    {"id": "fs1_18", "name": "Tannengrün", "ral_or_code": "6009", "tier": 2},
+    {"id": "fs1_19", "name": "Schwarzbraun", "ral_or_code": "851805", "tier": 1},
+    {"id": "fs1_20", "name": "Schwarzgrau", "ral_or_code": "7021", "tier": 1},
+    {"id": "fs1_21", "name": "Silbergrau", "ral_or_code": "9006", "tier": 2},
+    {"id": "fs1_22", "name": "Moosgrün", "ral_or_code": "6005", "tier": 2},
+    {"id": "fs1_23", "name": "Quarzgrau", "ral_or_code": "7039", "tier": 1},
+    {"id": "fs1_24", "name": "Signalrot", "ral_or_code": "3001", "tier": 2},
+    {"id": "fs1_25", "name": "Signalblau", "ral_or_code": "5005", "tier": 2},
+    {"id": "fs1_26", "name": "Streifen Douglasie", "ral_or_code": "3152009", "tier": 1},
+    {"id": "fs1_27", "name": "Jet Black", "ral_or_code": "9005", "tier": 2},
+    {"id": "fs1_28", "name": "Graualuminium", "ral_or_code": "9007", "tier": 1},
+    {"id": "fs1_29", "name": "Bergkiefer", "ral_or_code": "3069041", "tier": 1},
+    {"id": "fs1_30", "name": "Sheffield Oak", "ral_or_code": "F456-3081", "tier": 4},
+    {"id": "fs1_31", "name": "Turner Oak", "ral_or_code": "F446-3028", "tier": 4},
+    {"id": "fs1_56", "name": "Alux Anthrazitgrau DB703", "ral_or_code": "DB703", "tier": 3},
+    {"id": "fs1_57", "name": "Alux Schwarzgrau", "ral_or_code": "7021", "tier": 3}
+  ],
+
+  "interior_colors": [
+    {"id": "fs1_01_i", "name": "Weiss", "tier": 0},
+    {"id": "fs1_02_i", "name": "Nussbaum", "tier": 1},
+    {"id": "fs1_03_i", "name": "Golden Oak", "tier": 1},
+    {"id": "fs1_04_i", "name": "Mahagoni", "tier": 1},
+    {"id": "fs1_05_i", "name": "Winchester", "tier": 1},
+    {"id": "fs1_06_i", "name": "Anthrazitgrau", "tier": 1},
+    {"id": "fs1_07_i", "name": "Schokobraun", "tier": 1},
+    {"id": "fs1_08_i", "name": "Mooreiche", "tier": 4},
+    {"id": "fs1_09_i", "name": "Stahlblau", "tier": 4},
+    {"id": "fs1_10_i", "name": "Basaltgrau", "tier": 1},
+    {"id": "fs1_11_i", "name": "Siena Noce", "tier": 1},
+    {"id": "fs1_12_i", "name": "Siena Rosso", "tier": 2},
+    {"id": "fs1_13_i", "name": "Weiss (9016)", "tier": 1},
+    {"id": "fs1_14_i", "name": "Cremeweiss", "tier": 1},
+    {"id": "fs1_15_i", "name": "Grau", "tier": 2},
+    {"id": "fs1_16_i", "name": "Dunkelbraun", "tier": 0},
+    {"id": "fs1_17_i", "name": "Braun", "tier": 2},
+    {"id": "fs1_19_i", "name": "Schwarzbraun", "tier": 1},
+    {"id": "fs1_20_i", "name": "Schwarzgrau", "tier": 3},
+    {"id": "fs1_23_i", "name": "Quarzgrau", "tier": 3},
+    {"id": "fs1_24_i", "name": "Signalrot", "tier": 3},
+    {"id": "fs1_25_i", "name": "Signalblau", "tier": 3},
+    {"id": "fs1_26_i", "name": "Streifen Douglasie", "tier": 3},
+    {"id": "fs1_28_i", "name": "Graualuminium", "tier": 3},
+    {"id": "fs1_29_i", "name": "Bergkiefer", "tier": 3},
+    {"id": "fs1_30_i", "name": "Sheffield Oak", "tier": 5},
+    {"id": "fs1_31_i", "name": "Turner Oak", "tier": 5},
+    {"id": "fs1_33_i", "name": "Interior Special 33", "tier": 5},
+    {"id": "fs1_34_i", "name": "Interior Special 34", "tier": 5},
+    {"id": "fs1_35_i", "name": "Interior Special 35", "tier": 5},
+    {"id": "fs1_36_i", "name": "Interior Special 36", "tier": 5},
+    {"id": "fs1_37_i", "name": "Interior Special 37", "tier": 5},
+    {"id": "fs1_56_i", "name": "Alux Anthrazitgrau DB703", "tier": 3}
+  ],
+
+  "glass_types": [
+    {"id": "g1", "name": "2-fach Thermo-Verglasung", "ug_value": 1.1, "panes": 2},
+    {"id": "g2", "name": "2-fach Thermo-Verglasung warme Kante", "ug_value": 1.0, "panes": 2},
+    {"id": "g3", "name": "3-fach Thermo-Verglasung", "ug_value": 0.7, "panes": 3},
+    {"id": "g4", "name": "3-fach Thermo-Verglasung warme Kante", "ug_value": 0.6, "panes": 3},
+    {"id": "g7", "name": "Sandwitchplatte PVC/Schaum/PVC", "ug_value": null, "panes": 0},
+    {"id": "g8", "name": "Ohne Glasscheibe", "ug_value": null, "panes": 0}
+  ],
+
+  "schallschutz_levels": [
+    {"id": "schallschutz_stufe01", "name": "Stufe 1 (Standard)"},
+    {"id": "schallschutz_stufe02", "name": "Stufe 2"},
+    {"id": "schallschutz_stufe03", "name": "Stufe 3"},
+    {"id": "schallschutz_stufe04", "name": "Stufe 4 (Maximum)"}
+  ],
+
+  "sicherheitsverglasung_types": {
+    "2fach": [
+      {"id": "verglasung_typ_2_1", "name": "Typ 2-1"},
+      {"id": "verglasung_typ_2_2", "name": "Typ 2-2"},
+      {"id": "verglasung_typ_2_3", "name": "Typ 2-3"},
+      {"id": "verglasung_typ_2_4", "name": "Typ 2-4"},
+      {"id": "verglasung_typ_2_5", "name": "Typ 2-5"},
+      {"id": "verglasung_typ_2_6", "name": "Typ 2-6"},
+      {"id": "verglasung_typ_2_7", "name": "Typ 2-7"},
+      {"id": "verglasung_typ_2_8", "name": "Typ 2-8"}
+    ],
+    "3fach": [
+      {"id": "verglasung_typ_3_1", "name": "Typ 3-1"},
+      {"id": "verglasung_typ_3_2", "name": "Typ 3-2"},
+      {"id": "verglasung_typ_3_3", "name": "Typ 3-3"},
+      {"id": "verglasung_typ_3_4", "name": "Typ 3-4"},
+      {"id": "verglasung_typ_3_5", "name": "Typ 3-5"},
+      {"id": "verglasung_typ_3_6", "name": "Typ 3-6"},
+      {"id": "verglasung_typ_3_7", "name": "Typ 3-7"}
+    ]
+  },
+
+  "ornament_types": [
+    {"id": "ornament_typ_1", "name": "Ornament 1"},
+    {"id": "ornament_typ_2", "name": "Ornament 2"},
+    {"id": "ornament_typ_3", "name": "Ornament 3"},
+    {"id": "ornament_typ_4", "name": "Ornament 4"},
+    {"id": "ornament_typ_5", "name": "Ornament 5"},
+    {"id": "ornament_typ_6", "name": "Ornament 6"},
+    {"id": "ornament_typ_7", "name": "Ornament 7"},
+    {"id": "ornament_typ_8", "name": "Sonnenschutz 1 (no surcharge)"},
+    {"id": "ornament_typ_9", "name": "Sonnenschutz 2 (no surcharge)"},
+    {"id": "ornament_typ_10", "name": "Sonnenschutz 3 (no surcharge)"}
+  ],
+
+  "warme_kante": [
+    {"id": "wk_1", "name": "Swisspacer Ultimate Schwarz"},
+    {"id": "wk_2", "name": "Swisspacer Ultimate Weiß"},
+    {"id": "wk_3", "name": "Swisspacer Ultimate Grau"}
+  ],
+
+  "handles": {
+    "types": [
+      {"id": "fenstergriffe_0", "name": "Keine Auswahl (kein Griff)"},
+      {"id": "fenstergriffe_1", "name": "Standard"},
+      {"id": "fenstergriffe_2", "name": "Druckknopf (Push-button)"},
+      {"id": "fenstergriffe_3", "name": "Abschließbar (Lockable)"}
+    ],
+    "colors_standard": [
+      {"id": "fenstergriffart_1_1", "name": "Weiß"},
+      {"id": "fenstergriffart_1_2", "name": "Silber"},
+      {"id": "fenstergriffart_1_3", "name": "Braun"},
+      {"id": "fenstergriffart_1_4", "name": "Anthrazit"},
+      {"id": "fenstergriffart_1_5", "name": "Schwarz"},
+      {"id": "fenstergriffart_1_6", "name": "Edelstahl"},
+      {"id": "fenstergriffart_1_7", "name": "Gold"},
+      {"id": "fenstergriffart_1_8", "name": "Titan"}
+    ],
+    "colors_druckknopf": [
+      {"id": "fenstergriffart_2_1", "name": "Weiß"},
+      {"id": "fenstergriffart_2_2", "name": "Silber"},
+      {"id": "fenstergriffart_2_3", "name": "Braun"},
+      {"id": "fenstergriffart_2_4", "name": "Anthrazit"},
+      {"id": "fenstergriffart_2_5", "name": "Edelstahl"},
+      {"id": "fenstergriffart_2_6", "name": "Schwarz"}
+    ],
+    "colors_abschliessbar": [
+      {"id": "fenstergriffart_3_1", "name": "Weiß"},
+      {"id": "fenstergriffart_3_2", "name": "Silber"},
+      {"id": "fenstergriffart_3_3", "name": "Braun"},
+      {"id": "fenstergriffart_3_4", "name": "Anthrazit"},
+      {"id": "fenstergriffart_3_5", "name": "Edelstahl"},
+      {"id": "fenstergriffart_3_6", "name": "Schwarz"}
+    ]
+  },
+
+  "griffhoehe": [
+    {"id": "griffhoehe_0", "value": "183 mm", "name": "Standard (183 mm)"},
+    {"id": "griffhoehe_1", "value": "custom", "name": "Benutzerdefiniert"},
+    {"id": "griffhoehe_2", "value": "varies", "name": "Option 2"},
+    {"id": "griffhoehe_3", "value": "varies", "name": "Option 3"},
+    {"id": "griffhoehe_4", "value": "varies", "name": "Option 4"},
+    {"id": "griffhoehe_5", "value": "varies", "name": "Option 5"},
+    {"id": "griffhoehe_6", "value": "varies", "name": "Option 6"},
+    {"id": "griffhoehe_7", "value": "varies", "name": "Option 7"}
+  ],
+
+  "sicherheitsbeschlaege": [
+    {"id": "sicherheitsbeschlaege_art_1_1", "name": "Standard (keine)"},
+    {"id": "sicherheitsbeschlaege_art_1_2", "name": "RC1 (Grundschutz)"},
+    {"id": "sicherheitsbeschlaege_art_1_3", "name": "RC2 (Erhöhter Schutz)"}
+  ],
+
+  "fensterfalzluefter": [
+    {"id": "fensterfalzluefter_art_1", "name": "Typ 1"},
+    {"id": "fensterfalzluefter_art_2", "name": "Typ 2"},
+    {"id": "fensterfalzluefter_art_3", "name": "Typ 3"},
+    {"id": "fensterfalzluefter_art_4", "name": "Typ 4"}
+  ],
+
+  "seal_colors": {
+    "exterior": [
+      {"id": "dfa_0", "name": "Schwarz"},
+      {"id": "dfa_1", "name": "Weiß"}
+    ],
+    "interior": [
+      {"id": "dfi_0", "name": "Schwarz"},
+      {"id": "dfi_1", "name": "Weiß"}
+    ]
+  },
+
+  "core_colors": [
+    {"id": "kf_0", "name": "Weiß", "available_for": ["p1", "p2", "p3", "p4", "p5", "p7"]},
+    {"id": "kf_1", "name": "Grau", "available_for": ["p3", "p4"]},
+    {"id": "kf_2", "name": "Schwarz", "available_for": ["p3", "p4"]}
+  ],
+
+  "rab_frame_types": [
+    {"id": "rab_0", "name": "Standard"},
+    {"id": "rab_1", "name": "Schmal (Narrow)"}
+  ],
+
+  "sprossen": {
+    "types": [
+      {"id": "sprossen_0", "name": "Keine Sprossen"},
+      {"id": "sprossen_1", "name": "Innenliegend (Internal)"},
+      {"id": "sprossen_2", "name": "Aufliegend (Surface-mounted)"}
+    ],
+    "widths_innenliegend": [
+      {"id": "sprossen_breite_8", "width_mm": 8},
+      {"id": "sprossen_breite_18", "width_mm": 18},
+      {"id": "sprossen_breite_26", "width_mm": 26},
+      {"id": "sprossen_breite_45", "width_mm": 45}
+    ],
+    "colors_innenliegend": {
+      "8mm": [
+        {"id": "sprossen_farbe_8_1", "name": "Weiß"},
+        {"id": "sprossen_farbe_8_2", "name": "Silber"},
+        {"id": "sprossen_farbe_8_3", "name": "Gold"},
+        {"id": "sprossen_farbe_8_4", "name": "Braun"}
+      ],
+      "18mm": [
+        {"id": "sprossen_farbe_18_1", "name": "Weiß"},
+        {"id": "sprossen_farbe_18_2", "name": "Silber"},
+        {"id": "sprossen_farbe_18_3", "name": "Gold"},
+        {"id": "sprossen_farbe_18_4", "name": "Braun"}
+      ],
+      "26mm": [
+        {"id": "sprossen_farbe_26_1", "name": "Weiß"},
+        {"id": "sprossen_farbe_26_2", "name": "Silber"},
+        {"id": "sprossen_farbe_26_3", "name": "Gold"}
+      ],
+      "45mm": [
+        {"id": "sprossen_farbe_45_1", "name": "Weiß"}
+      ]
+    },
+    "colors_aufliegend": [
+      {"id": "sprossen_farbe_a_01", "name": "Weiß"},
+      {"id": "sprossen_farbe_a_02", "name": "Silber"},
+      {"id": "sprossen_farbe_a_03", "name": "Gold"},
+      {"id": "sprossen_farbe_a_04", "name": "Braun"},
+      {"id": "sprossen_farbe_a_05", "name": "Anthrazit"}
+    ],
+    "vorlagen": [
+      {"id": "sprossen_vorlage_1", "name": "Vorlage 1"},
+      {"id": "sprossen_vorlage_2", "name": "Vorlage 2"},
+      {"id": "sprossen_vorlage_3", "name": "Vorlage 3"},
+      {"id": "sprossen_vorlage_4", "name": "Vorlage 4"},
+      {"id": "sprossen_vorlage_5", "name": "Vorlage 5"},
+      {"id": "sprossen_vorlage_6", "name": "Vorlage 6"},
+      {"id": "sprossen_vorlage_7", "name": "Vorlage 7"},
+      {"id": "sprossen_vorlage_8", "name": "Vorlage 8"},
+      {"id": "sprossen_vorlage_9", "name": "Vorlage 9"},
+      {"id": "sprossen_vorlage_10", "name": "Vorlage 10"}
+    ]
+  },
+
+  "rollladen": {
+    "models": [
+      {"id": "roll_model_1", "name": "Modell 1 (Standard)"},
+      {"id": "roll_model_2", "name": "Modell 2"},
+      {"id": "roll_model_3", "name": "Modell 3 (Premium)"},
+      {"id": "roll_model_4", "name": "Modell 4 (Premium)"}
+    ],
+    "drive_types": [
+      {"id": "roll_antriebart_1", "name": "Gurtwickler (Manual strap)"},
+      {"id": "roll_antriebart_2", "name": "Kurbel (Manual crank)"},
+      {"id": "roll_antriebart_3", "name": "Elektrisch (Electric motor)"},
+      {"id": "roll_antriebart_4", "name": "Elektrisch mit Funk (Electric + remote)"},
+      {"id": "roll_antriebart_10", "name": "Antrieb 10"},
+      {"id": "roll_antriebart_11", "name": "Antrieb 11 (Electric premium)"}
+    ],
+    "box_heights": [
+      {"id": "roll_kh_175", "height_mm": 175},
+      {"id": "roll_kh_215", "height_mm": 215}
+    ],
+    "box_colors": [
+      {"id": "fk1_01", "name": "Weiß"},
+      {"id": "fk1_02", "name": "Braun"},
+      {"id": "fk1_03", "name": "Anthrazit"},
+      {"id": "fk1_04", "name": "Grau"},
+      {"id": "fk1_05", "name": "Dunkelbraun"},
+      {"id": "fk1_06", "name": "Schwarz"}
+    ],
+    "slat_types": [
+      {"id": "roll_panzer_1", "name": "Panzer 1 (Standard)"},
+      {"id": "roll_panzer_2", "name": "Panzer 2"},
+      {"id": "roll_panzer_3", "name": "Panzer 3"}
+    ],
+    "drive_side": [
+      {"id": "roll_as_l", "name": "Links (Left)"},
+      {"id": "roll_as_r", "name": "Rechts (Right)"}
+    ]
+  },
+
+  "rahmenverbreiterung": {
+    "positions": ["unten", "links", "rechts", "oben"],
+    "sizes_mm": [0, 20, 30, 40, 50, 60],
+    "id_pattern": "{position}_{size}",
+    "examples": ["unten_0", "unten_20", "unten_30", "links_40", "rechts_50", "oben_60"]
+  },
+
+  "boolean_accessories": [
+    {"key": "aufbohrschutz", "enabled": "aufbohrschutz_1", "disabled": "aufbohrschutz_0", "name": "Aufbohrschutz (Drill protection)"},
+    {"key": "verdeckt_beschlaege", "enabled": "verdeckt_beschlaege_1", "disabled": "verdeckt_beschlaege_0", "name": "Verdeckte Beschläge (Concealed hardware)"},
+    {"key": "montagevorbohrung", "enabled": "montagevorbohrung_1", "disabled": "montagevorbohrung_0", "name": "Montagevorbohrungen (Pre-drilled mounting holes)", "note": "Enabled by default"},
+    {"key": "reedkontakt", "enabled": "reedkontakte_1", "disabled": "reedkontakte_0", "name": "Reedkontakt (Alarm reed contact)"},
+    {"key": "febaan", "enabled": "febaan_1", "disabled": "febaan_0", "name": "Fensterbankanschluss (Window sill connection)"},
+    {"key": "dsd", "enabled": "dsd_1", "disabled": "dsd_0", "name": "V-Perfect (Thin weld seam)", "note": "Enabled by default (dsd_1)"},
+    {"key": "drv", "enabled": "drv_1", "disabled": "drv_0", "name": "Druckausgleichsventil (Pressure equalization valve)"}
+  ],
+
+  "dimension_limits": {
+    "note": "All Drutex Kunststoff profiles share identical dimension limits for single-wing windows",
+    "universal_limits": {
+      "min_breite": 600,
+      "max_breite": 1500,
+      "min_hoehe": 450,
+      "max_hoehe": 1700,
+      "step": 1,
+      "unit": "mm"
+    },
+    "per_profile": {
+      "p1": {"min_breite": 600, "max_breite": 1500, "min_hoehe": 450, "max_hoehe": 1700},
+      "p2": {"min_breite": 600, "max_breite": 1500, "min_hoehe": 450, "max_hoehe": 1700},
+      "p3": {"min_breite": 600, "max_breite": 1500, "min_hoehe": 450, "max_hoehe": 1700},
+      "p4": {"min_breite": 600, "max_breite": 1500, "min_hoehe": 450, "max_hoehe": 1700},
+      "p5": {"min_breite": 600, "max_breite": 1500, "min_hoehe": 450, "max_hoehe": 1700},
+      "p7": {"min_breite": 600, "max_breite": 1500, "min_hoehe": 450, "max_hoehe": 1700}
+    }
+  },
+
+  "business_logic_dependencies": [
+    {"when": "profil == 'p7'", "then": "Only fn_1_drehlinks_a and fn_1_drehrechts_a openings available"},
+    {"when": "oer in ['fn_1_fest_ohne_fluegel', 'fn_1_fest_fluegel']", "then": "Handles disabled (no opening = no handle)"},
+    {"when": "glas == 'g7'", "then": "Ornament, Schallschutz, Sicherheitsverglasung all disabled"},
+    {"when": "glas == 'g8'", "then": "All glass sub-options disabled"},
+    {"when": "sprossen == 'sprossen_0'", "then": "Muntin width, color, pattern all disabled"},
+    {"when": "roll == 'roll_0'", "then": "All roller shutter sub-options disabled"},
+    {"when": "sicherheitsbeschlaege == 'sicherheitsbeschlaege_0'", "then": "Security hardware type disabled"},
+    {"when": "fensterfalzluefter == 'fensterfalzluefter_0'", "then": "Ventilator type disabled"},
+    {"when": "rahmenverbreiterung == 'rahmenverbreiterung_0'", "then": "All 4 side widening options disabled"},
+    {"when": "schallschutz == 'schallschutz_nein'", "then": "Schallschutz level disabled"},
+    {"when": "sicherheitsverglasung == 'sicherheitsverglasung_0'", "then": "Safety glass type disabled"},
+    {"when": "ornament == 'ornament_0'", "then": "Ornament type disabled"},
+    {"when": "art == 'a1'", "then": "Only single-wing types and openings available"},
+    {"when": "art == 'a2'", "then": "Double-wing opening combinations available"},
+    {"when": "art == 'a3'", "then": "Triple-wing opening combinations available"},
+    {"when": "profil in ['p1', 'p2', 'p5', 'p7']", "then": "Core color kf_1 and kf_2 NOT available (only kf_0)"},
+    {"when": "profil in ['p3', 'p4']", "then": "Core colors kf_0, kf_1, kf_2 all available"}
+  ],
+
+  "validation_rules": [
+    {"rule": "dimension_range", "condition": "breite >= 600 AND breite <= 1500", "error": "zulässiger Bereich von 600 bis 1500 mm"},
+    {"rule": "dimension_range", "condition": "hoehe >= 450 AND hoehe <= 1700", "error": "zulässiger Bereich von 450 bis 1700 mm"},
+    {"rule": "aspect_ratio", "condition": "Server-side check on width/height ratio", "error": "Verhältnis Breite/Höhe nicht zulässig"},
+    {"rule": "required_config", "condition": "All required fields present in obj_konfig", "error": "Fehlende Konfiguration"},
+    {"rule": "roller_shutter_width", "condition": "breite / roll_teil <= max roller width", "error": "Rollladenbreite zu groß"}
+  ]
+}

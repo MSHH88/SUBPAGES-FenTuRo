@@ -1,0 +1,351 @@
+{
+  "_meta": {
+    "document": "Complete Surcharge Tables",
+    "manufacturer": "Drutex",
+    "material": "Kunststoff (PVC)",
+    "reference_config": "Iglo 5 Classic (p1), 1000x1000mm, White/White, 2-fach glass (g1), V-Perfect ON (dsd_1), no accessories",
+    "reference_preisempfehlung": 300.91,
+    "reference_grundpreis": 295.44,
+    "discount_formula": "Angebotspreis = Preisempfehlung × 0.60 (40% Rabatt)",
+    "discount_percentage": 40,
+    "captured_date": "2026-03-02",
+    "note": "All surcharges are added to the Preisempfehlung. The V-Perfect surcharge of +5.47 is already included in the reference_preisempfehlung (300.91). Without V-Perfect (dsd_0), the Grundpreis is 295.44."
+  },
+
+  "pricing_formula": {
+    "step_1": "Grundpreis = Base_Price_Matrix[width][height]",
+    "step_2": "Profile_Adjusted = Grundpreis × Profile_Multiplier",
+    "step_3": "Preisempfehlung = Profile_Adjusted + V_Perfect_Surcharge + Color_Surcharge_Ext + Color_Surcharge_Int + Glass_Surcharge + Accessory_Surcharges",
+    "step_4": "Ersparnis = Preisempfehlung × 0.40",
+    "step_5": "Angebotspreis = Preisempfehlung × 0.60"
+  },
+
+  "profile_multipliers": [
+    {"id": "p1", "name": "Iglo 5 Classic", "grundpreis_1000x1000": 295.44, "multiplier": 1.0000},
+    {"id": "p2", "name": "Iglo 5", "grundpreis_1000x1000": 295.44, "multiplier": 1.0000},
+    {"id": "p3", "name": "Iglo Energy Classic", "grundpreis_1000x1000": 372.27, "multiplier": 1.2601},
+    {"id": "p4", "name": "Iglo Energy", "grundpreis_1000x1000": 372.27, "multiplier": 1.2601},
+    {"id": "p5", "name": "Iglo Light", "grundpreis_1000x1000": 281.60, "multiplier": 0.9532},
+    {"id": "p7", "name": "Iglo EXT (nach außen öffnend)", "grundpreis_1000x1000": 380.72, "multiplier": 1.2886, "note": "Only supports Dreh Links/Rechts nach außen"}
+  ],
+
+  "exterior_color_surcharges": {
+    "tier_definitions": [
+      {"tier": 0, "surcharge_eur": 0.00, "description": "Free — Base colors"},
+      {"tier": 1, "surcharge_eur": 43.68, "description": "Standard Folie"},
+      {"tier": 2, "surcharge_eur": 78.48, "description": "Premium Folie"},
+      {"tier": 3, "surcharge_eur": 83.19, "description": "Alux (Aluminium exterior)"},
+      {"tier": 4, "surcharge_eur": 104.64, "description": "Premium Special"}
+    ],
+    "colors": [
+      {"id": "fs1_01", "name": "Weiss (ohne Dekorfarbe)", "tier": 0, "surcharge_eur": 0.00, "preisempfehlung": 300.91},
+      {"id": "fs1_02", "name": "Nussbaum (2178007)", "tier": 1, "surcharge_eur": 43.68, "preisempfehlung": 344.59},
+      {"id": "fs1_03", "name": "Golden Oak (2178001)", "tier": 1, "surcharge_eur": 43.68, "preisempfehlung": 344.59},
+      {"id": "fs1_04", "name": "Mahagoni (2065021)", "tier": 1, "surcharge_eur": 43.68, "preisempfehlung": 344.59},
+      {"id": "fs1_05", "name": "Winchester (4601001)", "tier": 1, "surcharge_eur": 43.68, "preisempfehlung": 344.59},
+      {"id": "fs1_06", "name": "Anthrazitgrau (7016)", "tier": 1, "surcharge_eur": 43.68, "preisempfehlung": 344.59},
+      {"id": "fs1_07", "name": "Schokobraun (887505)", "tier": 1, "surcharge_eur": 43.68, "preisempfehlung": 344.59},
+      {"id": "fs1_08", "name": "Mooreiche (2052089)", "tier": 4, "surcharge_eur": 104.64, "preisempfehlung": 405.55},
+      {"id": "fs1_09", "name": "Stahlblau (5014005)", "tier": 4, "surcharge_eur": 104.64, "preisempfehlung": 405.55},
+      {"id": "fs1_10", "name": "Basaltgrau (701205)", "tier": 1, "surcharge_eur": 43.68, "preisempfehlung": 344.59},
+      {"id": "fs1_11", "name": "Siena Noce (2178012)", "tier": 1, "surcharge_eur": 43.68, "preisempfehlung": 344.59},
+      {"id": "fs1_12", "name": "Siena Rosso (3152009)", "tier": 2, "surcharge_eur": 78.48, "preisempfehlung": 379.39},
+      {"id": "fs1_13", "name": "Weiss (9016)", "tier": 1, "surcharge_eur": 43.68, "preisempfehlung": 344.59},
+      {"id": "fs1_14", "name": "Cremeweiss (9001)", "tier": 1, "surcharge_eur": 43.68, "preisempfehlung": 344.59},
+      {"id": "fs1_15", "name": "Grau (7040)", "tier": 2, "surcharge_eur": 78.48, "preisempfehlung": 379.39},
+      {"id": "fs1_16", "name": "Dunkelbraun (8014)", "tier": 0, "surcharge_eur": 0.00, "preisempfehlung": 300.91},
+      {"id": "fs1_17", "name": "Braun (8003)", "tier": 2, "surcharge_eur": 78.48, "preisempfehlung": 379.39},
+      {"id": "fs1_18", "name": "Tannengrün (6009)", "tier": 2, "surcharge_eur": 78.48, "preisempfehlung": 379.39},
+      {"id": "fs1_19", "name": "Schwarzbraun (851805)", "tier": 1, "surcharge_eur": 43.68, "preisempfehlung": 344.59},
+      {"id": "fs1_20", "name": "Schwarzgrau (7021)", "tier": 1, "surcharge_eur": 43.68, "preisempfehlung": 344.59},
+      {"id": "fs1_21", "name": "Silbergrau (9006)", "tier": 2, "surcharge_eur": 78.48, "preisempfehlung": 379.39},
+      {"id": "fs1_22", "name": "Moosgrün (6005)", "tier": 2, "surcharge_eur": 78.48, "preisempfehlung": 379.39},
+      {"id": "fs1_23", "name": "Quarzgrau (7039)", "tier": 1, "surcharge_eur": 43.68, "preisempfehlung": 344.59},
+      {"id": "fs1_24", "name": "Signalrot (3001)", "tier": 2, "surcharge_eur": 78.48, "preisempfehlung": 379.39},
+      {"id": "fs1_25", "name": "Signalblau (5005)", "tier": 2, "surcharge_eur": 78.48, "preisempfehlung": 379.39},
+      {"id": "fs1_26", "name": "Streifen Douglasie (3152009)", "tier": 1, "surcharge_eur": 43.68, "preisempfehlung": 344.59},
+      {"id": "fs1_27", "name": "Jet Black (9005)", "tier": 2, "surcharge_eur": 78.48, "preisempfehlung": 379.39},
+      {"id": "fs1_28", "name": "Graualuminium (9007)", "tier": 1, "surcharge_eur": 43.68, "preisempfehlung": 344.59},
+      {"id": "fs1_29", "name": "Bergkiefer (3069041)", "tier": 1, "surcharge_eur": 43.68, "preisempfehlung": 344.59},
+      {"id": "fs1_30", "name": "Sheffield Oak (F456-3081)", "tier": 4, "surcharge_eur": 104.64, "preisempfehlung": 405.55},
+      {"id": "fs1_31", "name": "Turner Oak (F446-3028)", "tier": 4, "surcharge_eur": 104.64, "preisempfehlung": 405.55},
+      {"id": "fs1_56", "name": "Alux Anthrazitgrau DB703", "tier": 3, "surcharge_eur": 83.19, "preisempfehlung": 384.10},
+      {"id": "fs1_57", "name": "Alux Schwarzgrau (7021)", "tier": 3, "surcharge_eur": 83.19, "preisempfehlung": 384.10}
+    ]
+  },
+
+  "interior_color_surcharges": {
+    "tier_definitions": [
+      {"tier": 0, "surcharge_eur": 0.00, "description": "Free — Base colors"},
+      {"tier": 1, "surcharge_eur": 43.68, "description": "Standard Folie"},
+      {"tier": 2, "surcharge_eur": 78.48, "description": "Premium Folie"},
+      {"tier": 3, "surcharge_eur": 83.19, "description": "Alux / Premium"},
+      {"tier": 4, "surcharge_eur": 104.64, "description": "Special Premium"},
+      {"tier": 5, "surcharge_eur": 117.20, "description": "Ultra Premium (Interior only)"}
+    ],
+    "colors": [
+      {"id": "fs1_01_i", "name": "Weiss", "tier": 0, "surcharge_eur": 0.00, "preisempfehlung": 300.91},
+      {"id": "fs1_02_i", "name": "Nussbaum", "tier": 1, "surcharge_eur": 43.68, "preisempfehlung": 344.59},
+      {"id": "fs1_03_i", "name": "Golden Oak", "tier": 1, "surcharge_eur": 43.68, "preisempfehlung": 344.59},
+      {"id": "fs1_04_i", "name": "Mahagoni", "tier": 1, "surcharge_eur": 43.68, "preisempfehlung": 344.59},
+      {"id": "fs1_05_i", "name": "Winchester", "tier": 1, "surcharge_eur": 43.68, "preisempfehlung": 344.59},
+      {"id": "fs1_06_i", "name": "Anthrazitgrau", "tier": 1, "surcharge_eur": 43.68, "preisempfehlung": 344.59},
+      {"id": "fs1_07_i", "name": "Schokobraun", "tier": 1, "surcharge_eur": 43.68, "preisempfehlung": 344.59},
+      {"id": "fs1_08_i", "name": "Mooreiche", "tier": 4, "surcharge_eur": 104.64, "preisempfehlung": 405.55},
+      {"id": "fs1_09_i", "name": "Stahlblau", "tier": 4, "surcharge_eur": 104.64, "preisempfehlung": 405.55},
+      {"id": "fs1_10_i", "name": "Basaltgrau", "tier": 1, "surcharge_eur": 43.68, "preisempfehlung": 344.59},
+      {"id": "fs1_11_i", "name": "Siena Noce", "tier": 1, "surcharge_eur": 43.68, "preisempfehlung": 344.59},
+      {"id": "fs1_12_i", "name": "Siena Rosso", "tier": 2, "surcharge_eur": 78.48, "preisempfehlung": 379.39},
+      {"id": "fs1_13_i", "name": "Weiss (9016)", "tier": 1, "surcharge_eur": 43.68, "preisempfehlung": 344.59},
+      {"id": "fs1_14_i", "name": "Cremeweiss", "tier": 1, "surcharge_eur": 43.68, "preisempfehlung": 344.59},
+      {"id": "fs1_15_i", "name": "Grau", "tier": 2, "surcharge_eur": 78.48, "preisempfehlung": 379.39},
+      {"id": "fs1_16_i", "name": "Dunkelbraun", "tier": 0, "surcharge_eur": 0.00, "preisempfehlung": 300.91},
+      {"id": "fs1_17_i", "name": "Braun", "tier": 2, "surcharge_eur": 78.48, "preisempfehlung": 379.39},
+      {"id": "fs1_19_i", "name": "Schwarzbraun", "tier": 1, "surcharge_eur": 43.68, "preisempfehlung": 344.59},
+      {"id": "fs1_20_i", "name": "Schwarzgrau", "tier": 3, "surcharge_eur": 83.19, "preisempfehlung": 384.10},
+      {"id": "fs1_23_i", "name": "Quarzgrau", "tier": 3, "surcharge_eur": 83.19, "preisempfehlung": 384.10},
+      {"id": "fs1_24_i", "name": "Signalrot", "tier": 3, "surcharge_eur": 83.19, "preisempfehlung": 384.10},
+      {"id": "fs1_25_i", "name": "Signalblau", "tier": 3, "surcharge_eur": 83.19, "preisempfehlung": 384.10},
+      {"id": "fs1_26_i", "name": "Streifen Douglasie", "tier": 3, "surcharge_eur": 83.19, "preisempfehlung": 384.10},
+      {"id": "fs1_28_i", "name": "Graualuminium", "tier": 3, "surcharge_eur": 83.19, "preisempfehlung": 384.10},
+      {"id": "fs1_29_i", "name": "Bergkiefer", "tier": 3, "surcharge_eur": 83.19, "preisempfehlung": 384.10},
+      {"id": "fs1_30_i", "name": "Sheffield Oak", "tier": 5, "surcharge_eur": 117.20, "preisempfehlung": 418.11},
+      {"id": "fs1_31_i", "name": "Turner Oak", "tier": 5, "surcharge_eur": 117.20, "preisempfehlung": 418.11},
+      {"id": "fs1_33_i", "name": "Interior Special 33", "tier": 5, "surcharge_eur": 117.20, "preisempfehlung": 418.11},
+      {"id": "fs1_34_i", "name": "Interior Special 34", "tier": 5, "surcharge_eur": 117.20, "preisempfehlung": 418.11},
+      {"id": "fs1_35_i", "name": "Interior Special 35", "tier": 5, "surcharge_eur": 117.20, "preisempfehlung": 418.11},
+      {"id": "fs1_36_i", "name": "Interior Special 36", "tier": 5, "surcharge_eur": 117.20, "preisempfehlung": 418.11},
+      {"id": "fs1_37_i", "name": "Interior Special 37", "tier": 5, "surcharge_eur": 117.20, "preisempfehlung": 418.11},
+      {"id": "fs1_56_i", "name": "Alux Anthrazitgrau DB703", "tier": 3, "surcharge_eur": 83.19, "preisempfehlung": 384.10}
+    ]
+  },
+
+  "glass_surcharges": [
+    {"id": "g1", "name": "2-fach Thermo-Verglasung (Ug 1.1)", "surcharge_eur": 0.00, "preisempfehlung": 300.91},
+    {"id": "g2", "name": "2-fach Thermo-Verglasung warme Kante (Ug 1.0)", "surcharge_eur": 0.00, "preisempfehlung": 300.91},
+    {"id": "g3", "name": "3-fach Thermo-Verglasung (Ug 0.7)", "surcharge_eur": 39.81, "preisempfehlung": 340.72},
+    {"id": "g4", "name": "3-fach Thermo-Verglasung warme Kante (Ug 0.6)", "surcharge_eur": 39.81, "preisempfehlung": 340.72},
+    {"id": "g7", "name": "Sandwitchplatte PVC/Schaum/PVC", "surcharge_eur": 99.98, "preisempfehlung": 400.89},
+    {"id": "g8", "name": "Ohne Glasscheibe", "surcharge_eur": -15.05, "preisempfehlung": 285.86}
+  ],
+
+  "schallschutz_surcharges": {
+    "with_2fach_glass_g1": [
+      {"id": "schallschutz_stufe01", "name": "Stufe 1 (Standard)", "surcharge_eur": 0.00, "preisempfehlung": 300.91},
+      {"id": "schallschutz_stufe02", "name": "Stufe 2", "surcharge_eur": 22.68, "preisempfehlung": 323.59},
+      {"id": "schallschutz_stufe03", "name": "Stufe 3", "surcharge_eur": 56.92, "preisempfehlung": 357.83},
+      {"id": "schallschutz_stufe04", "name": "Stufe 4 (Maximum)", "surcharge_eur": 175.03, "preisempfehlung": 475.94}
+    ],
+    "with_3fach_glass_g3": [
+      {"id": "schallschutz_stufe01", "name": "Stufe 1 (Standard)", "surcharge_eur": 0.00, "preisempfehlung": 340.72, "note": "Base is g3 price"},
+      {"id": "schallschutz_stufe02", "name": "Stufe 2", "surcharge_eur": 22.68, "preisempfehlung": 363.40},
+      {"id": "schallschutz_stufe03", "name": "Stufe 3", "surcharge_eur": 149.40, "preisempfehlung": 490.12},
+      {"id": "schallschutz_stufe04", "name": "Stufe 4 (Maximum)", "surcharge_eur": 175.03, "preisempfehlung": 515.75}
+    ]
+  },
+
+  "sicherheitsverglasung_surcharges": {
+    "with_2fach_glass_g1": [
+      {"id": "verglasung_typ_2_1", "surcharge_eur": 68.90, "preisempfehlung": 369.81},
+      {"id": "verglasung_typ_2_2", "surcharge_eur": 76.38, "preisempfehlung": 377.29},
+      {"id": "verglasung_typ_2_3", "surcharge_eur": 145.30, "preisempfehlung": 446.21},
+      {"id": "verglasung_typ_2_4", "surcharge_eur": 116.89, "preisempfehlung": 417.80},
+      {"id": "verglasung_typ_2_5", "surcharge_eur": 116.89, "preisempfehlung": 417.80},
+      {"id": "verglasung_typ_2_6", "surcharge_eur": 193.29, "preisempfehlung": 494.20},
+      {"id": "verglasung_typ_2_7", "surcharge_eur": 59.99, "preisempfehlung": 360.90},
+      {"id": "verglasung_typ_2_8", "surcharge_eur": 200.59, "preisempfehlung": 501.50}
+    ],
+    "with_3fach_glass_g3": [
+      {"id": "verglasung_typ_3_1", "surcharge_eur": 54.74, "preisempfehlung": 395.46},
+      {"id": "verglasung_typ_3_2", "surcharge_eur": 118.11, "preisempfehlung": 458.83},
+      {"id": "verglasung_typ_3_3", "surcharge_eur": 131.12, "preisempfehlung": 471.84},
+      {"id": "verglasung_typ_3_4", "surcharge_eur": 102.73, "preisempfehlung": 443.45},
+      {"id": "verglasung_typ_3_5", "surcharge_eur": 102.73, "preisempfehlung": 443.45},
+      {"id": "verglasung_typ_3_6", "surcharge_eur": 181.67, "preisempfehlung": 522.39},
+      {"id": "verglasung_typ_3_7", "surcharge_eur": 206.22, "preisempfehlung": 546.94}
+    ]
+  },
+
+  "ornament_surcharges": [
+    {"id": "ornament_typ_1", "surcharge_eur": 39.28, "preisempfehlung": 340.19},
+    {"id": "ornament_typ_2", "surcharge_eur": 39.28, "preisempfehlung": 340.19},
+    {"id": "ornament_typ_3", "surcharge_eur": 39.28, "preisempfehlung": 340.19},
+    {"id": "ornament_typ_4", "surcharge_eur": 39.28, "preisempfehlung": 340.19},
+    {"id": "ornament_typ_5", "surcharge_eur": 39.28, "preisempfehlung": 340.19},
+    {"id": "ornament_typ_6", "surcharge_eur": 82.13, "preisempfehlung": 383.04},
+    {"id": "ornament_typ_7", "surcharge_eur": 113.50, "preisempfehlung": 414.41},
+    {"id": "ornament_typ_8", "surcharge_eur": 0.00, "preisempfehlung": 300.91, "note": "Sonnenschutz only"},
+    {"id": "ornament_typ_9", "surcharge_eur": 0.00, "preisempfehlung": 300.91, "note": "Sonnenschutz only"},
+    {"id": "ornament_typ_10", "surcharge_eur": 0.00, "preisempfehlung": 300.91, "note": "Sonnenschutz only"}
+  ],
+
+  "handle_surcharges": {
+    "standard": [
+      {"id": "fenstergriffart_1_1", "name": "Weiß", "surcharge_eur": 0.00, "preisempfehlung": 300.91},
+      {"id": "fenstergriffart_1_2", "name": "Silber", "surcharge_eur": 0.00, "preisempfehlung": 300.91},
+      {"id": "fenstergriffart_1_3", "name": "Braun", "surcharge_eur": 0.00, "preisempfehlung": 300.91},
+      {"id": "fenstergriffart_1_4", "name": "Anthrazit", "surcharge_eur": 0.00, "preisempfehlung": 300.91},
+      {"id": "fenstergriffart_1_5", "name": "Schwarz", "surcharge_eur": 0.00, "preisempfehlung": 300.91},
+      {"id": "fenstergriffart_1_6", "name": "Edelstahl", "surcharge_eur": 52.29, "preisempfehlung": 353.20},
+      {"id": "fenstergriffart_1_7", "name": "Gold", "surcharge_eur": 16.26, "preisempfehlung": 317.17},
+      {"id": "fenstergriffart_1_8", "name": "Titan", "surcharge_eur": 16.26, "preisempfehlung": 317.17}
+    ],
+    "druckknopf": [
+      {"id": "fenstergriffart_2_1", "name": "Weiß", "surcharge_eur": 20.91, "preisempfehlung": 321.82},
+      {"id": "fenstergriffart_2_2", "name": "Silber", "surcharge_eur": 20.91, "preisempfehlung": 321.82},
+      {"id": "fenstergriffart_2_3", "name": "Braun", "surcharge_eur": 20.91, "preisempfehlung": 321.82},
+      {"id": "fenstergriffart_2_4", "name": "Anthrazit", "surcharge_eur": 20.91, "preisempfehlung": 321.82},
+      {"id": "fenstergriffart_2_5", "name": "Edelstahl", "surcharge_eur": 53.86, "preisempfehlung": 354.77},
+      {"id": "fenstergriffart_2_6", "name": "Schwarz", "surcharge_eur": 53.86, "preisempfehlung": 354.77}
+    ],
+    "abschliessbar": [
+      {"id": "fenstergriffart_3_1", "name": "Weiß", "surcharge_eur": 31.74, "preisempfehlung": 332.65},
+      {"id": "fenstergriffart_3_2", "name": "Silber", "surcharge_eur": 31.74, "preisempfehlung": 332.65},
+      {"id": "fenstergriffart_3_3", "name": "Braun", "surcharge_eur": 31.74, "preisempfehlung": 332.65},
+      {"id": "fenstergriffart_3_4", "name": "Anthrazit", "surcharge_eur": 41.83, "preisempfehlung": 342.74},
+      {"id": "fenstergriffart_3_5", "name": "Edelstahl", "surcharge_eur": 41.83, "preisempfehlung": 342.74},
+      {"id": "fenstergriffart_3_6", "name": "Schwarz", "surcharge_eur": 41.83, "preisempfehlung": 342.74}
+    ]
+  },
+
+  "sicherheitsbeschlaege_surcharges": [
+    {"id": "sicherheitsbeschlaege_art_1_1", "name": "Standard (keine)", "surcharge_eur": 0.00, "preisempfehlung": 300.91},
+    {"id": "sicherheitsbeschlaege_art_1_2", "name": "RC1 (Grundschutz)", "surcharge_eur": 65.88, "preisempfehlung": 366.79},
+    {"id": "sicherheitsbeschlaege_art_1_3", "name": "RC2 (Erhöhter Schutz)", "surcharge_eur": 144.44, "preisempfehlung": 445.35}
+  ],
+
+  "fensterfalzluefter_surcharges": [
+    {"id": "fensterfalzluefter_art_1", "name": "Typ 1", "surcharge_eur": 49.20, "preisempfehlung": 350.11},
+    {"id": "fensterfalzluefter_art_2", "name": "Typ 2", "surcharge_eur": 56.58, "preisempfehlung": 357.49},
+    {"id": "fensterfalzluefter_art_3", "name": "Typ 3", "surcharge_eur": 185.19, "preisempfehlung": 486.10},
+    {"id": "fensterfalzluefter_art_4", "name": "Typ 4", "surcharge_eur": 197.56, "preisempfehlung": 498.47}
+  ],
+
+  "sprossen_surcharges": {
+    "innenliegend": {"flat_surcharge_eur": 29.37, "preisempfehlung": 330.28, "note": "Same surcharge regardless of width or color"},
+    "aufliegend": {"flat_surcharge_eur": 122.39, "preisempfehlung": 423.30, "note": "Same surcharge regardless of color"},
+    "vorlage_pattern": {"surcharge_eur": 0.00, "note": "Pattern template selection has NO additional surcharge"}
+  },
+
+  "rollladen_surcharges": {
+    "base_with_shutter": {"preisempfehlung": 623.54, "surcharge_vs_no_shutter": 322.63},
+    "models": [
+      {"id": "roll_model_1", "surcharge_eur": 0.00, "preisempfehlung": 623.54},
+      {"id": "roll_model_2", "surcharge_eur": 0.00, "preisempfehlung": 623.54},
+      {"id": "roll_model_3", "surcharge_eur": 173.92, "preisempfehlung": 797.46},
+      {"id": "roll_model_4", "surcharge_eur": 173.92, "preisempfehlung": 797.46}
+    ],
+    "drive_types": [
+      {"id": "roll_antriebart_1", "surcharge_eur": 0.00, "preisempfehlung": 623.54},
+      {"id": "roll_antriebart_2", "surcharge_eur": 0.00, "preisempfehlung": 623.54},
+      {"id": "roll_antriebart_3", "surcharge_eur": 238.56, "preisempfehlung": 862.10},
+      {"id": "roll_antriebart_4", "surcharge_eur": 238.56, "preisempfehlung": 862.10},
+      {"id": "roll_antriebart_10", "surcharge_eur": 6.98, "preisempfehlung": 630.52},
+      {"id": "roll_antriebart_11", "surcharge_eur": 246.13, "preisempfehlung": 869.67}
+    ],
+    "box_colors": [
+      {"id": "fk1_01", "name": "Weiß", "surcharge_eur": 0.00, "preisempfehlung": 623.54},
+      {"id": "fk1_02", "name": "Braun", "surcharge_eur": 17.74, "preisempfehlung": 641.28},
+      {"id": "fk1_03", "name": "Anthrazit", "surcharge_eur": 17.74, "preisempfehlung": 641.28},
+      {"id": "fk1_04", "name": "Grau", "surcharge_eur": 17.74, "preisempfehlung": 641.28},
+      {"id": "fk1_05", "name": "Dunkelbraun", "surcharge_eur": 17.74, "preisempfehlung": 641.28},
+      {"id": "fk1_06", "name": "Schwarz", "surcharge_eur": 17.74, "preisempfehlung": 641.28}
+    ],
+    "box_heights": [
+      {"id": "roll_kh_175", "height_mm": 175, "surcharge_eur": 60.24, "preisempfehlung": 683.78},
+      {"id": "roll_kh_215", "height_mm": 215, "surcharge_eur": 0.00, "preisempfehlung": 623.54}
+    ],
+    "slat_types": [
+      {"id": "roll_panzer_1", "surcharge_eur": 0.00, "preisempfehlung": 623.54},
+      {"id": "roll_panzer_2", "surcharge_eur": 0.00, "preisempfehlung": 623.54},
+      {"id": "roll_panzer_3", "surcharge_eur": 0.00, "preisempfehlung": 623.54}
+    ]
+  },
+
+  "boolean_accessory_surcharges": [
+    {"key": "dsd", "name": "V-Perfect (Thin weld)", "enabled_value": "dsd_1", "surcharge_eur": 5.47, "preisempfehlung": 300.91, "note": "Enabled by default. Surcharge = 300.91 - 295.44"},
+    {"key": "aufbohrschutz", "name": "Aufbohrschutz (Drill protection)", "enabled_value": "aufbohrschutz_1", "surcharge_eur": 10.65, "preisempfehlung": 306.09},
+    {"key": "verdeckt_beschlaege", "name": "Verdeckte Beschläge (Concealed hardware)", "enabled_value": "verdeckt_beschlaege_1", "surcharge_eur": 132.23, "preisempfehlung": 427.67},
+    {"key": "reedkontakt", "name": "Reedkontakt (Alarm contact)", "enabled_value": "reedkontakte_1", "surcharge_eur": 103.69, "preisempfehlung": 399.13},
+    {"key": "febaan", "name": "Fensterbankanschluss (Sill connection)", "enabled_value": "febaan_1", "surcharge_eur": 18.93, "preisempfehlung": 314.37},
+    {"key": "drv", "name": "Druckausgleichsventil (Pressure valve)", "enabled_value": "drv_1", "surcharge_eur": 49.93, "preisempfehlung": 345.37},
+    {"key": "montagevorbohrung", "name": "Montagevorbohrungen (Pre-drilled holes)", "enabled_value": "montagevorbohrung_1", "surcharge_eur": 0.00, "preisempfehlung": 300.91, "note": "No surcharge"}
+  ],
+
+  "rab_surcharge": [
+    {"id": "rab_0", "name": "Standard", "surcharge_eur": 0.00, "preisempfehlung": 300.91},
+    {"id": "rab_1", "name": "Schmal (Narrow)", "surcharge_eur": 45.14, "preisempfehlung": 346.05}
+  ],
+
+  "warme_kante_surcharges": [
+    {"id": "wk_1", "name": "Swisspacer Ultimate Schwarz", "surcharge_eur": 0.00},
+    {"id": "wk_2", "name": "Swisspacer Ultimate Weiß", "surcharge_eur": 0.00},
+    {"id": "wk_3", "name": "Swisspacer Ultimate Grau", "surcharge_eur": 0.00}
+  ],
+
+  "rahmenverbreiterung_surcharges": {
+    "note": "Frame widening has NO surcharge — included in base price",
+    "all_positions_all_sizes": 0.00
+  },
+
+  "griffhoehe_surcharges": {
+    "note": "Handle height selection has NO surcharge",
+    "all_options": 0.00
+  },
+
+  "seal_color_surcharges": {
+    "note": "Seal color (dfa/dfi) has NO surcharge",
+    "all_combinations": 0.00
+  },
+
+  "core_color_surcharges": [
+    {"id": "kf_0", "name": "Weiß", "surcharge_eur": 0.00, "note": "Available for all profiles"},
+    {"id": "kf_1", "name": "Grau", "surcharge_eur": 42.44, "note": "Only for p3/p4. Preisempfehlung with p3: 414.71"},
+    {"id": "kf_2", "name": "Schwarz", "surcharge_eur": 42.44, "note": "Only for p3/p4. Preisempfehlung with p3: 414.71"}
+  ],
+
+  "multi_wing_pricing": {
+    "double_wing_a2": {
+      "base_preisempfehlung_1000x1000": 470.11,
+      "openings": [
+        {"id": "fn_2_festfluegel_festfluegel", "preisempfehlung": 470.11},
+        {"id": "fn_2_drehlinks_drehrechts", "preisempfehlung": 470.11},
+        {"id": "fn_2_drehkipp_drehkipp", "preisempfehlung": 470.11},
+        {"id": "fn_2_drehkipp_festfluegel", "preisempfehlung": 470.11},
+        {"id": "fn_2_festfluegel_drehkipp", "preisempfehlung": 470.11},
+        {"id": "fn_2_drehkipp_dreh", "preisempfehlung": 470.11},
+        {"id": "fn_2_dreh_drehkipp", "preisempfehlung": 470.11}
+      ]
+    },
+    "triple_wing_a3": {
+      "base_preisempfehlung_1000x1000": 577.22,
+      "openings": [
+        {"id": "fn_3_fest_fest_fest", "preisempfehlung": 577.22},
+        {"id": "fn_3_dk_fest_dk", "preisempfehlung": 577.22},
+        {"id": "fn_3_dk_fest_dreh", "preisempfehlung": 577.22},
+        {"id": "fn_3_dreh_fest_dk", "preisempfehlung": 577.22},
+        {"id": "fn_3_dk_dk_dk", "preisempfehlung": 577.22},
+        {"id": "fn_3_dk_dk_dk_stulp", "preisempfehlung": 577.22},
+        {"id": "fn_3_dk_dk_dk_stulp_2", "preisempfehlung": 577.22},
+        {"id": "fn_3_dk_fest_dk_stulp", "preisempfehlung": 577.22}
+      ]
+    }
+  },
+
+  "oberlicht_unterlicht_pricing": {
+    "oberlicht": [
+      {"typ": "typ1o1", "opening": "fn_1_oberlicht_f", "name": "Fest (Fixed)", "preisempfehlung": 470.60},
+      {"typ": "typ1o1", "opening": "fn_1_oberlicht_ff", "name": "Fest mit Flügel", "preisempfehlung": 511.40},
+      {"typ": "typ1o1", "opening": "fn_1_oberlicht_kipp", "name": "Kipp (Tilt)", "preisempfehlung": 544.78},
+      {"typ": "typ1o2", "opening": "ob_f_f", "name": "2-teilig Fest", "preisempfehlung": 488.22},
+      {"typ": "typ1o3", "opening": "ob_f_f_f", "name": "3-teilig Fest", "preisempfehlung": 581.87}
+    ],
+    "unterlicht": [
+      {"typ": "typ1u1", "opening": "fn_1_unterlicht_f", "name": "Fest (Fixed)", "preisempfehlung": 470.60},
+      {"typ": "typ1u1", "opening": "fn_1_unterlicht_ff", "name": "Fest mit Flügel", "preisempfehlung": 511.40},
+      {"typ": "typ1u1", "opening": "fn_1_unterlicht_kipp", "name": "Kipp (Tilt)", "preisempfehlung": 544.78},
+      {"typ": "typ1u2", "opening": "ub_f_f", "name": "2-teilig Fest", "preisempfehlung": 488.22},
+      {"typ": "typ1u3", "opening": "ub_f_f_f", "name": "3-teilig Fest", "preisempfehlung": 581.87}
+    ]
+  }
+}

@@ -1,0 +1,320 @@
+{
+  "_meta": {
+    "document": "API Endpoints Specification",
+    "manufacturer": "Drutex",
+    "material": "Kunststoff (PVC)",
+    "base_url": "https://confde.fenstermaxx24.com/confapp/Drutex/PVC-Fenster-bestellen-drutex",
+    "iframe_parent_url": "https://www.fenstermaxx24.com/konfigurator/konfigurator-fenster/",
+    "captured_date": "2026-03-02",
+    "total_endpoints": 6
+  },
+
+  "session": {
+    "type": "PHP",
+    "cookie": "PHPSESSID",
+    "domain": "confde.fenstermaxx24.com",
+    "csrf_token_variable": "global_hash",
+    "csrf_required": false,
+    "note": "CSRF token (csrf_cyko) can be sent as empty string for direct API calls"
+  },
+
+  "endpoints": [
+    {
+      "id": 1,
+      "name": "berechnen",
+      "purpose": "Calculate price — Primary endpoint for all price updates",
+      "url": "/ajax/berechnen/",
+      "full_url": "https://confde.fenstermaxx24.com/confapp/Drutex/PVC-Fenster-bestellen-drutex/ajax/berechnen/",
+      "method": "POST",
+      "content_type": "application/x-www-form-urlencoded",
+      "parameters": {
+        "csrf_cyko": {
+          "type": "string",
+          "required": true,
+          "description": "CSRF token from global_hash variable. Can be empty string.",
+          "example": ""
+        },
+        "tmp_obj": {
+          "type": "string (JSON-encoded)",
+          "required": true,
+          "description": "Complete obj_konfig object serialized as JSON string. Contains all 85 configuration properties.",
+          "example": "{\"breite\":1000,\"hoehe\":1000,\"profil\":\"p1\",...}"
+        }
+      },
+      "response": {
+        "format": "HTML fragment",
+        "content_type": "text/html",
+        "description": "Returns an HTML block containing the price display, configuration summary, and window visualization. NOT JSON.",
+        "key_elements": {
+          "preisempfehlung": {
+            "selector": "#topStrokePrice",
+            "regex": "([\\d.,]+)\\s*EUR",
+            "description": "MSRP price with strikethrough styling",
+            "example": "300,91 EUR"
+          },
+          "ersparnis": {
+            "regex": "Sie sparen ([\\d.,]+) EUR",
+            "description": "Savings amount",
+            "example": "120,36 EUR"
+          },
+          "angebotspreis": {
+            "selector": "h2",
+            "regex": "([\\d.,]+)\\s*EUR",
+            "description": "Final offer price (large, prominent display)",
+            "example": "180,55 EUR"
+          },
+          "grundpreis": {
+            "regex": "Grundpreis.*?<small>([\\d.,]+)</small>",
+            "description": "Base price before surcharges"
+          },
+          "rabatt_badge": {
+            "selector": ".bg-red.txt-white",
+            "content": "40% Rabatt-Aktion",
+            "description": "Static discount badge"
+          },
+          "visualization": {
+            "selector": "#visualization-image",
+            "description": "Dynamic HTML table rendering window preview with dimensions"
+          }
+        },
+        "extraction_pattern": "Use regex to find all EUR amounts: re.findall(r'([\\d.,]+)\\s*EUR', html) → [preisempfehlung, ersparnis, angebotspreis]"
+      },
+      "triggers": [
+        "Page initial load",
+        "Any dimension change (width/height)",
+        "Profile selection change",
+        "Color selection change",
+        "Glass type change",
+        "Any accessory toggle",
+        "Opening direction change",
+        "Window art/type change"
+      ],
+      "rate": "Called on EVERY configuration change — approximately 1 call per user interaction"
+    },
+
+    {
+      "id": 2,
+      "name": "addWarenkorb",
+      "purpose": "Add current configuration to shopping cart",
+      "url": "/ajax/addWarenkorb/",
+      "full_url": "https://confde.fenstermaxx24.com/confapp/Drutex/PVC-Fenster-bestellen-drutex/ajax/addWarenkorb/",
+      "method": "POST",
+      "content_type": "application/x-www-form-urlencoded",
+      "parameters": {
+        "csrf_cyko": {
+          "type": "string",
+          "required": true,
+          "description": "CSRF token"
+        },
+        "tmp_obj": {
+          "type": "string (JSON-encoded)",
+          "required": true,
+          "description": "Same obj_konfig as berechnen endpoint"
+        }
+      },
+      "response": {
+        "format": "JSON",
+        "content_type": "application/json",
+        "description": "Returns cart confirmation with item details"
+      },
+      "frontend_implementation": {
+        "function_name": "addWarenkorb(a)",
+        "source_file": "js/konfig.min.js",
+        "code": "$.ajax({url: conf_url + '/ajax/addWarenkorb/', type: 'POST', data: {csrf_cyko: global_hash, tmp_obj: a}, complete: function(c) { b = jQuery.parseJSON(c.responseText); }})",
+        "post_action": "parent.postMessage('addWarenkorb', '*')"
+      },
+      "triggers": [
+        "User clicks 'In den Warenkorb legen' button"
+      ]
+    },
+
+    {
+      "id": 3,
+      "name": "minmax",
+      "purpose": "Get dimension limits (min/max width and height) for current profile and opening type",
+      "url": "/ajax/minmax/",
+      "full_url": "https://confde.fenstermaxx24.com/confapp/Drutex/PVC-Fenster-bestellen-drutex/ajax/minmax/",
+      "method": "POST",
+      "content_type": "application/x-www-form-urlencoded",
+      "parameters": {
+        "csrf_cyko": {
+          "type": "string",
+          "required": true
+        },
+        "conf_obj": {
+          "type": "string (JSON-encoded)",
+          "required": true,
+          "description": "Configuration object — NOTE: uses conf_obj NOT tmp_obj"
+        },
+        "flag": {
+          "type": "string",
+          "required": true,
+          "values": ["main", "ol", "ul"],
+          "description": "Which dimension set to query: main=primary window, ol=Oberlicht, ul=Unterlicht"
+        }
+      },
+      "response": {
+        "format": "JSON",
+        "content_type": "application/json",
+        "structure": {
+          "data": [
+            {
+              "min_breite": "600",
+              "max_breite": "1500",
+              "min_hoehe": "450",
+              "max_hoehe": "1700"
+            }
+          ]
+        },
+        "note": "Values are strings, not integers. Must be parsed."
+      },
+      "triggers": [
+        "Profile selection change",
+        "Opening direction change",
+        "Window art/type change",
+        "Navigating to Maße tab"
+      ]
+    },
+
+    {
+      "id": 4,
+      "name": "minmaxrollladen",
+      "purpose": "Get dimension limits for roller shutter configuration",
+      "url": "/ajax/minmaxrollladen/",
+      "full_url": "https://confde.fenstermaxx24.com/confapp/Drutex/PVC-Fenster-bestellen-drutex/ajax/minmaxrollladen/",
+      "method": "POST",
+      "content_type": "application/x-www-form-urlencoded",
+      "parameters": {
+        "csrf_cyko": {
+          "type": "string",
+          "required": true
+        },
+        "conf_obj": {
+          "type": "string (JSON-encoded)",
+          "required": true,
+          "description": "Configuration object with roller shutter settings"
+        }
+      },
+      "response": {
+        "format": "JSON",
+        "content_type": "application/json",
+        "description": "Same structure as minmax endpoint"
+      },
+      "triggers": [
+        "Roller shutter enabled",
+        "Roller shutter model change"
+      ]
+    },
+
+    {
+      "id": 5,
+      "name": "getInfo",
+      "purpose": "Get product information tooltips and descriptions",
+      "url": "/ajax/getInfo/",
+      "full_url": "https://confde.fenstermaxx24.com/confapp/Drutex/PVC-Fenster-bestellen-drutex/ajax/getInfo/",
+      "method": "POST",
+      "content_type": "application/x-www-form-urlencoded",
+      "parameters": {
+        "csrf_cyko": {
+          "type": "string",
+          "required": true
+        }
+      },
+      "response": {
+        "format": "HTML fragment",
+        "description": "Returns tooltip/info HTML for display in modal or popover"
+      },
+      "triggers": [
+        "User clicks info/help icon next to an option"
+      ]
+    },
+
+    {
+      "id": 6,
+      "name": "setExternTOSession",
+      "purpose": "Set external session for cart integration between iframe and parent site",
+      "url": "/ajax/setExternTOSession/",
+      "full_url": "https://confde.fenstermaxx24.com/confapp/Drutex/PVC-Fenster-bestellen-drutex/ajax/setExternTOSession/",
+      "method": "POST",
+      "content_type": "application/x-www-form-urlencoded",
+      "parameters": {
+        "csrf_cyko": {
+          "type": "string",
+          "required": true
+        }
+      },
+      "response": {
+        "format": "JSON",
+        "description": "Session linking confirmation"
+      },
+      "triggers": [
+        "Iframe initial load — links configurator session to parent shop session"
+      ]
+    }
+  ],
+
+  "initial_load_sequence": [
+    {
+      "order": 1,
+      "action": "Load page HTML",
+      "description": "Full configurator UI with all 7 tabs (Profil, Maße, Farbe, Glas, Sprossen, Rollladen, Sonstiges)"
+    },
+    {
+      "order": 2,
+      "action": "Load CSS",
+      "file": "css/konfig.css",
+      "description": "Configurator-specific styles"
+    },
+    {
+      "order": 3,
+      "action": "Load JavaScript",
+      "files": [
+        "js/konfig.min.js (core engine, minified)",
+        "js/rules.js (business logic, 2870 lines)"
+      ]
+    },
+    {
+      "order": 4,
+      "action": "Call setExternTOSession",
+      "description": "Link configurator session to parent shop session"
+    },
+    {
+      "order": 5,
+      "action": "Call minmax",
+      "description": "Get dimension limits for default profile (p1) and opening (fn_1_drehkipp_rechts)"
+    },
+    {
+      "order": 6,
+      "action": "Call berechnen",
+      "description": "Calculate initial price with default configuration"
+    }
+  ],
+
+  "javascript_files": {
+    "konfig_min_js": {
+      "path": "js/konfig.min.js",
+      "size": "minified, ~7 lines",
+      "purpose": "Core configurator engine — handles AJAX calls, DOM updates, event binding",
+      "key_functions": [
+        "addWarenkorb(a) — Add to cart",
+        "setMinMax(hash) — Get dimension limits",
+        "berechnen() — Trigger price calculation"
+      ],
+      "key_variables": [
+        "global_hash — CSRF token",
+        "conf_url — Base URL for API calls",
+        "obj_konfig — Complete configuration state object (85 properties)"
+      ]
+    },
+    "rules_js": {
+      "path": "js/rules.js",
+      "size": "2870 lines, 113KB",
+      "purpose": "Business logic — option dependencies, validation, UI state management",
+      "key_functions": [
+        "checkMinMaxMasse() — Validate dimensions",
+        "setRules() — Apply option dependency rules",
+        "updateUI() — Update UI based on current configuration"
+      ]
+    }
+  }
+}

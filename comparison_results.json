@@ -1,0 +1,2236 @@
+{
+  "_meta": {
+    "document": "Part B Quick Structure Verification Results",
+    "baseline": "Drutex Kunststoff Fenster (PVC)",
+    "total_checked": 36,
+    "captured_date": "2026-03-02",
+    "verification_steps": [
+      "Step 1: Iframe Check (same domain, accessible)",
+      "Step 2: API Endpoint Check (berechnen, addWarenkorb, etc.)",
+      "Step 3: Response Structure Check (HTML response with prices)",
+      "Step 4: Parameter Check (obj_konfig schema)",
+      "Step 5: Price Calculation Spot Check (40% discount formula)",
+      "Step 6: PostMessage Check (addWarenkorb protocol)"
+    ]
+  },
+  "results": [
+    {
+      "category": "Fenster",
+      "material": "Kunststoff",
+      "manufacturer": "Drutex",
+      "iframe_url": "https://confde.fenstermaxx24.com/confapp/Drutex/PVC-Fenster-bestellen-drutex/",
+      "page_url": "https://www.fenstermaxx24.com/konfigurator/konfigurator-fenster/",
+      "step1": {
+        "pass": true,
+        "status": 200,
+        "same_domain": true,
+        "html_size": 107905
+      },
+      "step2": {
+        "pass": true,
+        "endpoints_found": [
+          "berechnen",
+          "addWarenkorb",
+          "getInfo"
+        ],
+        "match_pct": 60.0,
+        "has_rules_js": true,
+        "has_konfig_js": true
+      },
+      "step3": {
+        "pass": true,
+        "status": 200,
+        "response_type": "html",
+        "response_size": 18031,
+        "prices": [
+          "300,91",
+          "120,36",
+          "180,55"
+        ],
+        "has_grundpreis": true,
+        "has_rabatt": true
+      },
+      "step4": {
+        "pass": true,
+        "has_obj_konfig": true,
+        "has_breite": true,
+        "has_hoehe": true,
+        "has_profil": true,
+        "materials_found": [
+          "ma1",
+          "ma2",
+          "ma3",
+          "ma4",
+          "ma5"
+        ]
+      },
+      "step5": {
+        "pass": true,
+        "prices": [
+          "300,91",
+          "120,36",
+          "180,55"
+        ],
+        "discount_40pct_verified": true,
+        "has_rabatt": true
+      },
+      "step6": {
+        "pass": true,
+        "has_postmessage": true,
+        "messages": [
+          "addWarenkorb"
+        ]
+      },
+      "checks_passed": "6/6",
+      "verdict": "REUSE"
+    },
+    {
+      "category": "Fenster",
+      "material": "PVC-Alu",
+      "manufacturer": "Gealan",
+      "iframe_url": "https://confde.fenstermaxx24.com/confapp/Gealan/PVC-ALU-Fenster-bestellen-gealan/",
+      "page_url": "https://www.fenstermaxx24.com/konfigurator/pvc-alu-fenster/",
+      "step1": {
+        "pass": true,
+        "status": 200,
+        "same_domain": true,
+        "html_size": 105962
+      },
+      "step2": {
+        "pass": true,
+        "endpoints_found": [
+          "berechnen",
+          "addWarenkorb",
+          "getInfo"
+        ],
+        "match_pct": 60.0,
+        "has_rules_js": false,
+        "has_konfig_js": true
+      },
+      "step3": {
+        "pass": true,
+        "status": 200,
+        "response_type": "html",
+        "response_size": 18547,
+        "prices": [
+          "501,34",
+          "200,54",
+          "300,80",
+          "488,67"
+        ],
+        "has_grundpreis": true,
+        "has_rabatt": true
+      },
+      "step4": {
+        "pass": true,
+        "has_obj_konfig": true,
+        "has_breite": true,
+        "has_hoehe": true,
+        "has_profil": true,
+        "materials_found": [
+          "ma1",
+          "ma2",
+          "ma3",
+          "ma4",
+          "ma5"
+        ]
+      },
+      "step5": {
+        "pass": true,
+        "prices": [
+          "501,34",
+          "200,54",
+          "300,80",
+          "488,67"
+        ],
+        "discount_40pct_verified": true,
+        "has_rabatt": true
+      },
+      "step6": {
+        "pass": true,
+        "has_postmessage": true,
+        "messages": [
+          "addWarenkorb"
+        ]
+      },
+      "checks_passed": "6/6",
+      "verdict": "REUSE"
+    },
+    {
+      "category": "Fenster",
+      "material": "Aluminium",
+      "manufacturer": "ALU-Fenster-bestellen",
+      "iframe_url": "https://confde.fenstermaxx24.com/confapp/ALU-Fenster-bestellen/",
+      "page_url": "https://www.fenstermaxx24.com/konfigurator/alu-fenster/",
+      "step1": {
+        "pass": true,
+        "status": 200,
+        "same_domain": true,
+        "html_size": 156301
+      },
+      "step2": {
+        "pass": false,
+        "endpoints_found": [
+          "addWarenkorb",
+          "getInfo"
+        ],
+        "match_pct": 40.0,
+        "has_rules_js": false,
+        "has_konfig_js": true
+      },
+      "step3": {
+        "pass": true,
+        "status": 200,
+        "response_type": "html",
+        "response_size": 18014,
+        "prices": [
+          "780,68",
+          "312,27",
+          "468,41",
+          "468,41"
+        ],
+        "has_grundpreis": false,
+        "has_rabatt": true
+      },
+      "step4": {
+        "pass": true,
+        "has_obj_konfig": true,
+        "has_breite": true,
+        "has_hoehe": true,
+        "has_profil": true,
+        "materials_found": [
+          "ma5"
+        ]
+      },
+      "step5": {
+        "pass": true,
+        "prices": [
+          "780,68",
+          "312,27",
+          "468,41",
+          "468,41"
+        ],
+        "discount_40pct_verified": true,
+        "has_rabatt": true
+      },
+      "step6": {
+        "pass": true,
+        "has_postmessage": true,
+        "messages": [
+          "addWarenkorb"
+        ]
+      },
+      "checks_passed": "5/6",
+      "verdict": "EXTEND"
+    },
+    {
+      "category": "Fenster",
+      "material": "Holz",
+      "manufacturer": "Holz-Fenster-bestellen",
+      "iframe_url": "https://confde.fenstermaxx24.com/confapp/Holz-Fenster-bestellen/",
+      "page_url": "https://www.fenstermaxx24.com/konfigurator/holz-fenster/",
+      "step1": {
+        "pass": true,
+        "status": 200,
+        "same_domain": true,
+        "html_size": 143734
+      },
+      "step2": {
+        "pass": false,
+        "endpoints_found": [
+          "addWarenkorb",
+          "getInfo"
+        ],
+        "match_pct": 40.0,
+        "has_rules_js": false,
+        "has_konfig_js": true
+      },
+      "step3": {
+        "pass": true,
+        "status": 200,
+        "response_type": "html",
+        "response_size": 17466,
+        "prices": [
+          "1.006,29",
+          "402,52",
+          "603,77",
+          "748,17"
+        ],
+        "has_grundpreis": true,
+        "has_rabatt": true
+      },
+      "step4": {
+        "pass": true,
+        "has_obj_konfig": true,
+        "has_breite": true,
+        "has_hoehe": true,
+        "has_profil": true,
+        "materials_found": [
+          "ma5"
+        ]
+      },
+      "step5": {
+        "pass": true,
+        "prices": [
+          "1.006,29",
+          "402,52",
+          "603,77",
+          "748,17"
+        ],
+        "discount_40pct_verified": true,
+        "has_rabatt": true
+      },
+      "step6": {
+        "pass": true,
+        "has_postmessage": true,
+        "messages": [
+          "addWarenkorb"
+        ]
+      },
+      "checks_passed": "5/6",
+      "verdict": "EXTEND"
+    },
+    {
+      "category": "Fenster",
+      "material": "Holz-Alu",
+      "manufacturer": "HolzALU-Fenster-bestellen",
+      "iframe_url": "https://confde.fenstermaxx24.com/confapp/HolzALU-Fenster-bestellen/",
+      "page_url": "https://www.fenstermaxx24.com/konfigurator/holz-alu-fenster/",
+      "step1": {
+        "pass": true,
+        "status": 200,
+        "same_domain": true,
+        "html_size": 143534
+      },
+      "step2": {
+        "pass": false,
+        "endpoints_found": [
+          "addWarenkorb",
+          "getInfo"
+        ],
+        "match_pct": 40.0,
+        "has_rules_js": false,
+        "has_konfig_js": true
+      },
+      "step3": {
+        "pass": true,
+        "status": 200,
+        "response_type": "html",
+        "response_size": 18571,
+        "prices": [
+          "2.011,88",
+          "804,75",
+          "1.207,13",
+          "1.547,60"
+        ],
+        "has_grundpreis": true,
+        "has_rabatt": true
+      },
+      "step4": {
+        "pass": true,
+        "has_obj_konfig": true,
+        "has_breite": true,
+        "has_hoehe": true,
+        "has_profil": true,
+        "materials_found": [
+          "ma5"
+        ]
+      },
+      "step5": {
+        "pass": true,
+        "prices": [
+          "2.011,88",
+          "804,75",
+          "1.207,13",
+          "1.547,60"
+        ],
+        "discount_40pct_verified": true,
+        "has_rabatt": true
+      },
+      "step6": {
+        "pass": true,
+        "has_postmessage": true,
+        "messages": [
+          "addWarenkorb"
+        ]
+      },
+      "checks_passed": "5/6",
+      "verdict": "EXTEND"
+    },
+    {
+      "category": "Fenster",
+      "material": "Schiebefenster",
+      "manufacturer": "ALU-Schiebefenster-bestellen",
+      "iframe_url": "https://confde.fenstermaxx24.com/confapp/ALU-Schiebefenster-bestellen/",
+      "page_url": "https://www.fenstermaxx24.com/konfigurator/alu-schiebefenster/",
+      "step1": {
+        "pass": true,
+        "status": 200,
+        "same_domain": true,
+        "html_size": 68408
+      },
+      "step2": {
+        "pass": false,
+        "endpoints_found": [
+          "addWarenkorb",
+          "getInfo"
+        ],
+        "match_pct": 40.0,
+        "has_rules_js": true,
+        "has_konfig_js": false
+      },
+      "step3": {
+        "pass": false,
+        "status": 500,
+        "response_type": "other",
+        "response_size": 0,
+        "prices": [],
+        "has_grundpreis": false,
+        "has_rabatt": false
+      },
+      "step4": {
+        "pass": true,
+        "has_obj_konfig": true,
+        "has_breite": true,
+        "has_hoehe": true,
+        "has_profil": true,
+        "materials_found": [
+          "ma1",
+          "ma2"
+        ]
+      },
+      "step5": {
+        "pass": false,
+        "prices": [],
+        "discount_40pct_verified": false,
+        "has_rabatt": false
+      },
+      "step6": {
+        "pass": true,
+        "has_postmessage": true,
+        "messages": [
+          "addWarenkorb"
+        ]
+      },
+      "checks_passed": "3/6",
+      "verdict": "SEPARATE_MODULE"
+    },
+    {
+      "category": "Balkontuer",
+      "material": "Kunststoff",
+      "manufacturer": "Drutex",
+      "iframe_url": "https://confde.fenstermaxx24.com/confapp/Drutex/PVC-Balkontuer-bestellen-drutex/",
+      "page_url": "https://www.fenstermaxx24.com/konfigurator/konfigurator-balkontueren/",
+      "step1": {
+        "pass": true,
+        "status": 200,
+        "same_domain": true,
+        "html_size": 110742
+      },
+      "step2": {
+        "pass": true,
+        "endpoints_found": [
+          "berechnen",
+          "addWarenkorb",
+          "getInfo"
+        ],
+        "match_pct": 60.0,
+        "has_rules_js": false,
+        "has_konfig_js": true
+      },
+      "step3": {
+        "pass": true,
+        "status": 200,
+        "response_type": "html",
+        "response_size": 20774,
+        "prices": [
+          "443,75",
+          "177,50",
+          "266,25"
+        ],
+        "has_grundpreis": true,
+        "has_rabatt": true
+      },
+      "step4": {
+        "pass": true,
+        "has_obj_konfig": true,
+        "has_breite": true,
+        "has_hoehe": true,
+        "has_profil": true,
+        "materials_found": [
+          "ma1",
+          "ma2",
+          "ma5"
+        ]
+      },
+      "step5": {
+        "pass": true,
+        "prices": [
+          "443,75",
+          "177,50",
+          "266,25"
+        ],
+        "discount_40pct_verified": true,
+        "has_rabatt": true
+      },
+      "step6": {
+        "pass": true,
+        "has_postmessage": true,
+        "messages": [
+          "addWarenkorb"
+        ]
+      },
+      "checks_passed": "6/6",
+      "verdict": "REUSE"
+    },
+    {
+      "category": "Balkontuer",
+      "material": "PVC-Alu",
+      "manufacturer": "Gealan",
+      "iframe_url": "https://confde.fenstermaxx24.com/confapp/Gealan/PVC-ALU-Balkontuer-bestellen-gealan/",
+      "page_url": "https://www.fenstermaxx24.com/konfigurator/gealan-balkontuer-pvc-alu/",
+      "step1": {
+        "pass": true,
+        "status": 200,
+        "same_domain": true,
+        "html_size": 103813
+      },
+      "step2": {
+        "pass": true,
+        "endpoints_found": [
+          "berechnen",
+          "addWarenkorb",
+          "getInfo"
+        ],
+        "match_pct": 60.0,
+        "has_rules_js": false,
+        "has_konfig_js": true
+      },
+      "step3": {
+        "pass": true,
+        "status": 200,
+        "response_type": "html",
+        "response_size": 19741,
+        "prices": [
+          "441,24",
+          "176,50",
+          "264,74",
+          "429,37"
+        ],
+        "has_grundpreis": true,
+        "has_rabatt": true
+      },
+      "step4": {
+        "pass": true,
+        "has_obj_konfig": true,
+        "has_breite": true,
+        "has_hoehe": true,
+        "has_profil": true,
+        "materials_found": [
+          "ma1",
+          "ma2",
+          "ma3",
+          "ma4",
+          "ma5"
+        ]
+      },
+      "step5": {
+        "pass": true,
+        "prices": [
+          "441,24",
+          "176,50",
+          "264,74",
+          "429,37"
+        ],
+        "discount_40pct_verified": true,
+        "has_rabatt": true
+      },
+      "step6": {
+        "pass": true,
+        "has_postmessage": true,
+        "messages": [
+          "addWarenkorb"
+        ]
+      },
+      "checks_passed": "6/6",
+      "verdict": "REUSE"
+    },
+    {
+      "category": "Balkontuer",
+      "material": "Aluminium",
+      "manufacturer": "ALU-Balkontuer-bestellen",
+      "iframe_url": "https://confde.fenstermaxx24.com/confapp/ALU-Balkontuer-bestellen/",
+      "page_url": "https://www.fenstermaxx24.com/konfigurator/alu-balkontuer/",
+      "step1": {
+        "pass": true,
+        "status": 200,
+        "same_domain": true,
+        "html_size": 121427
+      },
+      "step2": {
+        "pass": false,
+        "endpoints_found": [
+          "addWarenkorb",
+          "getInfo"
+        ],
+        "match_pct": 40.0,
+        "has_rules_js": false,
+        "has_konfig_js": false
+      },
+      "step3": {
+        "pass": false,
+        "status": 500,
+        "response_type": "other",
+        "response_size": 0,
+        "prices": [],
+        "has_grundpreis": false,
+        "has_rabatt": false
+      },
+      "step4": {
+        "pass": true,
+        "has_obj_konfig": true,
+        "has_breite": true,
+        "has_hoehe": true,
+        "has_profil": true,
+        "materials_found": [
+          "ma5"
+        ]
+      },
+      "step5": {
+        "pass": false,
+        "prices": [],
+        "discount_40pct_verified": false,
+        "has_rabatt": false
+      },
+      "step6": {
+        "pass": true,
+        "has_postmessage": true,
+        "messages": [
+          "addWarenkorb"
+        ]
+      },
+      "checks_passed": "3/6",
+      "verdict": "SEPARATE_MODULE"
+    },
+    {
+      "category": "Balkontuer",
+      "material": "Holz",
+      "manufacturer": "Holz-Balkontuer-bestellen",
+      "iframe_url": "https://confde.fenstermaxx24.com/confapp/Holz-Balkontuer-bestellen/",
+      "page_url": "https://www.fenstermaxx24.com/konfigurator/holz-balkontuer/",
+      "step1": {
+        "pass": true,
+        "status": 200,
+        "same_domain": true,
+        "html_size": 108510
+      },
+      "step2": {
+        "pass": false,
+        "endpoints_found": [
+          "addWarenkorb",
+          "getInfo"
+        ],
+        "match_pct": 40.0,
+        "has_rules_js": true,
+        "has_konfig_js": false
+      },
+      "step3": {
+        "pass": false,
+        "status": 500,
+        "response_type": "other",
+        "response_size": 0,
+        "prices": [],
+        "has_grundpreis": false,
+        "has_rabatt": false
+      },
+      "step4": {
+        "pass": true,
+        "has_obj_konfig": true,
+        "has_breite": true,
+        "has_hoehe": true,
+        "has_profil": true,
+        "materials_found": [
+          "ma5"
+        ]
+      },
+      "step5": {
+        "pass": false,
+        "prices": [],
+        "discount_40pct_verified": false,
+        "has_rabatt": false
+      },
+      "step6": {
+        "pass": true,
+        "has_postmessage": true,
+        "messages": [
+          "addWarenkorb"
+        ]
+      },
+      "checks_passed": "3/6",
+      "verdict": "SEPARATE_MODULE"
+    },
+    {
+      "category": "Balkontuer",
+      "material": "Holz-Alu",
+      "manufacturer": "HolzALU-Balkontuer-bestellen",
+      "iframe_url": "https://confde.fenstermaxx24.com/confapp/HolzALU-Balkontuer-bestellen/",
+      "page_url": "https://www.fenstermaxx24.com/konfigurator/holz-alu-balkontuer/",
+      "step1": {
+        "pass": true,
+        "status": 200,
+        "same_domain": true,
+        "html_size": 104863
+      },
+      "step2": {
+        "pass": false,
+        "endpoints_found": [
+          "addWarenkorb",
+          "getInfo"
+        ],
+        "match_pct": 40.0,
+        "has_rules_js": true,
+        "has_konfig_js": false
+      },
+      "step3": {
+        "pass": false,
+        "status": 500,
+        "response_type": "other",
+        "response_size": 0,
+        "prices": [],
+        "has_grundpreis": false,
+        "has_rabatt": false
+      },
+      "step4": {
+        "pass": true,
+        "has_obj_konfig": true,
+        "has_breite": true,
+        "has_hoehe": true,
+        "has_profil": true,
+        "materials_found": [
+          "ma5"
+        ]
+      },
+      "step5": {
+        "pass": false,
+        "prices": [],
+        "discount_40pct_verified": false,
+        "has_rabatt": false
+      },
+      "step6": {
+        "pass": true,
+        "has_postmessage": true,
+        "messages": [
+          "addWarenkorb"
+        ]
+      },
+      "checks_passed": "3/6",
+      "verdict": "SEPARATE_MODULE"
+    },
+    {
+      "category": "PSK",
+      "material": "Kunststoff",
+      "manufacturer": "Drutex",
+      "iframe_url": "https://confde.fenstermaxx24.com/confapp/Drutex/PVC-Psktuer-bestellen-drutex/",
+      "page_url": "https://www.fenstermaxx24.com/konfigurator/konfigurator-parallel-schiebe-kipp-tueren-psk/",
+      "step1": {
+        "pass": true,
+        "status": 200,
+        "same_domain": true,
+        "html_size": 83694
+      },
+      "step2": {
+        "pass": true,
+        "endpoints_found": [
+          "berechnen",
+          "addWarenkorb",
+          "getInfo"
+        ],
+        "match_pct": 60.0,
+        "has_rules_js": true,
+        "has_konfig_js": true
+      },
+      "step3": {
+        "pass": true,
+        "status": 200,
+        "response_type": "html",
+        "response_size": 17846,
+        "prices": [
+          "239,59"
+        ],
+        "has_grundpreis": true,
+        "has_rabatt": true
+      },
+      "step4": {
+        "pass": true,
+        "has_obj_konfig": true,
+        "has_breite": true,
+        "has_hoehe": true,
+        "has_profil": true,
+        "materials_found": []
+      },
+      "step5": {
+        "pass": true,
+        "prices": [
+          "239,59"
+        ],
+        "discount_40pct_verified": false,
+        "has_rabatt": true
+      },
+      "step6": {
+        "pass": true,
+        "has_postmessage": true,
+        "messages": [
+          "addWarenkorb"
+        ]
+      },
+      "checks_passed": "6/6",
+      "verdict": "REUSE"
+    },
+    {
+      "category": "PSK",
+      "material": "Aluminium",
+      "manufacturer": "ALU-Psktuer-bestellen",
+      "iframe_url": "https://confde.fenstermaxx24.com/confapp/ALU-Psktuer-bestellen/",
+      "page_url": "https://www.fenstermaxx24.com/konfigurator/alu-psk-tuer/",
+      "step1": {
+        "pass": true,
+        "status": 200,
+        "same_domain": true,
+        "html_size": 65031
+      },
+      "step2": {
+        "pass": true,
+        "endpoints_found": [
+          "berechnen",
+          "addWarenkorb",
+          "getInfo"
+        ],
+        "match_pct": 60.0,
+        "has_rules_js": false,
+        "has_konfig_js": true
+      },
+      "step3": {
+        "pass": false,
+        "status": 403,
+        "response_type": "html",
+        "response_size": 1763,
+        "prices": [],
+        "has_grundpreis": false,
+        "has_rabatt": false
+      },
+      "step4": {
+        "pass": true,
+        "has_obj_konfig": true,
+        "has_breite": true,
+        "has_hoehe": true,
+        "has_profil": true,
+        "materials_found": [
+          "ma5"
+        ]
+      },
+      "step5": {
+        "pass": false,
+        "prices": [],
+        "discount_40pct_verified": false,
+        "has_rabatt": false
+      },
+      "step6": {
+        "pass": true,
+        "has_postmessage": true,
+        "messages": [
+          "addWarenkorb"
+        ]
+      },
+      "checks_passed": "4/6",
+      "verdict": "EXTEND"
+    },
+    {
+      "category": "PSK",
+      "material": "PVC-Alu",
+      "manufacturer": "Gealan",
+      "iframe_url": "https://confde.fenstermaxx24.com/confapp/Gealan/PVC-ALU-Psktuer-bestellen-gealan/",
+      "page_url": "https://www.fenstermaxx24.com/konfigurator/gealan-psk-tuer-pvc-alu/",
+      "step1": {
+        "pass": true,
+        "status": 200,
+        "same_domain": true,
+        "html_size": 53692
+      },
+      "step2": {
+        "pass": true,
+        "endpoints_found": [
+          "berechnen",
+          "addWarenkorb",
+          "getInfo"
+        ],
+        "match_pct": 60.0,
+        "has_rules_js": false,
+        "has_konfig_js": true
+      },
+      "step3": {
+        "pass": false,
+        "status": 500,
+        "response_type": "other",
+        "response_size": 0,
+        "prices": [],
+        "has_grundpreis": false,
+        "has_rabatt": false
+      },
+      "step4": {
+        "pass": true,
+        "has_obj_konfig": true,
+        "has_breite": true,
+        "has_hoehe": true,
+        "has_profil": true,
+        "materials_found": [
+          "ma1",
+          "ma2",
+          "ma3",
+          "ma4",
+          "ma5"
+        ]
+      },
+      "step5": {
+        "pass": false,
+        "prices": [],
+        "discount_40pct_verified": false,
+        "has_rabatt": false
+      },
+      "step6": {
+        "pass": true,
+        "has_postmessage": true,
+        "messages": [
+          "addWarenkorb"
+        ]
+      },
+      "checks_passed": "4/6",
+      "verdict": "EXTEND"
+    },
+    {
+      "category": "PSK",
+      "material": "Holz",
+      "manufacturer": "Holz-Psktuer-bestellen",
+      "iframe_url": "https://confde.fenstermaxx24.com/confapp/Holz-Psktuer-bestellen/",
+      "page_url": "https://www.fenstermaxx24.com/konfigurator/holz-psk-tuer/",
+      "step1": {
+        "pass": true,
+        "status": 200,
+        "same_domain": true,
+        "html_size": 67349
+      },
+      "step2": {
+        "pass": true,
+        "endpoints_found": [
+          "berechnen",
+          "addWarenkorb",
+          "getInfo"
+        ],
+        "match_pct": 60.0,
+        "has_rules_js": true,
+        "has_konfig_js": false
+      },
+      "step3": {
+        "pass": false,
+        "status": 500,
+        "response_type": "other",
+        "response_size": 0,
+        "prices": [],
+        "has_grundpreis": false,
+        "has_rabatt": false
+      },
+      "step4": {
+        "pass": true,
+        "has_obj_konfig": true,
+        "has_breite": true,
+        "has_hoehe": true,
+        "has_profil": true,
+        "materials_found": [
+          "ma5"
+        ]
+      },
+      "step5": {
+        "pass": false,
+        "prices": [],
+        "discount_40pct_verified": false,
+        "has_rabatt": false
+      },
+      "step6": {
+        "pass": true,
+        "has_postmessage": true,
+        "messages": [
+          "addWarenkorb"
+        ]
+      },
+      "checks_passed": "4/6",
+      "verdict": "EXTEND"
+    },
+    {
+      "category": "PSK",
+      "material": "Holz-Alu",
+      "manufacturer": "HolzALU-Psktuer-bestellen",
+      "iframe_url": "https://confde.fenstermaxx24.com/confapp/HolzALU-Psktuer-bestellen/",
+      "page_url": "https://www.fenstermaxx24.com/konfigurator/holz-alu-psk-tuer/",
+      "step1": {
+        "pass": true,
+        "status": 200,
+        "same_domain": true,
+        "html_size": 62023
+      },
+      "step2": {
+        "pass": true,
+        "endpoints_found": [
+          "berechnen",
+          "addWarenkorb",
+          "getInfo"
+        ],
+        "match_pct": 60.0,
+        "has_rules_js": true,
+        "has_konfig_js": false
+      },
+      "step3": {
+        "pass": false,
+        "status": 500,
+        "response_type": "other",
+        "response_size": 0,
+        "prices": [],
+        "has_grundpreis": false,
+        "has_rabatt": false
+      },
+      "step4": {
+        "pass": true,
+        "has_obj_konfig": true,
+        "has_breite": true,
+        "has_hoehe": true,
+        "has_profil": true,
+        "materials_found": [
+          "ma5"
+        ]
+      },
+      "step5": {
+        "pass": false,
+        "prices": [],
+        "discount_40pct_verified": false,
+        "has_rabatt": false
+      },
+      "step6": {
+        "pass": true,
+        "has_postmessage": true,
+        "messages": [
+          "addWarenkorb"
+        ]
+      },
+      "checks_passed": "4/6",
+      "verdict": "EXTEND"
+    },
+    {
+      "category": "HST",
+      "material": "Kunststoff",
+      "manufacturer": "Drutex",
+      "iframe_url": "https://confde.fenstermaxx24.com/confapp/Drutex/PVC-Hstuer-bestellen-drutex/",
+      "page_url": "https://www.fenstermaxx24.com/konfigurator/konfigurator-hebe-schiebe-tueren-hs/",
+      "step1": {
+        "pass": true,
+        "status": 200,
+        "same_domain": true,
+        "html_size": 55282
+      },
+      "step2": {
+        "pass": true,
+        "endpoints_found": [
+          "berechnen",
+          "addWarenkorb",
+          "getInfo"
+        ],
+        "match_pct": 60.0,
+        "has_rules_js": true,
+        "has_konfig_js": true
+      },
+      "step3": {
+        "pass": true,
+        "status": 200,
+        "response_type": "html",
+        "response_size": 17758,
+        "prices": [
+          "119,09"
+        ],
+        "has_grundpreis": true,
+        "has_rabatt": true
+      },
+      "step4": {
+        "pass": true,
+        "has_obj_konfig": true,
+        "has_breite": true,
+        "has_hoehe": true,
+        "has_profil": true,
+        "materials_found": [
+          "ma1",
+          "ma2",
+          "ma3",
+          "ma4",
+          "ma5"
+        ]
+      },
+      "step5": {
+        "pass": true,
+        "prices": [
+          "119,09"
+        ],
+        "discount_40pct_verified": false,
+        "has_rabatt": true
+      },
+      "step6": {
+        "pass": true,
+        "has_postmessage": true,
+        "messages": [
+          "addWarenkorb"
+        ]
+      },
+      "checks_passed": "6/6",
+      "verdict": "REUSE"
+    },
+    {
+      "category": "HST",
+      "material": "Aluminium",
+      "manufacturer": "ALU-Hstuer-bestellen",
+      "iframe_url": "https://confde.fenstermaxx24.com/confapp/ALU-Hstuer-bestellen/",
+      "page_url": "https://www.fenstermaxx24.com/konfigurator/alu-hs-tuer/",
+      "step1": {
+        "pass": true,
+        "status": 200,
+        "same_domain": true,
+        "html_size": 77211
+      },
+      "step2": {
+        "pass": true,
+        "endpoints_found": [
+          "berechnen",
+          "addWarenkorb",
+          "getInfo"
+        ],
+        "match_pct": 60.0,
+        "has_rules_js": false,
+        "has_konfig_js": true
+      },
+      "step3": {
+        "pass": false,
+        "status": 500,
+        "response_type": "other",
+        "response_size": 0,
+        "prices": [],
+        "has_grundpreis": false,
+        "has_rabatt": false
+      },
+      "step4": {
+        "pass": true,
+        "has_obj_konfig": true,
+        "has_breite": true,
+        "has_hoehe": true,
+        "has_profil": true,
+        "materials_found": [
+          "ma5"
+        ]
+      },
+      "step5": {
+        "pass": false,
+        "prices": [],
+        "discount_40pct_verified": false,
+        "has_rabatt": false
+      },
+      "step6": {
+        "pass": true,
+        "has_postmessage": true,
+        "messages": [
+          "addWarenkorb"
+        ]
+      },
+      "checks_passed": "4/6",
+      "verdict": "EXTEND"
+    },
+    {
+      "category": "HST",
+      "material": "PVC-Alu",
+      "manufacturer": "Gealan",
+      "iframe_url": "https://confde.fenstermaxx24.com/confapp/Gealan/PVC-ALU-Hstuer-bestellen-gealan/",
+      "page_url": "https://www.fenstermaxx24.com/konfigurator/gealan-hs-tuer-pvc-alu/",
+      "step1": {
+        "pass": true,
+        "status": 200,
+        "same_domain": true,
+        "html_size": 56469
+      },
+      "step2": {
+        "pass": true,
+        "endpoints_found": [
+          "berechnen",
+          "addWarenkorb",
+          "getInfo"
+        ],
+        "match_pct": 60.0,
+        "has_rules_js": false,
+        "has_konfig_js": true
+      },
+      "step3": {
+        "pass": false,
+        "status": 500,
+        "response_type": "other",
+        "response_size": 0,
+        "prices": [],
+        "has_grundpreis": false,
+        "has_rabatt": false
+      },
+      "step4": {
+        "pass": true,
+        "has_obj_konfig": true,
+        "has_breite": true,
+        "has_hoehe": true,
+        "has_profil": true,
+        "materials_found": [
+          "ma1",
+          "ma2",
+          "ma3",
+          "ma4",
+          "ma5"
+        ]
+      },
+      "step5": {
+        "pass": false,
+        "prices": [],
+        "discount_40pct_verified": false,
+        "has_rabatt": false
+      },
+      "step6": {
+        "pass": true,
+        "has_postmessage": true,
+        "messages": [
+          "addWarenkorb"
+        ]
+      },
+      "checks_passed": "4/6",
+      "verdict": "EXTEND"
+    },
+    {
+      "category": "HST",
+      "material": "Holz",
+      "manufacturer": "Holz-Hstuer-bestellen",
+      "iframe_url": "https://confde.fenstermaxx24.com/confapp/Holz-Hstuer-bestellen/",
+      "page_url": "https://www.fenstermaxx24.com/konfigurator/holz-hs-tuer/",
+      "step1": {
+        "pass": true,
+        "status": 200,
+        "same_domain": true,
+        "html_size": 75136
+      },
+      "step2": {
+        "pass": true,
+        "endpoints_found": [
+          "berechnen",
+          "addWarenkorb",
+          "getInfo"
+        ],
+        "match_pct": 60.0,
+        "has_rules_js": true,
+        "has_konfig_js": false
+      },
+      "step3": {
+        "pass": false,
+        "status": 500,
+        "response_type": "other",
+        "response_size": 0,
+        "prices": [],
+        "has_grundpreis": false,
+        "has_rabatt": false
+      },
+      "step4": {
+        "pass": true,
+        "has_obj_konfig": true,
+        "has_breite": true,
+        "has_hoehe": true,
+        "has_profil": true,
+        "materials_found": [
+          "ma5"
+        ]
+      },
+      "step5": {
+        "pass": false,
+        "prices": [],
+        "discount_40pct_verified": false,
+        "has_rabatt": false
+      },
+      "step6": {
+        "pass": true,
+        "has_postmessage": true,
+        "messages": [
+          "addWarenkorb"
+        ]
+      },
+      "checks_passed": "4/6",
+      "verdict": "EXTEND"
+    },
+    {
+      "category": "HST",
+      "material": "Holz-Alu",
+      "manufacturer": "HolzALU-Hstuer-bestellen",
+      "iframe_url": "https://confde.fenstermaxx24.com/confapp/HolzALU-Hstuer-bestellen/",
+      "page_url": "https://www.fenstermaxx24.com/konfigurator/holz-alu-hs-tuer/",
+      "step1": {
+        "pass": true,
+        "status": 200,
+        "same_domain": true,
+        "html_size": 70243
+      },
+      "step2": {
+        "pass": true,
+        "endpoints_found": [
+          "berechnen",
+          "addWarenkorb",
+          "getInfo"
+        ],
+        "match_pct": 60.0,
+        "has_rules_js": true,
+        "has_konfig_js": false
+      },
+      "step3": {
+        "pass": false,
+        "status": 500,
+        "response_type": "other",
+        "response_size": 0,
+        "prices": [],
+        "has_grundpreis": false,
+        "has_rabatt": false
+      },
+      "step4": {
+        "pass": true,
+        "has_obj_konfig": true,
+        "has_breite": true,
+        "has_hoehe": true,
+        "has_profil": true,
+        "materials_found": [
+          "ma5"
+        ]
+      },
+      "step5": {
+        "pass": false,
+        "prices": [],
+        "discount_40pct_verified": false,
+        "has_rabatt": false
+      },
+      "step6": {
+        "pass": true,
+        "has_postmessage": true,
+        "messages": [
+          "addWarenkorb"
+        ]
+      },
+      "checks_passed": "4/6",
+      "verdict": "EXTEND"
+    },
+    {
+      "category": "Faltschiebetuer",
+      "material": "Aluminium",
+      "manufacturer": "ALU-Faltschiebetuer-bestellen",
+      "iframe_url": "https://confde.fenstermaxx24.com/confapp/ALU-Faltschiebetuer-bestellen/",
+      "page_url": "https://www.fenstermaxx24.com/konfigurator/alu-faltschiebetuer/",
+      "step1": {
+        "pass": true,
+        "status": 200,
+        "same_domain": true,
+        "html_size": 76954
+      },
+      "step2": {
+        "pass": false,
+        "endpoints_found": [
+          "addWarenkorb",
+          "getInfo"
+        ],
+        "match_pct": 40.0,
+        "has_rules_js": true,
+        "has_konfig_js": false
+      },
+      "step3": {
+        "pass": false,
+        "status": 500,
+        "response_type": "other",
+        "response_size": 0,
+        "prices": [],
+        "has_grundpreis": false,
+        "has_rabatt": false
+      },
+      "step4": {
+        "pass": true,
+        "has_obj_konfig": true,
+        "has_breite": true,
+        "has_hoehe": true,
+        "has_profil": true,
+        "materials_found": []
+      },
+      "step5": {
+        "pass": false,
+        "prices": [],
+        "discount_40pct_verified": false,
+        "has_rabatt": false
+      },
+      "step6": {
+        "pass": true,
+        "has_postmessage": true,
+        "messages": [
+          "addWarenkorb"
+        ]
+      },
+      "checks_passed": "3/6",
+      "verdict": "SEPARATE_MODULE"
+    },
+    {
+      "category": "Faltschiebetuer",
+      "material": "Holz",
+      "manufacturer": "Holz-Faltschiebetuer-bestellen",
+      "iframe_url": "https://confde.fenstermaxx24.com/confapp/Holz-Faltschiebetuer-bestellen/",
+      "page_url": "https://www.fenstermaxx24.com/konfigurator/holz-faltschiebetueren/",
+      "step1": {
+        "pass": true,
+        "status": 200,
+        "same_domain": true,
+        "html_size": 70557
+      },
+      "step2": {
+        "pass": false,
+        "endpoints_found": [
+          "addWarenkorb",
+          "getInfo"
+        ],
+        "match_pct": 40.0,
+        "has_rules_js": true,
+        "has_konfig_js": false
+      },
+      "step3": {
+        "pass": false,
+        "status": 500,
+        "response_type": "other",
+        "response_size": 0,
+        "prices": [],
+        "has_grundpreis": false,
+        "has_rabatt": false
+      },
+      "step4": {
+        "pass": true,
+        "has_obj_konfig": true,
+        "has_breite": true,
+        "has_hoehe": true,
+        "has_profil": true,
+        "materials_found": []
+      },
+      "step5": {
+        "pass": false,
+        "prices": [],
+        "discount_40pct_verified": false,
+        "has_rabatt": false
+      },
+      "step6": {
+        "pass": true,
+        "has_postmessage": true,
+        "messages": [
+          "addWarenkorb"
+        ]
+      },
+      "checks_passed": "3/6",
+      "verdict": "SEPARATE_MODULE"
+    },
+    {
+      "category": "Schiebetuer",
+      "material": "Aluminium",
+      "manufacturer": "ALU-Schiebetuer-bestellen",
+      "iframe_url": "https://confde.fenstermaxx24.com/confapp/ALU-Schiebetuer-bestellen/",
+      "page_url": "https://www.fenstermaxx24.com/konfigurator/alu-schiebetuer/",
+      "step1": {
+        "pass": true,
+        "status": 200,
+        "same_domain": true,
+        "html_size": 67401
+      },
+      "step2": {
+        "pass": false,
+        "endpoints_found": [
+          "addWarenkorb",
+          "getInfo"
+        ],
+        "match_pct": 40.0,
+        "has_rules_js": true,
+        "has_konfig_js": false
+      },
+      "step3": {
+        "pass": false,
+        "status": 500,
+        "response_type": "other",
+        "response_size": 0,
+        "prices": [],
+        "has_grundpreis": false,
+        "has_rabatt": false
+      },
+      "step4": {
+        "pass": true,
+        "has_obj_konfig": true,
+        "has_breite": true,
+        "has_hoehe": true,
+        "has_profil": true,
+        "materials_found": [
+          "ma1",
+          "ma2"
+        ]
+      },
+      "step5": {
+        "pass": false,
+        "prices": [],
+        "discount_40pct_verified": false,
+        "has_rabatt": false
+      },
+      "step6": {
+        "pass": true,
+        "has_postmessage": true,
+        "messages": [
+          "addWarenkorb"
+        ]
+      },
+      "checks_passed": "3/6",
+      "verdict": "SEPARATE_MODULE"
+    },
+    {
+      "category": "SmartSlide",
+      "material": "Gealan",
+      "manufacturer": "Gealan",
+      "iframe_url": "https://confde.fenstermaxx24.com/confapp/Gealan/PVC-Schiebetuer-bestellen-gealan/",
+      "page_url": "https://www.fenstermaxx24.com/konfigurator/gealan-schiebetuer/",
+      "step1": {
+        "pass": true,
+        "status": 200,
+        "same_domain": true,
+        "html_size": 47269
+      },
+      "step2": {
+        "pass": true,
+        "endpoints_found": [
+          "berechnen",
+          "addWarenkorb",
+          "getInfo"
+        ],
+        "match_pct": 60.0,
+        "has_rules_js": false,
+        "has_konfig_js": true
+      },
+      "step3": {
+        "pass": false,
+        "status": 500,
+        "response_type": "other",
+        "response_size": 0,
+        "prices": [],
+        "has_grundpreis": false,
+        "has_rabatt": false
+      },
+      "step4": {
+        "pass": true,
+        "has_obj_konfig": true,
+        "has_breite": true,
+        "has_hoehe": true,
+        "has_profil": true,
+        "materials_found": [
+          "ma1",
+          "ma2"
+        ]
+      },
+      "step5": {
+        "pass": false,
+        "prices": [],
+        "discount_40pct_verified": false,
+        "has_rabatt": false
+      },
+      "step6": {
+        "pass": true,
+        "has_postmessage": true,
+        "messages": [
+          "addWarenkorb"
+        ]
+      },
+      "checks_passed": "4/6",
+      "verdict": "EXTEND"
+    },
+    {
+      "category": "Haustuer",
+      "material": "Kunststoff",
+      "manufacturer": "Drutex",
+      "iframe_url": "https://confde.fenstermaxx24.com/confapp/Drutex/PVC-Haustuer-bestellen-drutex/",
+      "page_url": "https://www.fenstermaxx24.com/konfigurator/konfigurator-haustueren/",
+      "step1": {
+        "pass": true,
+        "status": 200,
+        "same_domain": true,
+        "html_size": 43856
+      },
+      "step2": {
+        "pass": true,
+        "endpoints_found": [
+          "berechnen",
+          "addWarenkorb",
+          "getInfo"
+        ],
+        "match_pct": 60.0,
+        "has_rules_js": false,
+        "has_konfig_js": true
+      },
+      "step3": {
+        "pass": false,
+        "status": 500,
+        "response_type": "other",
+        "response_size": 0,
+        "prices": [],
+        "has_grundpreis": false,
+        "has_rabatt": false
+      },
+      "step4": {
+        "pass": true,
+        "has_obj_konfig": true,
+        "has_breite": true,
+        "has_hoehe": true,
+        "has_profil": true,
+        "materials_found": [
+          "ma1",
+          "ma2",
+          "ma3",
+          "ma4"
+        ]
+      },
+      "step5": {
+        "pass": false,
+        "prices": [],
+        "discount_40pct_verified": false,
+        "has_rabatt": false
+      },
+      "step6": {
+        "pass": true,
+        "has_postmessage": true,
+        "messages": [
+          "addWarenkorb"
+        ]
+      },
+      "checks_passed": "4/6",
+      "verdict": "EXTEND"
+    },
+    {
+      "category": "Haustuer",
+      "material": "Aluminium",
+      "manufacturer": "ALU-Haustuer-bestellen",
+      "iframe_url": "https://confde.fenstermaxx24.com/confapp/ALU-Haustuer-bestellen/",
+      "page_url": "https://www.fenstermaxx24.com/konfigurator/alu-haustuer/",
+      "step1": {
+        "pass": true,
+        "status": 200,
+        "same_domain": true,
+        "html_size": 105767
+      },
+      "step2": {
+        "pass": false,
+        "endpoints_found": [
+          "addWarenkorb",
+          "getInfo"
+        ],
+        "match_pct": 40.0,
+        "has_rules_js": false,
+        "has_konfig_js": true
+      },
+      "step3": {
+        "pass": false,
+        "status": 500,
+        "response_type": "other",
+        "response_size": 0,
+        "prices": [],
+        "has_grundpreis": false,
+        "has_rabatt": false
+      },
+      "step4": {
+        "pass": true,
+        "has_obj_konfig": true,
+        "has_breite": true,
+        "has_hoehe": true,
+        "has_profil": true,
+        "materials_found": []
+      },
+      "step5": {
+        "pass": false,
+        "prices": [],
+        "discount_40pct_verified": false,
+        "has_rabatt": false
+      },
+      "step6": {
+        "pass": true,
+        "has_postmessage": true,
+        "messages": [
+          "addWarenkorb"
+        ]
+      },
+      "checks_passed": "3/6",
+      "verdict": "SEPARATE_MODULE"
+    },
+    {
+      "category": "Haustuer",
+      "material": "Holz",
+      "manufacturer": "Holz-Haustuer-bestellen",
+      "iframe_url": "https://confde.fenstermaxx24.com/confapp/Holz-Haustuer-bestellen/",
+      "page_url": "https://www.fenstermaxx24.com/konfigurator/holz-haustuer/",
+      "step1": {
+        "pass": true,
+        "status": 200,
+        "same_domain": true,
+        "html_size": 77201
+      },
+      "step2": {
+        "pass": false,
+        "endpoints_found": [
+          "addWarenkorb",
+          "getInfo"
+        ],
+        "match_pct": 40.0,
+        "has_rules_js": true,
+        "has_konfig_js": false
+      },
+      "step3": {
+        "pass": false,
+        "status": 500,
+        "response_type": "other",
+        "response_size": 0,
+        "prices": [],
+        "has_grundpreis": false,
+        "has_rabatt": false
+      },
+      "step4": {
+        "pass": true,
+        "has_obj_konfig": true,
+        "has_breite": true,
+        "has_hoehe": true,
+        "has_profil": true,
+        "materials_found": []
+      },
+      "step5": {
+        "pass": false,
+        "prices": [],
+        "discount_40pct_verified": false,
+        "has_rabatt": false
+      },
+      "step6": {
+        "pass": true,
+        "has_postmessage": true,
+        "messages": [
+          "addWarenkorb"
+        ]
+      },
+      "checks_passed": "3/6",
+      "verdict": "SEPARATE_MODULE"
+    },
+    {
+      "category": "Nebentuer",
+      "material": "Kunststoff",
+      "manufacturer": "Drutex",
+      "iframe_url": "https://confde.fenstermaxx24.com/confapp/Drutex/PVC-Nebeneingangstuer-bestellen-drutex/",
+      "page_url": "https://www.fenstermaxx24.com/konfigurator/konfigurator-nebeneingangstueren/",
+      "step1": {
+        "pass": true,
+        "status": 200,
+        "same_domain": true,
+        "html_size": 49627
+      },
+      "step2": {
+        "pass": true,
+        "endpoints_found": [
+          "berechnen",
+          "addWarenkorb",
+          "getInfo"
+        ],
+        "match_pct": 60.0,
+        "has_rules_js": true,
+        "has_konfig_js": true
+      },
+      "step3": {
+        "pass": false,
+        "status": 500,
+        "response_type": "other",
+        "response_size": 0,
+        "prices": [],
+        "has_grundpreis": false,
+        "has_rabatt": false
+      },
+      "step4": {
+        "pass": true,
+        "has_obj_konfig": true,
+        "has_breite": true,
+        "has_hoehe": true,
+        "has_profil": true,
+        "materials_found": [
+          "ma4"
+        ]
+      },
+      "step5": {
+        "pass": false,
+        "prices": [],
+        "discount_40pct_verified": false,
+        "has_rabatt": false
+      },
+      "step6": {
+        "pass": true,
+        "has_postmessage": true,
+        "messages": [
+          "addWarenkorb"
+        ]
+      },
+      "checks_passed": "4/6",
+      "verdict": "EXTEND"
+    },
+    {
+      "category": "Nebentuer",
+      "material": "Aluminium",
+      "manufacturer": "ALU-Nebeneingangstuer-bestellen",
+      "iframe_url": "https://confde.fenstermaxx24.com/confapp/ALU-Nebeneingangstuer-bestellen/",
+      "page_url": "https://www.fenstermaxx24.com/konfigurator/alu-nebentuer/",
+      "step1": {
+        "pass": true,
+        "status": 200,
+        "same_domain": true,
+        "html_size": 106206
+      },
+      "step2": {
+        "pass": false,
+        "endpoints_found": [
+          "addWarenkorb",
+          "getInfo"
+        ],
+        "match_pct": 40.0,
+        "has_rules_js": false,
+        "has_konfig_js": true
+      },
+      "step3": {
+        "pass": false,
+        "status": 500,
+        "response_type": "other",
+        "response_size": 0,
+        "prices": [],
+        "has_grundpreis": false,
+        "has_rabatt": false
+      },
+      "step4": {
+        "pass": true,
+        "has_obj_konfig": true,
+        "has_breite": true,
+        "has_hoehe": true,
+        "has_profil": true,
+        "materials_found": []
+      },
+      "step5": {
+        "pass": false,
+        "prices": [],
+        "discount_40pct_verified": false,
+        "has_rabatt": false
+      },
+      "step6": {
+        "pass": true,
+        "has_postmessage": true,
+        "messages": [
+          "addWarenkorb"
+        ]
+      },
+      "checks_passed": "3/6",
+      "verdict": "SEPARATE_MODULE"
+    },
+    {
+      "category": "Nebentuer",
+      "material": "Holz",
+      "manufacturer": "Holz-Nebeneingangstuer-bestellen",
+      "iframe_url": "https://confde.fenstermaxx24.com/confapp/Holz-Nebeneingangstuer-bestellen/",
+      "page_url": "https://www.fenstermaxx24.com/konfigurator/holz-nebeneingangstuer/",
+      "step1": {
+        "pass": true,
+        "status": 200,
+        "same_domain": true,
+        "html_size": 77930
+      },
+      "step2": {
+        "pass": false,
+        "endpoints_found": [
+          "addWarenkorb",
+          "getInfo"
+        ],
+        "match_pct": 40.0,
+        "has_rules_js": true,
+        "has_konfig_js": false
+      },
+      "step3": {
+        "pass": false,
+        "status": 500,
+        "response_type": "other",
+        "response_size": 0,
+        "prices": [],
+        "has_grundpreis": false,
+        "has_rabatt": false
+      },
+      "step4": {
+        "pass": true,
+        "has_obj_konfig": true,
+        "has_breite": true,
+        "has_hoehe": true,
+        "has_profil": true,
+        "materials_found": []
+      },
+      "step5": {
+        "pass": false,
+        "prices": [],
+        "discount_40pct_verified": false,
+        "has_rabatt": false
+      },
+      "step6": {
+        "pass": true,
+        "has_postmessage": true,
+        "messages": [
+          "addWarenkorb"
+        ]
+      },
+      "checks_passed": "3/6",
+      "verdict": "SEPARATE_MODULE"
+    },
+    {
+      "category": "Rollladen",
+      "material": "Aufsatz-Kunststoff",
+      "manufacturer": "Aufsatzrollladen-bestellen",
+      "iframe_url": "https://confde.fenstermaxx24.com/confapp/Aufsatzrollladen-bestellen/",
+      "page_url": "https://www.fenstermaxx24.com/konfigurator/konfigurator-aufsatzrollladen/",
+      "step1": {
+        "pass": true,
+        "status": 200,
+        "same_domain": true,
+        "html_size": 18531
+      },
+      "step2": {
+        "pass": false,
+        "endpoints_found": [
+          "addWarenkorb"
+        ],
+        "match_pct": 20.0,
+        "has_rules_js": false,
+        "has_konfig_js": false
+      },
+      "step3": {
+        "pass": true,
+        "status": 200,
+        "response_type": "html",
+        "response_size": 333,
+        "prices": [],
+        "has_grundpreis": false,
+        "has_rabatt": false
+      },
+      "step4": {
+        "pass": true,
+        "has_obj_konfig": true,
+        "has_breite": true,
+        "has_hoehe": true,
+        "has_profil": true,
+        "materials_found": []
+      },
+      "step5": {
+        "pass": false,
+        "prices": [],
+        "discount_40pct_verified": false,
+        "has_rabatt": false
+      },
+      "step6": {
+        "pass": true,
+        "has_postmessage": true,
+        "messages": [
+          "addWarenkorb"
+        ]
+      },
+      "checks_passed": "4/6",
+      "verdict": "EXTEND"
+    },
+    {
+      "category": "Rollladen",
+      "material": "Aufsatz-Styropor",
+      "manufacturer": "ALU-Styro-bestellen",
+      "iframe_url": "https://confde.fenstermaxx24.com/confapp/ALU-Styro-bestellen/",
+      "page_url": "https://www.fenstermaxx24.com/konfigurator/aufsatzrollladen-styropor/",
+      "step1": {
+        "pass": true,
+        "status": 200,
+        "same_domain": true,
+        "html_size": 64122
+      },
+      "step2": {
+        "pass": false,
+        "endpoints_found": [
+          "addWarenkorb"
+        ],
+        "match_pct": 20.0,
+        "has_rules_js": true,
+        "has_konfig_js": false
+      },
+      "step3": {
+        "pass": true,
+        "status": 200,
+        "response_type": "html",
+        "response_size": 7680,
+        "prices": [
+          "532,78",
+          "213,11",
+          "319,67",
+          "319,67"
+        ],
+        "has_grundpreis": true,
+        "has_rabatt": true
+      },
+      "step4": {
+        "pass": true,
+        "has_obj_konfig": true,
+        "has_breite": true,
+        "has_hoehe": true,
+        "has_profil": true,
+        "materials_found": []
+      },
+      "step5": {
+        "pass": true,
+        "prices": [
+          "532,78",
+          "213,11",
+          "319,67",
+          "319,67"
+        ],
+        "discount_40pct_verified": true,
+        "has_rabatt": true
+      },
+      "step6": {
+        "pass": true,
+        "has_postmessage": true,
+        "messages": [
+          "addWarenkorb"
+        ]
+      },
+      "checks_passed": "5/6",
+      "verdict": "EXTEND"
+    },
+    {
+      "category": "Rollladen",
+      "material": "Vorsatz",
+      "manufacturer": "Vorsatzrollladen-bestellen",
+      "iframe_url": "https://confde.fenstermaxx24.com/confapp/Vorsatzrollladen-bestellen/",
+      "page_url": "https://www.fenstermaxx24.com/konfigurator/konfigurator-vorsatzrollladen/",
+      "step1": {
+        "pass": true,
+        "status": 200,
+        "same_domain": true,
+        "html_size": 18468
+      },
+      "step2": {
+        "pass": false,
+        "endpoints_found": [
+          "addWarenkorb"
+        ],
+        "match_pct": 20.0,
+        "has_rules_js": false,
+        "has_konfig_js": true
+      },
+      "step3": {
+        "pass": true,
+        "status": 200,
+        "response_type": "html",
+        "response_size": 333,
+        "prices": [],
+        "has_grundpreis": false,
+        "has_rabatt": false
+      },
+      "step4": {
+        "pass": true,
+        "has_obj_konfig": true,
+        "has_breite": true,
+        "has_hoehe": true,
+        "has_profil": true,
+        "materials_found": []
+      },
+      "step5": {
+        "pass": false,
+        "prices": [],
+        "discount_40pct_verified": false,
+        "has_rabatt": false
+      },
+      "step6": {
+        "pass": true,
+        "has_postmessage": true,
+        "messages": [
+          "addWarenkorb"
+        ]
+      },
+      "checks_passed": "4/6",
+      "verdict": "EXTEND"
+    },
+    {
+      "category": "Raffstore",
+      "material": "Raffstore",
+      "manufacturer": "Raffstore-bestellen",
+      "iframe_url": "https://confde.fenstermaxx24.com/confapp/Raffstore-bestellen/",
+      "page_url": "https://www.fenstermaxx24.com/konfigurator/raffstores/",
+      "step1": {
+        "pass": true,
+        "status": 200,
+        "same_domain": true,
+        "html_size": 49974
+      },
+      "step2": {
+        "pass": true,
+        "endpoints_found": [
+          "berechnen",
+          "addWarenkorb"
+        ],
+        "match_pct": 40.0,
+        "has_rules_js": false,
+        "has_konfig_js": true
+      },
+      "step3": {
+        "pass": true,
+        "status": 200,
+        "response_type": "html",
+        "response_size": 7114,
+        "prices": [
+          "827,43",
+          "330,97",
+          "496,46"
+        ],
+        "has_grundpreis": false,
+        "has_rabatt": true
+      },
+      "step4": {
+        "pass": true,
+        "has_obj_konfig": true,
+        "has_breite": true,
+        "has_hoehe": true,
+        "has_profil": true,
+        "materials_found": []
+      },
+      "step5": {
+        "pass": true,
+        "prices": [
+          "827,43",
+          "330,97",
+          "496,46"
+        ],
+        "discount_40pct_verified": true,
+        "has_rabatt": true
+      },
+      "step6": {
+        "pass": true,
+        "has_postmessage": true,
+        "messages": [
+          "addWarenkorb"
+        ]
+      },
+      "checks_passed": "6/6",
+      "verdict": "REUSE"
+    },
+    {
+      "category": "Insektenschutz",
+      "material": "Plissee",
+      "manufacturer": "ALU-Insektenschutzplissee-bestellen-drutex",
+      "iframe_url": "https://confde.fenstermaxx24.com/confapp/ALU-Insektenschutzplissee-bestellen-drutex/",
+      "page_url": "https://www.fenstermaxx24.com/konfigurator/alu-insektenschutz-plissee/",
+      "step1": {
+        "pass": true,
+        "status": 200,
+        "same_domain": true,
+        "html_size": 30455
+      },
+      "step2": {
+        "pass": true,
+        "endpoints_found": [
+          "berechnen",
+          "addWarenkorb"
+        ],
+        "match_pct": 40.0,
+        "has_rules_js": false,
+        "has_konfig_js": true
+      },
+      "step3": {
+        "pass": false,
+        "status": 200,
+        "response_type": "other",
+        "response_size": 2,
+        "prices": [],
+        "has_grundpreis": false,
+        "has_rabatt": false
+      },
+      "step4": {
+        "pass": true,
+        "has_obj_konfig": true,
+        "has_breite": true,
+        "has_hoehe": true,
+        "has_profil": true,
+        "materials_found": []
+      },
+      "step5": {
+        "pass": false,
+        "prices": [],
+        "discount_40pct_verified": false,
+        "has_rabatt": false
+      },
+      "step6": {
+        "pass": false,
+        "has_postmessage": false,
+        "messages": [
+          "addWarenkorb"
+        ]
+      },
+      "checks_passed": "3/6",
+      "verdict": "SEPARATE_MODULE"
+    }
+  ],
+  "verdict_summary": {
+    "REUSE": [
+      "Fenster/Kunststoff/Drutex",
+      "Fenster/PVC-Alu/Gealan",
+      "Balkontuer/Kunststoff/Drutex",
+      "Balkontuer/PVC-Alu/Gealan",
+      "PSK/Kunststoff/Drutex",
+      "HST/Kunststoff/Drutex",
+      "Raffstore/Raffstore/Raffstore-bestellen"
+    ],
+    "EXTEND": [
+      "Fenster/Aluminium/ALU-Fenster-bestellen",
+      "Fenster/Holz/Holz-Fenster-bestellen",
+      "Fenster/Holz-Alu/HolzALU-Fenster-bestellen",
+      "PSK/Aluminium/ALU-Psktuer-bestellen",
+      "PSK/PVC-Alu/Gealan",
+      "PSK/Holz/Holz-Psktuer-bestellen",
+      "PSK/Holz-Alu/HolzALU-Psktuer-bestellen",
+      "HST/Aluminium/ALU-Hstuer-bestellen",
+      "HST/PVC-Alu/Gealan",
+      "HST/Holz/Holz-Hstuer-bestellen",
+      "HST/Holz-Alu/HolzALU-Hstuer-bestellen",
+      "SmartSlide/Gealan/Gealan",
+      "Haustuer/Kunststoff/Drutex",
+      "Nebentuer/Kunststoff/Drutex",
+      "Rollladen/Aufsatz-Kunststoff/Aufsatzrollladen-bestellen",
+      "Rollladen/Aufsatz-Styropor/ALU-Styro-bestellen",
+      "Rollladen/Vorsatz/Vorsatzrollladen-bestellen"
+    ],
+    "SEPARATE_MODULE": [
+      "Fenster/Schiebefenster/ALU-Schiebefenster-bestellen",
+      "Balkontuer/Aluminium/ALU-Balkontuer-bestellen",
+      "Balkontuer/Holz/Holz-Balkontuer-bestellen",
+      "Balkontuer/Holz-Alu/HolzALU-Balkontuer-bestellen",
+      "Faltschiebetuer/Aluminium/ALU-Faltschiebetuer-bestellen",
+      "Faltschiebetuer/Holz/Holz-Faltschiebetuer-bestellen",
+      "Schiebetuer/Aluminium/ALU-Schiebetuer-bestellen",
+      "Haustuer/Aluminium/ALU-Haustuer-bestellen",
+      "Haustuer/Holz/Holz-Haustuer-bestellen",
+      "Nebentuer/Aluminium/ALU-Nebeneingangstuer-bestellen",
+      "Nebentuer/Holz/Holz-Nebeneingangstuer-bestellen",
+      "Insektenschutz/Plissee/ALU-Insektenschutzplissee-bestellen-drutex"
+    ],
+    "INCOMPATIBLE": [],
+    "ERROR": []
+  },
+  "decision_matrix": {
+    "REUSE": "All 6 checks passed → Same backend engine, just load different price tables",
+    "EXTEND": "4-5 checks passed → Same engine with additional options/parameters needed",
+    "SEPARATE_MODULE": "2-3 checks passed → Different enough to need a separate module",
+    "INCOMPATIBLE": "0-1 checks passed → Completely different architecture"
+  }
+}
