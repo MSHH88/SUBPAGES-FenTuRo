@@ -1,0 +1,1057 @@
+{
+  "_meta": {
+    "document": "Deep Comparison & 10cm Dimension Pricing Analysis",
+    "baseline": "Drutex Kunststoff Fenster (PVC)",
+    "date": "2026-03-03",
+    "fenster_datapoints": 140,
+    "configurators_compared": 4
+  },
+  "fenster_10cm_summary": {
+    "total_datapoints": 140,
+    "width_range": "500-2000mm (10cm steps)",
+    "height_range": "500-2000mm (10cm steps)",
+    "profile": "Iglo 5 Classic (p1)",
+    "note": "Full matrix saved in fenster_10cm_prices.csv and fenster_10cm_prices.json"
+  },
+  "comparisons": [
+    {
+      "name": "Balkontüren (Drutex Kunststoff)",
+      "page_url": "https://www.fenstermaxx24.com/konfigurator/konfigurator-balkontueren/",
+      "iframe_url": "https://confde.fenstermaxx24.com/confapp/Drutex/PVC-Balkontuer-bestellen-drutex/",
+      "structure": {
+        "html_size": 110742,
+        "has_rules_js": false,
+        "has_konfig_js": true,
+        "has_obj_konfig": true,
+        "materials": [
+          "ma2",
+          "ma1",
+          "ma5"
+        ],
+        "profiles": [
+          "p5",
+          "p1",
+          "p3",
+          "p6",
+          "p7",
+          "p2",
+          "p4",
+          "p100"
+        ],
+        "opening_types": [
+          "fn_3_drehkipp_drehrechts_drehkipp_stulp",
+          "fn_1_unterlicht_dkr",
+          "fn_1_fluegel_oe",
+          "fn_2_fluegel_oe",
+          "fn_1_unterlicht_dl",
+          "fn_2_fluegel_ue",
+          "fn_1_fluegel",
+          "fn_1_drehlinks",
+          "fn_1_unterlicht_dkl",
+          "fn_3_drehkipp_drehrechts_drehkipp_pfosten",
+          "fn_1_unterlicht_dr",
+          "fn_3_fluegel",
+          "fn_3_fluegel_ue",
+          "fn_3_drehkipp_fest_drehkipp",
+          "fn_1_unterlicht_kipp",
+          "fn_3_fluegel_oe",
+          "fn_1_oberlicht_f",
+          "fn_3_fest_fest_fest",
+          "fn_3_drehkipp_drehlinks_drehkipp_stulp",
+          "fn_3_festfluegel_fesfluegel_festfluegel"
+        ],
+        "ext_colors_count": 0,
+        "int_colors_count": 0,
+        "glass_options": []
+      },
+      "api_test": {
+        "status": 200,
+        "response_size": 20813,
+        "prices": {
+          "preisempfehlung": "484,55",
+          "ersparnis": "193,82",
+          "angebotspreis": "290,73"
+        },
+        "response_type": "html",
+        "has_grundpreis": true,
+        "has_rabatt": true
+      },
+      "dimension_prices": [
+        {
+          "width": 600,
+          "height": 2100,
+          "preisempfehlung": "424,60",
+          "preisempfehlung_float": 424.6
+        },
+        {
+          "width": 700,
+          "height": 2100,
+          "preisempfehlung": "424,60",
+          "preisempfehlung_float": 424.6
+        },
+        {
+          "width": 800,
+          "height": 2100,
+          "preisempfehlung": "444,58",
+          "preisempfehlung_float": 444.58
+        },
+        {
+          "width": 900,
+          "height": 2100,
+          "preisempfehlung": "464,57",
+          "preisempfehlung_float": 464.57
+        },
+        {
+          "width": 1000,
+          "height": 2100,
+          "preisempfehlung": "484,55",
+          "preisempfehlung_float": 484.55
+        },
+        {
+          "width": 1100,
+          "height": 2100,
+          "preisempfehlung": "751,89",
+          "preisempfehlung_float": 751.89
+        },
+        {
+          "width": 1200,
+          "height": 2100,
+          "preisempfehlung": "771,88",
+          "preisempfehlung_float": 771.88
+        },
+        {
+          "width": 1300,
+          "height": 2100,
+          "preisempfehlung": "246,53",
+          "preisempfehlung_float": 246.53
+        },
+        {
+          "width": 1400,
+          "height": 2100,
+          "preisempfehlung": "246,53",
+          "preisempfehlung_float": 246.53
+        },
+        {
+          "width": 1500,
+          "height": 2100,
+          "preisempfehlung": "246,53",
+          "preisempfehlung_float": 246.53
+        },
+        {
+          "width": 1600,
+          "height": 2100,
+          "preisempfehlung": "246,53",
+          "preisempfehlung_float": 246.53
+        },
+        {
+          "width": 1700,
+          "height": 2100,
+          "preisempfehlung": "246,53",
+          "preisempfehlung_float": 246.53
+        },
+        {
+          "width": 1800,
+          "height": 2100,
+          "preisempfehlung": "246,53",
+          "preisempfehlung_float": 246.53
+        },
+        {
+          "width": 1900,
+          "height": 2100,
+          "preisempfehlung": "246,53",
+          "preisempfehlung_float": 246.53
+        },
+        {
+          "width": 2000,
+          "height": 2100,
+          "preisempfehlung": "246,53",
+          "preisempfehlung_float": 246.53
+        },
+        {
+          "width": 1000,
+          "height": 600,
+          "preisempfehlung": "479,41",
+          "preisempfehlung_float": 479.41
+        },
+        {
+          "width": 1000,
+          "height": 700,
+          "preisempfehlung": "468,36",
+          "preisempfehlung_float": 468.36
+        },
+        {
+          "width": 1000,
+          "height": 800,
+          "preisempfehlung": "458,99",
+          "preisempfehlung_float": 458.99
+        },
+        {
+          "width": 1000,
+          "height": 900,
+          "preisempfehlung": "450,88",
+          "preisempfehlung_float": 450.88
+        },
+        {
+          "width": 1000,
+          "height": 1000,
+          "preisempfehlung": "443,75",
+          "preisempfehlung_float": 443.75
+        },
+        {
+          "width": 1000,
+          "height": 1100,
+          "preisempfehlung": "443,75",
+          "preisempfehlung_float": 443.75
+        },
+        {
+          "width": 1000,
+          "height": 1200,
+          "preisempfehlung": "443,75",
+          "preisempfehlung_float": 443.75
+        },
+        {
+          "width": 1000,
+          "height": 1300,
+          "preisempfehlung": "443,75",
+          "preisempfehlung_float": 443.75
+        },
+        {
+          "width": 1000,
+          "height": 1400,
+          "preisempfehlung": "443,75",
+          "preisempfehlung_float": 443.75
+        },
+        {
+          "width": 1000,
+          "height": 1500,
+          "preisempfehlung": "443,75",
+          "preisempfehlung_float": 443.75
+        },
+        {
+          "width": 1000,
+          "height": 1600,
+          "preisempfehlung": "443,75",
+          "preisempfehlung_float": 443.75
+        },
+        {
+          "width": 1000,
+          "height": 1700,
+          "preisempfehlung": "443,75",
+          "preisempfehlung_float": 443.75
+        },
+        {
+          "width": 1000,
+          "height": 1800,
+          "preisempfehlung": "443,75",
+          "preisempfehlung_float": 443.75
+        },
+        {
+          "width": 1000,
+          "height": 1900,
+          "preisempfehlung": "457,07",
+          "preisempfehlung_float": 457.07
+        },
+        {
+          "width": 1000,
+          "height": 2000,
+          "preisempfehlung": "471,23",
+          "preisempfehlung_float": 471.23
+        },
+        {
+          "width": 1000,
+          "height": 2100,
+          "preisempfehlung": "484,55",
+          "preisempfehlung_float": 484.55
+        },
+        {
+          "width": 1000,
+          "height": 2200,
+          "preisempfehlung": "498,71",
+          "preisempfehlung_float": 498.71
+        },
+        {
+          "width": 1000,
+          "height": 2300,
+          "preisempfehlung": "511,19",
+          "preisempfehlung_float": 511.19
+        },
+        {
+          "width": 1000,
+          "height": 2400,
+          "preisempfehlung": "524,51",
+          "preisempfehlung_float": 524.51
+        }
+      ],
+      "discount": {
+        "preisempfehlung": 484.55,
+        "angebotspreis": 290.73,
+        "ratio": 0.6,
+        "discount_pct": 40.0,
+        "is_40pct": true
+      },
+      "unique_features": [
+        "schwelle"
+      ],
+      "total_form_inputs": 14
+    },
+    {
+      "name": "Haustüren (Drutex Kunststoff)",
+      "page_url": "https://www.fenstermaxx24.com/konfigurator/konfigurator-haustueren/",
+      "iframe_url": "https://confde.fenstermaxx24.com/confapp/Drutex/PVC-Haustuer-bestellen-drutex/",
+      "structure": {
+        "html_size": 43849,
+        "has_rules_js": false,
+        "has_konfig_js": true,
+        "has_obj_konfig": true,
+        "materials": [
+          "ma4",
+          "ma2",
+          "ma1",
+          "ma3"
+        ],
+        "profiles": [
+          "p2",
+          "p4",
+          "p100"
+        ],
+        "opening_types": [],
+        "ext_colors_count": 0,
+        "int_colors_count": 0,
+        "glass_options": []
+      },
+      "api_test": {
+        "status": 500,
+        "response_size": 0,
+        "prices": {},
+        "response_type": "other",
+        "has_grundpreis": false,
+        "has_rabatt": false
+      },
+      "dimension_prices": [
+        {
+          "width": 600,
+          "height": 2100,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 700,
+          "height": 2100,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 800,
+          "height": 2100,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 900,
+          "height": 2100,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1000,
+          "height": 2100,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1100,
+          "height": 2100,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1200,
+          "height": 2100,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1300,
+          "height": 2100,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1400,
+          "height": 2100,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1500,
+          "height": 2100,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1600,
+          "height": 2100,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1700,
+          "height": 2100,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1800,
+          "height": 2100,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1900,
+          "height": 2100,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 2000,
+          "height": 2100,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1000,
+          "height": 600,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1000,
+          "height": 700,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1000,
+          "height": 800,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1000,
+          "height": 900,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1000,
+          "height": 1000,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1000,
+          "height": 1100,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1000,
+          "height": 1200,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1000,
+          "height": 1300,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1000,
+          "height": 1400,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1000,
+          "height": 1500,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1000,
+          "height": 1600,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1000,
+          "height": 1700,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1000,
+          "height": 1800,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1000,
+          "height": 1900,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1000,
+          "height": 2000,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1000,
+          "height": 2100,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1000,
+          "height": 2200,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1000,
+          "height": 2300,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1000,
+          "height": 2400,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        }
+      ],
+      "discount": {
+        "error": "Could not verify",
+        "pe": null,
+        "ap": null
+      },
+      "unique_features": [
+        "oberlicht"
+      ],
+      "total_form_inputs": 5
+    },
+    {
+      "name": "PSK-Türen (Drutex Kunststoff)",
+      "page_url": "https://www.fenstermaxx24.com/konfigurator/konfigurator-parallel-schiebe-kipp-tueren-psk/",
+      "iframe_url": "https://confde.fenstermaxx24.com/confapp/Drutex/PVC-Psktuer-bestellen-drutex/",
+      "structure": {
+        "html_size": 83694,
+        "has_rules_js": true,
+        "has_konfig_js": true,
+        "has_obj_konfig": true,
+        "materials": [],
+        "profiles": [
+          "p5",
+          "p1",
+          "p3",
+          "p2",
+          "p4",
+          "p100"
+        ],
+        "opening_types": [
+          "fn_3_drehkipp_drehrechts_drehkipp_stulp",
+          "fn_1_unterlicht_dkr",
+          "fn_1_oberlicht_dl",
+          "fn_1_fluegel_oe",
+          "fn_2_fluegel_oe",
+          "fn_1_unterlicht_dl",
+          "fn_2_fluegel_ue",
+          "fn_1_fluegel",
+          "fn_1_unterlicht_dkl",
+          "fn_3_drehkipp_drehrechts_drehkipp_pfosten",
+          "fn_1_unterlicht_dr",
+          "fn_2_fest_drehkipp",
+          "fn_1_oberlicht_dr",
+          "fn_1_oberlicht_dkr",
+          "fn_3_fluegel",
+          "fn_3_fluegel_ue",
+          "fn_3_drehkipp_fest_drehkipp",
+          "fn_1_unterlicht_kipp",
+          "fn_2_fest_fest",
+          "fn_2_dreh_drehkipp_pfosten"
+        ],
+        "ext_colors_count": 0,
+        "int_colors_count": 0,
+        "glass_options": []
+      },
+      "api_test": {
+        "status": 200,
+        "response_size": 17880,
+        "prices": {
+          "preisempfehlung": "64,19"
+        },
+        "response_type": "html",
+        "has_grundpreis": true,
+        "has_rabatt": true
+      },
+      "dimension_prices": [
+        {
+          "width": 600,
+          "height": 2100,
+          "preisempfehlung": "64,19",
+          "preisempfehlung_float": 64.19
+        },
+        {
+          "width": 700,
+          "height": 2100,
+          "preisempfehlung": "64,19",
+          "preisempfehlung_float": 64.19
+        },
+        {
+          "width": 800,
+          "height": 2100,
+          "preisempfehlung": "64,19",
+          "preisempfehlung_float": 64.19
+        },
+        {
+          "width": 900,
+          "height": 2100,
+          "preisempfehlung": "64,19",
+          "preisempfehlung_float": 64.19
+        },
+        {
+          "width": 1000,
+          "height": 2100,
+          "preisempfehlung": "64,19",
+          "preisempfehlung_float": 64.19
+        },
+        {
+          "width": 1100,
+          "height": 2100,
+          "preisempfehlung": "64,19",
+          "preisempfehlung_float": 64.19
+        },
+        {
+          "width": 1200,
+          "height": 2100,
+          "preisempfehlung": "64,19",
+          "preisempfehlung_float": 64.19
+        },
+        {
+          "width": 1300,
+          "height": 2100,
+          "preisempfehlung": "64,19",
+          "preisempfehlung_float": 64.19
+        },
+        {
+          "width": 1400,
+          "height": 2100,
+          "preisempfehlung": "64,19",
+          "preisempfehlung_float": 64.19
+        },
+        {
+          "width": 1500,
+          "height": 2100,
+          "preisempfehlung": "64,19",
+          "preisempfehlung_float": 64.19
+        },
+        {
+          "width": 1600,
+          "height": 2100,
+          "preisempfehlung": "64,19",
+          "preisempfehlung_float": 64.19
+        },
+        {
+          "width": 1700,
+          "height": 2100,
+          "preisempfehlung": "64,19",
+          "preisempfehlung_float": 64.19
+        },
+        {
+          "width": 1800,
+          "height": 2100,
+          "preisempfehlung": "64,19",
+          "preisempfehlung_float": 64.19
+        },
+        {
+          "width": 1900,
+          "height": 2100,
+          "preisempfehlung": "64,19",
+          "preisempfehlung_float": 64.19
+        },
+        {
+          "width": 2000,
+          "height": 2100,
+          "preisempfehlung": "64,19",
+          "preisempfehlung_float": 64.19
+        },
+        {
+          "width": 2000,
+          "height": 600,
+          "preisempfehlung": "64,19",
+          "preisempfehlung_float": 64.19
+        },
+        {
+          "width": 2000,
+          "height": 700,
+          "preisempfehlung": "64,19",
+          "preisempfehlung_float": 64.19
+        },
+        {
+          "width": 2000,
+          "height": 800,
+          "preisempfehlung": "64,19",
+          "preisempfehlung_float": 64.19
+        },
+        {
+          "width": 2000,
+          "height": 900,
+          "preisempfehlung": "64,19",
+          "preisempfehlung_float": 64.19
+        },
+        {
+          "width": 2000,
+          "height": 1000,
+          "preisempfehlung": "64,19",
+          "preisempfehlung_float": 64.19
+        },
+        {
+          "width": 2000,
+          "height": 1100,
+          "preisempfehlung": "64,19",
+          "preisempfehlung_float": 64.19
+        },
+        {
+          "width": 2000,
+          "height": 1200,
+          "preisempfehlung": "64,19",
+          "preisempfehlung_float": 64.19
+        },
+        {
+          "width": 2000,
+          "height": 1300,
+          "preisempfehlung": "64,19",
+          "preisempfehlung_float": 64.19
+        },
+        {
+          "width": 2000,
+          "height": 1400,
+          "preisempfehlung": "64,19",
+          "preisempfehlung_float": 64.19
+        },
+        {
+          "width": 2000,
+          "height": 1500,
+          "preisempfehlung": "64,19",
+          "preisempfehlung_float": 64.19
+        },
+        {
+          "width": 2000,
+          "height": 1600,
+          "preisempfehlung": "64,19",
+          "preisempfehlung_float": 64.19
+        },
+        {
+          "width": 2000,
+          "height": 1700,
+          "preisempfehlung": "64,19",
+          "preisempfehlung_float": 64.19
+        },
+        {
+          "width": 2000,
+          "height": 1800,
+          "preisempfehlung": "64,19",
+          "preisempfehlung_float": 64.19
+        },
+        {
+          "width": 2000,
+          "height": 1900,
+          "preisempfehlung": "64,19",
+          "preisempfehlung_float": 64.19
+        },
+        {
+          "width": 2000,
+          "height": 2000,
+          "preisempfehlung": "64,19",
+          "preisempfehlung_float": 64.19
+        },
+        {
+          "width": 2000,
+          "height": 2100,
+          "preisempfehlung": "64,19",
+          "preisempfehlung_float": 64.19
+        },
+        {
+          "width": 2000,
+          "height": 2200,
+          "preisempfehlung": "64,19",
+          "preisempfehlung_float": 64.19
+        },
+        {
+          "width": 2000,
+          "height": 2300,
+          "preisempfehlung": "64,19",
+          "preisempfehlung_float": 64.19
+        },
+        {
+          "width": 2000,
+          "height": 2400,
+          "preisempfehlung": "64,19",
+          "preisempfehlung_float": 64.19
+        }
+      ],
+      "discount": {
+        "error": "Could not verify",
+        "pe": 64.19,
+        "ap": null
+      },
+      "unique_features": [
+        "schwelle"
+      ],
+      "total_form_inputs": 10
+    },
+    {
+      "name": "Aufsatzrollläden",
+      "page_url": "https://www.fenstermaxx24.com/konfigurator/konfigurator-aufsatzrollladen/",
+      "iframe_url": "https://confde.fenstermaxx24.com/confapp/Aufsatzrollladen-bestellen/",
+      "structure": {
+        "html_size": 18532,
+        "has_rules_js": false,
+        "has_konfig_js": false,
+        "has_obj_konfig": true,
+        "materials": [],
+        "profiles": [],
+        "opening_types": [],
+        "ext_colors_count": 0,
+        "int_colors_count": 0,
+        "glass_options": []
+      },
+      "api_test": {
+        "status": 200,
+        "response_size": 333,
+        "prices": {},
+        "response_type": "html",
+        "has_grundpreis": false,
+        "has_rabatt": false
+      },
+      "dimension_prices": [
+        {
+          "width": 600,
+          "height": 1000,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 700,
+          "height": 1000,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 800,
+          "height": 1000,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 900,
+          "height": 1000,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1000,
+          "height": 1000,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1100,
+          "height": 1000,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1200,
+          "height": 1000,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1300,
+          "height": 1000,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1400,
+          "height": 1000,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1500,
+          "height": 1000,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1600,
+          "height": 1000,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1700,
+          "height": 1000,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1800,
+          "height": 1000,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1900,
+          "height": 1000,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 2000,
+          "height": 1000,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1000,
+          "height": 600,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1000,
+          "height": 700,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1000,
+          "height": 800,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1000,
+          "height": 900,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1000,
+          "height": 1000,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1000,
+          "height": 1100,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1000,
+          "height": 1200,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1000,
+          "height": 1300,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1000,
+          "height": 1400,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1000,
+          "height": 1500,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1000,
+          "height": 1600,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1000,
+          "height": 1700,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1000,
+          "height": 1800,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1000,
+          "height": 1900,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1000,
+          "height": 2000,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1000,
+          "height": 2100,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1000,
+          "height": 2200,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1000,
+          "height": 2300,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        },
+        {
+          "width": 1000,
+          "height": 2400,
+          "preisempfehlung": "N/A",
+          "preisempfehlung_float": null
+        }
+      ],
+      "discount": {
+        "error": "Could not verify",
+        "pe": null,
+        "ap": null
+      },
+      "unique_features": [
+        "antrieb"
+      ],
+      "total_form_inputs": 2
+    }
+  ]
+}

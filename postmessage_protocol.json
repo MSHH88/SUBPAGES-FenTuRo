@@ -1,0 +1,145 @@
+{
+  "_meta": {
+    "document": "PostMessage Communication Protocol",
+    "description": "Defines all window.postMessage() messages exchanged between the configurator iframe and the parent fenstermaxx24.com page",
+    "iframe_origin": "https://confde.fenstermaxx24.com",
+    "parent_origin": "https://www.fenstermaxx24.com",
+    "captured_date": "2026-03-02"
+  },
+
+  "architecture": {
+    "parent_page": {
+      "url": "https://www.fenstermaxx24.com/konfigurator/konfigurator-fenster/",
+      "role": "Hosts the configurator iframe, manages site navigation, shopping cart count, and page redirects",
+      "iframe_element": "<iframe src='https://confde.fenstermaxx24.com/confapp/Drutex/PVC-Fenster-bestellen-drutex/' ...>"
+    },
+    "iframe_page": {
+      "url": "https://confde.fenstermaxx24.com/confapp/Drutex/PVC-Fenster-bestellen-drutex/",
+      "role": "Runs the full configurator UI, handles all configuration logic, communicates with backend API",
+      "domain_separation": "Separate subdomain (confde.) — requires postMessage for cross-origin communication"
+    }
+  },
+
+  "messages_iframe_to_parent": [
+    {
+      "message": "addWarenkorb",
+      "direction": "iframe → parent",
+      "trigger": "User clicks 'In den Warenkorb legen' button AND the /ajax/addWarenkorb/ API call succeeds",
+      "purpose": "Notify parent page that an item has been successfully added to the shopping cart",
+      "implementation": {
+        "sender_code": "parent.postMessage('addWarenkorb', '*')",
+        "source_file": "js/konfig.min.js",
+        "target_origin": "* (any origin — no restriction)"
+      },
+      "expected_parent_action": [
+        "Update cart item count in navigation header",
+        "Show cart confirmation notification/toast",
+        "Optionally redirect to cart page"
+      ]
+    },
+    {
+      "message": "do_continue",
+      "direction": "iframe → parent",
+      "trigger": "After successful cart addition, when user clicks 'Weiter konfigurieren' or similar continue button",
+      "purpose": "Signal to parent that user wants to continue configuring (stay on page or navigate to next step)",
+      "implementation": {
+        "sender_code": "parent.postMessage('do_continue', '*')",
+        "source_file": "js/konfig.min.js"
+      },
+      "expected_parent_action": [
+        "Keep current page active",
+        "Optionally scroll to top or reset configurator for next item"
+      ]
+    },
+    {
+      "message": "do_restart",
+      "direction": "iframe → parent",
+      "trigger": "User clicks 'Neu konfigurieren' or restart button",
+      "purpose": "Signal to parent that user wants to start a fresh configuration from scratch",
+      "implementation": {
+        "sender_code": "parent.postMessage('do_restart', '*')",
+        "source_file": "js/konfig.min.js"
+      },
+      "expected_parent_action": [
+        "Reload the iframe with default configuration",
+        "Reset any parent-side state related to the current configuration"
+      ]
+    }
+  ],
+
+  "messages_parent_to_iframe": [
+    {
+      "message": "No direct messages observed",
+      "direction": "parent → iframe",
+      "note": "The parent page does not appear to send postMessage commands to the iframe. All configuration state is managed internally within the iframe. The parent only listens for messages from the iframe."
+    }
+  ],
+
+  "parent_listener_implementation": {
+    "description": "The parent page must implement a message event listener to handle iframe communications",
+    "example_code": "window.addEventListener('message', function(event) {\n  if (event.origin !== 'https://confde.fenstermaxx24.com') return;\n  \n  switch(event.data) {\n    case 'addWarenkorb':\n      // Update cart count in navigation\n      // Show success notification\n      updateCartCount();\n      showNotification('Artikel wurde zum Warenkorb hinzugefügt');\n      break;\n    case 'do_continue':\n      // User wants to continue configuring\n      break;\n    case 'do_restart':\n      // Reload iframe to reset configuration\n      document.getElementById('configurator-iframe').src = document.getElementById('configurator-iframe').src;\n      break;\n  }\n});",
+    "security_note": "Always verify event.origin before processing messages to prevent cross-site scripting attacks"
+  },
+
+  "cart_integration_flow": {
+    "description": "Complete flow from configurator to shopping cart",
+    "steps": [
+      {
+        "step": 1,
+        "action": "User clicks 'In den Warenkorb legen'",
+        "location": "iframe (configurator)"
+      },
+      {
+        "step": 2,
+        "action": "Iframe sends POST to /ajax/addWarenkorb/ with full obj_konfig",
+        "location": "iframe → backend API"
+      },
+      {
+        "step": 3,
+        "action": "Backend validates configuration, calculates final price, stores in session/database",
+        "location": "backend server"
+      },
+      {
+        "step": 4,
+        "action": "Backend returns JSON confirmation",
+        "location": "backend → iframe"
+      },
+      {
+        "step": 5,
+        "action": "Iframe sends postMessage('addWarenkorb') to parent",
+        "location": "iframe → parent"
+      },
+      {
+        "step": 6,
+        "action": "Parent updates cart count and shows confirmation UI",
+        "location": "parent page"
+      },
+      {
+        "step": 7,
+        "action": "User can choose 'do_continue' (keep configuring) or navigate to cart",
+        "location": "parent page"
+      }
+    ]
+  },
+
+  "session_linking": {
+    "endpoint": "/ajax/setExternTOSession/",
+    "purpose": "Links the configurator's PHP session (on confde. subdomain) to the main shop session (on www. domain)",
+    "timing": "Called once during iframe initial load",
+    "importance": "Critical for cart functionality — without this, items added in the iframe won't appear in the parent site's shopping cart"
+  },
+
+  "custom_backend_implementation_notes": {
+    "for_your_engine": [
+      "Your backend must handle the addWarenkorb endpoint and store the full configuration + calculated prices",
+      "Your frontend must implement the postMessage listener to update the parent page's cart",
+      "If you use a single-page app (no iframe), postMessage is not needed — use direct function calls instead",
+      "The session linking (setExternTOSession) is only needed if you use a separate domain for the configurator"
+    ],
+    "for_your_crm": [
+      "When addWarenkorb is called, also push the configuration data to your CRM",
+      "Store the full obj_konfig JSON alongside the calculated prices for order tracking",
+      "Use the price breakdown (grundpreis, surcharges, discount) for invoice generation"
+    ]
+  }
+}

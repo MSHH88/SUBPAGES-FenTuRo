@@ -1,0 +1,982 @@
+[
+  {
+    "width": 600,
+    "height": 450,
+    "preisempfehlung": "224,02",
+    "angebotspreis": "134,41",
+    "grundpreis": ""
+  },
+  {
+    "width": 600,
+    "height": 550,
+    "preisempfehlung": "219,47",
+    "angebotspreis": "131,68",
+    "grundpreis": ""
+  },
+  {
+    "width": 600,
+    "height": 650,
+    "preisempfehlung": "215,75",
+    "angebotspreis": "129,45",
+    "grundpreis": ""
+  },
+  {
+    "width": 600,
+    "height": 750,
+    "preisempfehlung": "212,62",
+    "angebotspreis": "127,57",
+    "grundpreis": ""
+  },
+  {
+    "width": 600,
+    "height": 850,
+    "preisempfehlung": "220,45",
+    "angebotspreis": "132,27",
+    "grundpreis": ""
+  },
+  {
+    "width": 600,
+    "height": 950,
+    "preisempfehlung": "246,62",
+    "angebotspreis": "147,97",
+    "grundpreis": ""
+  },
+  {
+    "width": 600,
+    "height": 1050,
+    "preisempfehlung": "256,14",
+    "angebotspreis": "153,68",
+    "grundpreis": ""
+  },
+  {
+    "width": 600,
+    "height": 1150,
+    "preisempfehlung": "264,85",
+    "angebotspreis": "158,91",
+    "grundpreis": ""
+  },
+  {
+    "width": 600,
+    "height": 1250,
+    "preisempfehlung": "273,58",
+    "angebotspreis": "164,15",
+    "grundpreis": ""
+  },
+  {
+    "width": 600,
+    "height": 1350,
+    "preisempfehlung": "282,33",
+    "angebotspreis": "169,40",
+    "grundpreis": ""
+  },
+  {
+    "width": 600,
+    "height": 1450,
+    "preisempfehlung": "292,75",
+    "angebotspreis": "175,65",
+    "grundpreis": ""
+  },
+  {
+    "width": 600,
+    "height": 1550,
+    "preisempfehlung": "301,50",
+    "angebotspreis": "180,90",
+    "grundpreis": ""
+  },
+  {
+    "width": 600,
+    "height": 1650,
+    "preisempfehlung": "322,56",
+    "angebotspreis": "193,54",
+    "grundpreis": ""
+  },
+  {
+    "width": 600,
+    "height": 1750,
+    "preisempfehlung": "0,00",
+    "angebotspreis": "0,00",
+    "grundpreis": ""
+  },
+  {
+    "width": 700,
+    "height": 450,
+    "preisempfehlung": "220,52",
+    "angebotspreis": "132,31",
+    "grundpreis": ""
+  },
+  {
+    "width": 700,
+    "height": 550,
+    "preisempfehlung": "216,03",
+    "angebotspreis": "129,62",
+    "grundpreis": ""
+  },
+  {
+    "width": 700,
+    "height": 650,
+    "preisempfehlung": "212,38",
+    "angebotspreis": "127,43",
+    "grundpreis": ""
+  },
+  {
+    "width": 700,
+    "height": 750,
+    "preisempfehlung": "220,68",
+    "angebotspreis": "132,41",
+    "grundpreis": ""
+  },
+  {
+    "width": 700,
+    "height": 850,
+    "preisempfehlung": "230,84",
+    "angebotspreis": "138,50",
+    "grundpreis": ""
+  },
+  {
+    "width": 700,
+    "height": 950,
+    "preisempfehlung": "257,30",
+    "angebotspreis": "154,38",
+    "grundpreis": ""
+  },
+  {
+    "width": 700,
+    "height": 1050,
+    "preisempfehlung": "265,68",
+    "angebotspreis": "159,41",
+    "grundpreis": ""
+  },
+  {
+    "width": 700,
+    "height": 1150,
+    "preisempfehlung": "275,80",
+    "angebotspreis": "165,48",
+    "grundpreis": ""
+  },
+  {
+    "width": 700,
+    "height": 1250,
+    "preisempfehlung": "284,26",
+    "angebotspreis": "170,56",
+    "grundpreis": ""
+  },
+  {
+    "width": 700,
+    "height": 1350,
+    "preisempfehlung": "294,41",
+    "angebotspreis": "176,65",
+    "grundpreis": ""
+  },
+  {
+    "width": 700,
+    "height": 1450,
+    "preisempfehlung": "303,37",
+    "angebotspreis": "182,02",
+    "grundpreis": ""
+  },
+  {
+    "width": 700,
+    "height": 1550,
+    "preisempfehlung": "314,85",
+    "angebotspreis": "188,91",
+    "grundpreis": ""
+  },
+  {
+    "width": 700,
+    "height": 1650,
+    "preisempfehlung": "339,45",
+    "angebotspreis": "203,67",
+    "grundpreis": ""
+  },
+  {
+    "width": 700,
+    "height": 1750,
+    "preisempfehlung": "0,00",
+    "angebotspreis": "0,00",
+    "grundpreis": ""
+  },
+  {
+    "width": 800,
+    "height": 450,
+    "preisempfehlung": "217,52",
+    "angebotspreis": "130,51",
+    "grundpreis": ""
+  },
+  {
+    "width": 800,
+    "height": 550,
+    "preisempfehlung": "213,11",
+    "angebotspreis": "127,87",
+    "grundpreis": ""
+  },
+  {
+    "width": 800,
+    "height": 650,
+    "preisempfehlung": "220,89",
+    "angebotspreis": "132,53",
+    "grundpreis": ""
+  },
+  {
+    "width": 800,
+    "height": 750,
+    "preisempfehlung": "230,65",
+    "angebotspreis": "138,39",
+    "grundpreis": ""
+  },
+  {
+    "width": 800,
+    "height": 850,
+    "preisempfehlung": "240,51",
+    "angebotspreis": "144,31",
+    "grundpreis": ""
+  },
+  {
+    "width": 800,
+    "height": 950,
+    "preisempfehlung": "271,52",
+    "angebotspreis": "162,91",
+    "grundpreis": ""
+  },
+  {
+    "width": 800,
+    "height": 1050,
+    "preisempfehlung": "281,28",
+    "angebotspreis": "168,77",
+    "grundpreis": ""
+  },
+  {
+    "width": 800,
+    "height": 1150,
+    "preisempfehlung": "290,25",
+    "angebotspreis": "174,15",
+    "grundpreis": ""
+  },
+  {
+    "width": 800,
+    "height": 1250,
+    "preisempfehlung": "300,09",
+    "angebotspreis": "180,05",
+    "grundpreis": ""
+  },
+  {
+    "width": 800,
+    "height": 1350,
+    "preisempfehlung": "312,38",
+    "angebotspreis": "187,43",
+    "grundpreis": ""
+  },
+  {
+    "width": 800,
+    "height": 1450,
+    "preisempfehlung": "324,69",
+    "angebotspreis": "194,81",
+    "grundpreis": ""
+  },
+  {
+    "width": 800,
+    "height": 1550,
+    "preisempfehlung": "336,98",
+    "angebotspreis": "202,19",
+    "grundpreis": ""
+  },
+  {
+    "width": 800,
+    "height": 1650,
+    "preisempfehlung": "368,14",
+    "angebotspreis": "220,88",
+    "grundpreis": ""
+  },
+  {
+    "width": 800,
+    "height": 1750,
+    "preisempfehlung": "0,00",
+    "angebotspreis": "0,00",
+    "grundpreis": ""
+  },
+  {
+    "width": 900,
+    "height": 450,
+    "preisempfehlung": "231,11",
+    "angebotspreis": "138,67",
+    "grundpreis": ""
+  },
+  {
+    "width": 900,
+    "height": 550,
+    "preisempfehlung": "226,41",
+    "angebotspreis": "135,85",
+    "grundpreis": ""
+  },
+  {
+    "width": 900,
+    "height": 650,
+    "preisempfehlung": "235,58",
+    "angebotspreis": "141,35",
+    "grundpreis": ""
+  },
+  {
+    "width": 900,
+    "height": 750,
+    "preisempfehlung": "244,96",
+    "angebotspreis": "146,98",
+    "grundpreis": ""
+  },
+  {
+    "width": 900,
+    "height": 850,
+    "preisempfehlung": "255,33",
+    "angebotspreis": "153,20",
+    "grundpreis": ""
+  },
+  {
+    "width": 900,
+    "height": 950,
+    "preisempfehlung": "286,60",
+    "angebotspreis": "171,96",
+    "grundpreis": ""
+  },
+  {
+    "width": 900,
+    "height": 1050,
+    "preisempfehlung": "296,06",
+    "angebotspreis": "177,64",
+    "grundpreis": ""
+  },
+  {
+    "width": 900,
+    "height": 1150,
+    "preisempfehlung": "307,46",
+    "angebotspreis": "184,48",
+    "grundpreis": ""
+  },
+  {
+    "width": 900,
+    "height": 1250,
+    "preisempfehlung": "317,30",
+    "angebotspreis": "190,38",
+    "grundpreis": ""
+  },
+  {
+    "width": 900,
+    "height": 1350,
+    "preisempfehlung": "332,06",
+    "angebotspreis": "199,24",
+    "grundpreis": ""
+  },
+  {
+    "width": 900,
+    "height": 1450,
+    "preisempfehlung": "344,36",
+    "angebotspreis": "206,62",
+    "grundpreis": ""
+  },
+  {
+    "width": 900,
+    "height": 1550,
+    "preisempfehlung": "358,30",
+    "angebotspreis": "214,98",
+    "grundpreis": ""
+  },
+  {
+    "width": 900,
+    "height": 1650,
+    "preisempfehlung": "389,45",
+    "angebotspreis": "233,67",
+    "grundpreis": ""
+  },
+  {
+    "width": 900,
+    "height": 1750,
+    "preisempfehlung": "0,00",
+    "angebotspreis": "0,00",
+    "grundpreis": ""
+  },
+  {
+    "width": 1000,
+    "height": 450,
+    "preisempfehlung": "246,43",
+    "angebotspreis": "147,86",
+    "grundpreis": ""
+  },
+  {
+    "width": 1000,
+    "height": 550,
+    "preisempfehlung": "241,43",
+    "angebotspreis": "144,86",
+    "grundpreis": ""
+  },
+  {
+    "width": 1000,
+    "height": 650,
+    "preisempfehlung": "251,05",
+    "angebotspreis": "150,63",
+    "grundpreis": ""
+  },
+  {
+    "width": 1000,
+    "height": 750,
+    "preisempfehlung": "260,06",
+    "angebotspreis": "156,04",
+    "grundpreis": ""
+  },
+  {
+    "width": 1000,
+    "height": 850,
+    "preisempfehlung": "270,93",
+    "angebotspreis": "162,56",
+    "grundpreis": ""
+  },
+  {
+    "width": 1000,
+    "height": 950,
+    "preisempfehlung": "302,48",
+    "angebotspreis": "181,49",
+    "grundpreis": ""
+  },
+  {
+    "width": 1000,
+    "height": 1050,
+    "preisempfehlung": "314,02",
+    "angebotspreis": "188,41",
+    "grundpreis": ""
+  },
+  {
+    "width": 1000,
+    "height": 1150,
+    "preisempfehlung": "327,14",
+    "angebotspreis": "196,28",
+    "grundpreis": ""
+  },
+  {
+    "width": 1000,
+    "height": 1250,
+    "preisempfehlung": "340,26",
+    "angebotspreis": "204,16",
+    "grundpreis": ""
+  },
+  {
+    "width": 1000,
+    "height": 1350,
+    "preisempfehlung": "353,38",
+    "angebotspreis": "212,03",
+    "grundpreis": ""
+  },
+  {
+    "width": 1000,
+    "height": 1450,
+    "preisempfehlung": "366,50",
+    "angebotspreis": "219,90",
+    "grundpreis": ""
+  },
+  {
+    "width": 1000,
+    "height": 1550,
+    "preisempfehlung": "380,44",
+    "angebotspreis": "228,26",
+    "grundpreis": ""
+  },
+  {
+    "width": 1000,
+    "height": 1650,
+    "preisempfehlung": "408,32",
+    "angebotspreis": "244,99",
+    "grundpreis": ""
+  },
+  {
+    "width": 1000,
+    "height": 1750,
+    "preisempfehlung": "0,00",
+    "angebotspreis": "0,00",
+    "grundpreis": ""
+  },
+  {
+    "width": 1100,
+    "height": 450,
+    "preisempfehlung": "255,49",
+    "angebotspreis": "153,29",
+    "grundpreis": ""
+  },
+  {
+    "width": 1100,
+    "height": 550,
+    "preisempfehlung": "250,31",
+    "angebotspreis": "150,19",
+    "grundpreis": ""
+  },
+  {
+    "width": 1100,
+    "height": 650,
+    "preisempfehlung": "261,34",
+    "angebotspreis": "156,80",
+    "grundpreis": ""
+  },
+  {
+    "width": 1100,
+    "height": 750,
+    "preisempfehlung": "271,76",
+    "angebotspreis": "163,06",
+    "grundpreis": ""
+  },
+  {
+    "width": 1100,
+    "height": 850,
+    "preisempfehlung": "280,69",
+    "angebotspreis": "168,41",
+    "grundpreis": ""
+  },
+  {
+    "width": 1100,
+    "height": 950,
+    "preisempfehlung": "314,02",
+    "angebotspreis": "188,41",
+    "grundpreis": ""
+  },
+  {
+    "width": 1100,
+    "height": 1050,
+    "preisempfehlung": "327,97",
+    "angebotspreis": "196,78",
+    "grundpreis": ""
+  },
+  {
+    "width": 1100,
+    "height": 1150,
+    "preisempfehlung": "341,09",
+    "angebotspreis": "204,65",
+    "grundpreis": ""
+  },
+  {
+    "width": 1100,
+    "height": 1250,
+    "preisempfehlung": "355,84",
+    "angebotspreis": "213,50",
+    "grundpreis": ""
+  },
+  {
+    "width": 1100,
+    "height": 1350,
+    "preisempfehlung": "369,78",
+    "angebotspreis": "221,87",
+    "grundpreis": ""
+  },
+  {
+    "width": 1100,
+    "height": 1450,
+    "preisempfehlung": "382,08",
+    "angebotspreis": "229,25",
+    "grundpreis": ""
+  },
+  {
+    "width": 1100,
+    "height": 1550,
+    "preisempfehlung": "396,01",
+    "angebotspreis": "237,61",
+    "grundpreis": ""
+  },
+  {
+    "width": 1100,
+    "height": 1650,
+    "preisempfehlung": "425,53",
+    "angebotspreis": "255,32",
+    "grundpreis": ""
+  },
+  {
+    "width": 1100,
+    "height": 1750,
+    "preisempfehlung": "0,00",
+    "angebotspreis": "0,00",
+    "grundpreis": ""
+  },
+  {
+    "width": 1200,
+    "height": 450,
+    "preisempfehlung": "265,45",
+    "angebotspreis": "159,27",
+    "grundpreis": ""
+  },
+  {
+    "width": 1200,
+    "height": 550,
+    "preisempfehlung": "260,06",
+    "angebotspreis": "156,04",
+    "grundpreis": ""
+  },
+  {
+    "width": 1200,
+    "height": 650,
+    "preisempfehlung": "269,96",
+    "angebotspreis": "161,98",
+    "grundpreis": ""
+  },
+  {
+    "width": 1200,
+    "height": 750,
+    "preisempfehlung": "280,95",
+    "angebotspreis": "168,57",
+    "grundpreis": ""
+  },
+  {
+    "width": 1200,
+    "height": 850,
+    "preisempfehlung": "291,89",
+    "angebotspreis": "175,13",
+    "grundpreis": ""
+  },
+  {
+    "width": 1200,
+    "height": 950,
+    "preisempfehlung": "327,97",
+    "angebotspreis": "196,78",
+    "grundpreis": ""
+  },
+  {
+    "width": 1200,
+    "height": 1050,
+    "preisempfehlung": "341,09",
+    "angebotspreis": "204,65",
+    "grundpreis": ""
+  },
+  {
+    "width": 1200,
+    "height": 1150,
+    "preisempfehlung": "355,84",
+    "angebotspreis": "213,50",
+    "grundpreis": ""
+  },
+  {
+    "width": 1200,
+    "height": 1250,
+    "preisempfehlung": "369,78",
+    "angebotspreis": "221,87",
+    "grundpreis": ""
+  },
+  {
+    "width": 1200,
+    "height": 1350,
+    "preisempfehlung": "384,53",
+    "angebotspreis": "230,72",
+    "grundpreis": ""
+  },
+  {
+    "width": 1200,
+    "height": 1450,
+    "preisempfehlung": "398,48",
+    "angebotspreis": "239,09",
+    "grundpreis": ""
+  },
+  {
+    "width": 1200,
+    "height": 1550,
+    "preisempfehlung": "414,05",
+    "angebotspreis": "248,43",
+    "grundpreis": ""
+  },
+  {
+    "width": 1200,
+    "height": 1650,
+    "preisempfehlung": "443,57",
+    "angebotspreis": "266,14",
+    "grundpreis": ""
+  },
+  {
+    "width": 1200,
+    "height": 1750,
+    "preisempfehlung": "0,00",
+    "angebotspreis": "0,00",
+    "grundpreis": ""
+  },
+  {
+    "width": 1300,
+    "height": 450,
+    "preisempfehlung": "276,28",
+    "angebotspreis": "165,77",
+    "grundpreis": ""
+  },
+  {
+    "width": 1300,
+    "height": 550,
+    "preisempfehlung": "270,68",
+    "angebotspreis": "162,41",
+    "grundpreis": ""
+  },
+  {
+    "width": 1300,
+    "height": 650,
+    "preisempfehlung": "278,60",
+    "angebotspreis": "167,16",
+    "grundpreis": ""
+  },
+  {
+    "width": 1300,
+    "height": 750,
+    "preisempfehlung": "291,00",
+    "angebotspreis": "174,60",
+    "grundpreis": ""
+  },
+  {
+    "width": 1300,
+    "height": 850,
+    "preisempfehlung": "305,83",
+    "angebotspreis": "183,50",
+    "grundpreis": ""
+  },
+  {
+    "width": 1300,
+    "height": 950,
+    "preisempfehlung": "341,90",
+    "angebotspreis": "205,14",
+    "grundpreis": ""
+  },
+  {
+    "width": 1300,
+    "height": 1050,
+    "preisempfehlung": "353,38",
+    "angebotspreis": "212,03",
+    "grundpreis": ""
+  },
+  {
+    "width": 1300,
+    "height": 1150,
+    "preisempfehlung": "370,60",
+    "angebotspreis": "222,36",
+    "grundpreis": ""
+  },
+  {
+    "width": 1300,
+    "height": 1250,
+    "preisempfehlung": "383,72",
+    "angebotspreis": "230,23",
+    "grundpreis": ""
+  },
+  {
+    "width": 1300,
+    "height": 1350,
+    "preisempfehlung": "400,12",
+    "angebotspreis": "240,07",
+    "grundpreis": ""
+  },
+  {
+    "width": 1300,
+    "height": 1450,
+    "preisempfehlung": "415,69",
+    "angebotspreis": "249,41",
+    "grundpreis": ""
+  },
+  {
+    "width": 1300,
+    "height": 1550,
+    "preisempfehlung": "431,27",
+    "angebotspreis": "258,76",
+    "grundpreis": ""
+  },
+  {
+    "width": 1300,
+    "height": 1650,
+    "preisempfehlung": "461,60",
+    "angebotspreis": "276,96",
+    "grundpreis": ""
+  },
+  {
+    "width": 1300,
+    "height": 1750,
+    "preisempfehlung": "0,00",
+    "angebotspreis": "0,00",
+    "grundpreis": ""
+  },
+  {
+    "width": 1400,
+    "height": 450,
+    "preisempfehlung": "285,37",
+    "angebotspreis": "171,22",
+    "grundpreis": ""
+  },
+  {
+    "width": 1400,
+    "height": 550,
+    "preisempfehlung": "279,58",
+    "angebotspreis": "167,75",
+    "grundpreis": ""
+  },
+  {
+    "width": 1400,
+    "height": 650,
+    "preisempfehlung": "288,92",
+    "angebotspreis": "173,35",
+    "grundpreis": ""
+  },
+  {
+    "width": 1400,
+    "height": 750,
+    "preisempfehlung": "304,19",
+    "angebotspreis": "182,51",
+    "grundpreis": ""
+  },
+  {
+    "width": 1400,
+    "height": 850,
+    "preisempfehlung": "318,13",
+    "angebotspreis": "190,88",
+    "grundpreis": ""
+  },
+  {
+    "width": 1400,
+    "height": 950,
+    "preisempfehlung": "355,02",
+    "angebotspreis": "213,01",
+    "grundpreis": ""
+  },
+  {
+    "width": 1400,
+    "height": 1050,
+    "preisempfehlung": "367,32",
+    "angebotspreis": "220,39",
+    "grundpreis": ""
+  },
+  {
+    "width": 1400,
+    "height": 1150,
+    "preisempfehlung": "384,53",
+    "angebotspreis": "230,72",
+    "grundpreis": ""
+  },
+  {
+    "width": 1400,
+    "height": 1250,
+    "preisempfehlung": "399,29",
+    "angebotspreis": "239,57",
+    "grundpreis": ""
+  },
+  {
+    "width": 1400,
+    "height": 1350,
+    "preisempfehlung": "416,52",
+    "angebotspreis": "249,91",
+    "grundpreis": ""
+  },
+  {
+    "width": 1400,
+    "height": 1450,
+    "preisempfehlung": "430,45",
+    "angebotspreis": "258,27",
+    "grundpreis": ""
+  },
+  {
+    "width": 1400,
+    "height": 1550,
+    "preisempfehlung": "446,85",
+    "angebotspreis": "268,11",
+    "grundpreis": ""
+  },
+  {
+    "width": 1400,
+    "height": 1650,
+    "preisempfehlung": "478,83",
+    "angebotspreis": "287,30",
+    "grundpreis": ""
+  },
+  {
+    "width": 1400,
+    "height": 1750,
+    "preisempfehlung": "0,00",
+    "angebotspreis": "0,00",
+    "grundpreis": ""
+  },
+  {
+    "width": 1500,
+    "height": 450,
+    "preisempfehlung": "294,46",
+    "angebotspreis": "176,68",
+    "grundpreis": ""
+  },
+  {
+    "width": 1500,
+    "height": 550,
+    "preisempfehlung": "288,48",
+    "angebotspreis": "173,09",
+    "grundpreis": ""
+  },
+  {
+    "width": 1500,
+    "height": 650,
+    "preisempfehlung": "299,22",
+    "angebotspreis": "179,53",
+    "grundpreis": ""
+  },
+  {
+    "width": 1500,
+    "height": 750,
+    "preisempfehlung": "317,30",
+    "angebotspreis": "190,38",
+    "grundpreis": ""
+  },
+  {
+    "width": 1500,
+    "height": 850,
+    "preisempfehlung": "330,42",
+    "angebotspreis": "198,25",
+    "grundpreis": ""
+  },
+  {
+    "width": 1500,
+    "height": 950,
+    "preisempfehlung": "368,96",
+    "angebotspreis": "221,38",
+    "grundpreis": ""
+  },
+  {
+    "width": 1500,
+    "height": 1050,
+    "preisempfehlung": "381,26",
+    "angebotspreis": "228,76",
+    "grundpreis": ""
+  },
+  {
+    "width": 1500,
+    "height": 1150,
+    "preisempfehlung": "398,48",
+    "angebotspreis": "239,09",
+    "grundpreis": ""
+  },
+  {
+    "width": 1500,
+    "height": 1250,
+    "preisempfehlung": "414,05",
+    "angebotspreis": "248,43",
+    "grundpreis": ""
+  },
+  {
+    "width": 1500,
+    "height": 1350,
+    "preisempfehlung": "432,91",
+    "angebotspreis": "259,75",
+    "grundpreis": ""
+  },
+  {
+    "width": 1500,
+    "height": 1450,
+    "preisempfehlung": "446,03",
+    "angebotspreis": "267,62",
+    "grundpreis": ""
+  },
+  {
+    "width": 1500,
+    "height": 1550,
+    "preisempfehlung": "463,24",
+    "angebotspreis": "277,94",
+    "grundpreis": ""
+  },
+  {
+    "width": 1500,
+    "height": 1650,
+    "preisempfehlung": "496,04",
+    "angebotspreis": "297,62",
+    "grundpreis": ""
+  },
+  {
+    "width": 1500,
+    "height": 1750,
+    "preisempfehlung": "0,00",
+    "angebotspreis": "0,00",
+    "grundpreis": ""
+  }
+]
