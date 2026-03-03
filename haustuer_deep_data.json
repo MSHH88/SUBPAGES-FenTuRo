@@ -1,0 +1,643 @@
+{
+  "base_test": {
+    "status": 200,
+    "prices": {
+      "preisempfehlung": "1.277,75"
+    }
+  },
+  "dimensions": [
+    {
+      "width": 700,
+      "height": 1900,
+      "prices": {
+        "preisempfehlung": "1.273,85"
+      }
+    },
+    {
+      "width": 800,
+      "height": 1900,
+      "prices": {
+        "preisempfehlung": "1.277,75"
+      }
+    },
+    {
+      "width": 900,
+      "height": 1900,
+      "prices": {
+        "preisempfehlung": "1.315,52"
+      }
+    },
+    {
+      "width": 1000,
+      "height": 1900,
+      "prices": {
+        "preisempfehlung": "1.353,28"
+      }
+    },
+    {
+      "width": 1100,
+      "height": 1900,
+      "prices": {
+        "preisempfehlung": "1.391,04"
+      }
+    },
+    {
+      "width": 1200,
+      "height": 1900,
+      "prices": {
+        "preisempfehlung": "1.428,81"
+      }
+    },
+    {
+      "width": 800,
+      "height": 1800,
+      "prices": {
+        "preisempfehlung": "1.276,10"
+      }
+    },
+    {
+      "width": 800,
+      "height": 1900,
+      "prices": {
+        "preisempfehlung": "1.277,75"
+      }
+    },
+    {
+      "width": 800,
+      "height": 2000,
+      "prices": {
+        "preisempfehlung": "1.279,39"
+      }
+    },
+    {
+      "width": 800,
+      "height": 2100,
+      "prices": {
+        "preisempfehlung": "1.281,03"
+      }
+    },
+    {
+      "width": 800,
+      "height": 2200,
+      "prices": {
+        "preisempfehlung": "1.282,67"
+      }
+    },
+    {
+      "width": 800,
+      "height": 2300,
+      "prices": {
+        "preisempfehlung": "1.284,31"
+      }
+    },
+    {
+      "width": 800,
+      "height": 2400,
+      "prices": {
+        "preisempfehlung": "1.285,96"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "profile": "p2",
+      "prices": {
+        "preisempfehlung": "1.277,75"
+      }
+    },
+    {
+      "profile": "p4",
+      "prices": {
+        "preisempfehlung": "1.352,54"
+      }
+    }
+  ],
+  "models": [
+    {
+      "model": "m1_l",
+      "prices": {
+        "preisempfehlung": "1.277,75"
+      }
+    },
+    {
+      "model": "m1_r",
+      "prices": {
+        "preisempfehlung": "1.277,75"
+      }
+    },
+    {
+      "model": "m2_l",
+      "prices": {
+        "preisempfehlung": "1.353,11"
+      }
+    },
+    {
+      "model": "m2_r",
+      "prices": {
+        "preisempfehlung": "1.353,11"
+      }
+    },
+    {
+      "model": "m3_l",
+      "prices": {
+        "preisempfehlung": "1.353,11"
+      }
+    },
+    {
+      "model": "m3_r",
+      "prices": {
+        "preisempfehlung": "1.353,11"
+      }
+    },
+    {
+      "model": "m4_l",
+      "prices": {
+        "preisempfehlung": "1.639,12"
+      }
+    },
+    {
+      "model": "m4_r",
+      "prices": {
+        "preisempfehlung": "1.639,12"
+      }
+    },
+    {
+      "model": "m5_l",
+      "prices": {
+        "preisempfehlung": "1.639,12"
+      }
+    },
+    {
+      "model": "m5_r",
+      "prices": {
+        "preisempfehlung": "1.639,12"
+      }
+    },
+    {
+      "model": "m6_l",
+      "prices": {
+        "preisempfehlung": "1.639,12"
+      }
+    },
+    {
+      "model": "m6_r",
+      "prices": {
+        "preisempfehlung": "1.639,12"
+      }
+    },
+    {
+      "model": "m7_l",
+      "prices": {
+        "preisempfehlung": "1.639,12"
+      }
+    },
+    {
+      "model": "m7_r",
+      "prices": {
+        "preisempfehlung": "1.639,12"
+      }
+    },
+    {
+      "model": "m8_l",
+      "prices": {
+        "preisempfehlung": "1.639,12"
+      }
+    },
+    {
+      "model": "m8_r",
+      "prices": {
+        "preisempfehlung": "1.639,12"
+      }
+    },
+    {
+      "model": "m9_l",
+      "prices": {
+        "preisempfehlung": "1.353,11"
+      }
+    },
+    {
+      "model": "m9_r",
+      "prices": {
+        "preisempfehlung": "1.353,11"
+      }
+    },
+    {
+      "model": "m10_l",
+      "prices": {
+        "preisempfehlung": "1.639,12"
+      }
+    },
+    {
+      "model": "m10_r",
+      "prices": {
+        "preisempfehlung": "1.639,12"
+      }
+    }
+  ],
+  "opening_directions": [
+    {
+      "oer": "oer_dli",
+      "prices": {
+        "preisempfehlung": "1.277,75"
+      }
+    },
+    {
+      "oer": "oer_dri",
+      "prices": {
+        "preisempfehlung": "1.277,75"
+      }
+    },
+    {
+      "oer": "oer_dla",
+      "prices": {
+        "preisempfehlung": "1.277,75"
+      }
+    },
+    {
+      "oer": "oer_dra",
+      "prices": {
+        "preisempfehlung": "1.277,75"
+      }
+    }
+  ],
+  "colors": [
+    {
+      "color": "fs1_01",
+      "prices": {
+        "preisempfehlung": "1.277,75"
+      }
+    },
+    {
+      "color": "fs1_02",
+      "prices": {
+        "preisempfehlung": "1.423,50"
+      }
+    },
+    {
+      "color": "fs1_03",
+      "prices": {
+        "preisempfehlung": "1.423,50"
+      }
+    },
+    {
+      "color": "fs1_04",
+      "prices": {
+        "preisempfehlung": "1.423,50"
+      }
+    },
+    {
+      "color": "fs1_05",
+      "prices": {
+        "preisempfehlung": "1.423,50"
+      }
+    },
+    {
+      "color": "fs1_06",
+      "prices": {
+        "preisempfehlung": "1.423,50"
+      }
+    },
+    {
+      "color": "fs1_07",
+      "prices": {
+        "preisempfehlung": "1.423,50"
+      }
+    },
+    {
+      "color": "fs1_08",
+      "prices": {
+        "preisempfehlung": "1.626,28"
+      }
+    },
+    {
+      "color": "fs1_09",
+      "prices": {
+        "preisempfehlung": "1.626,28"
+      }
+    },
+    {
+      "color": "fs1_10",
+      "prices": {
+        "preisempfehlung": "1.423,50"
+      }
+    },
+    {
+      "color": "fs1_11",
+      "prices": {
+        "preisempfehlung": "1.423,50"
+      }
+    },
+    {
+      "color": "fs1_12",
+      "prices": {
+        "preisempfehlung": "1.536,77"
+      }
+    },
+    {
+      "color": "fs1_13",
+      "prices": {
+        "preisempfehlung": "1.423,50"
+      }
+    },
+    {
+      "color": "fs1_14",
+      "prices": {
+        "preisempfehlung": "1.423,50"
+      }
+    },
+    {
+      "color": "fs1_15",
+      "prices": {
+        "preisempfehlung": "1.536,77"
+      }
+    },
+    {
+      "color": "fs2_01",
+      "prices": {
+        "preisempfehlung": "1.303,24"
+      }
+    },
+    {
+      "color": "fs2_02",
+      "prices": {
+        "preisempfehlung": "1.303,24"
+      }
+    },
+    {
+      "color": "fs2_03",
+      "prices": {
+        "preisempfehlung": "1.303,24"
+      }
+    },
+    {
+      "color": "fs2_04",
+      "prices": {
+        "preisempfehlung": "1.303,24"
+      }
+    },
+    {
+      "color": "fs2_05",
+      "prices": {
+        "preisempfehlung": "1.303,24"
+      }
+    },
+    {
+      "color": "fs3_01",
+      "prices": {
+        "preisempfehlung": "1.303,24"
+      }
+    },
+    {
+      "color": "fs3_02",
+      "prices": {
+        "preisempfehlung": "1.303,24"
+      }
+    },
+    {
+      "color": "fs3_03",
+      "prices": {
+        "preisempfehlung": "1.303,24"
+      }
+    }
+  ],
+  "glass": [
+    {
+      "glass": "g1",
+      "prices": {
+        "preisempfehlung": "1.246,55"
+      }
+    },
+    {
+      "glass": "g2",
+      "prices": {
+        "preisempfehlung": "1.246,55"
+      }
+    },
+    {
+      "glass": "g3",
+      "prices": {
+        "preisempfehlung": "1.277,75"
+      }
+    },
+    {
+      "glass": "g4",
+      "prices": {
+        "preisempfehlung": "1.277,75"
+      }
+    },
+    {
+      "glass": "g5",
+      "prices": {
+        "preisempfehlung": "1.305,46"
+      }
+    },
+    {
+      "glass": "g6",
+      "prices": {
+        "preisempfehlung": "1.246,55"
+      }
+    }
+  ],
+  "security": [
+    {
+      "verriegelung": "v1",
+      "prices": {
+        "preisempfehlung": "1.277,75"
+      }
+    },
+    {
+      "verriegelung": "v2",
+      "prices": {
+        "preisempfehlung": "1.378,07"
+      }
+    },
+    {
+      "verriegelung": "v3",
+      "prices": {
+        "preisempfehlung": "1.319,50"
+      }
+    },
+    {
+      "verriegelung": "v4",
+      "prices": {
+        "preisempfehlung": "1.337,91"
+      }
+    },
+    {
+      "verriegelung": "v5",
+      "prices": {
+        "preisempfehlung": "1.277,75"
+      }
+    }
+  ],
+  "griff_kombi": [
+    {
+      "griff_kombi": "gk_1",
+      "prices": {
+        "preisempfehlung": "1.277,75"
+      }
+    },
+    {
+      "griff_kombi": "gk_2",
+      "prices": {
+        "preisempfehlung": "1.277,75"
+      }
+    },
+    {
+      "griff_kombi": "gk_3",
+      "prices": {
+        "preisempfehlung": "1.277,75"
+      }
+    },
+    {
+      "griff_kombi": "gk_4",
+      "prices": {
+        "preisempfehlung": "1.277,75"
+      }
+    },
+    {
+      "griff_kombi": "gk_5",
+      "prices": {
+        "preisempfehlung": "1.277,75"
+      }
+    },
+    {
+      "griff_kombi": "gk_6",
+      "prices": {
+        "preisempfehlung": "1.277,75"
+      }
+    },
+    {
+      "griff_kombi": "gk_7",
+      "prices": {
+        "preisempfehlung": "1.277,75"
+      }
+    },
+    {
+      "griff_kombi": "gk_8",
+      "prices": {
+        "preisempfehlung": "1.277,75"
+      }
+    }
+  ],
+  "zugriffssystem": [
+    {
+      "zks": "zks_0",
+      "zks_art": "zks_art_1",
+      "prices": {
+        "preisempfehlung": "1.277,75"
+      }
+    },
+    {
+      "zks": "zks_0",
+      "zks_art": "zks_art_2",
+      "prices": {
+        "preisempfehlung": "1.277,75"
+      }
+    },
+    {
+      "zks": "zks_0",
+      "zks_art": "zks_art_3",
+      "prices": {
+        "preisempfehlung": "1.277,75"
+      }
+    },
+    {
+      "zks": "zks_0",
+      "zks_art": "zks_art_4",
+      "prices": {
+        "preisempfehlung": "1.277,75"
+      }
+    },
+    {
+      "zks": "zks_0",
+      "zks_art": "zks_art_5",
+      "prices": {
+        "preisempfehlung": "1.277,75"
+      }
+    },
+    {
+      "zks": "zks_0",
+      "zks_art": "zks_art_6",
+      "prices": {
+        "preisempfehlung": "1.277,75"
+      }
+    },
+    {
+      "zks": "zks_0",
+      "zks_art": "zks_art_7",
+      "prices": {
+        "preisempfehlung": "1.277,75"
+      }
+    },
+    {
+      "zks": "zks_1",
+      "zks_art": "zks_art_1",
+      "prices": {
+        "preisempfehlung": "2.302,73"
+      }
+    },
+    {
+      "zks": "zks_1",
+      "zks_art": "zks_art_2",
+      "prices": {
+        "preisempfehlung": "2.227,43"
+      }
+    },
+    {
+      "zks": "zks_1",
+      "zks_art": "zks_art_3",
+      "prices": {
+        "preisempfehlung": "2.269,27"
+      }
+    },
+    {
+      "zks": "zks_1",
+      "zks_art": "zks_art_4",
+      "prices": {
+        "preisempfehlung": "2.269,27"
+      }
+    },
+    {
+      "zks": "zks_1",
+      "zks_art": "zks_art_5",
+      "prices": {
+        "preisempfehlung": "2.419,88"
+      }
+    },
+    {
+      "zks": "zks_1",
+      "zks_art": "zks_art_6",
+      "prices": {
+        "preisempfehlung": "2.419,88"
+      }
+    },
+    {
+      "zks": "zks_1",
+      "zks_art": "zks_art_7",
+      "prices": {
+        "preisempfehlung": "2.189,78"
+      }
+    }
+  ],
+  "tuerband": [
+    {
+      "tb": "tb_1",
+      "prices": {
+        "preisempfehlung": "1.277,75"
+      }
+    },
+    {
+      "tb": "tb_2",
+      "prices": {
+        "preisempfehlung": "1.325,97"
+      }
+    },
+    {
+      "tb": "tb_3",
+      "prices": {
+        "preisempfehlung": "1.374,29"
+      }
+    }
+  ]
+}

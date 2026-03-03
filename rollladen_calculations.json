@@ -1,0 +1,102 @@
+{
+  "product": "Aufsatzrollläden",
+  "api_structure": {
+    "note": "DIFFERENT from Fenster - uses server-side session state, NOT client-side obj_konfig",
+    "base_url": "https://confde.fenstermaxx24.com/confapp/Aufsatzrollladen-bestellen/",
+    "endpoints": {
+      "berechnen": "/ajax/fn_berechnen/",
+      "note": "Each option change triggers its own AJAX call, then fn_berechnen is called automatically"
+    },
+    "state_object": "obj_rollladen (server-side, updated via AJAX on each click)",
+    "response_format": "HTML (rendered sidebar with 6-line price breakdown)"
+  },
+  "discount": {
+    "percentage": 40,
+    "formula": "Angebotspreis = Gesamtpreis * 0.60",
+    "verified": true,
+    "note": "SAME as Fenster - universal 40% discount"
+  },
+  "pricing_formula": {
+    "description": "Gesamtpreis = Grundpreis + Farbe_Kasten + Panzerfarbe + Antriebsart + Seitenblende + Putzträger",
+    "type": "ADDITIVE",
+    "breakdown_labels": ["Grundpreis", "Farbe Kasten/Führungsschienen", "Panzerfarbe", "Antriebsart", "Seitenblende für Rollladenkasten", "Putzträger und Putzleiste"],
+    "note": "Grundpreis changes based on dimensions, model, and kastenhoehe. Surcharges are flat EUR amounts."
+  },
+  "dimension_limits": {
+    "width": {"min": 750, "max": 2500, "unit": "mm"},
+    "height": {"min": 500, "max": 1700, "unit": "mm"}
+  },
+  "dimension_pricing": {
+    "base_config": "Model 1, Antriebsart 1, Farbe Weiß, Kastenhoehe 175mm, no Putzträger",
+    "width_at_h1000": [
+      {"width": 800, "gesamtpreis": 286.00, "angebotspreis": 171.60},
+      {"width": 900, "gesamtpreis": 300.61, "angebotspreis": 180.37},
+      {"width": 1100, "gesamtpreis": 331.93, "angebotspreis": 199.16},
+      {"width": 1200, "gesamtpreis": 348.63, "angebotspreis": 209.18},
+      {"width": 1400, "gesamtpreis": 379.94, "angebotspreis": 227.97},
+      {"width": 1800, "gesamtpreis": 442.57, "angebotspreis": 265.54},
+      {"width": 1900, "gesamtpreis": 458.23, "angebotspreis": 274.94},
+      {"width": 2000, "gesamtpreis": 473.88, "angebotspreis": 284.33},
+      {"width": 2100, "gesamtpreis": 489.54, "angebotspreis": 293.73},
+      {"width": 2400, "gesamtpreis": 544.86, "angebotspreis": 326.92}
+    ],
+    "height_at_w1000": [
+      {"height": 1000, "gesamtpreis": 411.26, "angebotspreis": 246.75},
+      {"height": 1200, "gesamtpreis": 336.10, "angebotspreis": 201.66}
+    ],
+    "price_increase_pattern": "~15-16 EUR per 100mm width increase at fixed height"
+  },
+  "models": {
+    "fn_rollladen_model_1": {"name": "Revision von Unten", "grundpreis_800x1000": 286.00, "surcharge_vs_base": 0.00},
+    "fn_rollladen_model_2": {"name": "Revision von der Seite", "grundpreis_800x1000": 286.00, "surcharge_vs_base": 0.00},
+    "fn_rollladen_model_3": {"name": "Revision Unten + Insektenschutz", "grundpreis_800x1000": 445.38, "surcharge_vs_base": 159.38},
+    "fn_rollladen_model_4": {"name": "Revision Seite + Insektenschutz", "grundpreis_800x1000": 445.38, "surcharge_vs_base": 159.38}
+  },
+  "drives": {
+    "antriebsart_1": {"name": "Schwenkgurtwickler 14mm Weiß", "surcharge": 0.00},
+    "antriebsart_2": {"name": "Schwenkgurtwickler 14mm Braun", "surcharge": 0.00},
+    "antriebsart_4": {"name": "Getriebe mit Kurbel", "surcharge": 188.80},
+    "antriebsart_5": {"name": "Getriebe mit abnehmbarer Kurbel", "surcharge": 188.00},
+    "antriebsart_6": {"name": "Motor mit Schalter und Hinderniserkennung (Somfy)", "surcharge": 246.46},
+    "antriebsart_7": {"name": "Motor mit Schlüsselschalter und Hinderniserkennung (Somfy)", "surcharge": 369.80}
+  },
+  "panel_colors": {
+    "farbe_panzer_1": {"name": "Silber", "surcharge": 0.00},
+    "farbe_panzer_2": {"name": "Weiß", "surcharge": 0.00},
+    "farbe_panzer_3": {"name": "Grau", "surcharge": 0.00},
+    "farbe_panzer_4": {"name": "Braun", "surcharge": 0.00},
+    "farbe_panzer_5": {"name": "Dunkelbraun", "surcharge": 0.00},
+    "farbe_panzer_6": {"name": "Golden Oak", "surcharge": 27.86},
+    "farbe_panzer_7": {"name": "Nussbaum", "surcharge": 81.71},
+    "farbe_panzer_8": {"name": "Anthrazit", "surcharge": 0.00},
+    "farbe_panzer_9": {"name": "Moosgrün", "surcharge": 0.00},
+    "farbe_panzer_10": {"name": "Braun Metallic", "surcharge": "needs_retest"},
+    "farbe_panzer_11": {"name": "Grau Aluminium", "surcharge": 0.00}
+  },
+  "kastenhoehe": {
+    "kastenhoehe_175": {"name": "175mm (Modell: DRUTEX)", "grundpreis_800x1000": 286.00},
+    "kastenhoehe_215": {"name": "215mm (Modell: DRUTEX)", "grundpreis_800x1000": 220.99, "note": "CHEAPER - different base price lookup table"}
+  },
+  "putztraeger": {
+    "putztraeger_0": {"name": "Ohne Putzträger und -leiste", "surcharge": 0.00},
+    "putztraeger_1": {"name": "Putzträger und -leiste außen", "surcharge": 17.57},
+    "putztraeger_2": {"name": "Putzträger und -leiste innen", "surcharge": 17.57},
+    "putztraeger_3": {"name": "Putzträger und -leiste beidseitig", "surcharge": 35.25}
+  },
+  "other_options": {
+    "aufteilung": ["aufteilung_1 (1 Teilung)", "aufteilung_2 (2 Teilung)", "aufteilung_3 (2 Teilung kurz lang)", "aufteilung_4 (2 Teilung lang kurz)", "aufteilung_5 (3 Teilung)"],
+    "kastenadapter": ["kastenadapter_1 (Iglo 5/Classic/Light)", "kastenadapter_2 (Iglo Energy/Classic)", "kastenadapter_3 (sonstige Systeme)"],
+    "schiene": ["schiene_1", "schiene_2", "schiene_3", "schiene_4"],
+    "antriebsseite": ["antriebsseite_0 (Links)", "antriebsseite_1 (Rechts)"],
+    "lamellenbreite": ["lamellenbreite_37 (37mm)"]
+  },
+  "key_differences_from_fenster": [
+    "Server-side session state (obj_rollladen) vs client-side (obj_konfig/tmp_obj)",
+    "Individual AJAX calls per option vs single berechnen with full state",
+    "6-line price breakdown vs 3-line (Preisempfehlung/Ersparnis/Angebotspreis)",
+    "Model selection changes Grundpreis directly (Insektenschutz +159.38 EUR)",
+    "Kastenhoehe changes entire base price table, not just a surcharge",
+    "No profile/opening type selection - simpler product structure"
+  ],
+  "backend_verdict": "SEPARATE MODULE required"
+}

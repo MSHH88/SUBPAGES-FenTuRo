@@ -1,0 +1,152 @@
+{
+  "product": "Haustüren (Drutex PVC)",
+  "api_structure": {
+    "note": "Uses SAME obj_konfig pattern as Fenster but with different properties",
+    "base_url": "https://confde.fenstermaxx24.com/confapp/Drutex/PVC-Haustuer-bestellen-drutex/",
+    "endpoint": "/ajax/berechnen/",
+    "method": "POST",
+    "state_object": "obj_konfig (same pattern as Fenster)",
+    "response_format": "HTML with Preisempfehlung only (NO Ersparnis/Angebotspreis breakdown in API response)",
+    "key_difference": "API returns only Preisempfehlung, not the 3-line breakdown like Fenster"
+  },
+  "discount": {
+    "note": "The 40% discount is applied on the FRONTEND, not returned by the API. The API only returns Preisempfehlung (full price). Your backend should store Preisempfehlung and apply your own margin/discount.",
+    "original_discount": "40% (Angebotspreis = Preisempfehlung * 0.60)"
+  },
+  "pricing_formula": {
+    "description": "Preisempfehlung = BasePriceForModel(width, height) + ProfileSurcharge + ColorSurcharge + GlassSurcharge + SecuritySurcharge + AccessSystemSurcharge + HingeSurcharge",
+    "type": "ADDITIVE (same concept as Fenster)",
+    "note": "Model selection changes the base price significantly. Left/Right variants (_l/_r) are identical in price."
+  },
+  "dimension_analysis": {
+    "base_config": "Profile p2, Model m1_l, Color fs1_01 (White), Glass g3, 800x1900mm",
+    "base_preisempfehlung": 1277.75,
+    "width_pricing": {
+      "fixed_height": 1900,
+      "data": [
+        {"width": 700, "price": 1273.85, "vs_base": -3.90},
+        {"width": 800, "price": 1277.75, "vs_base": 0.00},
+        {"width": 900, "price": 1315.52, "vs_base": 37.77},
+        {"width": 1000, "price": 1353.28, "vs_base": 75.53},
+        {"width": 1100, "price": 1391.04, "vs_base": 113.29},
+        {"width": 1200, "price": 1428.81, "vs_base": 151.06}
+      ],
+      "pattern": "Linear: ~37.77 EUR per 100mm width increase (above 800mm)",
+      "formula_estimate": "width_surcharge = (width - 800) * 0.3777 for width > 800"
+    },
+    "height_pricing": {
+      "fixed_width": 800,
+      "data": [
+        {"height": 1800, "price": 1276.10, "vs_base": -1.65},
+        {"height": 1900, "price": 1277.75, "vs_base": 0.00},
+        {"height": 2000, "price": 1279.39, "vs_base": 1.64},
+        {"height": 2100, "price": 1281.03, "vs_base": 3.28},
+        {"height": 2200, "price": 1282.67, "vs_base": 4.92},
+        {"height": 2300, "price": 1284.31, "vs_base": 6.56},
+        {"height": 2400, "price": 1285.96, "vs_base": 8.21}
+      ],
+      "pattern": "Linear: ~1.64 EUR per 100mm height increase",
+      "formula_estimate": "height_surcharge = (height - 1900) * 0.0164"
+    },
+    "key_insight": "Width has 23x more price impact than height (37.77 vs 1.64 EUR per 100mm). This is the OPPOSITE of Fenster where both dimensions have significant impact."
+  },
+  "profiles": {
+    "p2": {"name": "Iglo 5 (base)", "surcharge": 0.00},
+    "p4": {"name": "Iglo Energy", "surcharge": 74.79}
+  },
+  "models": {
+    "tier_1_base": {
+      "price": 1277.75,
+      "surcharge": 0.00,
+      "models": ["m1_l", "m1_r"],
+      "description": "Basic single-panel door"
+    },
+    "tier_2_sidelite": {
+      "price": 1353.11,
+      "surcharge": 75.36,
+      "models": ["m2_l", "m2_r", "m3_l", "m3_r", "m9_l", "m9_r"],
+      "description": "Door with side panel or top panel"
+    },
+    "tier_3_double": {
+      "price": 1639.12,
+      "surcharge": 361.37,
+      "models": ["m4_l", "m4_r", "m5_l", "m5_r", "m6_l", "m6_r", "m7_l", "m7_r", "m8_l", "m8_r", "m10_l", "m10_r"],
+      "description": "Door with double side panels or complex layouts"
+    },
+    "note": "Left (_l) and Right (_r) variants always have identical prices. 3 distinct price tiers."
+  },
+  "colors": {
+    "tier_0_white": {
+      "surcharge": 0.00,
+      "colors": ["fs1_01"],
+      "description": "White (base)"
+    },
+    "tier_1_foil_interior": {
+      "surcharge": 25.49,
+      "colors": ["fs2_01", "fs2_02", "fs2_03", "fs2_04", "fs2_05", "fs3_01", "fs3_02", "fs3_03"],
+      "description": "Interior foil colors and RAL colors"
+    },
+    "tier_2_standard_foil": {
+      "surcharge": 145.75,
+      "colors": ["fs1_02", "fs1_03", "fs1_04", "fs1_05", "fs1_06", "fs1_07", "fs1_10", "fs1_11", "fs1_13", "fs1_14"],
+      "description": "Standard exterior foil colors (Nussbaum, Anthrazit, etc.)"
+    },
+    "tier_3_premium_foil": {
+      "surcharge": 259.02,
+      "colors": ["fs1_12", "fs1_15"],
+      "description": "Premium exterior foil colors"
+    },
+    "tier_4_special_foil": {
+      "surcharge": 348.53,
+      "colors": ["fs1_08", "fs1_09"],
+      "description": "Special exterior foil colors (Mooreiche, etc.)"
+    }
+  },
+  "glass": {
+    "g1": {"name": "2-fach Verglasung Standard", "surcharge": -31.20, "note": "CHEAPER than base"},
+    "g2": {"name": "2-fach Verglasung Wärme", "surcharge": -31.20},
+    "g3": {"name": "3-fach Verglasung Standard (base)", "surcharge": 0.00},
+    "g4": {"name": "3-fach Verglasung Wärme", "surcharge": 0.00},
+    "g5": {"name": "3-fach Verglasung Premium", "surcharge": 27.71},
+    "g6": {"name": "2-fach Verglasung Sicherheit", "surcharge": -31.20}
+  },
+  "security": {
+    "v1": {"name": "Standard", "surcharge": 0.00},
+    "v2": {"name": "RC2 (Widerstandsklasse 2)", "surcharge": 100.32},
+    "v3": {"name": "Pilzkopfverriegelung", "surcharge": 41.75},
+    "v4": {"name": "Sicherheitsschließblech", "surcharge": 60.16},
+    "v5": {"name": "Standard (variant)", "surcharge": 0.00}
+  },
+  "griff_kombi": {
+    "note": "All 8 handle combinations (gk_1 through gk_8) have ZERO surcharge. Handle selection is cosmetic only.",
+    "surcharge": 0.00
+  },
+  "zugriffssystem": {
+    "zks_0": {"name": "Ohne Zugriffssystem", "surcharge": 0.00, "note": "7 variants all at 0.00"},
+    "zks_1_variants": {
+      "note": "Electronic access systems with SIGNIFICANT surcharges (912-1142 EUR). Multiple sub-types with different prices.",
+      "data": [
+        {"surcharge": 912.03, "description": "Basic electronic"},
+        {"surcharge": 949.68, "description": "Electronic variant 2"},
+        {"surcharge": 991.52, "description": "Electronic variant 3"},
+        {"surcharge": 1024.98, "description": "Electronic variant 4"},
+        {"surcharge": 1142.13, "description": "Premium electronic"}
+      ]
+    }
+  },
+  "tuerband": {
+    "tb_1": {"name": "Standard Türband", "surcharge": 0.00},
+    "tb_2": {"name": "Verdecktes Türband", "surcharge": 48.22},
+    "tb_3": {"name": "3D-Türband", "surcharge": 96.54}
+  },
+  "key_differences_from_fenster": [
+    "API returns only Preisempfehlung (no Ersparnis/Angebotspreis breakdown)",
+    "Width has 23x more price impact than height (opposite of Fenster where both matter)",
+    "Model selection creates 3 distinct price tiers with large jumps (0 / +75 / +361 EUR)",
+    "Electronic access systems (Zugriffssystem) add 900-1142 EUR — largest single surcharge",
+    "Handle combinations are purely cosmetic (no price impact)",
+    "Only 2 profiles available (p2, p4) vs 6 for Fenster",
+    "Color tier system is different: 5 tiers (0 / 25 / 146 / 259 / 349 EUR)"
+  ],
+  "backend_verdict": "EXTEND - Same obj_konfig pattern and API endpoint, but needs Haustüren-specific option tables, model tier logic, and dimension formula. Can share the same engine with a product-type switch."
+}
