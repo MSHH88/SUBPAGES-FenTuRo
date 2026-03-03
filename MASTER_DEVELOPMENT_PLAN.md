@@ -148,7 +148,7 @@
 
 ## 4. PHASE PLAN - DETAILED CHRONOLOGICAL
 
-### Overview: 20 Weeks Total
+### Overview: 24 Weeks Total
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
@@ -173,21 +173,29 @@
 └─────────────────────────────────────────────────────────────────────┘
                               ↓
 ┌─────────────────────────────────────────────────────────────────────┐
-│  PHASE 4: CRM FOUNDATION                        Weeks 11-14        │
+│  PHASE 3.5: FRONTEND DESIGN (NEW)               Weeks 11-14        │
+│  ─────────────────────────────────────────────────────────────────  │
+│  Component-by-component design (Step indicator, options panel,      │
+│  summary, cart, quote form, checkout) - See LAYOUT_REFERENCE.md     │
+│  NO EXTERNAL DATA NEEDED                                            │
+└─────────────────────────────────────────────────────────────────────┘
+                              ↓
+┌─────────────────────────────────────────────────────────────────────┐
+│  PHASE 4: CRM FOUNDATION                        Weeks 15-18        │
 │  ─────────────────────────────────────────────────────────────────  │
 │  Admin dashboard, role system, catalog management                   │
-│  NEED: GA4 Account (Week 14)                                        │
+│  NEED: GA4 Account (Week 18)                                        │
 └─────────────────────────────────────────────────────────────────────┘
                               ↓
 ┌─────────────────────────────────────────────────────────────────────┐
-│  PHASE 5: FRONTEND & INTEGRATION                Weeks 15-18        │
+│  PHASE 5: FRONTEND & INTEGRATION                Weeks 19-22        │
 │  ─────────────────────────────────────────────────────────────────  │
 │  Connect frontend to backend, apply design, test                    │
-│  NEED: KATALOG, CEO Details (Week 16)                               │
+│  NEED: KATALOG, CEO Details (Week 20)                               │
 └─────────────────────────────────────────────────────────────────────┘
                               ↓
 ┌─────────────────────────────────────────────────────────────────────┐
-│  PHASE 6: TESTING & LAUNCH                      Weeks 19-20        │
+│  PHASE 6: TESTING & LAUNCH                      Weeks 23-24        │
 │  ─────────────────────────────────────────────────────────────────  │
 │  Full testing, documentation, go-live                               │
 │  ALL DATA NEEDED                                                    │
@@ -318,9 +326,66 @@
 
 ---
 
-### PHASE 4: CRM FOUNDATION (Weeks 11-14)
+### PHASE 3.5: FRONTEND DESIGN (Weeks 11-14) - NEW
 
-#### Week 11: Admin Authentication
+**Reference:** See `LAYOUT_REFERENCE.md` for complete layout specs
+**Base Template:** `Backend/Kunststofffenster.Konfigurator.Drutex.html`
+
+#### Week 11: Core Layout Components
+| Day | Task | Details |
+|-----|------|---------|
+| 1 | Step indicator | Progress bar with numbered steps |
+| 2 | Step indicator | Active/completed/upcoming states |
+| 3 | Basic page structure | Header + body + footer integration |
+| 4 | Responsive framework | Mobile-first grid |
+| 5 | Testing | All screen sizes |
+
+**Deliverable:** Step indicator component complete
+
+#### Week 12: Configurator Components
+| Day | Task | Details |
+|-----|------|---------|
+| 1 | Options panel | Left side selection area |
+| 2 | Option cards | Selection buttons with images |
+| 3 | Summary panel | Right side configuration display |
+| 4 | Product image | Image display area |
+| 5 | Selected options | Live updating choices list |
+
+**Deliverable:** Options panel + Summary panel complete
+
+#### Week 13: Cart & Price Components
+| Day | Task | Details |
+|-----|------|---------|
+| 1 | Price display | Live price calculation display |
+| 2 | Cart sidebar | Items in cart |
+| 3 | Line item component | Product, options, price |
+| 4 | Quantity selector | Add/remove items |
+| 5 | Cart totals | Subtotal, VAT, total |
+
+**Deliverable:** Cart and price components complete
+
+#### Week 14: Forms & Checkout
+| Day | Task | Details |
+|-----|------|---------|
+| 1 | Quote request form | Private/Business toggle |
+| 2 | Quote form fields | Size, quantity, material, contact |
+| 3 | Checkout address | Shipping/billing forms |
+| 4 | Navigation buttons | Back/Next step buttons |
+| 5 | Integration testing | All components together |
+
+**Deliverable:** All frontend components ready for backend integration
+
+**COMPONENT-BY-COMPONENT APPROACH:**
+- MAX 3 tasks per day
+- Each task = ONE component only
+- Build separately, test separately
+- Then combine in Phase 5
+
+---
+
+### PHASE 4: CRM FOUNDATION (Weeks 15-18)
+
+#### Week 15: Admin Authentication
 | Day | Task | Details |
 |-----|------|---------|
 | 1 | Role system | CREATOR, CREATOR_STAFF, CEO, etc. |
@@ -331,7 +396,7 @@
 
 **Deliverable:** Role-based access control
 
-#### Week 12: CRM Dashboard
+#### Week 16: CRM Dashboard
 | Day | Task | Details |
 |-----|------|---------|
 | 1 | Dashboard UI | Overview cards |
@@ -342,7 +407,7 @@
 
 **Deliverable:** Working CRM dashboard
 
-#### Week 13: Catalog & Pricing Management
+#### Week 17: Catalog & Pricing Management
 | Day | Task | Details |
 |-----|------|---------|
 | 1 | Product list | View all products |
@@ -353,7 +418,7 @@
 
 **Deliverable:** Full catalog management
 
-#### Week 14: Analytics & Lead Generator
+#### Week 18: Analytics & Lead Generator
 | Day | Task | Details |
 |-----|------|---------|
 | 1 | Lead collection | Capture emails, visits |
@@ -368,9 +433,9 @@
 
 ---
 
-### PHASE 5: FRONTEND & INTEGRATION (Weeks 15-18)
+### PHASE 5: FRONTEND & INTEGRATION (Weeks 19-22)
 
-#### Week 15: Connect Backend
+#### Week 19: Connect Backend
 | Day | Task | Details |
 |-----|------|---------|
 | 1 | API connection | Frontend calls backend |
@@ -381,7 +446,7 @@
 
 **Deliverable:** Frontend connected to backend
 
-#### Week 16: Final Design
+#### Week 20: Final Design
 | Day | Task | Details |
 |-----|------|---------|
 | 1 | Apply design system | Colors, typography |
@@ -394,7 +459,7 @@
 
 **Deliverable:** Final frontend design
 
-#### Week 17: Features Integration
+#### Week 21: Features Integration
 | Day | Task | Details |
 |-----|------|---------|
 | 1 | Configuration sharing | URL generation |
@@ -405,7 +470,7 @@
 
 **Deliverable:** All features integrated
 
-#### Week 18: CRM Polish
+#### Week 22: CRM Polish
 | Day | Task | Details |
 |-----|------|---------|
 | 1 | Invoice details | Add CEO company info |
@@ -420,9 +485,9 @@
 
 ---
 
-### PHASE 6: TESTING & LAUNCH (Weeks 19-20)
+### PHASE 6: TESTING & LAUNCH (Weeks 23-24)
 
-#### Week 19: Full Testing
+#### Week 23: Full Testing
 | Day | Task | Details |
 |-----|------|---------|
 | 1 | Unit tests | All components |
@@ -433,7 +498,7 @@
 
 **Deliverable:** All tests passing
 
-#### Week 20: Launch
+#### Week 24: Launch
 | Day | Task | Details |
 |-----|------|---------|
 | 1 | Staging deployment | Final review |
