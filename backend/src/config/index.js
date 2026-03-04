@@ -115,6 +115,108 @@ const config = {
     currency: process.env.DEFAULT_CURRENCY || 'EUR',
     locale: process.env.DEFAULT_LOCALE || 'de-DE',
   },
+
+  // -----------------------------------------
+  // CRM Role System (6 Tiers as specified)
+  // -----------------------------------------
+  roles: {
+    CREATOR: 'creator',           // Tier 1: Platform owner (YOU) - full control
+    CREATOR_STAFF: 'creator_staff', // Tier 2: Your team - cannot be removed by CEO
+    CEO: 'ceo',                   // Tier 3: Business owner - sees all their CRM data
+    OPERATIONS_MANAGER: 'operations_manager', // Tier 4: Catalog, inventory, orders
+    WAREHOUSE_STAFF: 'warehouse_staff', // Tier 5: Orders, inventory only
+    SALES_STAFF: 'sales_staff',   // Tier 6: Quotes, discounts, customers
+    MARKETING: 'marketing',       // Advertisement people - discounts, campaigns
+    CUSTOMER: 'customer',         // Regular customer (website user)
+  },
+
+  // -----------------------------------------
+  // Lead Generator (CREATOR-ONLY Feature)
+  // -----------------------------------------
+  leadGenerator: {
+    enabled: process.env.LEAD_GENERATOR_ENABLED === 'true' || true,
+    trackEmails: true,
+    trackVisits: true,
+    trackPurchases: true,
+    // This section only visible to CREATOR role
+  },
+
+  // -----------------------------------------
+  // Order Workflow States
+  // -----------------------------------------
+  orderStatuses: {
+    PENDING: 'pending',           // Just created
+    CONFIRMED: 'confirmed',       // Admin confirmed
+    PROCESSING: 'processing',     // Being prepared
+    SENT_TO_WAREHOUSE: 'sent_to_warehouse', // Sent to distribution
+    PACKED: 'packed',             // Packed at warehouse
+    SHIPPED: 'shipped',           // On the way
+    DELIVERED: 'delivered',       // Received by customer
+    CANCELLED: 'cancelled',       // Cancelled
+    REFUNDED: 'refunded',         // Refunded
+  },
+
+  // -----------------------------------------
+  // Quote System
+  // -----------------------------------------
+  quotes: {
+    types: ['private', 'business'], // B2C and B2B
+    contactMethods: ['email', 'whatsapp', 'phone'],
+    defaultExpirationDays: 30,
+  },
+
+  // -----------------------------------------
+  // Configuration Sharing
+  // -----------------------------------------
+  configSharing: {
+    enabled: true,
+    urlPrefix: process.env.CONFIG_SHARE_URL_PREFIX || '/configure?config=',
+  },
+
+  // -----------------------------------------
+  // VAT Validation (VIES API for B2B)
+  // -----------------------------------------
+  vatValidation: {
+    enabled: process.env.VIES_VALIDATION_ENABLED === 'true' || true,
+    apiUrl: 'https://ec.europa.eu/taxation_customs/vies/rest-api/ms/DE/vat/',
+    cacheValidationHours: 24,
+  },
+
+  // -----------------------------------------
+  // Analytics (Google Analytics 4)
+  // -----------------------------------------
+  analytics: {
+    ga4Enabled: process.env.GA4_ENABLED === 'true' || false,
+    ga4MeasurementId: process.env.GA4_MEASUREMENT_ID || '',
+    ga4ApiSecret: process.env.GA4_API_SECRET || '',
+    // Internal analytics always on
+    internalEnabled: true,
+  },
+
+  // -----------------------------------------
+  // Product Categories (Configurators)
+  // -----------------------------------------
+  categories: {
+    WINDOWS: 'fenster',
+    DOORS: 'tueren',
+    ROLLER_SHUTTERS: 'rolladen',
+    GARAGE_DOORS: 'garagentore',
+    ENTRANCE_DOORS: 'haustuer',
+  },
+
+  // -----------------------------------------
+  // Wishlist & Cart
+  // -----------------------------------------
+  wishlist: {
+    enabled: true,
+    maxItems: 50,
+    saveForDays: 90, // How long to keep saved configs
+  },
+  cart: {
+    maxItems: 20,
+    sessionStorageKey: 'curia_cart',
+    serverSyncForLoggedIn: true,
+  },
 };
 
 // ============================================
