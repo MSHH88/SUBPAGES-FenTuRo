@@ -525,6 +525,307 @@ uploadRoutes.post('/catalog', authenticate, (req, res) => {
 });
 
 // ============================================
+// CART ROUTES (/api/v1/cart)
+// ============================================
+const cartRoutes = express.Router();
+
+cartRoutes.get('/', authenticateOptional, (req, res) => {
+  res.status(501).json({ message: 'Get cart - Coming in Phase 3' });
+});
+
+cartRoutes.post('/items', authenticateOptional, (req, res) => {
+  res.status(501).json({ message: 'Add item to cart - Coming in Phase 3' });
+});
+
+cartRoutes.put('/items/:itemId', authenticateOptional, (req, res) => {
+  res.status(501).json({ message: 'Update cart item quantity - Coming in Phase 3' });
+});
+
+cartRoutes.delete('/items/:itemId', authenticateOptional, (req, res) => {
+  res.status(501).json({ message: 'Remove item from cart - Coming in Phase 3' });
+});
+
+cartRoutes.delete('/clear', authenticateOptional, (req, res) => {
+  res.status(501).json({ message: 'Clear entire cart - Coming in Phase 3' });
+});
+
+cartRoutes.post('/merge', authenticate, (req, res) => {
+  res.status(501).json({ message: 'Merge guest cart with user cart - Coming in Phase 3' });
+});
+
+cartRoutes.get('/count', authenticateOptional, (req, res) => {
+  res.status(501).json({ message: 'Get cart item count - Coming in Phase 3' });
+});
+
+// ============================================
+// WISHLIST ROUTES (/api/v1/wishlist)
+// ============================================
+const wishlistRoutes = express.Router();
+
+wishlistRoutes.get('/', authenticate, (req, res) => {
+  res.status(501).json({ message: 'Get wishlist/saved configurations - Coming in Phase 3' });
+});
+
+wishlistRoutes.post('/items', authenticate, (req, res) => {
+  res.status(501).json({ message: 'Add to wishlist - Coming in Phase 3' });
+});
+
+wishlistRoutes.delete('/items/:itemId', authenticate, (req, res) => {
+  res.status(501).json({ message: 'Remove from wishlist - Coming in Phase 3' });
+});
+
+wishlistRoutes.post('/items/:itemId/move-to-cart', authenticate, (req, res) => {
+  res.status(501).json({ message: 'Move wishlist item to cart - Coming in Phase 3' });
+});
+
+// ============================================
+// COUPON ROUTES (/api/v1/coupons)
+// ============================================
+const couponRoutes = express.Router();
+
+couponRoutes.get('/', authenticate, (req, res) => {
+  res.status(501).json({ message: 'Get all coupons (admin) - Coming in Phase 4' });
+});
+
+couponRoutes.post('/', authenticate, (req, res) => {
+  res.status(501).json({ message: 'Create coupon - Coming in Phase 4' });
+});
+
+couponRoutes.get('/:id', authenticate, (req, res) => {
+  res.status(501).json({ message: 'Get coupon details - Coming in Phase 4' });
+});
+
+couponRoutes.put('/:id', authenticate, (req, res) => {
+  res.status(501).json({ message: 'Update coupon - Coming in Phase 4' });
+});
+
+couponRoutes.delete('/:id', authenticate, (req, res) => {
+  res.status(501).json({ message: 'Delete coupon - Coming in Phase 4' });
+});
+
+couponRoutes.post('/validate', authenticateOptional, (req, res) => {
+  res.status(501).json({ message: 'Validate coupon code at checkout - Coming in Phase 3' });
+});
+
+couponRoutes.post('/apply', authenticateOptional, (req, res) => {
+  res.status(501).json({ message: 'Apply coupon to cart - Coming in Phase 3' });
+});
+
+// ============================================
+// INVOICE ROUTES (/api/v1/invoices)
+// ============================================
+const invoiceRoutes = express.Router();
+
+invoiceRoutes.get('/', authenticate, (req, res) => {
+  res.status(501).json({ message: 'Get all invoices - Coming in Phase 3' });
+});
+
+invoiceRoutes.get('/:id', authenticate, (req, res) => {
+  res.status(501).json({ message: 'Get invoice by ID - Coming in Phase 3' });
+});
+
+invoiceRoutes.get('/:id/pdf', authenticate, (req, res) => {
+  res.status(501).json({ message: 'Download invoice PDF - Coming in Phase 3' });
+});
+
+invoiceRoutes.post('/generate', authenticate, (req, res) => {
+  res.status(501).json({ message: 'Generate invoice for order - Coming in Phase 3' });
+});
+
+invoiceRoutes.post('/:id/send', authenticate, (req, res) => {
+  res.status(501).json({ message: 'Email invoice to customer - Coming in Phase 3' });
+});
+
+// ============================================
+// SHIPPING ROUTES (/api/v1/shipping)
+// ============================================
+const shippingRoutes = express.Router();
+
+shippingRoutes.get('/rates', (req, res) => {
+  res.status(501).json({ message: 'Get shipping rates - Coming in Phase 3' });
+});
+
+shippingRoutes.post('/calculate', (req, res) => {
+  res.status(501).json({ message: 'Calculate shipping cost for cart - Coming in Phase 3' });
+});
+
+shippingRoutes.get('/zones', authenticate, (req, res) => {
+  res.status(501).json({ message: 'Get shipping zones - Coming in Phase 4' });
+});
+
+shippingRoutes.put('/zones', authenticate, (req, res) => {
+  res.status(501).json({ message: 'Update shipping zones - Coming in Phase 4' });
+});
+
+shippingRoutes.get('/tracking/:orderId', authenticate, (req, res) => {
+  res.status(501).json({ message: 'Get shipping tracking info - Coming in Phase 3' });
+});
+
+// ============================================
+// VAT/TAX ROUTES (/api/v1/tax)
+// ============================================
+const taxRoutes = express.Router();
+
+taxRoutes.get('/rates', (req, res) => {
+  res.status(501).json({ message: 'Get VAT rates (19% standard, 7% reduced) - Coming in Phase 2' });
+});
+
+taxRoutes.post('/calculate', (req, res) => {
+  res.status(501).json({ message: 'Calculate tax for cart - Coming in Phase 2' });
+});
+
+taxRoutes.post('/vies/validate', (req, res) => {
+  res.status(501).json({ message: 'Validate EU VAT ID via VIES API - Coming in Phase 2' });
+});
+
+taxRoutes.get('/vies/status/:vatId', authenticate, (req, res) => {
+  res.status(501).json({ message: 'Check VAT ID validation status - Coming in Phase 2' });
+});
+
+taxRoutes.put('/b2b/exempt', authenticate, (req, res) => {
+  res.status(501).json({ message: 'Mark customer as VAT exempt (B2B) - Coming in Phase 2' });
+});
+
+// ============================================
+// PDF ROUTES (/api/v1/pdf)
+// ============================================
+const pdfRoutes = express.Router();
+
+pdfRoutes.post('/quote', authenticate, (req, res) => {
+  res.status(501).json({ message: 'Generate quote PDF - Coming in Phase 3' });
+});
+
+pdfRoutes.post('/order', authenticate, (req, res) => {
+  res.status(501).json({ message: 'Generate order summary PDF - Coming in Phase 3' });
+});
+
+pdfRoutes.post('/configuration', authenticateOptional, (req, res) => {
+  res.status(501).json({ message: 'Generate configuration PDF - Coming in Phase 2' });
+});
+
+pdfRoutes.post('/invoice', authenticate, (req, res) => {
+  res.status(501).json({ message: 'Generate invoice PDF - Coming in Phase 3' });
+});
+
+pdfRoutes.post('/delivery-note', authenticate, (req, res) => {
+  res.status(501).json({ message: 'Generate delivery note PDF - Coming in Phase 3' });
+});
+
+// ============================================
+// LANGUAGE/i18n ROUTES (/api/v1/i18n)
+// ============================================
+const i18nRoutes = express.Router();
+
+i18nRoutes.get('/languages', (req, res) => {
+  res.status(200).json({
+    success: true,
+    data: {
+      available: ['de', 'en'],
+      default: 'de',
+      names: {
+        de: 'Deutsch',
+        en: 'English'
+      }
+    }
+  });
+});
+
+i18nRoutes.get('/translations/:lang', (req, res) => {
+  res.status(501).json({ message: 'Get translations for language - Coming in Phase 5' });
+});
+
+i18nRoutes.get('/translations/:lang/:namespace', (req, res) => {
+  res.status(501).json({ message: 'Get translations by namespace - Coming in Phase 5' });
+});
+
+// ============================================
+// SEARCH ROUTES (/api/v1/search)
+// ============================================
+const searchRoutes = express.Router();
+
+searchRoutes.get('/products', (req, res) => {
+  res.status(501).json({ message: 'Search products - Coming in Phase 2' });
+});
+
+searchRoutes.get('/customers', authenticate, (req, res) => {
+  res.status(501).json({ message: 'Search customers - Coming in Phase 4' });
+});
+
+searchRoutes.get('/orders', authenticate, (req, res) => {
+  res.status(501).json({ message: 'Search orders - Coming in Phase 4' });
+});
+
+searchRoutes.get('/global', authenticate, (req, res) => {
+  res.status(501).json({ message: 'Global search across all entities - Coming in Phase 5' });
+});
+
+searchRoutes.get('/suggestions', (req, res) => {
+  res.status(501).json({ message: 'Search suggestions/autocomplete - Coming in Phase 5' });
+});
+
+// ============================================
+// MARGIN ROUTES (/api/v1/margins)
+// ============================================
+const marginRoutes = express.Router();
+
+marginRoutes.get('/global', authenticate, (req, res) => {
+  res.status(501).json({ message: 'Get global default margin - Coming in Phase 2' });
+});
+
+marginRoutes.put('/global', authenticate, (req, res) => {
+  res.status(501).json({ message: 'Update global default margin - Coming in Phase 2' });
+});
+
+marginRoutes.get('/categories', authenticate, (req, res) => {
+  res.status(501).json({ message: 'Get category-level margins - Coming in Phase 2' });
+});
+
+marginRoutes.put('/categories/:categoryId', authenticate, (req, res) => {
+  res.status(501).json({ message: 'Update category margin - Coming in Phase 2' });
+});
+
+marginRoutes.get('/manufacturers', authenticate, (req, res) => {
+  res.status(501).json({ message: 'Get manufacturer-level margins - Coming in Phase 2' });
+});
+
+marginRoutes.put('/manufacturers/:manufacturerId', authenticate, (req, res) => {
+  res.status(501).json({ message: 'Update manufacturer margin - Coming in Phase 2' });
+});
+
+marginRoutes.get('/products/:productId', authenticate, (req, res) => {
+  res.status(501).json({ message: 'Get product-specific margin - Coming in Phase 2' });
+});
+
+marginRoutes.put('/products/:productId', authenticate, (req, res) => {
+  res.status(501).json({ message: 'Update product-specific margin (highest priority) - Coming in Phase 2' });
+});
+
+marginRoutes.get('/calculate', authenticate, (req, res) => {
+  res.status(501).json({ message: 'Calculate effective margin for product - Coming in Phase 2' });
+});
+
+// ============================================
+// RECENT/HISTORY ROUTES (/api/v1/history)
+// ============================================
+const historyRoutes = express.Router();
+
+historyRoutes.get('/viewed', authenticateOptional, (req, res) => {
+  res.status(501).json({ message: 'Get recently viewed products - Coming in Phase 3' });
+});
+
+historyRoutes.post('/viewed', authenticateOptional, (req, res) => {
+  res.status(501).json({ message: 'Add to recently viewed - Coming in Phase 3' });
+});
+
+historyRoutes.get('/searches', authenticate, (req, res) => {
+  res.status(501).json({ message: 'Get recent searches - Coming in Phase 5' });
+});
+
+historyRoutes.get('/configurations', authenticate, (req, res) => {
+  res.status(501).json({ message: 'Get configuration history - Coming in Phase 3' });
+});
+
+// ============================================
 // REGISTER ALL ROUTES
 // ============================================
 router.use('/auth', authRoutes);
@@ -544,6 +845,18 @@ router.use('/promotions', promotionRoutes);
 router.use('/notifications', notificationRoutes);
 router.use('/settings', settingsRoutes);
 router.use('/uploads', uploadRoutes);
+// NEW ROUTES ADDED
+router.use('/cart', cartRoutes);
+router.use('/wishlist', wishlistRoutes);
+router.use('/coupons', couponRoutes);
+router.use('/invoices', invoiceRoutes);
+router.use('/shipping', shippingRoutes);
+router.use('/tax', taxRoutes);
+router.use('/pdf', pdfRoutes);
+router.use('/i18n', i18nRoutes);
+router.use('/search', searchRoutes);
+router.use('/margins', marginRoutes);
+router.use('/history', historyRoutes);
 
 // ============================================
 // 404 HANDLER FOR API
@@ -572,7 +885,18 @@ router.use('*', (req, res) => {
       '/api/v1/promotions',
       '/api/v1/notifications',
       '/api/v1/settings',
-      '/api/v1/uploads'
+      '/api/v1/uploads',
+      '/api/v1/cart',
+      '/api/v1/wishlist',
+      '/api/v1/coupons',
+      '/api/v1/invoices',
+      '/api/v1/shipping',
+      '/api/v1/tax',
+      '/api/v1/pdf',
+      '/api/v1/i18n',
+      '/api/v1/search',
+      '/api/v1/margins',
+      '/api/v1/history'
     ]
   });
 });
@@ -708,9 +1032,90 @@ const getRouteInfo = () => {
         'POST /uploads/image': 'Upload image',
         'POST /uploads/document': 'Upload document',
         'POST /uploads/catalog': 'Upload catalog'
+      },
+      cart: {
+        'GET /cart': 'Get cart',
+        'POST /cart/items': 'Add item to cart',
+        'PUT /cart/items/:itemId': 'Update cart item',
+        'DELETE /cart/items/:itemId': 'Remove item from cart',
+        'DELETE /cart/clear': 'Clear cart',
+        'POST /cart/merge': 'Merge guest cart with user cart',
+        'GET /cart/count': 'Get cart item count'
+      },
+      wishlist: {
+        'GET /wishlist': 'Get wishlist',
+        'POST /wishlist/items': 'Add to wishlist',
+        'DELETE /wishlist/items/:itemId': 'Remove from wishlist',
+        'POST /wishlist/items/:itemId/move-to-cart': 'Move to cart'
+      },
+      coupons: {
+        'GET /coupons': 'Get all coupons (admin)',
+        'POST /coupons': 'Create coupon',
+        'GET /coupons/:id': 'Get coupon details',
+        'PUT /coupons/:id': 'Update coupon',
+        'DELETE /coupons/:id': 'Delete coupon',
+        'POST /coupons/validate': 'Validate coupon code',
+        'POST /coupons/apply': 'Apply coupon to cart'
+      },
+      invoices: {
+        'GET /invoices': 'Get all invoices',
+        'GET /invoices/:id': 'Get invoice by ID',
+        'GET /invoices/:id/pdf': 'Download invoice PDF',
+        'POST /invoices/generate': 'Generate invoice for order',
+        'POST /invoices/:id/send': 'Email invoice to customer'
+      },
+      shipping: {
+        'GET /shipping/rates': 'Get shipping rates',
+        'POST /shipping/calculate': 'Calculate shipping cost',
+        'GET /shipping/zones': 'Get shipping zones',
+        'PUT /shipping/zones': 'Update shipping zones',
+        'GET /shipping/tracking/:orderId': 'Get tracking info'
+      },
+      tax: {
+        'GET /tax/rates': 'Get VAT rates (19%/7%)',
+        'POST /tax/calculate': 'Calculate tax for cart',
+        'POST /tax/vies/validate': 'Validate EU VAT ID (VIES)',
+        'GET /tax/vies/status/:vatId': 'Check VAT ID status',
+        'PUT /tax/b2b/exempt': 'Mark customer VAT exempt'
+      },
+      pdf: {
+        'POST /pdf/quote': 'Generate quote PDF',
+        'POST /pdf/order': 'Generate order PDF',
+        'POST /pdf/configuration': 'Generate configuration PDF',
+        'POST /pdf/invoice': 'Generate invoice PDF',
+        'POST /pdf/delivery-note': 'Generate delivery note PDF'
+      },
+      i18n: {
+        'GET /i18n/languages': 'Get available languages (de, en)',
+        'GET /i18n/translations/:lang': 'Get translations for language',
+        'GET /i18n/translations/:lang/:namespace': 'Get translations by namespace'
+      },
+      search: {
+        'GET /search/products': 'Search products',
+        'GET /search/customers': 'Search customers',
+        'GET /search/orders': 'Search orders',
+        'GET /search/global': 'Global search',
+        'GET /search/suggestions': 'Search suggestions'
+      },
+      margins: {
+        'GET /margins/global': 'Get global default margin',
+        'PUT /margins/global': 'Update global margin',
+        'GET /margins/categories': 'Get category margins',
+        'PUT /margins/categories/:categoryId': 'Update category margin',
+        'GET /margins/manufacturers': 'Get manufacturer margins',
+        'PUT /margins/manufacturers/:manufacturerId': 'Update manufacturer margin',
+        'GET /margins/products/:productId': 'Get product margin',
+        'PUT /margins/products/:productId': 'Update product margin (highest priority)',
+        'GET /margins/calculate': 'Calculate effective margin'
+      },
+      history: {
+        'GET /history/viewed': 'Recently viewed products',
+        'POST /history/viewed': 'Add to recently viewed',
+        'GET /history/searches': 'Recent searches',
+        'GET /history/configurations': 'Configuration history'
       }
     },
-    totalEndpoints: 75
+    totalEndpoints: 138
   };
 };
 
