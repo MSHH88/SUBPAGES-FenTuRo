@@ -1,0 +1,5 @@
+// Middleware files will be added here
+// - auth.js (authentication middleware)
+// - rbac.js (role-based access control)
+// - errorHandler.js
+// - rateLimiter.js

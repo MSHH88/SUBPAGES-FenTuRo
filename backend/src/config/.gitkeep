@@ -1,0 +1,3 @@
+// Config files will be added here
+// - database.js (database connection)
+// - env.js (environment configuration)
