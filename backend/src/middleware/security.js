@@ -692,62 +692,6 @@ const applySecurity = (app) => {
 };
 
 // ============================================================================
-// EXPORTS
-// ============================================================================
-
-module.exports = {
-  // Helmet
-  helmetConfig,
-  
-  // CORS
-  corsConfig,
-  getAllowedOrigins,
-  
-  // Rate Limiters
-  generalLimiter,
-  authLimiter,
-  apiLimiter,
-  passwordResetLimiter,
-  orderLimiter,
-  
-  // Input Sanitization
-  mongoSanitizeConfig,
-  xssConfig,
-  hppConfig,
-  sanitizeRequest,
-  sanitizeObject,
-  sanitizeValue,
-  
-  // IP Management
-  ipBlocker,
-  blockIP,
-  unblockIP,
-  whitelistIP,
-  blockedIPs,
-  whitelistedIPs,
-  
-  // Login Tracking
-  trackFailedLogin,
-  resetFailedLogins,
-  failedLoginAttempts,
-  
-  // Validation
-  validateContentType,
-  validateApiKey,
-  
-  // Logging
-  securityAuditLog,
-  
-  // Utilities
-  httpsRedirect,
-  requestId,
-  generateRequestId,
-  
-  // Composite
-  applySecurity,
-};
-
-// ============================================================================
 // ADDITIONAL ENTERPRISE SECURITY FEATURES
 // ============================================================================
 
