@@ -290,22 +290,219 @@ quoteRoutes.post('/:id/convert', authenticate, (req, res) => {
 // ============================================
 // CONFIGURATOR ROUTES (/api/v1/configurator)
 // ============================================
+// EXTENSIVE KONFIGURATOR for Fenster, Türen, Rollläden
+// Supports complex configurations with real-time pricing
+// ============================================
 const configuratorRoutes = express.Router();
 
-configuratorRoutes.get('/options/:productId', (req, res) => {
-  res.status(501).json({ message: 'Get configurator options - Coming in Phase 2' });
+// ----- PRODUCT TYPE CONFIGURATION -----
+// Get available product types (Fenster, Türen, Rollläden)
+configuratorRoutes.get('/types', (req, res) => {
+  res.status(501).json({ message: 'Get product types - Coming in Phase 2' });
 });
 
+// Get all options for a specific product type
+configuratorRoutes.get('/types/:type/options', (req, res) => {
+  // :type = fenster | tueren | rolllaeden
+  res.status(501).json({ message: 'Get options for product type - Coming in Phase 2' });
+});
+
+// ----- FENSTER (WINDOWS) CONFIGURATOR -----
+configuratorRoutes.get('/fenster/options', (req, res) => {
+  res.status(501).json({ message: 'Get window configuration options - Coming in Phase 2' });
+});
+
+configuratorRoutes.get('/fenster/profiles', (req, res) => {
+  res.status(501).json({ message: 'Get window profile systems (Kunststoff, Holz, Alu) - Coming in Phase 2' });
+});
+
+configuratorRoutes.get('/fenster/glass-types', (req, res) => {
+  res.status(501).json({ message: 'Get glass types (2-fach, 3-fach, solar, etc.) - Coming in Phase 2' });
+});
+
+configuratorRoutes.get('/fenster/opening-types', (req, res) => {
+  res.status(501).json({ message: 'Get opening types (Dreh-Kipp, Festverglast, etc.) - Coming in Phase 2' });
+});
+
+configuratorRoutes.get('/fenster/colors', (req, res) => {
+  res.status(501).json({ message: 'Get window colors/finishes (RAL, foils) - Coming in Phase 2' });
+});
+
+configuratorRoutes.get('/fenster/handles', (req, res) => {
+  res.status(501).json({ message: 'Get handle options - Coming in Phase 2' });
+});
+
+configuratorRoutes.get('/fenster/extras', (req, res) => {
+  res.status(501).json({ message: 'Get window extras (Sprossen, Rollladen, etc.) - Coming in Phase 2' });
+});
+
+// ----- TÜREN (DOORS) CONFIGURATOR -----
+configuratorRoutes.get('/tueren/options', (req, res) => {
+  res.status(501).json({ message: 'Get door configuration options - Coming in Phase 2' });
+});
+
+configuratorRoutes.get('/tueren/types', (req, res) => {
+  res.status(501).json({ message: 'Get door types (Haustür, Balkontür, Innentür) - Coming in Phase 2' });
+});
+
+configuratorRoutes.get('/tueren/materials', (req, res) => {
+  res.status(501).json({ message: 'Get door materials (Kunststoff, Holz, Alu, Holz-Alu) - Coming in Phase 2' });
+});
+
+configuratorRoutes.get('/tueren/glass-options', (req, res) => {
+  res.status(501).json({ message: 'Get door glass options (panels, sidelights) - Coming in Phase 2' });
+});
+
+configuratorRoutes.get('/tueren/security', (req, res) => {
+  res.status(501).json({ message: 'Get security options (locks, hinges, RC classes) - Coming in Phase 2' });
+});
+
+configuratorRoutes.get('/tueren/colors', (req, res) => {
+  res.status(501).json({ message: 'Get door colors/finishes - Coming in Phase 2' });
+});
+
+configuratorRoutes.get('/tueren/handles', (req, res) => {
+  res.status(501).json({ message: 'Get door handle options - Coming in Phase 2' });
+});
+
+// ----- ROLLLÄDEN (SHUTTERS) CONFIGURATOR -----
+configuratorRoutes.get('/rolllaeden/options', (req, res) => {
+  res.status(501).json({ message: 'Get roller shutter options - Coming in Phase 2' });
+});
+
+configuratorRoutes.get('/rolllaeden/types', (req, res) => {
+  res.status(501).json({ message: 'Get shutter types (Vorbau, Aufsatz, Mini) - Coming in Phase 2' });
+});
+
+configuratorRoutes.get('/rolllaeden/materials', (req, res) => {
+  res.status(501).json({ message: 'Get shutter materials (Kunststoff, Alu) - Coming in Phase 2' });
+});
+
+configuratorRoutes.get('/rolllaeden/motors', (req, res) => {
+  res.status(501).json({ message: 'Get motor options (Gurt, Motor, Smart) - Coming in Phase 2' });
+});
+
+configuratorRoutes.get('/rolllaeden/colors', (req, res) => {
+  res.status(501).json({ message: 'Get shutter colors - Coming in Phase 2' });
+});
+
+// ----- SIZE & DIMENSIONS -----
+configuratorRoutes.post('/dimensions/validate', (req, res) => {
+  // Validate width/height are within manufacturer limits
+  res.status(501).json({ message: 'Validate dimensions - Coming in Phase 2' });
+});
+
+configuratorRoutes.get('/dimensions/limits/:productType', (req, res) => {
+  // Get min/max dimensions for product type
+  res.status(501).json({ message: 'Get dimension limits - Coming in Phase 2' });
+});
+
+// ----- PRICE CALCULATION -----
 configuratorRoutes.post('/calculate', (req, res) => {
+  // Calculate price based on ALL selected options
+  // Uses base price from catalog + margin + option adjustments
   res.status(501).json({ message: 'Calculate configured price - Coming in Phase 2' });
 });
 
+configuratorRoutes.post('/calculate/breakdown', (req, res) => {
+  // Get detailed price breakdown (base + each option's cost)
+  res.status(501).json({ message: 'Get price breakdown - Coming in Phase 2' });
+});
+
+configuratorRoutes.post('/calculate/live', (req, res) => {
+  // Real-time price update (WebSocket-ready endpoint)
+  res.status(501).json({ message: 'Live price calculation - Coming in Phase 2' });
+});
+
+// ----- CONFIGURATION RULES -----
+configuratorRoutes.get('/rules/:productType', (req, res) => {
+  // Get configuration rules (what options are compatible)
+  res.status(501).json({ message: 'Get configuration rules - Coming in Phase 2' });
+});
+
+configuratorRoutes.post('/validate', (req, res) => {
+  // Validate entire configuration is valid
+  res.status(501).json({ message: 'Validate configuration - Coming in Phase 2' });
+});
+
+configuratorRoutes.post('/conflicts/check', (req, res) => {
+  // Check for option conflicts
+  res.status(501).json({ message: 'Check option conflicts - Coming in Phase 2' });
+});
+
+// ----- SAVE & LOAD CONFIGURATIONS -----
 configuratorRoutes.post('/save', authenticate, (req, res) => {
   res.status(501).json({ message: 'Save configuration - Coming in Phase 2' });
 });
 
 configuratorRoutes.get('/saved', authenticate, (req, res) => {
-  res.status(501).json({ message: 'Get saved configurations - Coming in Phase 2' });
+  res.status(501).json({ message: 'Get all saved configurations - Coming in Phase 2' });
+});
+
+configuratorRoutes.get('/saved/:configId', authenticate, (req, res) => {
+  res.status(501).json({ message: 'Get specific saved configuration - Coming in Phase 2' });
+});
+
+configuratorRoutes.put('/saved/:configId', authenticate, (req, res) => {
+  res.status(501).json({ message: 'Update saved configuration - Coming in Phase 2' });
+});
+
+configuratorRoutes.delete('/saved/:configId', authenticate, (req, res) => {
+  res.status(501).json({ message: 'Delete saved configuration - Coming in Phase 2' });
+});
+
+configuratorRoutes.post('/saved/:configId/duplicate', authenticate, (req, res) => {
+  res.status(501).json({ message: 'Duplicate configuration - Coming in Phase 2' });
+});
+
+// ----- CONFIGURATION SHARING -----
+configuratorRoutes.post('/share', authenticate, (req, res) => {
+  // Generate shareable link for configuration
+  res.status(501).json({ message: 'Generate share link - Coming in Phase 2' });
+});
+
+configuratorRoutes.get('/shared/:shareCode', (req, res) => {
+  // Load configuration from share link
+  res.status(501).json({ message: 'Load shared configuration - Coming in Phase 2' });
+});
+
+// ----- QUOTE FROM CONFIGURATION -----
+configuratorRoutes.post('/request-quote', authenticate, (req, res) => {
+  // Create quote request from configuration
+  res.status(501).json({ message: 'Request quote for configuration - Coming in Phase 2' });
+});
+
+configuratorRoutes.post('/add-to-cart', authenticate, (req, res) => {
+  // Add configured product to cart
+  res.status(501).json({ message: 'Add configuration to cart - Coming in Phase 2' });
+});
+
+// ----- CONFIGURATION IMAGES -----
+configuratorRoutes.post('/preview/generate', (req, res) => {
+  // Generate preview image of configured product
+  res.status(501).json({ message: 'Generate configuration preview - Coming in Phase 2' });
+});
+
+configuratorRoutes.get('/preview/:configId', (req, res) => {
+  // Get preview image
+  res.status(501).json({ message: 'Get configuration preview image - Coming in Phase 2' });
+});
+
+// ----- TEMPLATES -----
+configuratorRoutes.get('/templates', (req, res) => {
+  // Get pre-configured templates (popular configurations)
+  res.status(501).json({ message: 'Get configuration templates - Coming in Phase 2' });
+});
+
+configuratorRoutes.get('/templates/:templateId', (req, res) => {
+  // Load specific template
+  res.status(501).json({ message: 'Load configuration template - Coming in Phase 2' });
+});
+
+// ----- COMPARISON -----
+configuratorRoutes.post('/compare', (req, res) => {
+  // Compare multiple configurations side by side
+  res.status(501).json({ message: 'Compare configurations - Coming in Phase 2' });
 });
 
 // ============================================
@@ -807,22 +1004,96 @@ marginRoutes.get('/calculate', authenticate, (req, res) => {
 // ============================================
 // RECENT/HISTORY ROUTES (/api/v1/history)
 // ============================================
+// Track user browsing history and recently viewed items
+// ============================================
 const historyRoutes = express.Router();
 
+// ----- RECENTLY VIEWED PRODUCTS -----
 historyRoutes.get('/viewed', authenticateOptional, (req, res) => {
+  // Get recently viewed products (uses session for guests, user account for authenticated)
   res.status(501).json({ message: 'Get recently viewed products - Coming in Phase 3' });
 });
 
 historyRoutes.post('/viewed', authenticateOptional, (req, res) => {
+  // Add product to recently viewed
   res.status(501).json({ message: 'Add to recently viewed - Coming in Phase 3' });
 });
 
+historyRoutes.delete('/viewed', authenticate, (req, res) => {
+  // Clear recently viewed history
+  res.status(501).json({ message: 'Clear recently viewed - Coming in Phase 3' });
+});
+
+historyRoutes.delete('/viewed/:productId', authenticate, (req, res) => {
+  // Remove specific product from recently viewed
+  res.status(501).json({ message: 'Remove product from recently viewed - Coming in Phase 3' });
+});
+
+// ----- RECENTLY VIEWED CONFIGURATIONS -----
+historyRoutes.get('/viewed/configurations', authenticateOptional, (req, res) => {
+  // Get recently viewed configurations (from configurator)
+  res.status(501).json({ message: 'Get recently viewed configurations - Coming in Phase 3' });
+});
+
+historyRoutes.post('/viewed/configurations', authenticateOptional, (req, res) => {
+  // Add configuration to recently viewed
+  res.status(501).json({ message: 'Add configuration to recently viewed - Coming in Phase 3' });
+});
+
+// ----- CONFIGURATION HISTORY -----
+historyRoutes.get('/configurations', authenticate, (req, res) => {
+  // Get all configuration history (with full details)
+  res.status(501).json({ message: 'Get configuration history - Coming in Phase 3' });
+});
+
+historyRoutes.get('/configurations/:configId', authenticate, (req, res) => {
+  // Get specific configuration from history
+  res.status(501).json({ message: 'Get configuration from history - Coming in Phase 3' });
+});
+
+historyRoutes.post('/configurations/:configId/restore', authenticate, (req, res) => {
+  // Restore old configuration to configurator
+  res.status(501).json({ message: 'Restore configuration - Coming in Phase 3' });
+});
+
+// ----- SEARCH HISTORY -----
 historyRoutes.get('/searches', authenticate, (req, res) => {
+  // Get recent searches
   res.status(501).json({ message: 'Get recent searches - Coming in Phase 5' });
 });
 
-historyRoutes.get('/configurations', authenticate, (req, res) => {
-  res.status(501).json({ message: 'Get configuration history - Coming in Phase 3' });
+historyRoutes.delete('/searches', authenticate, (req, res) => {
+  // Clear search history
+  res.status(501).json({ message: 'Clear search history - Coming in Phase 5' });
+});
+
+// ----- ORDER HISTORY -----
+historyRoutes.get('/orders', authenticate, (req, res) => {
+  // Get order history (summary)
+  res.status(501).json({ message: 'Get order history - Coming in Phase 3' });
+});
+
+// ----- QUOTE REQUEST HISTORY -----
+historyRoutes.get('/quotes', authenticate, (req, res) => {
+  // Get quote request history
+  res.status(501).json({ message: 'Get quote history - Coming in Phase 3' });
+});
+
+// ----- BROWSE ACTIVITY -----
+historyRoutes.get('/activity', authenticate, (req, res) => {
+  // Get all browsing activity (products, configs, searches)
+  res.status(501).json({ message: 'Get all browsing activity - Coming in Phase 3' });
+});
+
+historyRoutes.get('/activity/timeline', authenticate, (req, res) => {
+  // Get activity timeline
+  res.status(501).json({ message: 'Get activity timeline - Coming in Phase 3' });
+});
+
+// ----- RECOMMENDATIONS BASED ON HISTORY -----
+historyRoutes.get('/recommendations', authenticateOptional, (req, res) => {
+  // Get product recommendations based on history
+  res.status(501).json({ message: 'Get recommendations based on history - Coming in Phase 5' });
 });
 
 // ============================================
