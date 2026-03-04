@@ -307,83 +307,810 @@ configuratorRoutes.get('/types/:type/options', (req, res) => {
   res.status(501).json({ message: 'Get options for product type - Coming in Phase 2' });
 });
 
-// ----- FENSTER (WINDOWS) CONFIGURATOR -----
-configuratorRoutes.get('/fenster/options', (req, res) => {
-  res.status(501).json({ message: 'Get window configuration options - Coming in Phase 2' });
+// ==================================================================
+// COMPLETE KONFIGURATOR ROUTES - 27 PRODUCT TYPES
+// ==================================================================
+// 
+// PRODUCT CATEGORIES:
+// - 7 Fensterkonfiguratoren (Window Configurators)
+// - 5 Balkontürkonfiguratoren (Balcony Door Configurators)
+// - 4 Terrassentürkonfiguratoren (Terrace Door Configurators)
+// - 6 Türenkonfiguratoren (Entry Door Configurators)
+// - 5 Rolladenkonfiguratoren (Shutter/Blind Configurators)
+// 
+// EACH PRODUCT TYPE HAS 7 CONFIGURATION STEPS:
+// 1. Profil (Profile)
+// 2. Maße (Dimensions)
+// 3. Farbe (Color)
+// 4. Glas (Glass)
+// 5. Sprossen (Mullions/Bars)
+// 6. Rollladen (Shutters)
+// 7. Sonstiges (Extras)
+// 
+// EACH STEP HAS ~30 OPTIONS
+// ==================================================================
+
+// ----- MASTER PRODUCT CATALOG -----
+// Get all 27 product types
+configuratorRoutes.get('/products', (req, res) => {
+  res.status(501).json({ 
+    message: 'Get all 27 product types - Coming in Phase 2',
+    productTypes: [
+      // Fenster
+      'kunststofffenster', 'kunststoff-alu-fenster', 'alu-fenster', 
+      'holzfenster', 'holz-alu-fenster', 'schiebefenster',
+      // Balkontüren
+      'kunststoff-balkontuer', 'kunststoff-alu-balkontuer', 'alu-balkontuer',
+      'holz-balkontuer', 'holz-alu-balkontuer',
+      // Terrassentüren
+      'psk-tuer', 'smart-slide-tuer', 'hebe-schiebetuer', 'falt-schiebetuer',
+      // Haustüren & Nebeneingangstüren
+      'kunststoff-haustuer', 'alu-haustuer', 'holz-haustuer',
+      'kunststoff-nebeneingangstuer', 'alu-nebeneingangstuer', 'holz-nebeneingangstuer',
+      // Rollläden
+      'aufsatzrollladen', 'styropor-aufsatzrollladen', 'vorsatzrollladen',
+      'raffstore', 'insektenschutz-plissee'
+    ]
+  });
 });
 
-configuratorRoutes.get('/fenster/profiles', (req, res) => {
-  res.status(501).json({ message: 'Get window profile systems (Kunststoff, Holz, Alu) - Coming in Phase 2' });
+// Get product by slug
+configuratorRoutes.get('/products/:productSlug', (req, res) => {
+  res.status(501).json({ message: 'Get specific product type details - Coming in Phase 2' });
 });
 
-configuratorRoutes.get('/fenster/glass-types', (req, res) => {
-  res.status(501).json({ message: 'Get glass types (2-fach, 3-fach, solar, etc.) - Coming in Phase 2' });
+// ==================================================================
+// FENSTERKONFIGURATOR (WINDOW CONFIGURATORS) - 7 TYPES
+// ==================================================================
+
+// ----- 1. KUNSTSTOFFFENSTER KONFIGURATOR -----
+configuratorRoutes.get('/fenster/kunststoff', (req, res) => {
+  res.status(501).json({ message: 'Kunststofffenster - All options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/fenster/kunststoff/profil', (req, res) => {
+  res.status(501).json({ message: 'Kunststofffenster - Profile options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/fenster/kunststoff/masse', (req, res) => {
+  res.status(501).json({ message: 'Kunststofffenster - Dimension options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/fenster/kunststoff/farbe', (req, res) => {
+  res.status(501).json({ message: 'Kunststofffenster - Color options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/fenster/kunststoff/glas', (req, res) => {
+  res.status(501).json({ message: 'Kunststofffenster - Glass options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/fenster/kunststoff/sprossen', (req, res) => {
+  res.status(501).json({ message: 'Kunststofffenster - Mullion options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/fenster/kunststoff/rollladen', (req, res) => {
+  res.status(501).json({ message: 'Kunststofffenster - Roller shutter options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/fenster/kunststoff/sonstiges', (req, res) => {
+  res.status(501).json({ message: 'Kunststofffenster - Extra options - Coming in Phase 2' });
 });
 
-configuratorRoutes.get('/fenster/opening-types', (req, res) => {
-  res.status(501).json({ message: 'Get opening types (Dreh-Kipp, Festverglast, etc.) - Coming in Phase 2' });
+// ----- 2. KUNSTSTOFF-ALU FENSTER KONFIGURATOR -----
+configuratorRoutes.get('/fenster/kunststoff-alu', (req, res) => {
+  res.status(501).json({ message: 'Kunststoff-Alu Fenster - All options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/fenster/kunststoff-alu/profil', (req, res) => {
+  res.status(501).json({ message: 'Kunststoff-Alu Fenster - Profile options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/fenster/kunststoff-alu/masse', (req, res) => {
+  res.status(501).json({ message: 'Kunststoff-Alu Fenster - Dimension options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/fenster/kunststoff-alu/farbe', (req, res) => {
+  res.status(501).json({ message: 'Kunststoff-Alu Fenster - Color options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/fenster/kunststoff-alu/glas', (req, res) => {
+  res.status(501).json({ message: 'Kunststoff-Alu Fenster - Glass options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/fenster/kunststoff-alu/sprossen', (req, res) => {
+  res.status(501).json({ message: 'Kunststoff-Alu Fenster - Mullion options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/fenster/kunststoff-alu/rollladen', (req, res) => {
+  res.status(501).json({ message: 'Kunststoff-Alu Fenster - Roller shutter options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/fenster/kunststoff-alu/sonstiges', (req, res) => {
+  res.status(501).json({ message: 'Kunststoff-Alu Fenster - Extra options - Coming in Phase 2' });
 });
 
-configuratorRoutes.get('/fenster/colors', (req, res) => {
-  res.status(501).json({ message: 'Get window colors/finishes (RAL, foils) - Coming in Phase 2' });
+// ----- 3. ALU FENSTER KONFIGURATOR -----
+configuratorRoutes.get('/fenster/alu', (req, res) => {
+  res.status(501).json({ message: 'Alu Fenster - All options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/fenster/alu/profil', (req, res) => {
+  res.status(501).json({ message: 'Alu Fenster - Profile options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/fenster/alu/masse', (req, res) => {
+  res.status(501).json({ message: 'Alu Fenster - Dimension options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/fenster/alu/farbe', (req, res) => {
+  res.status(501).json({ message: 'Alu Fenster - Color options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/fenster/alu/glas', (req, res) => {
+  res.status(501).json({ message: 'Alu Fenster - Glass options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/fenster/alu/sprossen', (req, res) => {
+  res.status(501).json({ message: 'Alu Fenster - Mullion options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/fenster/alu/rollladen', (req, res) => {
+  res.status(501).json({ message: 'Alu Fenster - Roller shutter options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/fenster/alu/sonstiges', (req, res) => {
+  res.status(501).json({ message: 'Alu Fenster - Extra options - Coming in Phase 2' });
 });
 
-configuratorRoutes.get('/fenster/handles', (req, res) => {
-  res.status(501).json({ message: 'Get handle options - Coming in Phase 2' });
+// ----- 4. HOLZFENSTER KONFIGURATOR -----
+configuratorRoutes.get('/fenster/holz', (req, res) => {
+  res.status(501).json({ message: 'Holzfenster - All options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/fenster/holz/profil', (req, res) => {
+  res.status(501).json({ message: 'Holzfenster - Profile options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/fenster/holz/masse', (req, res) => {
+  res.status(501).json({ message: 'Holzfenster - Dimension options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/fenster/holz/farbe', (req, res) => {
+  res.status(501).json({ message: 'Holzfenster - Color options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/fenster/holz/glas', (req, res) => {
+  res.status(501).json({ message: 'Holzfenster - Glass options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/fenster/holz/sprossen', (req, res) => {
+  res.status(501).json({ message: 'Holzfenster - Mullion options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/fenster/holz/rollladen', (req, res) => {
+  res.status(501).json({ message: 'Holzfenster - Roller shutter options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/fenster/holz/sonstiges', (req, res) => {
+  res.status(501).json({ message: 'Holzfenster - Extra options - Coming in Phase 2' });
 });
 
-configuratorRoutes.get('/fenster/extras', (req, res) => {
-  res.status(501).json({ message: 'Get window extras (Sprossen, Rollladen, etc.) - Coming in Phase 2' });
+// ----- 5. HOLZ-ALU FENSTER KONFIGURATOR -----
+configuratorRoutes.get('/fenster/holz-alu', (req, res) => {
+  res.status(501).json({ message: 'Holz-Alu Fenster - All options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/fenster/holz-alu/profil', (req, res) => {
+  res.status(501).json({ message: 'Holz-Alu Fenster - Profile options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/fenster/holz-alu/masse', (req, res) => {
+  res.status(501).json({ message: 'Holz-Alu Fenster - Dimension options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/fenster/holz-alu/farbe', (req, res) => {
+  res.status(501).json({ message: 'Holz-Alu Fenster - Color options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/fenster/holz-alu/glas', (req, res) => {
+  res.status(501).json({ message: 'Holz-Alu Fenster - Glass options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/fenster/holz-alu/sprossen', (req, res) => {
+  res.status(501).json({ message: 'Holz-Alu Fenster - Mullion options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/fenster/holz-alu/rollladen', (req, res) => {
+  res.status(501).json({ message: 'Holz-Alu Fenster - Roller shutter options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/fenster/holz-alu/sonstiges', (req, res) => {
+  res.status(501).json({ message: 'Holz-Alu Fenster - Extra options - Coming in Phase 2' });
 });
 
-// ----- TÜREN (DOORS) CONFIGURATOR -----
-configuratorRoutes.get('/tueren/options', (req, res) => {
-  res.status(501).json({ message: 'Get door configuration options - Coming in Phase 2' });
+// ----- 6. SCHIEBEFENSTER KONFIGURATOR -----
+configuratorRoutes.get('/fenster/schiebe', (req, res) => {
+  res.status(501).json({ message: 'Schiebefenster - All options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/fenster/schiebe/profil', (req, res) => {
+  res.status(501).json({ message: 'Schiebefenster - Profile options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/fenster/schiebe/masse', (req, res) => {
+  res.status(501).json({ message: 'Schiebefenster - Dimension options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/fenster/schiebe/farbe', (req, res) => {
+  res.status(501).json({ message: 'Schiebefenster - Color options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/fenster/schiebe/glas', (req, res) => {
+  res.status(501).json({ message: 'Schiebefenster - Glass options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/fenster/schiebe/sprossen', (req, res) => {
+  res.status(501).json({ message: 'Schiebefenster - Mullion options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/fenster/schiebe/rollladen', (req, res) => {
+  res.status(501).json({ message: 'Schiebefenster - Roller shutter options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/fenster/schiebe/sonstiges', (req, res) => {
+  res.status(501).json({ message: 'Schiebefenster - Extra options - Coming in Phase 2' });
 });
 
-configuratorRoutes.get('/tueren/types', (req, res) => {
-  res.status(501).json({ message: 'Get door types (Haustür, Balkontür, Innentür) - Coming in Phase 2' });
+// ==================================================================
+// BALKONTÜRKONFIGURATOR (BALCONY DOOR CONFIGURATORS) - 5 TYPES
+// ==================================================================
+
+// ----- 1. KUNSTSTOFF BALKONTÜR KONFIGURATOR -----
+configuratorRoutes.get('/balkontuer/kunststoff', (req, res) => {
+  res.status(501).json({ message: 'Kunststoff Balkontür - All options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/balkontuer/kunststoff/profil', (req, res) => {
+  res.status(501).json({ message: 'Kunststoff Balkontür - Profile options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/balkontuer/kunststoff/masse', (req, res) => {
+  res.status(501).json({ message: 'Kunststoff Balkontür - Dimension options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/balkontuer/kunststoff/farbe', (req, res) => {
+  res.status(501).json({ message: 'Kunststoff Balkontür - Color options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/balkontuer/kunststoff/glas', (req, res) => {
+  res.status(501).json({ message: 'Kunststoff Balkontür - Glass options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/balkontuer/kunststoff/sprossen', (req, res) => {
+  res.status(501).json({ message: 'Kunststoff Balkontür - Mullion options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/balkontuer/kunststoff/rollladen', (req, res) => {
+  res.status(501).json({ message: 'Kunststoff Balkontür - Roller shutter options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/balkontuer/kunststoff/sonstiges', (req, res) => {
+  res.status(501).json({ message: 'Kunststoff Balkontür - Extra options - Coming in Phase 2' });
 });
 
-configuratorRoutes.get('/tueren/materials', (req, res) => {
-  res.status(501).json({ message: 'Get door materials (Kunststoff, Holz, Alu, Holz-Alu) - Coming in Phase 2' });
+// ----- 2. KUNSTSTOFF-ALU BALKONTÜR KONFIGURATOR -----
+configuratorRoutes.get('/balkontuer/kunststoff-alu', (req, res) => {
+  res.status(501).json({ message: 'Kunststoff-Alu Balkontür - All options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/balkontuer/kunststoff-alu/profil', (req, res) => {
+  res.status(501).json({ message: 'Kunststoff-Alu Balkontür - Profile options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/balkontuer/kunststoff-alu/masse', (req, res) => {
+  res.status(501).json({ message: 'Kunststoff-Alu Balkontür - Dimension options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/balkontuer/kunststoff-alu/farbe', (req, res) => {
+  res.status(501).json({ message: 'Kunststoff-Alu Balkontür - Color options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/balkontuer/kunststoff-alu/glas', (req, res) => {
+  res.status(501).json({ message: 'Kunststoff-Alu Balkontür - Glass options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/balkontuer/kunststoff-alu/sprossen', (req, res) => {
+  res.status(501).json({ message: 'Kunststoff-Alu Balkontür - Mullion options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/balkontuer/kunststoff-alu/rollladen', (req, res) => {
+  res.status(501).json({ message: 'Kunststoff-Alu Balkontür - Roller shutter options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/balkontuer/kunststoff-alu/sonstiges', (req, res) => {
+  res.status(501).json({ message: 'Kunststoff-Alu Balkontür - Extra options - Coming in Phase 2' });
 });
 
-configuratorRoutes.get('/tueren/glass-options', (req, res) => {
-  res.status(501).json({ message: 'Get door glass options (panels, sidelights) - Coming in Phase 2' });
+// ----- 3. ALU BALKONTÜR KONFIGURATOR -----
+configuratorRoutes.get('/balkontuer/alu', (req, res) => {
+  res.status(501).json({ message: 'Alu Balkontür - All options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/balkontuer/alu/profil', (req, res) => {
+  res.status(501).json({ message: 'Alu Balkontür - Profile options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/balkontuer/alu/masse', (req, res) => {
+  res.status(501).json({ message: 'Alu Balkontür - Dimension options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/balkontuer/alu/farbe', (req, res) => {
+  res.status(501).json({ message: 'Alu Balkontür - Color options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/balkontuer/alu/glas', (req, res) => {
+  res.status(501).json({ message: 'Alu Balkontür - Glass options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/balkontuer/alu/sprossen', (req, res) => {
+  res.status(501).json({ message: 'Alu Balkontür - Mullion options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/balkontuer/alu/rollladen', (req, res) => {
+  res.status(501).json({ message: 'Alu Balkontür - Roller shutter options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/balkontuer/alu/sonstiges', (req, res) => {
+  res.status(501).json({ message: 'Alu Balkontür - Extra options - Coming in Phase 2' });
 });
 
-configuratorRoutes.get('/tueren/security', (req, res) => {
-  res.status(501).json({ message: 'Get security options (locks, hinges, RC classes) - Coming in Phase 2' });
+// ----- 4. HOLZ BALKONTÜR KONFIGURATOR -----
+configuratorRoutes.get('/balkontuer/holz', (req, res) => {
+  res.status(501).json({ message: 'Holz Balkontür - All options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/balkontuer/holz/profil', (req, res) => {
+  res.status(501).json({ message: 'Holz Balkontür - Profile options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/balkontuer/holz/masse', (req, res) => {
+  res.status(501).json({ message: 'Holz Balkontür - Dimension options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/balkontuer/holz/farbe', (req, res) => {
+  res.status(501).json({ message: 'Holz Balkontür - Color options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/balkontuer/holz/glas', (req, res) => {
+  res.status(501).json({ message: 'Holz Balkontür - Glass options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/balkontuer/holz/sprossen', (req, res) => {
+  res.status(501).json({ message: 'Holz Balkontür - Mullion options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/balkontuer/holz/rollladen', (req, res) => {
+  res.status(501).json({ message: 'Holz Balkontür - Roller shutter options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/balkontuer/holz/sonstiges', (req, res) => {
+  res.status(501).json({ message: 'Holz Balkontür - Extra options - Coming in Phase 2' });
 });
 
-configuratorRoutes.get('/tueren/colors', (req, res) => {
-  res.status(501).json({ message: 'Get door colors/finishes - Coming in Phase 2' });
+// ----- 5. HOLZ-ALU BALKONTÜR KONFIGURATOR -----
+configuratorRoutes.get('/balkontuer/holz-alu', (req, res) => {
+  res.status(501).json({ message: 'Holz-Alu Balkontür - All options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/balkontuer/holz-alu/profil', (req, res) => {
+  res.status(501).json({ message: 'Holz-Alu Balkontür - Profile options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/balkontuer/holz-alu/masse', (req, res) => {
+  res.status(501).json({ message: 'Holz-Alu Balkontür - Dimension options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/balkontuer/holz-alu/farbe', (req, res) => {
+  res.status(501).json({ message: 'Holz-Alu Balkontür - Color options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/balkontuer/holz-alu/glas', (req, res) => {
+  res.status(501).json({ message: 'Holz-Alu Balkontür - Glass options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/balkontuer/holz-alu/sprossen', (req, res) => {
+  res.status(501).json({ message: 'Holz-Alu Balkontür - Mullion options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/balkontuer/holz-alu/rollladen', (req, res) => {
+  res.status(501).json({ message: 'Holz-Alu Balkontür - Roller shutter options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/balkontuer/holz-alu/sonstiges', (req, res) => {
+  res.status(501).json({ message: 'Holz-Alu Balkontür - Extra options - Coming in Phase 2' });
 });
 
-configuratorRoutes.get('/tueren/handles', (req, res) => {
-  res.status(501).json({ message: 'Get door handle options - Coming in Phase 2' });
+// ==================================================================
+// TERRASSENTÜRKONFIGURATOR (TERRACE DOOR CONFIGURATORS) - 4 TYPES
+// ==================================================================
+
+// ----- 1. PARALLEL-SCHIEBE-KIPPTÜR (PSK) KONFIGURATOR -----
+configuratorRoutes.get('/terrassentuer/psk', (req, res) => {
+  res.status(501).json({ message: 'PSK Tür - All options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/terrassentuer/psk/profil', (req, res) => {
+  res.status(501).json({ message: 'PSK Tür - Profile options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/terrassentuer/psk/masse', (req, res) => {
+  res.status(501).json({ message: 'PSK Tür - Dimension options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/terrassentuer/psk/farbe', (req, res) => {
+  res.status(501).json({ message: 'PSK Tür - Color options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/terrassentuer/psk/glas', (req, res) => {
+  res.status(501).json({ message: 'PSK Tür - Glass options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/terrassentuer/psk/sprossen', (req, res) => {
+  res.status(501).json({ message: 'PSK Tür - Mullion options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/terrassentuer/psk/rollladen', (req, res) => {
+  res.status(501).json({ message: 'PSK Tür - Roller shutter options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/terrassentuer/psk/sonstiges', (req, res) => {
+  res.status(501).json({ message: 'PSK Tür - Extra options - Coming in Phase 2' });
 });
 
-// ----- ROLLLÄDEN (SHUTTERS) CONFIGURATOR -----
-configuratorRoutes.get('/rolllaeden/options', (req, res) => {
-  res.status(501).json({ message: 'Get roller shutter options - Coming in Phase 2' });
+// ----- 2. SMART-SLIDE-SCHIEBETÜR KONFIGURATOR -----
+configuratorRoutes.get('/terrassentuer/smart-slide', (req, res) => {
+  res.status(501).json({ message: 'Smart-Slide Tür - All options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/terrassentuer/smart-slide/profil', (req, res) => {
+  res.status(501).json({ message: 'Smart-Slide Tür - Profile options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/terrassentuer/smart-slide/masse', (req, res) => {
+  res.status(501).json({ message: 'Smart-Slide Tür - Dimension options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/terrassentuer/smart-slide/farbe', (req, res) => {
+  res.status(501).json({ message: 'Smart-Slide Tür - Color options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/terrassentuer/smart-slide/glas', (req, res) => {
+  res.status(501).json({ message: 'Smart-Slide Tür - Glass options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/terrassentuer/smart-slide/sprossen', (req, res) => {
+  res.status(501).json({ message: 'Smart-Slide Tür - Mullion options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/terrassentuer/smart-slide/rollladen', (req, res) => {
+  res.status(501).json({ message: 'Smart-Slide Tür - Roller shutter options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/terrassentuer/smart-slide/sonstiges', (req, res) => {
+  res.status(501).json({ message: 'Smart-Slide Tür - Extra options - Coming in Phase 2' });
 });
 
-configuratorRoutes.get('/rolllaeden/types', (req, res) => {
-  res.status(501).json({ message: 'Get shutter types (Vorbau, Aufsatz, Mini) - Coming in Phase 2' });
+// ----- 3. HEBE-SCHIEBETÜR (HST) KONFIGURATOR -----
+configuratorRoutes.get('/terrassentuer/hst', (req, res) => {
+  res.status(501).json({ message: 'Hebe-Schiebetür - All options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/terrassentuer/hst/profil', (req, res) => {
+  res.status(501).json({ message: 'Hebe-Schiebetür - Profile options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/terrassentuer/hst/masse', (req, res) => {
+  res.status(501).json({ message: 'Hebe-Schiebetür - Dimension options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/terrassentuer/hst/farbe', (req, res) => {
+  res.status(501).json({ message: 'Hebe-Schiebetür - Color options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/terrassentuer/hst/glas', (req, res) => {
+  res.status(501).json({ message: 'Hebe-Schiebetür - Glass options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/terrassentuer/hst/sprossen', (req, res) => {
+  res.status(501).json({ message: 'Hebe-Schiebetür - Mullion options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/terrassentuer/hst/rollladen', (req, res) => {
+  res.status(501).json({ message: 'Hebe-Schiebetür - Roller shutter options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/terrassentuer/hst/sonstiges', (req, res) => {
+  res.status(501).json({ message: 'Hebe-Schiebetür - Extra options - Coming in Phase 2' });
 });
 
-configuratorRoutes.get('/rolllaeden/materials', (req, res) => {
-  res.status(501).json({ message: 'Get shutter materials (Kunststoff, Alu) - Coming in Phase 2' });
+// ----- 4. FALT-SCHIEBETÜR KONFIGURATOR -----
+configuratorRoutes.get('/terrassentuer/falt', (req, res) => {
+  res.status(501).json({ message: 'Falt-Schiebetür - All options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/terrassentuer/falt/profil', (req, res) => {
+  res.status(501).json({ message: 'Falt-Schiebetür - Profile options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/terrassentuer/falt/masse', (req, res) => {
+  res.status(501).json({ message: 'Falt-Schiebetür - Dimension options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/terrassentuer/falt/farbe', (req, res) => {
+  res.status(501).json({ message: 'Falt-Schiebetür - Color options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/terrassentuer/falt/glas', (req, res) => {
+  res.status(501).json({ message: 'Falt-Schiebetür - Glass options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/terrassentuer/falt/sprossen', (req, res) => {
+  res.status(501).json({ message: 'Falt-Schiebetür - Mullion options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/terrassentuer/falt/rollladen', (req, res) => {
+  res.status(501).json({ message: 'Falt-Schiebetür - Roller shutter options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/terrassentuer/falt/sonstiges', (req, res) => {
+  res.status(501).json({ message: 'Falt-Schiebetür - Extra options - Coming in Phase 2' });
 });
 
-configuratorRoutes.get('/rolllaeden/motors', (req, res) => {
-  res.status(501).json({ message: 'Get motor options (Gurt, Motor, Smart) - Coming in Phase 2' });
+// ==================================================================
+// TÜRENKONFIGURATOR (ENTRY DOORS) - 6 TYPES
+// ==================================================================
+
+// ----- 1. KUNSTSTOFF HAUSTÜR KONFIGURATOR -----
+configuratorRoutes.get('/haustuer/kunststoff', (req, res) => {
+  res.status(501).json({ message: 'Kunststoff Haustür - All options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/haustuer/kunststoff/profil', (req, res) => {
+  res.status(501).json({ message: 'Kunststoff Haustür - Profile options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/haustuer/kunststoff/masse', (req, res) => {
+  res.status(501).json({ message: 'Kunststoff Haustür - Dimension options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/haustuer/kunststoff/farbe', (req, res) => {
+  res.status(501).json({ message: 'Kunststoff Haustür - Color options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/haustuer/kunststoff/glas', (req, res) => {
+  res.status(501).json({ message: 'Kunststoff Haustür - Glass options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/haustuer/kunststoff/sicherheit', (req, res) => {
+  res.status(501).json({ message: 'Kunststoff Haustür - Security options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/haustuer/kunststoff/griffe', (req, res) => {
+  res.status(501).json({ message: 'Kunststoff Haustür - Handle options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/haustuer/kunststoff/sonstiges', (req, res) => {
+  res.status(501).json({ message: 'Kunststoff Haustür - Extra options - Coming in Phase 2' });
 });
 
-configuratorRoutes.get('/rolllaeden/colors', (req, res) => {
-  res.status(501).json({ message: 'Get shutter colors - Coming in Phase 2' });
+// ----- 2. ALU HAUSTÜR KONFIGURATOR -----
+configuratorRoutes.get('/haustuer/alu', (req, res) => {
+  res.status(501).json({ message: 'Alu Haustür - All options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/haustuer/alu/profil', (req, res) => {
+  res.status(501).json({ message: 'Alu Haustür - Profile options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/haustuer/alu/masse', (req, res) => {
+  res.status(501).json({ message: 'Alu Haustür - Dimension options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/haustuer/alu/farbe', (req, res) => {
+  res.status(501).json({ message: 'Alu Haustür - Color options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/haustuer/alu/glas', (req, res) => {
+  res.status(501).json({ message: 'Alu Haustür - Glass options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/haustuer/alu/sicherheit', (req, res) => {
+  res.status(501).json({ message: 'Alu Haustür - Security options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/haustuer/alu/griffe', (req, res) => {
+  res.status(501).json({ message: 'Alu Haustür - Handle options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/haustuer/alu/sonstiges', (req, res) => {
+  res.status(501).json({ message: 'Alu Haustür - Extra options - Coming in Phase 2' });
+});
+
+// ----- 3. HOLZ HAUSTÜR KONFIGURATOR -----
+configuratorRoutes.get('/haustuer/holz', (req, res) => {
+  res.status(501).json({ message: 'Holz Haustür - All options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/haustuer/holz/profil', (req, res) => {
+  res.status(501).json({ message: 'Holz Haustür - Profile options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/haustuer/holz/masse', (req, res) => {
+  res.status(501).json({ message: 'Holz Haustür - Dimension options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/haustuer/holz/farbe', (req, res) => {
+  res.status(501).json({ message: 'Holz Haustür - Color options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/haustuer/holz/glas', (req, res) => {
+  res.status(501).json({ message: 'Holz Haustür - Glass options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/haustuer/holz/sicherheit', (req, res) => {
+  res.status(501).json({ message: 'Holz Haustür - Security options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/haustuer/holz/griffe', (req, res) => {
+  res.status(501).json({ message: 'Holz Haustür - Handle options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/haustuer/holz/sonstiges', (req, res) => {
+  res.status(501).json({ message: 'Holz Haustür - Extra options - Coming in Phase 2' });
+});
+
+// ----- 4. KUNSTSTOFF NEBENEINGANGSTÜR KONFIGURATOR -----
+configuratorRoutes.get('/nebeneingangstuer/kunststoff', (req, res) => {
+  res.status(501).json({ message: 'Kunststoff Nebeneingangstür - All options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/nebeneingangstuer/kunststoff/profil', (req, res) => {
+  res.status(501).json({ message: 'Kunststoff Nebeneingangstür - Profile options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/nebeneingangstuer/kunststoff/masse', (req, res) => {
+  res.status(501).json({ message: 'Kunststoff Nebeneingangstür - Dimension options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/nebeneingangstuer/kunststoff/farbe', (req, res) => {
+  res.status(501).json({ message: 'Kunststoff Nebeneingangstür - Color options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/nebeneingangstuer/kunststoff/glas', (req, res) => {
+  res.status(501).json({ message: 'Kunststoff Nebeneingangstür - Glass options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/nebeneingangstuer/kunststoff/sicherheit', (req, res) => {
+  res.status(501).json({ message: 'Kunststoff Nebeneingangstür - Security options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/nebeneingangstuer/kunststoff/sonstiges', (req, res) => {
+  res.status(501).json({ message: 'Kunststoff Nebeneingangstür - Extra options - Coming in Phase 2' });
+});
+
+// ----- 5. ALU NEBENEINGANGSTÜR KONFIGURATOR -----
+configuratorRoutes.get('/nebeneingangstuer/alu', (req, res) => {
+  res.status(501).json({ message: 'Alu Nebeneingangstür - All options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/nebeneingangstuer/alu/profil', (req, res) => {
+  res.status(501).json({ message: 'Alu Nebeneingangstür - Profile options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/nebeneingangstuer/alu/masse', (req, res) => {
+  res.status(501).json({ message: 'Alu Nebeneingangstür - Dimension options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/nebeneingangstuer/alu/farbe', (req, res) => {
+  res.status(501).json({ message: 'Alu Nebeneingangstür - Color options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/nebeneingangstuer/alu/glas', (req, res) => {
+  res.status(501).json({ message: 'Alu Nebeneingangstür - Glass options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/nebeneingangstuer/alu/sicherheit', (req, res) => {
+  res.status(501).json({ message: 'Alu Nebeneingangstür - Security options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/nebeneingangstuer/alu/sonstiges', (req, res) => {
+  res.status(501).json({ message: 'Alu Nebeneingangstür - Extra options - Coming in Phase 2' });
+});
+
+// ----- 6. HOLZ NEBENEINGANGSTÜR KONFIGURATOR -----
+configuratorRoutes.get('/nebeneingangstuer/holz', (req, res) => {
+  res.status(501).json({ message: 'Holz Nebeneingangstür - All options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/nebeneingangstuer/holz/profil', (req, res) => {
+  res.status(501).json({ message: 'Holz Nebeneingangstür - Profile options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/nebeneingangstuer/holz/masse', (req, res) => {
+  res.status(501).json({ message: 'Holz Nebeneingangstür - Dimension options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/nebeneingangstuer/holz/farbe', (req, res) => {
+  res.status(501).json({ message: 'Holz Nebeneingangstür - Color options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/nebeneingangstuer/holz/glas', (req, res) => {
+  res.status(501).json({ message: 'Holz Nebeneingangstür - Glass options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/nebeneingangstuer/holz/sicherheit', (req, res) => {
+  res.status(501).json({ message: 'Holz Nebeneingangstür - Security options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/nebeneingangstuer/holz/sonstiges', (req, res) => {
+  res.status(501).json({ message: 'Holz Nebeneingangstür - Extra options - Coming in Phase 2' });
+});
+
+// ==================================================================
+// ROLLADENKONFIGURATOR (SHUTTER/BLIND CONFIGURATORS) - 5 TYPES
+// ==================================================================
+
+// ----- 1. AUFSATZROLLLADEN KONFIGURATOR -----
+configuratorRoutes.get('/rollladen/aufsatz', (req, res) => {
+  res.status(501).json({ message: 'Aufsatzrollladen - All options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/rollladen/aufsatz/kasten', (req, res) => {
+  res.status(501).json({ message: 'Aufsatzrollladen - Box type options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/rollladen/aufsatz/masse', (req, res) => {
+  res.status(501).json({ message: 'Aufsatzrollladen - Dimension options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/rollladen/aufsatz/farbe', (req, res) => {
+  res.status(501).json({ message: 'Aufsatzrollladen - Color options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/rollladen/aufsatz/lamellen', (req, res) => {
+  res.status(501).json({ message: 'Aufsatzrollladen - Slat options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/rollladen/aufsatz/antrieb', (req, res) => {
+  res.status(501).json({ message: 'Aufsatzrollladen - Motor options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/rollladen/aufsatz/sonstiges', (req, res) => {
+  res.status(501).json({ message: 'Aufsatzrollladen - Extra options - Coming in Phase 2' });
+});
+
+// ----- 2. STYROPOR AUFSATZROLLLADEN KONFIGURATOR -----
+configuratorRoutes.get('/rollladen/styropor-aufsatz', (req, res) => {
+  res.status(501).json({ message: 'Styropor Aufsatzrollladen - All options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/rollladen/styropor-aufsatz/kasten', (req, res) => {
+  res.status(501).json({ message: 'Styropor Aufsatzrollladen - Box type options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/rollladen/styropor-aufsatz/masse', (req, res) => {
+  res.status(501).json({ message: 'Styropor Aufsatzrollladen - Dimension options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/rollladen/styropor-aufsatz/farbe', (req, res) => {
+  res.status(501).json({ message: 'Styropor Aufsatzrollladen - Color options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/rollladen/styropor-aufsatz/lamellen', (req, res) => {
+  res.status(501).json({ message: 'Styropor Aufsatzrollladen - Slat options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/rollladen/styropor-aufsatz/antrieb', (req, res) => {
+  res.status(501).json({ message: 'Styropor Aufsatzrollladen - Motor options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/rollladen/styropor-aufsatz/sonstiges', (req, res) => {
+  res.status(501).json({ message: 'Styropor Aufsatzrollladen - Extra options - Coming in Phase 2' });
+});
+
+// ----- 3. VORSATZROLLLADEN KONFIGURATOR -----
+configuratorRoutes.get('/rollladen/vorsatz', (req, res) => {
+  res.status(501).json({ message: 'Vorsatzrollladen - All options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/rollladen/vorsatz/kasten', (req, res) => {
+  res.status(501).json({ message: 'Vorsatzrollladen - Box type options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/rollladen/vorsatz/masse', (req, res) => {
+  res.status(501).json({ message: 'Vorsatzrollladen - Dimension options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/rollladen/vorsatz/farbe', (req, res) => {
+  res.status(501).json({ message: 'Vorsatzrollladen - Color options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/rollladen/vorsatz/lamellen', (req, res) => {
+  res.status(501).json({ message: 'Vorsatzrollladen - Slat options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/rollladen/vorsatz/antrieb', (req, res) => {
+  res.status(501).json({ message: 'Vorsatzrollladen - Motor options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/rollladen/vorsatz/sonstiges', (req, res) => {
+  res.status(501).json({ message: 'Vorsatzrollladen - Extra options - Coming in Phase 2' });
+});
+
+// ----- 4. RAFFSTORE KONFIGURATOR -----
+configuratorRoutes.get('/rollladen/raffstore', (req, res) => {
+  res.status(501).json({ message: 'Raffstore - All options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/rollladen/raffstore/montage', (req, res) => {
+  res.status(501).json({ message: 'Raffstore - Mounting type options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/rollladen/raffstore/masse', (req, res) => {
+  res.status(501).json({ message: 'Raffstore - Dimension options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/rollladen/raffstore/farbe', (req, res) => {
+  res.status(501).json({ message: 'Raffstore - Color options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/rollladen/raffstore/lamellen', (req, res) => {
+  res.status(501).json({ message: 'Raffstore - Slat options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/rollladen/raffstore/antrieb', (req, res) => {
+  res.status(501).json({ message: 'Raffstore - Motor options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/rollladen/raffstore/sonstiges', (req, res) => {
+  res.status(501).json({ message: 'Raffstore - Extra options - Coming in Phase 2' });
+});
+
+// ----- 5. INSEKTENSCHUTZ-PLISSEE KONFIGURATOR -----
+configuratorRoutes.get('/rollladen/insektenschutz', (req, res) => {
+  res.status(501).json({ message: 'Insektenschutz-Plissee - All options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/rollladen/insektenschutz/typ', (req, res) => {
+  res.status(501).json({ message: 'Insektenschutz-Plissee - Type options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/rollladen/insektenschutz/masse', (req, res) => {
+  res.status(501).json({ message: 'Insektenschutz-Plissee - Dimension options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/rollladen/insektenschutz/farbe', (req, res) => {
+  res.status(501).json({ message: 'Insektenschutz-Plissee - Color options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/rollladen/insektenschutz/gewebe', (req, res) => {
+  res.status(501).json({ message: 'Insektenschutz-Plissee - Mesh options - Coming in Phase 2' });
+});
+configuratorRoutes.get('/rollladen/insektenschutz/sonstiges', (req, res) => {
+  res.status(501).json({ message: 'Insektenschutz-Plissee - Extra options - Coming in Phase 2' });
+});
+
+// ==================================================================
+// COMPREHENSIVE PRICING CALCULATION API
+// ==================================================================
+
+// ----- MAIN PRICE CALCULATION ENDPOINTS -----
+configuratorRoutes.post('/calculate', (req, res) => {
+  // Calculate price based on ALL selected options
+  // Uses: base price + margin + option adjustments + quantity discount
+  res.status(501).json({ message: 'Calculate configured price - Coming in Phase 2' });
+});
+
+configuratorRoutes.post('/calculate/breakdown', (req, res) => {
+  // Detailed breakdown: base + each option's cost + margin
+  res.status(501).json({ message: 'Get price breakdown - Coming in Phase 2' });
+});
+
+configuratorRoutes.post('/calculate/live', (req, res) => {
+  // Real-time price update as user selects options (WebSocket-ready)
+  res.status(501).json({ message: 'Live price calculation - Coming in Phase 2' });
+});
+
+configuratorRoutes.post('/calculate/batch', (req, res) => {
+  // Calculate prices for multiple configurations at once
+  res.status(501).json({ message: 'Batch price calculation - Coming in Phase 2' });
+});
+
+// ----- PRICE MODIFIERS -----
+configuratorRoutes.get('/pricing/base/:productType', (req, res) => {
+  // Get base price for product type (from catalog)
+  res.status(501).json({ message: 'Get base price for product type - Coming in Phase 2' });
+});
+
+configuratorRoutes.get('/pricing/modifiers/:productType', (req, res) => {
+  // Get all price modifiers for product type
+  res.status(501).json({ message: 'Get price modifiers - Coming in Phase 2' });
+});
+
+configuratorRoutes.get('/pricing/options/:optionCategory', (req, res) => {
+  // Get price adjustments for option category (e.g., glas, farbe)
+  res.status(501).json({ message: 'Get option price adjustments - Coming in Phase 2' });
+});
+
+configuratorRoutes.post('/pricing/option-impact', (req, res) => {
+  // Calculate impact of selecting a specific option
+  res.status(501).json({ message: 'Calculate option price impact - Coming in Phase 2' });
+});
+
+// ----- DIMENSION-BASED PRICING -----
+configuratorRoutes.post('/pricing/dimension-factor', (req, res) => {
+  // Calculate price factor based on dimensions (m²)
+  res.status(501).json({ message: 'Calculate dimension price factor - Coming in Phase 2' });
+});
+
+configuratorRoutes.get('/pricing/size-brackets/:productType', (req, res) => {
+  // Get size-based pricing brackets
+  res.status(501).json({ message: 'Get size pricing brackets - Coming in Phase 2' });
+});
+
+// ----- MARGIN & DISCOUNTS -----
+configuratorRoutes.post('/pricing/apply-margin', (req, res) => {
+  // Apply margin to base price (4-level hierarchy)
+  res.status(501).json({ message: 'Apply margin to price - Coming in Phase 2' });
+});
+
+configuratorRoutes.post('/pricing/apply-discount', (req, res) => {
+  // Apply promotion/coupon discount
+  res.status(501).json({ message: 'Apply discount to price - Coming in Phase 2' });
+});
+
+configuratorRoutes.post('/pricing/quantity-discount', (req, res) => {
+  // Calculate quantity-based discount
+  res.status(501).json({ message: 'Calculate quantity discount - Coming in Phase 2' });
+});
+
+// ----- PRICE HISTORY & COMPARISON -----
+configuratorRoutes.get('/pricing/history/:configId', authenticate, (req, res) => {
+  // Get price history for saved configuration
+  res.status(501).json({ message: 'Get price history - Coming in Phase 2' });
+});
+
+configuratorRoutes.post('/pricing/compare', (req, res) => {
+  // Compare prices between configurations
+  res.status(501).json({ message: 'Compare prices - Coming in Phase 2' });
 });
 
 // ----- SIZE & DIMENSIONS -----
