@@ -3,6 +3,15 @@
  * 
  * This is the main file that starts the Express server.
  * It configures middleware, routes, and error handling.
+ * 
+ * Features included:
+ * - Security (Helmet, CORS, Rate Limiting)
+ * - Body parsing (JSON, URL-encoded)
+ * - Request logging
+ * - Compression
+ * - Health monitoring
+ * - Error handling
+ * - Graceful shutdown
  */
 
 // Load environment variables FIRST (before anything else)
@@ -13,6 +22,7 @@ const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
+const compression = require('compression');
 
 // Import custom middleware (will create later)
 // const errorHandler = require('./middleware/errorHandler');
@@ -29,12 +39,30 @@ const app = express();
 app.use(helmet());
 
 // CORS: Allow cross-origin requests (frontend can talk to backend)
-app.use(cors({
-  origin: process.env.CORS_ORIGIN || 'http://localhost:3000',
+const corsOptions = {
+  origin: function (origin, callback) {
+    // Allow requests with no origin (mobile apps, curl, etc.)
+    const allowedOrigins = [
+      'http://localhost:3000',  // Frontend dev server
+      'http://localhost:3001',  // Same server
+      process.env.FRONTEND_URL,  // Production frontend
+      process.env.CORS_ORIGIN    // Custom origin
+    ].filter(Boolean);
+    
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
+};
+app.use(cors(corsOptions));
+
+// Compression: Reduce response size (faster loading)
+app.use(compression());
 
 // Rate Limiting: Prevent abuse (100 requests per 15 minutes per IP)
 const limiter = rateLimit({
@@ -58,6 +86,27 @@ app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 // =============================================================================
+// REQUEST LOGGING (Simple logging until we add Winston in Step 1.7)
+// =============================================================================
+
+// Log all requests in development
+if (process.env.NODE_ENV !== 'production') {
+  app.use((req, res, next) => {
+    const start = Date.now();
+    res.on('finish', () => {
+      const duration = Date.now() - start;
+      console.log(`[${new Date().toISOString()}] ${req.method} ${req.originalUrl} - ${res.statusCode} (${duration}ms)`);
+    });
+    next();
+  });
+}
+
+// =============================================================================
+// TRUST PROXY (Required when behind a reverse proxy like Render/Railway)
+// =============================================================================
+app.set('trust proxy', 1);
+
+// =============================================================================
 // API ROUTES
 // =============================================================================
 
@@ -67,7 +116,12 @@ app.get('/health', (req, res) => {
     status: 'OK',
     message: 'CURIA Backend is running',
     timestamp: new Date().toISOString(),
-    environment: process.env.NODE_ENV || 'development'
+    environment: process.env.NODE_ENV || 'development',
+    uptime: process.uptime(),
+    memory: {
+      used: Math.round(process.memoryUsage().heapUsed / 1024 / 1024) + 'MB',
+      total: Math.round(process.memoryUsage().heapTotal / 1024 / 1024) + 'MB'
+    }
   });
 });
 
@@ -139,8 +193,9 @@ app.use((err, req, res, next) => {
 const PORT = process.env.PORT || 3001;
 
 // Only start server if this file is run directly (not imported)
+let server;
 if (require.main === module) {
-  app.listen(PORT, () => {
+  server = app.listen(PORT, () => {
     console.log('='.repeat(50));
     console.log('🚀 CURIA Backend Server Started');
     console.log('='.repeat(50));
@@ -151,6 +206,46 @@ if (require.main === module) {
     console.log('='.repeat(50));
   });
 }
+
+// =============================================================================
+// GRACEFUL SHUTDOWN (Clean exit when server stops)
+// =============================================================================
+
+// Handle shutdown signals (Ctrl+C, server restart, etc.)
+const gracefulShutdown = (signal) => {
+  console.log(`\n⚠️  ${signal} received. Shutting down gracefully...`);
+  
+  if (server) {
+    server.close(() => {
+      console.log('✅ HTTP server closed');
+      // Close database connections here (added in Step 1.5)
+      process.exit(0);
+    });
+    
+    // Force close after 10 seconds
+    setTimeout(() => {
+      console.error('❌ Forced shutdown after timeout');
+      process.exit(1);
+    }, 10000);
+  } else {
+    process.exit(0);
+  }
+};
+
+// Listen for termination signals
+process.on('SIGTERM', () => gracefulShutdown('SIGTERM'));
+process.on('SIGINT', () => gracefulShutdown('SIGINT'));
+
+// Handle uncaught errors
+process.on('uncaughtException', (err) => {
+  console.error('❌ Uncaught Exception:', err);
+  gracefulShutdown('uncaughtException');
+});
+
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('❌ Unhandled Rejection at:', promise, 'reason:', reason);
+  gracefulShutdown('unhandledRejection');
+});
 
 // Export app for testing
 module.exports = app;
