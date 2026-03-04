@@ -575,6 +575,124 @@ function logProfitYearly(year, data = {}) {
   });
 }
 
+/**
+ * Log daily profit summary
+ * @param {Date|string} date - The date
+ * @param {Object} data - Daily profit data
+ */
+function logProfitDaily(date, data = {}) {
+  const d = new Date(date);
+  logProfit('daily_summary', {
+    ...data,
+    period: 'daily',
+    year: d.getFullYear(),
+    month: d.getMonth() + 1,
+    day: d.getDate(),
+    periodStart: new Date(d.setHours(0, 0, 0, 0)).toISOString(),
+    periodEnd: new Date(d.setHours(23, 59, 59, 999)).toISOString()
+  });
+}
+
+/**
+ * Log weekly profit summary
+ * @param {number} year - Year
+ * @param {number} week - Week number (1-52)
+ * @param {Object} data - Weekly profit data
+ */
+function logProfitWeekly(year, week, data = {}) {
+  // Calculate week start/end dates
+  const simple = new Date(year, 0, 1 + (week - 1) * 7);
+  const dayOfWeek = simple.getDay();
+  const weekStart = new Date(simple);
+  weekStart.setDate(simple.getDate() - dayOfWeek + 1); // Monday
+  const weekEnd = new Date(weekStart);
+  weekEnd.setDate(weekStart.getDate() + 6); // Sunday
+  
+  logProfit('weekly_summary', {
+    ...data,
+    period: 'weekly',
+    year,
+    week,
+    periodStart: weekStart.toISOString(),
+    periodEnd: weekEnd.toISOString()
+  });
+}
+
+/**
+ * Log quarterly profit summary
+ * @param {number} year - Year
+ * @param {number} quarter - Quarter (1-4)
+ * @param {Object} data - Quarterly profit data
+ */
+function logProfitQuarterly(year, quarter, data = {}) {
+  const startMonth = (quarter - 1) * 3;
+  const endMonth = startMonth + 2;
+  
+  logProfit('quarterly_summary', {
+    ...data,
+    period: 'quarterly',
+    year,
+    quarter,
+    periodStart: new Date(year, startMonth, 1).toISOString(),
+    periodEnd: new Date(year, endMonth + 1, 0).toISOString()
+  });
+}
+
+/**
+ * Log profit by category
+ * @param {string} category - Product category
+ * @param {Object} data - Category profit data
+ */
+function logProfitByCategory(category, data = {}) {
+  logProfit('category_profit', {
+    ...data,
+    category,
+    period: data.period || 'monthly'
+  });
+}
+
+/**
+ * Log profit comparison between two periods
+ * @param {string} comparisonType - Type of comparison (month_over_month, year_over_year, etc.)
+ * @param {Object} data - Comparison data
+ */
+function logProfitComparison(comparisonType, data = {}) {
+  const change = data.currentProfit && data.previousProfit 
+    ? ((data.currentProfit - data.previousProfit) / data.previousProfit * 100).toFixed(2)
+    : null;
+    
+  logProfit('comparison', {
+    comparisonType,
+    currentPeriod: data.currentPeriod,
+    previousPeriod: data.previousPeriod,
+    currentProfit: data.currentProfit,
+    previousProfit: data.previousProfit,
+    profitChange: change ? parseFloat(change) : null,
+    profitTrend: change > 0 ? 'up' : change < 0 ? 'down' : 'stable',
+    currentRevenue: data.currentRevenue,
+    previousRevenue: data.previousRevenue,
+    ...data
+  });
+}
+
+/**
+ * Log a single transaction profit
+ * @param {Object} data - Transaction profit data
+ */
+function logProfitTransaction(data = {}) {
+  logProfit('transaction', {
+    ...data,
+    period: 'transaction',
+    orderId: data.orderId,
+    productId: data.productId,
+    costPrice: data.costPrice,
+    sellingPrice: data.sellingPrice,
+    profit: data.sellingPrice && data.costPrice ? data.sellingPrice - data.costPrice : data.profit,
+    marginPercent: data.marginPercent,
+    category: data.category
+  });
+}
+
 // =============================================================================
 // LEAD GENERATOR LOGGING (INTERNAL - NOT GOOGLE ANALYTICS)
 // =============================================================================
@@ -977,6 +1095,12 @@ module.exports = {
   logProfitOverall,
   logProfitMonthly,
   logProfitYearly,
+  logProfitDaily,
+  logProfitWeekly,
+  logProfitQuarterly,
+  logProfitByCategory,
+  logProfitComparison,
+  logProfitTransaction,
   
   // Lead Generator & Commission Tracking (INTERNAL - NOT GOOGLE ANALYTICS)
   // Tracks: WHO visited, WHERE they came from, WHAT they viewed, WHAT they bought/spent
