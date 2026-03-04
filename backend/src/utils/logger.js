@@ -466,6 +466,115 @@ function logMargin(event, data = {}) {
   });
 }
 
+/**
+ * Log profit analytics with period support (overall, monthly, yearly)
+ * Yearly data is NOT too much - database handles it efficiently with proper indexing
+ * 
+ * @param {string} event - Profit event type
+ * @param {Object} data - Profit data
+ */
+function logProfit(event, data = {}) {
+  const now = new Date();
+  
+  const profitData = {
+    event,
+    
+    // Period identification (for aggregation)
+    period: data.period || 'transaction', // 'transaction', 'daily', 'monthly', 'yearly', 'overall'
+    periodStart: data.periodStart,
+    periodEnd: data.periodEnd,
+    year: data.year || now.getFullYear(),
+    month: data.month || now.getMonth() + 1,
+    day: data.day || now.getDate(),
+    
+    // Revenue metrics
+    revenue: data.revenue,
+    revenueGross: data.revenueGross,
+    revenueNet: data.revenueNet, // After returns/refunds
+    
+    // Cost metrics  
+    costOfGoods: data.costOfGoods, // Total cost from catalog
+    operationalCosts: data.operationalCosts,
+    shippingCosts: data.shippingCosts,
+    paymentProcessingFees: data.paymentProcessingFees,
+    
+    // Profit metrics
+    grossProfit: data.grossProfit, // Revenue - Cost of Goods
+    netProfit: data.netProfit, // After all costs
+    profitMarginPercent: data.profitMarginPercent,
+    
+    // Breakdown by category (optional)
+    category: data.category,
+    categoryProfit: data.categoryProfit,
+    
+    // Breakdown by product (optional)
+    productId: data.productId,
+    productProfit: data.productProfit,
+    
+    // Breakdown by region (optional)
+    region: data.region,
+    regionProfit: data.regionProfit,
+    
+    // Comparison metrics (for trends)
+    previousPeriodProfit: data.previousPeriodProfit,
+    profitChange: data.profitChange, // Percent change
+    profitTrend: data.profitTrend, // 'up', 'down', 'stable'
+    
+    // Transaction count (for averages)
+    transactionCount: data.transactionCount,
+    averageOrderValue: data.averageOrderValue,
+    averageProfitPerOrder: data.averageProfitPerOrder,
+    
+    timestamp: new Date().toISOString()
+  };
+  
+  analyticsLogger.info(`PROFIT: ${event}`, profitData);
+}
+
+/**
+ * Log overall profit summary (all-time)
+ * @param {Object} data - Overall profit data
+ */
+function logProfitOverall(data = {}) {
+  logProfit('overall_summary', {
+    ...data,
+    period: 'overall'
+  });
+}
+
+/**
+ * Log monthly profit summary
+ * @param {number} year - Year
+ * @param {number} month - Month (1-12)
+ * @param {Object} data - Monthly profit data
+ */
+function logProfitMonthly(year, month, data = {}) {
+  logProfit('monthly_summary', {
+    ...data,
+    period: 'monthly',
+    year,
+    month,
+    periodStart: new Date(year, month - 1, 1).toISOString(),
+    periodEnd: new Date(year, month, 0).toISOString()
+  });
+}
+
+/**
+ * Log yearly profit summary
+ * Database handles yearly data efficiently - proper indexing makes queries fast
+ * @param {number} year - Year
+ * @param {Object} data - Yearly profit data
+ */
+function logProfitYearly(year, data = {}) {
+  logProfit('yearly_summary', {
+    ...data,
+    period: 'yearly',
+    year,
+    periodStart: new Date(year, 0, 1).toISOString(),
+    periodEnd: new Date(year, 11, 31).toISOString()
+  });
+}
+
 // =============================================================================
 // LEAD GENERATOR LOGGING (INTERNAL - NOT GOOGLE ANALYTICS)
 // =============================================================================
@@ -479,19 +588,103 @@ function logMargin(event, data = {}) {
 function logLead(event, data = {}) {
   const leadData = {
     event,
+    // Lead Generator (CREATOR) Info
     creatorId: data.creatorId,
     creatorName: data.creatorName,
+    
+    // Visitor/Customer Info - WHO VISITED
     customerId: data.customerId,
     customerEmail: data.customerEmail ? '***' + data.customerEmail.slice(-10) : null,
-    source: data.source, // website, referral, direct, etc.
-    campaign: data.campaign,
+    customerName: data.customerName,
+    isNewVisitor: data.isNewVisitor,
+    isReturningCustomer: data.isReturningCustomer,
+    visitCount: data.visitCount, // How many times they've visited
+    
+    // Traffic Source - WHERE THEY CAME FROM
+    source: data.source, // website, referral, direct, google, social, etc.
+    referrer: data.referrer, // The referring URL
+    campaign: data.campaign, // Marketing campaign
+    utmSource: data.utmSource,
+    utmMedium: data.utmMedium,
+    utmCampaign: data.utmCampaign,
+    utmContent: data.utmContent,
+    
+    // Session Info - WHAT THEY DID
+    sessionId: data.sessionId,
     landingPage: data.landingPage,
+    pagesVisited: data.pagesVisited, // Array of pages
+    pageCount: data.pageCount, // How many pages visited
+    sessionDuration: data.sessionDuration, // How long on site (seconds)
+    configuratorInteraction: data.configuratorInteraction, // Did they use configurator?
+    productsViewed: data.productsViewed, // Which products they looked at
+    
+    // Conversion Info - WHAT THEY BOUGHT/SPENT
+    converted: data.converted, // Did they make a purchase?
+    orderId: data.orderId,
+    orderValue: data.orderValue,
+    totalSpent: data.totalSpent, // Lifetime total
+    products: data.products, // What they bought
+    configuratorOptions: data.configuratorOptions, // What config they selected
+    
+    // Contact Info (if they submitted inquiry)
+    contactRequested: data.contactRequested,
+    quoteRequested: data.quoteRequested,
+    
+    // Device/Location
+    device: data.device, // mobile, desktop, tablet
+    browser: data.browser,
+    ipAddress: data.ipAddress ? data.ipAddress.slice(0, 7) + '***' : null, // Partial for privacy
+    country: data.country,
+    region: data.region,
+    
     timestamp: new Date().toISOString(),
     ...data
   };
   
   auditLogger.info(`LEAD: ${event}`, leadData);
   analyticsLogger.info(`LEAD: ${event}`, leadData);
+}
+
+/**
+ * Log visitor tracking for lead insights (who visited, what they did)
+ * @param {string} event - Visitor event type
+ * @param {Object} data - Visitor data
+ */
+function logVisitor(event, data = {}) {
+  analyticsLogger.info(`VISITOR: ${event}`, {
+    event,
+    visitorId: data.visitorId,
+    sessionId: data.sessionId,
+    isNewVisitor: data.isNewVisitor,
+    isReturningCustomer: data.isReturningCustomer,
+    
+    // What they viewed
+    currentPage: data.currentPage,
+    previousPage: data.previousPage,
+    pagesVisited: data.pagesVisited,
+    pageCount: data.pageCount,
+    
+    // Time spent
+    timeOnPage: data.timeOnPage, // seconds
+    totalSessionTime: data.totalSessionTime, // seconds
+    
+    // Interactions
+    configuratorUsed: data.configuratorUsed,
+    productsViewed: data.productsViewed,
+    cartAdded: data.cartAdded,
+    inquirySent: data.inquirySent,
+    
+    // Source
+    referrer: data.referrer,
+    source: data.source,
+    
+    // Device
+    device: data.device,
+    browser: data.browser,
+    screenResolution: data.screenResolution,
+    
+    timestamp: new Date().toISOString()
+  });
 }
 
 /**
@@ -602,19 +795,8 @@ function logSearch(data = {}) {
   });
 }
 
-/**
- * Log zero-result searches (important for product gaps)
- * @param {Object} data - Zero result search data
- */
-function logZeroResults(data = {}) {
-  analyticsLogger.warn('SEARCH_NO_RESULTS', {
-    query: data.query,
-    category: data.category,
-    filters: data.filters,
-    customerId: data.customerId,
-    timestamp: new Date().toISOString()
-  });
-}
+// NOTE: logZeroResults removed - not needed for configurator-based pricing model
+// Catalog provides base prices, configurator calculates custom pricing
 
 // =============================================================================
 // GEOGRAPHIC & REGIONAL ANALYTICS
@@ -788,12 +970,18 @@ module.exports = {
   logInventory,
   logPromotion,
   
-  // Business Intelligence
+  // Business Intelligence & Profit Analytics
   logSale,
   logMargin,
+  logProfit,
+  logProfitOverall,
+  logProfitMonthly,
+  logProfitYearly,
   
   // Lead Generator & Commission Tracking (INTERNAL - NOT GOOGLE ANALYTICS)
+  // Tracks: WHO visited, WHERE they came from, WHAT they viewed, WHAT they bought/spent
   logLead,
+  logVisitor,
   logCommission,
   
   // Customer Behavior Analytics
@@ -801,9 +989,8 @@ module.exports = {
   logConversion,
   logCartAbandonment,
   
-  // Search & Discovery Analytics
+  // Search Analytics (logZeroResults removed - not needed for configurator model)
   logSearch,
-  logZeroResults,
   
   // Geographic & Regional Analytics
   logGeographic,
