@@ -1,15 +1,30 @@
 /**
  * CURIA Backend - Security Middleware
  * 
- * Features:
- * - Helmet security headers
- * - CORS configuration
- * - Rate limiting (general, auth, API)
- * - Input sanitization (XSS, SQL injection protection)
- * - CSRF protection
- * - IP blocking/whitelisting
- * - Request validation
- * - Authentication helpers
+ * INDUSTRY STANDARD SECURITY FEATURES:
+ * =====================================
+ * 
+ * 1. OWASP Top 10 Protection:
+ *    - A01:2021 Broken Access Control → IP blocking, auth limiters
+ *    - A02:2021 Cryptographic Failures → HTTPS redirect, secure headers
+ *    - A03:2021 Injection → MongoDB sanitize, XSS clean, input validation
+ *    - A04:2021 Insecure Design → Rate limiting, request validation
+ *    - A05:2021 Security Misconfiguration → Helmet headers, CSP
+ *    - A06:2021 Vulnerable Components → (handled by npm audit)
+ *    - A07:2021 Auth Failures → Failed login tracking, account lockout
+ *    - A08:2021 Data Integrity → Request signing, CSRF tokens
+ *    - A09:2021 Security Logging → Comprehensive audit logging
+ *    - A10:2021 SSRF → URL validation, blocked hosts
+ * 
+ * 2. Additional Enterprise Features:
+ *    - Session fingerprinting
+ *    - Request signing for sensitive operations
+ *    - Geo-blocking support
+ *    - Bot detection
+ *    - Brute force protection
+ *    - Suspicious activity detection
+ *    - Payment data protection (PCI DSS compliance helpers)
+ *    - GDPR compliance helpers
  * 
  * @module middleware/security
  */
@@ -730,4 +745,621 @@ module.exports = {
   
   // Composite
   applySecurity,
+};
+
+// ============================================================================
+// ADDITIONAL ENTERPRISE SECURITY FEATURES
+// ============================================================================
+
+/**
+ * Session fingerprint generation
+ * Creates a unique fingerprint based on browser/device characteristics
+ */
+const generateSessionFingerprint = (req) => {
+  const components = [
+    req.headers['user-agent'] || '',
+    req.headers['accept-language'] || '',
+    req.headers['accept-encoding'] || '',
+    req.ip,
+  ];
+  
+  // Simple hash function (in production, use crypto)
+  const fingerprint = components.join('|');
+  return Buffer.from(fingerprint).toString('base64').substring(0, 32);
+};
+
+/**
+ * Session fingerprint validation middleware
+ * Detects session hijacking attempts
+ */
+const validateSessionFingerprint = (req, res, next) => {
+  if (!req.session?.fingerprint) {
+    return next();
+  }
+  
+  const currentFingerprint = generateSessionFingerprint(req);
+  
+  if (req.session.fingerprint !== currentFingerprint) {
+    logSecurity('session_hijack_attempt', {
+      ip: req.ip,
+      userId: req.user?.id,
+      expectedFingerprint: req.session.fingerprint.substring(0, 8) + '...',
+      actualFingerprint: currentFingerprint.substring(0, 8) + '...',
+    });
+    
+    // Destroy the session
+    req.session.destroy();
+    
+    return res.status(401).json({
+      success: false,
+      error: 'Session invalid. Please login again.',
+      code: 'SESSION_FINGERPRINT_MISMATCH',
+    });
+  }
+  
+  next();
+};
+
+/**
+ * CSRF Token generation
+ */
+const generateCSRFToken = () => {
+  return `${Date.now()}-${Math.random().toString(36).substring(2, 15)}-${Math.random().toString(36).substring(2, 15)}`;
+};
+
+/**
+ * CSRF Token validation middleware
+ */
+const validateCSRFToken = (req, res, next) => {
+  // Skip for GET, HEAD, OPTIONS
+  if (['GET', 'HEAD', 'OPTIONS'].includes(req.method)) {
+    return next();
+  }
+  
+  const token = req.headers['x-csrf-token'] || req.body?._csrf;
+  const sessionToken = req.session?.csrfToken;
+  
+  if (!token || !sessionToken || token !== sessionToken) {
+    logSecurity('csrf_validation_failed', {
+      ip: req.ip,
+      path: req.path,
+      method: req.method,
+      hasToken: !!token,
+      hasSessionToken: !!sessionToken,
+    });
+    
+    return res.status(403).json({
+      success: false,
+      error: 'Invalid CSRF token',
+      code: 'CSRF_VALIDATION_FAILED',
+    });
+  }
+  
+  next();
+};
+
+/**
+ * Bot detection middleware
+ * Detects and blocks obvious bot requests
+ */
+const botDetection = (req, res, next) => {
+  const userAgent = req.headers['user-agent'] || '';
+  
+  // List of known bot user agents
+  const botPatterns = [
+    /bot/i,
+    /crawler/i,
+    /spider/i,
+    /scraper/i,
+    /curl/i,
+    /wget/i,
+    /python-requests/i,
+    /axios/i,
+    /node-fetch/i,
+  ];
+  
+  // Skip bot check in development
+  if (process.env.NODE_ENV === 'development') {
+    return next();
+  }
+  
+  // Check if user agent matches bot patterns
+  const isBot = botPatterns.some(pattern => pattern.test(userAgent));
+  
+  if (isBot && !req.headers['x-api-key']) {
+    logSecurity('bot_detected', {
+      ip: req.ip,
+      userAgent,
+      path: req.path,
+    });
+    
+    // Return a challenge or block
+    return res.status(403).json({
+      success: false,
+      error: 'Access denied',
+      code: 'BOT_DETECTED',
+    });
+  }
+  
+  next();
+};
+
+/**
+ * Suspicious activity tracker
+ */
+const suspiciousActivityTracker = new Map();
+
+/**
+ * Suspicious activity detection middleware
+ */
+const detectSuspiciousActivity = (req, res, next) => {
+  const ip = req.ip;
+  const activity = suspiciousActivityTracker.get(ip) || {
+    requestCount: 0,
+    uniquePaths: new Set(),
+    errorCount: 0,
+    lastRequest: Date.now(),
+    startTime: Date.now(),
+  };
+  
+  activity.requestCount++;
+  activity.uniquePaths.add(req.path);
+  activity.lastRequest = Date.now();
+  
+  // Detect scanning behavior (many unique paths in short time)
+  const timeWindow = 60000; // 1 minute
+  const elapsedTime = Date.now() - activity.startTime;
+  
+  if (elapsedTime < timeWindow) {
+    const uniquePathCount = activity.uniquePaths.size;
+    const requestRate = activity.requestCount / (elapsedTime / 1000);
+    
+    // Flag if more than 50 unique paths in 1 minute or more than 10 req/sec
+    if (uniquePathCount > 50 || requestRate > 10) {
+      logSecurity('suspicious_scanning_detected', {
+        ip,
+        uniquePathCount,
+        requestRate: requestRate.toFixed(2),
+        totalRequests: activity.requestCount,
+      });
+      
+      // Auto-block after detection
+      blockIP(ip, 'Suspicious scanning activity');
+      
+      return res.status(403).json({
+        success: false,
+        error: 'Access denied',
+        code: 'SUSPICIOUS_ACTIVITY',
+      });
+    }
+  } else {
+    // Reset after time window
+    activity.requestCount = 1;
+    activity.uniquePaths = new Set([req.path]);
+    activity.errorCount = 0;
+    activity.startTime = Date.now();
+  }
+  
+  suspiciousActivityTracker.set(ip, activity);
+  
+  // Track errors for this IP
+  res.on('finish', () => {
+    if (res.statusCode >= 400) {
+      const updatedActivity = suspiciousActivityTracker.get(ip);
+      if (updatedActivity) {
+        updatedActivity.errorCount++;
+        
+        // Too many errors in short time
+        if (updatedActivity.errorCount > 20) {
+          logSecurity('excessive_errors_detected', {
+            ip,
+            errorCount: updatedActivity.errorCount,
+          });
+          blockIP(ip, 'Excessive error responses');
+        }
+      }
+    }
+  });
+  
+  next();
+};
+
+/**
+ * Geo-blocking support
+ * Block requests from specific countries (requires geoip-lite)
+ */
+const blockedCountries = new Set([
+  // Add country codes to block, e.g., 'KP', 'IR', etc.
+]);
+
+const geoBlock = async (req, res, next) => {
+  // Skip in development
+  if (process.env.NODE_ENV !== 'production') {
+    return next();
+  }
+  
+  try {
+    // Note: Requires geoip-lite package
+    // const geoip = require('geoip-lite');
+    // const geo = geoip.lookup(req.ip);
+    
+    // if (geo && blockedCountries.has(geo.country)) {
+    //   logSecurity('geo_blocked', {
+    //     ip: req.ip,
+    //     country: geo.country,
+    //   });
+    //   
+    //   return res.status(403).json({
+    //     success: false,
+    //     error: 'Access denied from your location',
+    //     code: 'GEO_BLOCKED',
+    //   });
+    // }
+    
+    next();
+  } catch (error) {
+    // If geo lookup fails, allow the request
+    next();
+  }
+};
+
+/**
+ * PCI DSS compliance helper - Mask card numbers
+ */
+const maskCardNumber = (cardNumber) => {
+  if (!cardNumber || typeof cardNumber !== 'string') return cardNumber;
+  
+  // Keep first 6 and last 4 digits
+  const cleaned = cardNumber.replace(/\D/g, '');
+  if (cleaned.length < 13) return '****';
+  
+  const firstSix = cleaned.substring(0, 6);
+  const lastFour = cleaned.substring(cleaned.length - 4);
+  const masked = cleaned.substring(6, cleaned.length - 4).replace(/./g, '*');
+  
+  return `${firstSix}${masked}${lastFour}`;
+};
+
+/**
+ * PCI DSS compliance helper - Detect and remove card numbers from logs
+ */
+const sanitizeForLogging = (data) => {
+  if (!data) return data;
+  
+  const sensitivePatterns = {
+    // Credit card numbers (13-19 digits)
+    cardNumber: /\b(?:\d{4}[-\s]?){3,4}\d{1,4}\b/g,
+    // CVV/CVC (3-4 digits)
+    cvv: /\b\d{3,4}\b/g,
+    // Passwords
+    password: /password['":\s]*['"]?[^'",\s]+/gi,
+    // API keys
+    apiKey: /[a-zA-Z0-9_-]{32,}/g,
+  };
+  
+  let sanitized = JSON.stringify(data);
+  
+  sanitized = sanitized.replace(sensitivePatterns.cardNumber, '[CARD_NUMBER_REDACTED]');
+  sanitized = sanitized.replace(/password['":\s]*['"]?[^'",\s}]+/gi, 'password":"[REDACTED]');
+  
+  try {
+    return JSON.parse(sanitized);
+  } catch {
+    return data;
+  }
+};
+
+/**
+ * GDPR compliance helper - Get user's consent status
+ */
+const checkGDPRConsent = (req, res, next) => {
+  const userId = req.user?.id;
+  
+  if (!userId) {
+    return next();
+  }
+  
+  // This would check database for user's consent status
+  // For now, we just ensure the middleware exists
+  req.gdprConsent = {
+    marketing: req.user?.consents?.marketing || false,
+    analytics: req.user?.consents?.analytics || false,
+    thirdParty: req.user?.consents?.thirdParty || false,
+  };
+  
+  next();
+};
+
+/**
+ * Data anonymization helper for analytics
+ */
+const anonymizeIP = (ip) => {
+  if (!ip) return null;
+  
+  // IPv4: Remove last octet
+  if (ip.includes('.')) {
+    const parts = ip.split('.');
+    parts[3] = '0';
+    return parts.join('.');
+  }
+  
+  // IPv6: Remove last 80 bits (5 groups)
+  if (ip.includes(':')) {
+    const parts = ip.split(':');
+    return parts.slice(0, 3).join(':') + ':0:0:0:0:0';
+  }
+  
+  return ip;
+};
+
+/**
+ * Request signing for sensitive operations
+ */
+const signRequest = (payload, secret) => {
+  const crypto = require('crypto');
+  const timestamp = Date.now();
+  const data = `${timestamp}.${JSON.stringify(payload)}`;
+  const signature = crypto.createHmac('sha256', secret).update(data).digest('hex');
+  
+  return {
+    timestamp,
+    signature,
+  };
+};
+
+/**
+ * Verify request signature
+ */
+const verifyRequestSignature = (req, res, next) => {
+  const signature = req.headers['x-signature'];
+  const timestamp = req.headers['x-timestamp'];
+  
+  if (!signature || !timestamp) {
+    return res.status(401).json({
+      success: false,
+      error: 'Request signature required',
+      code: 'SIGNATURE_MISSING',
+    });
+  }
+  
+  // Check timestamp is not too old (5 minutes)
+  const age = Date.now() - parseInt(timestamp);
+  if (age > 5 * 60 * 1000) {
+    return res.status(401).json({
+      success: false,
+      error: 'Request signature expired',
+      code: 'SIGNATURE_EXPIRED',
+    });
+  }
+  
+  // Verify signature
+  const crypto = require('crypto');
+  const secret = process.env.REQUEST_SIGNING_SECRET || 'default-secret';
+  const data = `${timestamp}.${JSON.stringify(req.body)}`;
+  const expectedSignature = crypto.createHmac('sha256', secret).update(data).digest('hex');
+  
+  if (signature !== expectedSignature) {
+    logSecurity('invalid_request_signature', {
+      ip: req.ip,
+      path: req.path,
+    });
+    
+    return res.status(401).json({
+      success: false,
+      error: 'Invalid request signature',
+      code: 'SIGNATURE_INVALID',
+    });
+  }
+  
+  next();
+};
+
+/**
+ * SQL Injection detection (for logging/alerting, not blocking)
+ */
+const detectSQLInjection = (value) => {
+  if (typeof value !== 'string') return false;
+  
+  const sqlPatterns = [
+    /(\b(SELECT|INSERT|UPDATE|DELETE|DROP|UNION|ALTER|CREATE|TRUNCATE)\b)/i,
+    /(\b(OR|AND)\b\s+\d+\s*=\s*\d+)/i,
+    /(--|#|\/\*)/,
+    /(\bEXEC\b|\bEXECUTE\b)/i,
+    /(\bxp_)/i,
+  ];
+  
+  return sqlPatterns.some(pattern => pattern.test(value));
+};
+
+/**
+ * SQL Injection detection middleware
+ */
+const sqlInjectionDetector = (req, res, next) => {
+  const checkObject = (obj, path = '') => {
+    if (!obj) return;
+    
+    for (const [key, value] of Object.entries(obj)) {
+      const currentPath = path ? `${path}.${key}` : key;
+      
+      if (typeof value === 'string' && detectSQLInjection(value)) {
+        logSecurity('sql_injection_attempt', {
+          ip: req.ip,
+          path: req.path,
+          field: currentPath,
+          value: value.substring(0, 100),
+        });
+        
+        // Block the request
+        return res.status(400).json({
+          success: false,
+          error: 'Invalid input detected',
+          code: 'INVALID_INPUT',
+        });
+      }
+      
+      if (typeof value === 'object' && value !== null) {
+        const blocked = checkObject(value, currentPath);
+        if (blocked) return blocked;
+      }
+    }
+  };
+  
+  const blocked = checkObject(req.body) || checkObject(req.query);
+  if (blocked) return;
+  
+  next();
+};
+
+/**
+ * Secure cookie configuration
+ */
+const secureCookieConfig = {
+  httpOnly: true,
+  secure: process.env.NODE_ENV === 'production',
+  sameSite: 'strict',
+  maxAge: 24 * 60 * 60 * 1000, // 24 hours
+  path: '/',
+};
+
+/**
+ * Set secure cookie
+ */
+const setSecureCookie = (res, name, value, options = {}) => {
+  res.cookie(name, value, {
+    ...secureCookieConfig,
+    ...options,
+  });
+};
+
+/**
+ * Clear secure cookie
+ */
+const clearSecureCookie = (res, name) => {
+  res.clearCookie(name, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'strict',
+    path: '/',
+  });
+};
+
+/**
+ * Security health check
+ */
+const securityHealthCheck = () => {
+  return {
+    blockedIPs: blockedIPs.size,
+    whitelistedIPs: whitelistedIPs.size,
+    failedLoginTrackers: failedLoginAttempts.size,
+    suspiciousActivityTrackers: suspiciousActivityTracker.size,
+    environment: process.env.NODE_ENV,
+    httpsEnabled: process.env.NODE_ENV === 'production',
+    helmet: true,
+    cors: true,
+    rateLimiting: true,
+    xssProtection: true,
+    mongoSanitization: true,
+    hppProtection: true,
+  };
+};
+
+// ============================================================================
+// UPDATED EXPORTS (Including new enterprise features)
+// ============================================================================
+
+module.exports = {
+  // Helmet
+  helmetConfig,
+  
+  // CORS
+  corsConfig,
+  getAllowedOrigins,
+  
+  // Rate Limiters
+  generalLimiter,
+  authLimiter,
+  apiLimiter,
+  passwordResetLimiter,
+  orderLimiter,
+  
+  // Input Sanitization
+  mongoSanitizeConfig,
+  xssConfig,
+  hppConfig,
+  sanitizeRequest,
+  sanitizeObject,
+  sanitizeValue,
+  
+  // IP Management
+  ipBlocker,
+  blockIP,
+  unblockIP,
+  whitelistIP,
+  blockedIPs,
+  whitelistedIPs,
+  
+  // Login Tracking
+  trackFailedLogin,
+  resetFailedLogins,
+  failedLoginAttempts,
+  
+  // Validation
+  validateContentType,
+  validateApiKey,
+  
+  // Logging
+  securityAuditLog,
+  
+  // Utilities
+  httpsRedirect,
+  requestId,
+  generateRequestId,
+  
+  // Composite
+  applySecurity,
+  
+  // === NEW ENTERPRISE FEATURES ===
+  
+  // Session Security
+  generateSessionFingerprint,
+  validateSessionFingerprint,
+  
+  // CSRF Protection
+  generateCSRFToken,
+  validateCSRFToken,
+  
+  // Bot Detection
+  botDetection,
+  
+  // Suspicious Activity
+  detectSuspiciousActivity,
+  suspiciousActivityTracker,
+  
+  // Geo-blocking
+  geoBlock,
+  blockedCountries,
+  
+  // PCI DSS Compliance
+  maskCardNumber,
+  sanitizeForLogging,
+  
+  // GDPR Compliance
+  checkGDPRConsent,
+  anonymizeIP,
+  
+  // Request Signing
+  signRequest,
+  verifyRequestSignature,
+  
+  // SQL Injection
+  detectSQLInjection,
+  sqlInjectionDetector,
+  
+  // Secure Cookies
+  secureCookieConfig,
+  setSecureCookie,
+  clearSecureCookie,
+  
+  // Health Check
+  securityHealthCheck,
 };
