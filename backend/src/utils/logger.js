@@ -176,6 +176,15 @@ const catalogLogger = createDomainLogger('catalog', 'catalog.log');
 // Security logger - Security events
 const securityLogger = createDomainLogger('security', 'security.log');
 
+// Analytics logger - Analytics events
+const analyticsLogger = createDomainLogger('analytics', 'analytics.log');
+
+// Inventory logger - Stock changes
+const inventoryLogger = createDomainLogger('inventory', 'inventory.log');
+
+// Promotion logger - Promotion events
+const promotionLogger = createDomainLogger('promotions', 'promotions.log');
+
 // =============================================================================
 // LOGGING FUNCTIONS
 // =============================================================================
@@ -244,6 +253,42 @@ function logCatalog(event, data = {}) {
  */
 function logSecurity(event, data = {}) {
   securityLogger.warn(event, {
+    ...data,
+    timestamp: new Date().toISOString()
+  });
+}
+
+/**
+ * Log an analytics event
+ * @param {string} event - The analytics event (page_view, add_to_cart, purchase, etc.)
+ * @param {Object} data - Analytics data
+ */
+function logAnalytics(event, data = {}) {
+  analyticsLogger.info(event, {
+    ...data,
+    timestamp: new Date().toISOString()
+  });
+}
+
+/**
+ * Log an inventory event
+ * @param {string} event - The inventory event (stock_update, low_stock, restock)
+ * @param {Object} data - Inventory data
+ */
+function logInventory(event, data = {}) {
+  inventoryLogger.info(event, {
+    ...data,
+    timestamp: new Date().toISOString()
+  });
+}
+
+/**
+ * Log a promotion event
+ * @param {string} event - The promotion event (promotion_created, promotion_applied, promotion_expired)
+ * @param {Object} data - Promotion data
+ */
+function logPromotion(event, data = {}) {
+  promotionLogger.info(event, {
     ...data,
     timestamp: new Date().toISOString()
   });
@@ -349,6 +394,79 @@ function resetErrorStats() {
 }
 
 // =============================================================================
+// PERFORMANCE LOGGING
+// =============================================================================
+
+/**
+ * Create a performance timer
+ * @param {string} operation - Name of the operation being timed
+ * @returns {Function} Function to call when operation completes
+ */
+function startTimer(operation) {
+  const startTime = Date.now();
+  return () => {
+    const duration = Date.now() - startTime;
+    logger.debug(`Performance: ${operation}`, { 
+      operation, 
+      duration: `${duration}ms`,
+      timestamp: new Date().toISOString()
+    });
+    return duration;
+  };
+}
+
+/**
+ * Log a performance metric
+ * @param {string} operation - Name of the operation
+ * @param {number} duration - Duration in milliseconds
+ * @param {Object} meta - Additional metadata
+ */
+function logPerformance(operation, duration, meta = {}) {
+  logger.debug(`Performance: ${operation}`, {
+    operation,
+    duration: `${duration}ms`,
+    ...meta,
+    timestamp: new Date().toISOString()
+  });
+}
+
+// =============================================================================
+// BUSINESS INTELLIGENCE LOGGING
+// =============================================================================
+
+/**
+ * Log a sales event for analytics
+ * @param {string} event - The sales event (sale_completed, quote_created, cart_abandoned)
+ * @param {Object} data - Sales data
+ */
+function logSale(event, data = {}) {
+  const saleData = {
+    ...data,
+    timestamp: new Date().toISOString()
+  };
+  
+  // Log to analytics for BI reports
+  analyticsLogger.info(`SALE: ${event}`, saleData);
+  
+  // Also log to orders if it's a completed sale
+  if (event === 'sale_completed') {
+    orderLogger.info('ORDER_COMPLETED', saleData);
+  }
+}
+
+/**
+ * Log a margin/profit event
+ * @param {string} event - The margin event
+ * @param {Object} data - Margin data (category, margin %, amount)
+ */
+function logMargin(event, data = {}) {
+  analyticsLogger.info(`MARGIN: ${event}`, {
+    ...data,
+    timestamp: new Date().toISOString()
+  });
+}
+
+// =============================================================================
 // EXPORTS
 // =============================================================================
 
@@ -369,6 +487,13 @@ module.exports = {
   logPayment,
   logCatalog,
   logSecurity,
+  logAnalytics,
+  logInventory,
+  logPromotion,
+  
+  // Business Intelligence
+  logSale,
+  logMargin,
   
   // Request logging
   requestLogger,
@@ -380,10 +505,17 @@ module.exports = {
   getErrorStats,
   resetErrorStats,
   
+  // Performance logging
+  startTimer,
+  logPerformance,
+  
   // Domain loggers (for direct access)
   auditLogger,
   orderLogger,
   paymentLogger,
   catalogLogger,
-  securityLogger
+  securityLogger,
+  analyticsLogger,
+  inventoryLogger,
+  promotionLogger
 };
