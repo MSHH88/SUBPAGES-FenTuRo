@@ -1064,6 +1064,260 @@ function logSupplier(event, data = {}) {
 }
 
 // =============================================================================
+// PRODUCT PERFORMANCE ANALYTICS (BESTSELLERS, HOT ITEMS, TRENDING)
+// =============================================================================
+
+/**
+ * Log product sale event - tracks which products sell the most
+ * Call this EVERY time a product is sold
+ * @param {Object} data - Product sale data
+ */
+function logProductSale(data = {}) {
+  analyticsLogger.info('PRODUCT_SALE', {
+    productId: data.productId,
+    productSku: data.productSku,
+    productName: data.productName,
+    category: data.category,
+    subcategory: data.subcategory,
+    manufacturer: data.manufacturer,
+    
+    // Sale details
+    quantity: data.quantity || 1,
+    unitPrice: data.unitPrice,
+    totalPrice: data.totalPrice,
+    margin: data.margin,
+    marginPercent: data.marginPercent,
+    
+    // Order context
+    orderId: data.orderId,
+    customerId: data.customerId,
+    isConfiguratorProduct: data.isConfiguratorProduct,
+    
+    // Configuration details (if from configurator)
+    configuration: data.configuration ? {
+      baseProduct: data.configuration.baseProduct,
+      customizations: data.configuration.customizations,
+      calculatedUpcharge: data.configuration.calculatedUpcharge
+    } : null,
+    
+    timestamp: new Date().toISOString()
+  });
+}
+
+/**
+ * Log product as bestseller/top performer
+ * Call periodically (daily/weekly) with aggregated data
+ * @param {string} period - 'daily', 'weekly', 'monthly', 'yearly', 'alltime'
+ * @param {Object} data - Bestseller data
+ */
+function logBestseller(period, data = {}) {
+  analyticsLogger.info(`BESTSELLER_${period.toUpperCase()}`, {
+    period,
+    periodStart: data.periodStart,
+    periodEnd: data.periodEnd,
+    
+    // Product info
+    rank: data.rank, // 1 = top seller
+    productId: data.productId,
+    productSku: data.productSku,
+    productName: data.productName,
+    category: data.category,
+    
+    // Performance metrics
+    unitsSold: data.unitsSold,
+    totalRevenue: data.totalRevenue,
+    totalProfit: data.totalProfit,
+    avgMargin: data.avgMargin,
+    
+    // Comparison
+    previousPeriodUnits: data.previousPeriodUnits,
+    unitChangePercent: data.unitChangePercent,
+    previousPeriodRevenue: data.previousPeriodRevenue,
+    revenueChangePercent: data.revenueChangePercent,
+    
+    // Ranking change
+    previousRank: data.previousRank,
+    rankChange: data.rankChange, // positive = moved up, negative = moved down
+    
+    timestamp: new Date().toISOString()
+  });
+}
+
+/**
+ * Log trending/hot products - products gaining popularity quickly
+ * @param {Object} data - Trending product data
+ */
+function logTrendingProduct(data = {}) {
+  analyticsLogger.info('TRENDING_PRODUCT', {
+    productId: data.productId,
+    productSku: data.productSku,
+    productName: data.productName,
+    category: data.category,
+    
+    // Trending metrics
+    trendScore: data.trendScore, // calculated score
+    currentPeriodSales: data.currentPeriodSales,
+    previousPeriodSales: data.previousPeriodSales,
+    salesGrowthPercent: data.salesGrowthPercent,
+    
+    // Views to sales
+    currentViews: data.currentViews,
+    previousViews: data.previousViews,
+    viewGrowthPercent: data.viewGrowthPercent,
+    
+    // Conversion
+    conversionRate: data.conversionRate,
+    
+    // When did it start trending
+    trendStartDate: data.trendStartDate,
+    daysTrending: data.daysTrending,
+    
+    timestamp: new Date().toISOString()
+  });
+}
+
+/**
+ * Log low performing products - products that need attention
+ * @param {Object} data - Low performer data
+ */
+function logLowPerformer(data = {}) {
+  analyticsLogger.warn('LOW_PERFORMER', {
+    productId: data.productId,
+    productSku: data.productSku,
+    productName: data.productName,
+    category: data.category,
+    
+    // Performance issues
+    reason: data.reason, // 'no_sales', 'declining', 'low_margin', 'high_returns', 'low_views'
+    unitsSold: data.unitsSold,
+    totalRevenue: data.totalRevenue,
+    margin: data.margin,
+    
+    // Context
+    daysSinceLastSale: data.daysSinceLastSale,
+    lastSaleDate: data.lastSaleDate,
+    views: data.views,
+    addToCartCount: data.addToCartCount,
+    abandonmentRate: data.abandonmentRate,
+    
+    // Recommendation
+    recommendation: data.recommendation, // 'price_review', 'discontinue', 'promote', 'restock'
+    
+    timestamp: new Date().toISOString()
+  });
+}
+
+/**
+ * Log product ranking summary - full ranking list
+ * Call periodically to log entire rankings
+ * @param {string} period - 'daily', 'weekly', 'monthly'
+ * @param {string} category - Category name or 'all' for overall
+ * @param {Array} rankings - Array of product rankings
+ */
+function logProductRankings(period, category, rankings = []) {
+  analyticsLogger.info(`PRODUCT_RANKINGS_${period.toUpperCase()}`, {
+    period,
+    category,
+    rankingDate: new Date().toISOString(),
+    totalProducts: rankings.length,
+    
+    // Top 10 summary
+    top10: rankings.slice(0, 10).map((item, index) => ({
+      rank: index + 1,
+      productId: item.productId,
+      productSku: item.productSku,
+      productName: item.productName,
+      unitsSold: item.unitsSold,
+      revenue: item.revenue,
+      profit: item.profit
+    })),
+    
+    // Bottom 5 (low performers)
+    bottom5: rankings.slice(-5).map((item, index) => ({
+      rank: rankings.length - 4 + index,
+      productId: item.productId,
+      productSku: item.productSku,
+      productName: item.productName,
+      unitsSold: item.unitsSold,
+      revenue: item.revenue
+    })),
+    
+    timestamp: new Date().toISOString()
+  });
+}
+
+/**
+ * Log product view - track what products customers are looking at
+ * @param {Object} data - View data
+ */
+function logProductView(data = {}) {
+  analyticsLogger.info('PRODUCT_VIEW', {
+    productId: data.productId,
+    productSku: data.productSku,
+    productName: data.productName,
+    category: data.category,
+    
+    // Viewer info
+    customerId: data.customerId, // null if not logged in
+    visitorId: data.visitorId,
+    sessionId: data.sessionId,
+    
+    // Context
+    source: data.source, // 'search', 'category', 'recommendation', 'direct', 'ad'
+    referrer: data.referrer,
+    viewDuration: data.viewDuration, // seconds
+    
+    // Configurator engagement
+    openedConfigurator: data.openedConfigurator,
+    configuratorTimeSpent: data.configuratorTimeSpent,
+    
+    // Actions taken
+    addedToCart: data.addedToCart,
+    addedToWishlist: data.addedToWishlist,
+    requestedQuote: data.requestedQuote,
+    
+    timestamp: new Date().toISOString()
+  });
+}
+
+/**
+ * Log category performance - which categories sell best
+ * @param {string} period - 'daily', 'weekly', 'monthly', 'yearly'
+ * @param {Object} data - Category performance data
+ */
+function logCategoryPerformance(period, data = {}) {
+  analyticsLogger.info(`CATEGORY_PERFORMANCE_${period.toUpperCase()}`, {
+    period,
+    periodStart: data.periodStart,
+    periodEnd: data.periodEnd,
+    
+    category: data.category,
+    subcategories: data.subcategories,
+    
+    // Metrics
+    productCount: data.productCount,
+    unitsSold: data.unitsSold,
+    totalRevenue: data.totalRevenue,
+    totalProfit: data.totalProfit,
+    avgMargin: data.avgMargin,
+    
+    // Top products in category
+    topProduct: data.topProduct,
+    topProductUnits: data.topProductUnits,
+    
+    // Comparison
+    previousPeriodRevenue: data.previousPeriodRevenue,
+    revenueGrowthPercent: data.revenueGrowthPercent,
+    
+    // Category rank
+    overallRank: data.overallRank,
+    previousRank: data.previousRank,
+    
+    timestamp: new Date().toISOString()
+  });
+}
+
+// =============================================================================
 // EXPORTS
 // =============================================================================
 
@@ -1133,6 +1387,16 @@ module.exports = {
   
   // Supplier Analytics
   logSupplier,
+  
+  // Product Performance Analytics (BESTSELLERS, HOT ITEMS, TRENDING)
+  // Tracks: What sells most, trending products, low performers, rankings
+  logProductSale,
+  logBestseller,
+  logTrendingProduct,
+  logLowPerformer,
+  logProductRankings,
+  logProductView,
+  logCategoryPerformance,
   
   // Request logging
   requestLogger,
