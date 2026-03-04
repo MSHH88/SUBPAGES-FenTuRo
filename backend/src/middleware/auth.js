@@ -137,6 +137,7 @@ const PERMISSIONS = {
   ],
   
   // Sales Rep permissions
+  // NOTE: NO leads access - only SUPER_ADMIN can see leads
   [ROLES.SALES_REP]: [
     'products:view',
     'categories:view',
@@ -146,9 +147,9 @@ const PERMISSIONS = {
     'customers:view',
     'customers:edit',
     'quotes:create',
-    'quotes:edit',
-    'leads:view:all',
-    'leads:assign'
+    'quotes:edit'
+    // leads:view:all - REMOVED (Only SUPER_ADMIN can see all leads)
+    // leads:assign - REMOVED (Only SUPER_ADMIN can assign leads)
   ],
   
   // Support permissions
@@ -181,6 +182,7 @@ const PERMISSIONS = {
   ],
   
   // Admin permissions
+  // NOTE: NO leads access - only SUPER_ADMIN can see/manage all leads
   [ROLES.ADMIN]: [
     'products:manage',
     'categories:manage',
@@ -195,11 +197,18 @@ const PERMISSIONS = {
     'settings:edit',
     'catalog:import',
     'commissions:manage'
+    // leads:manage - REMOVED (Only SUPER_ADMIN)
+    // leads:view:all - REMOVED (Only SUPER_ADMIN)
   ],
   
   // Super Admin permissions (everything)
+  // ONLY SUPER_ADMIN CAN:
+  // - View ALL leads from ALL creators
+  // - Assign leads to staff
+  // - Manage lead permissions
+  // - Export lead data
   [ROLES.SUPER_ADMIN]: [
-    '*'  // All permissions
+    '*'  // All permissions including: leads:view:all, leads:manage, leads:assign, leads:export
   ]
 };
 
@@ -891,6 +900,154 @@ const generateBackupCodes = (count = 10) => {
 };
 
 // ============================================
+// LEADS ACCESS CONTROL (SUPER_ADMIN ONLY)
+// ============================================
+
+/**
+ * LEAD PERMISSIONS:
+ * -----------------
+ * leads:view:own    → Creator can see their OWN leads only
+ * leads:view:all    → SUPER_ADMIN ONLY - see ALL leads
+ * leads:create      → Creator can create leads (referrals)
+ * leads:assign      → SUPER_ADMIN ONLY - assign leads to staff
+ * leads:manage      → SUPER_ADMIN ONLY - full lead management
+ * leads:export      → SUPER_ADMIN ONLY - export lead data
+ */
+
+/**
+ * Check if user can view leads
+ * - SUPER_ADMIN: Can view ALL leads
+ * - CREATOR: Can view ONLY their own leads
+ * - Others: NO access
+ */
+const canViewAllLeads = (req, res, next) => {
+  if (!req.user) {
+    return res.status(401).json({
+      success: false,
+      error: 'Authentication required'
+    });
+  }
+  
+  // Only SUPER_ADMIN can view ALL leads
+  if (req.user.role !== ROLES.SUPER_ADMIN) {
+    return res.status(403).json({
+      success: false,
+      error: 'Access denied. Only Super Administrator can view all leads.',
+      yourRole: ROLE_NAMES[req.user.role]
+    });
+  }
+  
+  next();
+};
+
+/**
+ * Check if user can view a specific lead
+ * - SUPER_ADMIN: Can view any lead
+ * - CREATOR: Can view only leads they created
+ * - Others: NO access
+ */
+const canViewLead = (req, res, next) => {
+  if (!req.user) {
+    return res.status(401).json({
+      success: false,
+      error: 'Authentication required'
+    });
+  }
+  
+  // SUPER_ADMIN can view any lead
+  if (req.user.role === ROLES.SUPER_ADMIN) {
+    return next();
+  }
+  
+  // CREATOR can view only their own leads
+  if (req.user.role === ROLES.CREATOR) {
+    // The route handler must verify lead.creatorId === req.user.id
+    req.mustVerifyLeadOwnership = true;
+    return next();
+  }
+  
+  // All others: NO access
+  return res.status(403).json({
+    success: false,
+    error: 'Access denied. You do not have permission to view leads.',
+    yourRole: ROLE_NAMES[req.user.role]
+  });
+};
+
+/**
+ * Check if user can manage leads (assign, edit, delete, export)
+ * ONLY SUPER_ADMIN
+ */
+const canManageLeads = (req, res, next) => {
+  if (!req.user) {
+    return res.status(401).json({
+      success: false,
+      error: 'Authentication required'
+    });
+  }
+  
+  // Only SUPER_ADMIN can manage leads
+  if (req.user.role !== ROLES.SUPER_ADMIN) {
+    return res.status(403).json({
+      success: false,
+      error: 'Access denied. Only Super Administrator can manage leads.',
+      yourRole: ROLE_NAMES[req.user.role]
+    });
+  }
+  
+  next();
+};
+
+/**
+ * Grant temporary lead access to a user
+ * Only SUPER_ADMIN can grant this
+ * @param {string} userId - User to grant access
+ * @param {string} leadId - Specific lead or 'all'
+ * @param {number} durationHours - How long access lasts
+ */
+const temporaryLeadAccess = new Map(); // userId -> { leadIds: Set, expiresAt: Date }
+
+const grantTemporaryLeadAccess = (userId, leadId, durationHours = 24) => {
+  const expiresAt = new Date(Date.now() + durationHours * 60 * 60 * 1000);
+  
+  if (!temporaryLeadAccess.has(userId)) {
+    temporaryLeadAccess.set(userId, { leadIds: new Set(), expiresAt });
+  }
+  
+  const access = temporaryLeadAccess.get(userId);
+  access.leadIds.add(leadId);
+  access.expiresAt = expiresAt;
+  
+  return { userId, leadId, expiresAt };
+};
+
+const revokeTemporaryLeadAccess = (userId, leadId = null) => {
+  if (!temporaryLeadAccess.has(userId)) return false;
+  
+  if (leadId) {
+    temporaryLeadAccess.get(userId).leadIds.delete(leadId);
+  } else {
+    temporaryLeadAccess.delete(userId);
+  }
+  
+  return true;
+};
+
+const hasTemporaryLeadAccess = (userId, leadId) => {
+  if (!temporaryLeadAccess.has(userId)) return false;
+  
+  const access = temporaryLeadAccess.get(userId);
+  
+  // Check if expired
+  if (new Date() > access.expiresAt) {
+    temporaryLeadAccess.delete(userId);
+    return false;
+  }
+  
+  return access.leadIds.has(leadId) || access.leadIds.has('all');
+};
+
+// ============================================
 // EXPORTS
 // ============================================
 
@@ -950,6 +1107,15 @@ module.exports = {
   generateMFASecret,
   verifyMFAToken,
   generateBackupCodes,
+  
+  // LEADS ACCESS CONTROL (SUPER_ADMIN ONLY)
+  canViewAllLeads,
+  canViewLead,
+  canManageLeads,
+  grantTemporaryLeadAccess,
+  revokeTemporaryLeadAccess,
+  hasTemporaryLeadAccess,
+  temporaryLeadAccess,
   
   // Token storage (for external access)
   tokenBlacklist,
