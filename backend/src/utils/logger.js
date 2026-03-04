@@ -467,6 +467,303 @@ function logMargin(event, data = {}) {
 }
 
 // =============================================================================
+// LEAD GENERATOR LOGGING (INTERNAL - NOT GOOGLE ANALYTICS)
+// =============================================================================
+
+/**
+ * Log lead generator events (for CREATOR role commission tracking)
+ * This tracks which sales agent brought which customer
+ * @param {string} event - The lead event type
+ * @param {Object} data - Lead data
+ */
+function logLead(event, data = {}) {
+  const leadData = {
+    event,
+    creatorId: data.creatorId,
+    creatorName: data.creatorName,
+    customerId: data.customerId,
+    customerEmail: data.customerEmail ? '***' + data.customerEmail.slice(-10) : null,
+    source: data.source, // website, referral, direct, etc.
+    campaign: data.campaign,
+    landingPage: data.landingPage,
+    timestamp: new Date().toISOString(),
+    ...data
+  };
+  
+  auditLogger.info(`LEAD: ${event}`, leadData);
+  analyticsLogger.info(`LEAD: ${event}`, leadData);
+}
+
+/**
+ * Log commission events for lead generators
+ * @param {string} event - Commission event type
+ * @param {Object} data - Commission data
+ */
+function logCommission(event, data = {}) {
+  auditLogger.info(`COMMISSION: ${event}`, {
+    event,
+    creatorId: data.creatorId,
+    creatorName: data.creatorName,
+    orderId: data.orderId,
+    orderAmount: data.orderAmount,
+    commissionRate: data.commissionRate,
+    commissionAmount: data.commissionAmount,
+    status: data.status, // pending, approved, paid
+    timestamp: new Date().toISOString()
+  });
+}
+
+// =============================================================================
+// CUSTOMER BEHAVIOR ANALYTICS
+// =============================================================================
+
+/**
+ * Log customer behavior events (professional analytics)
+ * @param {string} event - Behavior event type
+ * @param {Object} data - Behavior data
+ */
+function logCustomerBehavior(event, data = {}) {
+  analyticsLogger.info(`BEHAVIOR: ${event}`, {
+    event,
+    customerId: data.customerId,
+    sessionId: data.sessionId,
+    productId: data.productId,
+    productName: data.productName,
+    category: data.category,
+    action: data.action, // view, add_to_cart, remove_from_cart, wishlist, compare
+    value: data.value,
+    timestamp: new Date().toISOString()
+  });
+}
+
+/**
+ * Log conversion funnel events
+ * @param {string} stage - Funnel stage
+ * @param {Object} data - Funnel data
+ */
+function logConversion(stage, data = {}) {
+  analyticsLogger.info(`FUNNEL: ${stage}`, {
+    stage,
+    stages: {
+      1: 'page_view',
+      2: 'product_view',
+      3: 'add_to_cart',
+      4: 'begin_checkout',
+      5: 'payment_info',
+      6: 'purchase_complete'
+    },
+    customerId: data.customerId,
+    sessionId: data.sessionId,
+    orderId: data.orderId,
+    cartValue: data.cartValue,
+    itemCount: data.itemCount,
+    timestamp: new Date().toISOString()
+  });
+}
+
+/**
+ * Log cart abandonment events
+ * @param {Object} data - Abandonment data
+ */
+function logCartAbandonment(data = {}) {
+  analyticsLogger.info('CART_ABANDONED', {
+    customerId: data.customerId,
+    sessionId: data.sessionId,
+    cartId: data.cartId,
+    cartValue: data.cartValue,
+    itemCount: data.itemCount,
+    items: data.items, // Array of product IDs
+    lastActiveAt: data.lastActiveAt,
+    abandonedAt: new Date().toISOString(),
+    recoveryEmailSent: false
+  });
+}
+
+// =============================================================================
+// SEARCH & DISCOVERY ANALYTICS
+// =============================================================================
+
+/**
+ * Log search events (what customers search for)
+ * @param {Object} data - Search data
+ */
+function logSearch(data = {}) {
+  analyticsLogger.info('SEARCH', {
+    query: data.query,
+    resultsCount: data.resultsCount,
+    category: data.category,
+    filters: data.filters,
+    sortBy: data.sortBy,
+    page: data.page,
+    customerId: data.customerId,
+    sessionId: data.sessionId,
+    clickedResults: data.clickedResults, // Which results were clicked
+    timestamp: new Date().toISOString()
+  });
+}
+
+/**
+ * Log zero-result searches (important for product gaps)
+ * @param {Object} data - Zero result search data
+ */
+function logZeroResults(data = {}) {
+  analyticsLogger.warn('SEARCH_NO_RESULTS', {
+    query: data.query,
+    category: data.category,
+    filters: data.filters,
+    customerId: data.customerId,
+    timestamp: new Date().toISOString()
+  });
+}
+
+// =============================================================================
+// GEOGRAPHIC & REGIONAL ANALYTICS
+// =============================================================================
+
+/**
+ * Log geographic data for regional analytics
+ * @param {string} event - Geographic event
+ * @param {Object} data - Geographic data
+ */
+function logGeographic(event, data = {}) {
+  analyticsLogger.info(`GEO: ${event}`, {
+    event,
+    country: data.country,
+    region: data.region,
+    city: data.city,
+    postalCode: data.postalCode,
+    orderId: data.orderId,
+    customerId: data.customerId,
+    orderValue: data.orderValue,
+    shippingZone: data.shippingZone,
+    timestamp: new Date().toISOString()
+  });
+}
+
+// =============================================================================
+// TIME-BASED ANALYTICS
+// =============================================================================
+
+/**
+ * Log time-based analytics (seasonality, peak hours)
+ * @param {string} event - Time event
+ * @param {Object} data - Time data
+ */
+function logTimeAnalytics(event, data = {}) {
+  const now = new Date();
+  analyticsLogger.info(`TIME: ${event}`, {
+    event,
+    hour: now.getHours(),
+    dayOfWeek: now.toLocaleDateString('en-US', { weekday: 'long' }),
+    month: now.toLocaleDateString('en-US', { month: 'long' }),
+    quarter: Math.ceil((now.getMonth() + 1) / 3),
+    year: now.getFullYear(),
+    isWeekend: [0, 6].includes(now.getDay()),
+    ...data,
+    timestamp: now.toISOString()
+  });
+}
+
+// =============================================================================
+// EMPLOYEE PERFORMANCE ANALYTICS
+// =============================================================================
+
+/**
+ * Log employee/team performance metrics
+ * @param {string} event - Performance event
+ * @param {Object} data - Performance data
+ */
+function logEmployeePerformance(event, data = {}) {
+  auditLogger.info(`EMPLOYEE: ${event}`, {
+    event,
+    employeeId: data.employeeId,
+    employeeName: data.employeeName,
+    role: data.role,
+    metric: data.metric, // orders_processed, quotes_created, leads_converted
+    value: data.value,
+    period: data.period, // daily, weekly, monthly
+    timestamp: new Date().toISOString()
+  });
+}
+
+// =============================================================================
+// CUSTOMER LIFETIME VALUE (CLV) ANALYTICS
+// =============================================================================
+
+/**
+ * Log customer lifetime value events
+ * @param {string} event - CLV event
+ * @param {Object} data - CLV data
+ */
+function logCLV(event, data = {}) {
+  analyticsLogger.info(`CLV: ${event}`, {
+    event,
+    customerId: data.customerId,
+    totalOrders: data.totalOrders,
+    totalRevenue: data.totalRevenue,
+    totalProfit: data.totalProfit,
+    averageOrderValue: data.averageOrderValue,
+    firstPurchaseDate: data.firstPurchaseDate,
+    lastPurchaseDate: data.lastPurchaseDate,
+    daysSinceLastPurchase: data.daysSinceLastPurchase,
+    predictedCLV: data.predictedCLV,
+    customerSegment: data.customerSegment, // high_value, medium, low, at_risk
+    timestamp: new Date().toISOString()
+  });
+}
+
+// =============================================================================
+// ROI & MARKETING ANALYTICS
+// =============================================================================
+
+/**
+ * Log ROI and marketing campaign analytics
+ * @param {string} event - Marketing event
+ * @param {Object} data - Marketing data
+ */
+function logMarketing(event, data = {}) {
+  analyticsLogger.info(`MARKETING: ${event}`, {
+    event,
+    campaignId: data.campaignId,
+    campaignName: data.campaignName,
+    channel: data.channel, // email, social, ppc, organic
+    spend: data.spend,
+    impressions: data.impressions,
+    clicks: data.clicks,
+    conversions: data.conversions,
+    revenue: data.revenue,
+    roi: data.roi, // (revenue - spend) / spend * 100
+    cpc: data.cpc, // cost per click
+    cpa: data.cpa, // cost per acquisition
+    timestamp: new Date().toISOString()
+  });
+}
+
+// =============================================================================
+// SUPPLIER ANALYTICS
+// =============================================================================
+
+/**
+ * Log supplier performance analytics
+ * @param {string} event - Supplier event
+ * @param {Object} data - Supplier data
+ */
+function logSupplier(event, data = {}) {
+  analyticsLogger.info(`SUPPLIER: ${event}`, {
+    event,
+    supplierId: data.supplierId,
+    supplierName: data.supplierName,
+    metric: data.metric, // delivery_time, quality_score, price_changes
+    value: data.value,
+    ordersCount: data.ordersCount,
+    onTimeDeliveryRate: data.onTimeDeliveryRate,
+    defectRate: data.defectRate,
+    avgLeadTime: data.avgLeadTime,
+    timestamp: new Date().toISOString()
+  });
+}
+
+// =============================================================================
 // EXPORTS
 // =============================================================================
 
@@ -494,6 +791,37 @@ module.exports = {
   // Business Intelligence
   logSale,
   logMargin,
+  
+  // Lead Generator & Commission Tracking (INTERNAL - NOT GOOGLE ANALYTICS)
+  logLead,
+  logCommission,
+  
+  // Customer Behavior Analytics
+  logCustomerBehavior,
+  logConversion,
+  logCartAbandonment,
+  
+  // Search & Discovery Analytics
+  logSearch,
+  logZeroResults,
+  
+  // Geographic & Regional Analytics
+  logGeographic,
+  
+  // Time-based Analytics
+  logTimeAnalytics,
+  
+  // Employee Performance Analytics
+  logEmployeePerformance,
+  
+  // Customer Lifetime Value (CLV)
+  logCLV,
+  
+  // Marketing & ROI Analytics
+  logMarketing,
+  
+  // Supplier Analytics
+  logSupplier,
   
   // Request logging
   requestLogger,
