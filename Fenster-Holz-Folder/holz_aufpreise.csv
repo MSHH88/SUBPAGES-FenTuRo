@@ -1,0 +1,103 @@
+kategorie,option_key,option_label,angebotspreis_eur,aufpreis_eur
+Profil,p1,Softline-68 (Kiefer),183.99,0.0
+Profil,p2,Softline-78 (Kiefer),214.54,30.55
+Profil,p3,Softline-88 (Kiefer),229.3,45.31
+Profil,p4,Softline-68 (Meranti),202.34,18.35
+Profil,p5,Softline-78 (Meranti),274.88,90.89
+Profil,p6,Softline-88 (Meranti),299.35,115.36
+Öffnungsrichtung,fn_1_fest_ohne_fluegel,Fest (ohne Flügel),183.99,0.0
+Öffnungsrichtung,fn_1_fest_fluegel,Fest (mit Flügel),305.16,121.17
+Öffnungsrichtung,fn_1_kipp,Kipp,311.89,127.9
+Öffnungsrichtung,fn_1_drehlinks,Dreh Links,318.62,134.63
+Öffnungsrichtung,fn_1_drehrechts,Dreh Rechts,318.62,134.63
+Öffnungsrichtung,fn_1_drehkipp_links,Dreh-Kipp Links,337.32,153.33
+Öffnungsrichtung,fn_1_drehkipp_rechts,Dreh-Kipp Rechts,337.32,153.33
+Silikonfarbe,sif1,Transparent,183.99,0.0
+Silikonfarbe,sif2,Weiß,183.99,0.0
+Silikonfarbe,sif3,Golden Oak (Goldeiche),183.99,0.0
+Silikonfarbe,sif4,Sepia Braun,183.99,0.0
+Farben Auswahl (Rubrik),fr1,RAL-Farben,183.99,0.0
+Farben Auswahl (Rubrik),fr3,Holz-Farben,183.99,0.0
+Dekorfarbe Außen (Holz),fr3_ho01,Holz unbehandelt (Rohholz),183.99,0.0
+Dekorfarbe Außen (Holz),fr3_ho02,Holz imprägniert,264.49,80.5
+Dekorfarbe Außen (Holz),fr3_ho03,Holz mit Grundierung transparent,264.49,80.5
+Dekorfarbe Außen (Holz),fr3_ho04,Lack transparent,264.49,80.5
+Dekorfarbe Außen (Holz),fr3_ho05,Weiß (deckend),264.49,80.5
+Dekorfarbe Außen (Holz),fr3_ho06,Eiche Hell - Lasur 006,264.49,80.5
+Dekorfarbe Außen (Holz),fr3_ho07,Eiche Dunkel - Lasur 009,264.49,80.5
+Dekorfarbe Außen (Holz),fr3_ho08,Nussbaum - Lasur 010,264.49,80.5
+Dekorfarbe Außen (Holz),fr3_ho09,Mahagoni - Lasur 045,264.49,80.5
+Dekorfarbe Außen (Holz),fr3_ho10,Palisander - Lasur 048,264.49,80.5
+Dekorfarbe Außen (Holz),fr3_ho11,Teak - Lasur 085,264.49,80.5
+Dekorfarbe Innen (Holz),fr3_ho01_i,Holz unbehandelt (Rohholz),183.99,0.0
+Dekorfarbe Innen (Holz),fr3_ho02_i,Holz imprägniert,264.49,80.5
+Dekorfarbe Innen (Holz),fr3_ho03_i,Holz mit Grundierung transparent,264.49,80.5
+Dekorfarbe Innen (Holz),fr3_ho04_i,Lack transparent,264.49,80.5
+Dekorfarbe Innen (Holz),fr3_ho05_i,Weiß (deckend),264.49,80.5
+Dekorfarbe Innen (Holz),fr3_ho06_i,Eiche Hell - Lasur 006,264.49,80.5
+Dekorfarbe Innen (Holz),fr3_ho07_i,Eiche Dunkel - Lasur 009,264.49,80.5
+Dekorfarbe Innen (Holz),fr3_ho08_i,Nussbaum - Lasur 010,264.49,80.5
+Dekorfarbe Innen (Holz),fr3_ho09_i,Mahagoni - Lasur 045,264.49,80.5
+Dekorfarbe Innen (Holz),fr3_ho10_i,Palisander - Lasur 048,264.49,80.5
+Dekorfarbe Innen (Holz),fr3_ho11_i,Teak - Lasur 085,264.49,80.5
+Verglasung,g1,2-fach Verglasung,183.99,0.0
+Verglasung,g2,3-fach Verglasung,183.99,0.0
+Verglasung,g3,3-fach Verglasung Premium,188.75,4.76
+Verglasung,g4,3-fach Verglasung Passivhaus,188.75,4.76
+Verglasung,g5,2-fach Verglasung Solar,198.23,14.24
+Verglasung,g6,3-fach Verglasung Solar,183.99,0.0
+Schallschutz,schallschutz_nein,Nein,183.99,0.0
+Schallschutz,schallschutz_ja,Ja,183.99,0.0
+Sicherheitsverglasung,sicherheitsverglasung_0,Nein,183.99,0.0
+Sicherheitsverglasung,sicherheitsverglasung_1,Ja,198.23,14.24
+Ornament- & Sonnenschutzglas,ornament_0,Nein,183.99,0.0
+Ornament- & Sonnenschutzglas,ornament_1,Ja,189.95,5.96
+Sprossen,sprossen_0,Nein,183.99,0.0
+Sprossen,sprossen_1,Sprossen innenliegend,195.77,11.78
+Sprossen,sprossen_2,Sprossen aufliegend,195.77,11.78
+Rollladen,rollladen_0,Kein Rollladen,183.99,0.0
+Rollladen,rollladen_1,Aufsatzrollladen,183.99,0.0
+Rollladen,rollladen_2,Vorsatzrollladen,183.99,0.0
+Rollladen Motor,rollladen_motor_0,Kein Motor,183.99,0.0
+Rollladen Motor,rollladen_motor_1,Mit Motor,183.99,0.0
+Fensterbankfräsung,rfr1,Standardfalz - Fräsung beidseitig,183.99,0.0
+Fensterbankfräsung,rfr2,Fräsung außen,183.99,0.0
+Fensterbankfräsung,rfr3,Fräsung innen,183.99,0.0
+Fensterbankfräsung,rfr4,Ohne Fräsung,183.99,0.0
+Wetterschenkel,wr1,Aluminium Wetterschenkel - Weiß,183.99,0.0
+Wetterschenkel,wr2,Aluminium Wetterschenkel - Silber,183.99,0.0
+Wetterschenkel,wr3,Aluminium Wetterschenkel - Bronze Hell,183.99,0.0
+Wetterschenkel,wr4,Aluminium Wetterschenkel - Bronze Dunkel,183.99,0.0
+Wetterschenkel,wr5,Holz Retro - Fensterfarbe,205.21,21.22
+Fensterbankanschluss,fensterbankanschluss_0,Nein,183.99,0.0
+Fensterbankanschluss,fensterbankanschluss_1,Ja,183.99,0.0
+Aufbohrschutz,aufbohrschutz_0,Nein,183.99,0.0
+Aufbohrschutz,aufbohrschutz_1,Ja,183.99,0.0
+Sicherheitsbeschläge,sicherheitsbeschlaege_0,Nein,183.99,0.0
+Sicherheitsbeschläge,sicherheitsbeschlaege_1,Ja,183.99,0.0
+Reedkontakt,reedkontakte_0,Nein,183.99,0.0
+Reedkontakt,reedkontakte_1,Ja,230.77,46.78
+Fensterfalzlüfter,fensterfalzluefter_0,Nein,183.99,0.0
+Fensterfalzlüfter,fensterfalzluefter_1,Ja,231.01,47.02
+Rahmenverbreiterung,rahmenverbreiterung_0,Nein,183.99,0.0
+Rahmenverbreiterung,rahmenverbreiterung_1,Ja,183.99,0.0
+Rahmenverbreiterung Oben,oben_0,0 mm,183.99,0.0
+Rahmenverbreiterung Oben,oben_20,20 mm,183.99,0.0
+Rahmenverbreiterung Oben,oben_30,30 mm,183.99,0.0
+Rahmenverbreiterung Oben,oben_40,40 mm,198.49,14.5
+Rahmenverbreiterung Oben,oben_50,50 mm,183.99,0.0
+Rahmenverbreiterung Unten,unten_0,0 mm,183.99,0.0
+Rahmenverbreiterung Unten,unten_20,20 mm,183.99,0.0
+Rahmenverbreiterung Unten,unten_30,30 mm,183.99,0.0
+Rahmenverbreiterung Unten,unten_40,40 mm,198.49,14.5
+Rahmenverbreiterung Unten,unten_50,50 mm,183.99,0.0
+Rahmenverbreiterung Links,links_0,0 mm,183.99,0.0
+Rahmenverbreiterung Links,links_20,20 mm,183.99,0.0
+Rahmenverbreiterung Links,links_30,30 mm,183.99,0.0
+Rahmenverbreiterung Links,links_40,40 mm,198.49,14.5
+Rahmenverbreiterung Links,links_50,50 mm,183.99,0.0
+Rahmenverbreiterung Rechts,rechts_0,0 mm,183.99,0.0
+Rahmenverbreiterung Rechts,rechts_20,20 mm,183.99,0.0
+Rahmenverbreiterung Rechts,rechts_30,30 mm,183.99,0.0
+Rahmenverbreiterung Rechts,rechts_40,40 mm,198.49,14.5
+Rahmenverbreiterung Rechts,rechts_50,50 mm,183.99,0.0
