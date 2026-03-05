@@ -1,0 +1,289 @@
+profil_id,profil_name,breite_mm,hoehe_mm,angebotspreis_eur,preisempfehlung_eur,faktor_check
+p1,MB-45 (Nur Innenbereich),440,1700,437.68,729.46,0.6
+p1,MB-45 (Nur Innenbereich),440,1800,433.94,723.23,0.6
+p1,MB-45 (Nur Innenbereich),440,1900,463.66,772.76,0.6
+p1,MB-45 (Nur Innenbereich),440,2000,474.95,791.59,0.6
+p1,MB-45 (Nur Innenbereich),440,2100,492.23,820.39,0.6
+p1,MB-45 (Nur Innenbereich),440,2200,503.92,839.86,0.6
+p1,MB-45 (Nur Innenbereich),440,2300,516.04,860.06,0.6
+p1,MB-45 (Nur Innenbereich),440,2400,535.16,891.94,0.6
+p1,MB-45 (Nur Innenbereich),550,1700,423.27,705.45,0.6
+p1,MB-45 (Nur Innenbereich),550,1800,419.66,699.43,0.6
+p1,MB-45 (Nur Innenbereich),550,1900,451.36,752.27,0.6
+p1,MB-45 (Nur Innenbereich),550,2000,465.94,776.56,0.6
+p1,MB-45 (Nur Innenbereich),550,2100,486.43,810.72,0.6
+p1,MB-45 (Nur Innenbereich),550,2200,501.46,835.77,0.6
+p1,MB-45 (Nur Innenbereich),550,2300,516.04,860.06,0.6
+p1,MB-45 (Nur Innenbereich),550,2400,535.16,891.94,0.6
+p1,MB-45 (Nur Innenbereich),650,1700,439.06,731.77,0.6
+p1,MB-45 (Nur Innenbereich),650,1800,439.06,731.77,0.6
+p1,MB-45 (Nur Innenbereich),650,1900,472.31,787.19,0.6
+p1,MB-45 (Nur Innenbereich),650,2000,487.34,812.24,0.6
+p1,MB-45 (Nur Innenbereich),650,2100,508.3,847.16,0.6
+p1,MB-45 (Nur Innenbereich),650,2200,523.78,872.97,0.6
+p1,MB-45 (Nur Innenbereich),650,2300,538.36,897.26,0.6
+p1,MB-45 (Nur Innenbereich),650,2400,557.94,929.9,0.6
+p1,MB-45 (Nur Innenbereich),750,1700,457.74,762.9,0.6
+p1,MB-45 (Nur Innenbereich),750,1800,457.74,762.9,0.6
+p1,MB-45 (Nur Innenbereich),750,1900,491.44,819.07,0.6
+p1,MB-45 (Nur Innenbereich),750,2000,506.47,844.12,0.6
+p1,MB-45 (Nur Innenbereich),750,2100,527.88,879.8,0.6
+p1,MB-45 (Nur Innenbereich),750,2200,543.37,905.61,0.6
+p1,MB-45 (Nur Innenbereich),750,2300,558.85,931.42,0.6
+p1,MB-45 (Nur Innenbereich),750,2400,578.44,964.06,0.6
+p1,MB-45 (Nur Innenbereich),850,1700,476.41,794.02,0.6
+p1,MB-45 (Nur Innenbereich),850,1800,476.41,794.02,0.6
+p1,MB-45 (Nur Innenbereich),850,1900,510.57,850.95,0.6
+p1,MB-45 (Nur Innenbereich),850,2000,526.06,876.76,0.6
+p1,MB-45 (Nur Innenbereich),850,2100,547.46,912.44,0.6
+p1,MB-45 (Nur Innenbereich),850,2200,563.86,939.77,0.6
+p1,MB-45 (Nur Innenbereich),850,2300,579.35,965.58,0.6
+p1,MB-45 (Nur Innenbereich),850,2400,599.39,998.98,0.6
+p1,MB-45 (Nur Innenbereich),950,1700,501.92,836.53,0.6
+p1,MB-45 (Nur Innenbereich),950,1800,501.92,836.53,0.6
+p1,MB-45 (Nur Innenbereich),950,1900,536.08,893.46,0.6
+p1,MB-45 (Nur Innenbereich),950,2000,552.02,920.03,0.6
+p1,MB-45 (Nur Innenbereich),950,2100,574.34,957.23,0.6
+p1,MB-45 (Nur Innenbereich),950,2200,590.73,984.55,0.6
+p1,MB-45 (Nur Innenbereich),950,2300,606.67,1011.12,0.6
+p1,MB-45 (Nur Innenbereich),950,2400,627.17,1045.28,0.6
+p1,MB-45 (Nur Innenbereich),1050,1700,520.13,866.89,0.6
+p1,MB-45 (Nur Innenbereich),1050,1800,520.13,866.89,0.6
+p1,MB-45 (Nur Innenbereich),1050,1900,555.2,925.34,0.6
+p1,MB-45 (Nur Innenbereich),1050,2000,571.15,951.91,0.6
+p1,MB-45 (Nur Innenbereich),1050,2100,593.47,989.11,0.6
+p1,MB-45 (Nur Innenbereich),1050,2200,610.77,1017.95,0.6
+p1,MB-45 (Nur Innenbereich),1050,2300,626.71,1044.52,0.6
+p1,MB-45 (Nur Innenbereich),1050,2400,647.66,1079.44,0.6
+p1,MB-45 (Nur Innenbereich),1150,1700,538.81,898.02,0.6
+p1,MB-45 (Nur Innenbereich),1150,1800,538.81,898.02,0.6
+p1,MB-45 (Nur Innenbereich),1150,1900,573.88,956.47,0.6
+p1,MB-45 (Nur Innenbereich),1150,2000,590.28,983.8,0.6
+p1,MB-45 (Nur Innenbereich),1150,2100,613.05,1021.75,0.6
+p1,MB-45 (Nur Innenbereich),1150,2200,630.82,1051.36,0.6
+p1,MB-45 (Nur Innenbereich),1150,2300,647.21,1078.68,0.6
+p1,MB-45 (Nur Innenbereich),1150,2400,668.16,1113.6,0.6
+p1,MB-45 (Nur Innenbereich),1200,1700,538.81,898.02,0.6
+p1,MB-45 (Nur Innenbereich),1200,1800,538.81,898.02,0.6
+p1,MB-45 (Nur Innenbereich),1200,1900,573.88,956.47,0.6
+p1,MB-45 (Nur Innenbereich),1200,2000,590.28,983.8,0.6
+p1,MB-45 (Nur Innenbereich),1200,2100,613.05,1021.75,0.6
+p1,MB-45 (Nur Innenbereich),1200,2200,630.82,1051.36,0.6
+p1,MB-45 (Nur Innenbereich),1200,2300,647.21,1078.68,0.6
+p1,MB-45 (Nur Innenbereich),1200,2400,668.16,1113.6,0.6
+p2,MB-70 (Gute Wärmedämmung),440,1700,709.8,1183.0,0.6
+p2,MB-70 (Gute Wärmedämmung),440,1800,703.74,1172.9,0.6
+p2,MB-70 (Gute Wärmedämmung),440,1900,743.9,1239.84,0.6
+p2,MB-70 (Gute Wärmedämmung),440,2000,764.2,1273.67,0.6
+p2,MB-70 (Gute Wärmedämmung),440,2100,791.35,1318.92,0.6
+p2,MB-70 (Gute Wärmedämmung),440,2200,811.94,1353.23,0.6
+p2,MB-70 (Gute Wärmedämmung),440,2300,833.5,1389.16,0.6
+p2,MB-70 (Gute Wärmedämmung),440,2400,864.46,1440.77,0.6
+p2,MB-70 (Gute Wärmedämmung),550,1700,686.43,1144.05,0.6
+p2,MB-70 (Gute Wärmedämmung),550,1800,680.57,1134.29,0.6
+p2,MB-70 (Gute Wärmedämmung),550,1900,724.18,1206.97,0.6
+p2,MB-70 (Gute Wärmedämmung),550,2000,749.69,1249.48,0.6
+p2,MB-70 (Gute Wärmedämmung),550,2100,782.03,1303.38,0.6
+p2,MB-70 (Gute Wärmedämmung),550,2200,807.99,1346.65,0.6
+p2,MB-70 (Gute Wärmedämmung),550,2300,833.5,1389.16,0.6
+p2,MB-70 (Gute Wärmedämmung),550,2400,864.46,1440.77,0.6
+p2,MB-70 (Gute Wärmedämmung),650,1700,709.61,1182.68,0.6
+p2,MB-70 (Gute Wärmedämmung),650,1800,709.61,1182.68,0.6
+p2,MB-70 (Gute Wärmedämmung),650,1900,754.24,1257.07,0.6
+p2,MB-70 (Gute Wärmedämmung),650,2000,780.2,1300.34,0.6
+p2,MB-70 (Gute Wärmedämmung),650,2100,813.0,1355.0,0.6
+p2,MB-70 (Gute Wärmedämmung),650,2200,838.96,1398.26,0.6
+p2,MB-70 (Gute Wärmedämmung),650,2300,864.92,1441.53,0.6
+p2,MB-70 (Gute Wärmedämmung),650,2400,895.89,1493.15,0.6
+p2,MB-70 (Gute Wärmedämmung),750,1700,739.21,1232.02,0.6
+p2,MB-70 (Gute Wärmedämmung),750,1800,739.21,1232.02,0.6
+p2,MB-70 (Gute Wärmedämmung),750,1900,784.3,1307.17,0.6
+p2,MB-70 (Gute Wärmedämmung),750,2000,810.26,1350.44,0.6
+p2,MB-70 (Gute Wärmedämmung),750,2100,843.52,1405.86,0.6
+p2,MB-70 (Gute Wärmedämmung),750,2200,869.93,1449.88,0.6
+p2,MB-70 (Gute Wärmedämmung),750,2300,896.35,1493.91,0.6
+p2,MB-70 (Gute Wärmedämmung),750,2400,927.77,1546.29,0.6
+p2,MB-70 (Gute Wärmedämmung),850,1700,770.64,1284.4,0.6
+p2,MB-70 (Gute Wärmedämmung),850,1800,770.64,1284.4,0.6
+p2,MB-70 (Gute Wärmedämmung),850,1900,816.19,1360.31,0.6
+p2,MB-70 (Gute Wärmedämmung),850,2000,842.6,1404.34,0.6
+p2,MB-70 (Gute Wärmedämmung),850,2100,876.31,1460.51,0.6
+p2,MB-70 (Gute Wärmedämmung),850,2200,903.18,1505.3,0.6
+p2,MB-70 (Gute Wärmedämmung),850,2300,930.05,1550.08,0.6
+p2,MB-70 (Gute Wärmedämmung),850,2400,961.93,1603.22,0.6
+p2,MB-70 (Gute Wärmedämmung),950,1700,805.25,1342.09,0.6
+p2,MB-70 (Gute Wärmedämmung),950,1800,805.25,1342.09,0.6
+p2,MB-70 (Gute Wärmedämmung),950,1900,850.8,1418.0,0.6
+p2,MB-70 (Gute Wärmedämmung),950,2000,878.13,1463.55,0.6
+p2,MB-70 (Gute Wärmedämmung),950,2100,912.29,1520.48,0.6
+p2,MB-70 (Gute Wärmedämmung),950,2200,939.16,1565.27,0.6
+p2,MB-70 (Gute Wärmedämmung),950,2300,966.03,1610.05,0.6
+p2,MB-70 (Gute Wärmedämmung),950,2400,998.37,1663.95,0.6
+p2,MB-70 (Gute Wärmedämmung),1050,1700,834.86,1391.43,0.6
+p2,MB-70 (Gute Wärmedämmung),1050,1800,834.86,1391.43,0.6
+p2,MB-70 (Gute Wärmedämmung),1050,1900,880.86,1468.1,0.6
+p2,MB-70 (Gute Wärmedämmung),1050,2000,908.19,1513.65,0.6
+p2,MB-70 (Gute Wärmedämmung),1050,2100,942.8,1571.34,0.6
+p2,MB-70 (Gute Wärmedämmung),1050,2200,970.13,1616.89,0.6
+p2,MB-70 (Gute Wärmedämmung),1050,2300,997.46,1662.43,0.6
+p2,MB-70 (Gute Wärmedämmung),1050,2400,1030.25,1717.09,0.6
+p2,MB-70 (Gute Wärmedämmung),1150,1700,866.29,1443.81,0.6
+p2,MB-70 (Gute Wärmedämmung),1150,1800,866.29,1443.81,0.6
+p2,MB-70 (Gute Wärmedämmung),1150,1900,912.74,1521.24,0.6
+p2,MB-70 (Gute Wärmedämmung),1150,2000,940.52,1567.54,0.6
+p2,MB-70 (Gute Wärmedämmung),1150,2100,975.59,1625.99,0.6
+p2,MB-70 (Gute Wärmedämmung),1150,2200,1003.38,1672.3,0.6
+p2,MB-70 (Gute Wärmedämmung),1150,2300,1031.17,1718.61,0.6
+p2,MB-70 (Gute Wärmedämmung),1150,2400,1064.41,1774.02,0.6
+p2,MB-70 (Gute Wärmedämmung),1200,1700,866.29,1443.81,0.6
+p2,MB-70 (Gute Wärmedämmung),1200,1800,866.29,1443.81,0.6
+p2,MB-70 (Gute Wärmedämmung),1200,1900,912.74,1521.24,0.6
+p2,MB-70 (Gute Wärmedämmung),1200,2000,940.52,1567.54,0.6
+p2,MB-70 (Gute Wärmedämmung),1200,2100,975.59,1625.99,0.6
+p2,MB-70 (Gute Wärmedämmung),1200,2200,1003.38,1672.3,0.6
+p2,MB-70 (Gute Wärmedämmung),1200,2300,1031.17,1718.61,0.6
+p2,MB-70 (Gute Wärmedämmung),1200,2400,1064.41,1774.02,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),440,1700,796.91,1328.19,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),440,1800,790.11,1316.85,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),440,1900,835.25,1392.08,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),440,2000,857.63,1429.38,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),440,2100,888.33,1480.55,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),440,2200,911.51,1519.18,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),440,2300,935.8,1559.66,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),440,2400,970.37,1617.28,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),550,1700,770.68,1284.47,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),550,1800,764.11,1273.51,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),550,1900,813.1,1355.17,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),550,2000,841.34,1402.24,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),550,2100,877.86,1463.1,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),550,2200,907.07,1511.79,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),550,2300,935.8,1559.66,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),550,2400,970.37,1617.28,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),650,1700,796.55,1327.58,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),650,1800,796.55,1327.58,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),650,1900,846.7,1411.16,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),650,2000,875.91,1459.85,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),650,2100,912.43,1520.71,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),650,2200,941.64,1569.4,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),650,2300,970.85,1618.09,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),650,2400,1005.42,1675.7,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),750,1700,829.66,1382.76,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),750,1800,829.66,1382.76,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),750,1900,880.29,1467.15,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),750,2000,909.5,1515.84,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),750,2100,947.0,1578.33,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),750,2200,976.7,1627.83,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),750,2300,1005.91,1676.52,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),750,2400,1041.45,1735.75,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),850,1700,865.2,1442.0,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),850,1800,865.2,1442.0,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),850,1900,916.32,1527.2,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),850,2000,946.02,1576.7,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),850,2100,983.51,1639.19,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),850,2200,1013.7,1689.5,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),850,2300,1043.89,1739.81,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),850,2400,1079.92,1799.86,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),950,1700,903.67,1506.11,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),950,1800,903.67,1506.11,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),950,1900,954.79,1591.31,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),950,2000,985.46,1642.43,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),950,2100,1023.92,1706.54,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),950,2200,1054.11,1756.85,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),950,2300,1084.3,1807.16,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),950,2400,1120.82,1868.03,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),1050,1700,937.26,1562.1,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),1050,1800,937.26,1562.1,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),1050,1900,988.87,1648.11,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),1050,2000,1019.54,1699.24,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),1050,2100,1058.5,1764.16,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),1050,2200,1089.17,1815.28,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),1050,2300,1119.84,1866.4,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),1050,2400,1156.36,1927.26,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),1150,1700,972.31,1620.52,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),1150,1800,972.31,1620.52,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),1150,1900,1024.41,1707.35,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),1150,2000,1055.57,1759.29,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),1150,2100,1095.01,1825.02,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),1150,2200,1126.17,1876.95,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),1150,2300,1157.33,1928.89,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),1150,2400,1194.82,1991.37,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),1200,1700,972.31,1620.52,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),1200,1800,972.31,1620.52,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),1200,1900,1024.41,1707.35,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),1200,2000,1055.57,1759.29,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),1200,2100,1095.01,1825.02,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),1200,2200,1126.17,1876.95,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),1200,2300,1157.33,1928.89,0.6
+p3,MB-70 HI (Sehr gute Wärmedämmung),1200,2400,1194.82,1991.37,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),440,1700,839.56,1399.27,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),440,1800,832.4,1387.33,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),440,1900,878.04,1463.4,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),440,2000,903.85,1506.42,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),440,2100,935.83,1559.72,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),440,2200,960.92,1601.54,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),440,2300,988.17,1646.95,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),440,2400,1024.39,1707.31,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),550,1700,811.93,1353.21,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),550,1800,805.0,1341.66,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),550,1900,854.77,1424.61,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),550,2000,886.69,1477.81,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),550,2100,924.8,1541.34,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),550,2200,956.25,1593.75,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),550,2300,988.17,1646.95,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),550,2400,1024.39,1707.31,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),650,1700,839.52,1399.2,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),650,1800,839.52,1399.2,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),650,1900,890.98,1484.96,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),650,2000,923.38,1538.96,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),650,2100,961.49,1602.49,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),650,2200,993.41,1655.69,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),650,2300,1025.81,1709.69,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),650,2400,1062.5,1770.83,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),750,1700,877.16,1461.93,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),750,1800,877.16,1461.93,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),750,1900,929.09,1548.49,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),750,2000,961.97,1603.28,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),750,2100,1000.56,1667.6,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),750,2200,1032.96,1721.6,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),750,2300,1065.83,1776.39,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),750,2400,1103.0,1838.33,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),850,1700,912.89,1521.49,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),850,1800,912.89,1521.49,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),850,1900,964.82,1608.04,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),850,2000,998.18,1663.63,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),850,2100,1037.25,1728.75,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),850,2200,1070.12,1783.54,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),850,2300,1103.48,1839.13,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),850,2400,1140.64,1901.07,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),950,1700,953.39,1588.99,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),950,1800,953.39,1588.99,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),950,1900,1006.28,1677.13,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),950,2000,1040.11,1733.51,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),950,2100,1079.18,1798.63,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),950,2200,1112.05,1853.42,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),950,2300,1145.88,1909.8,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),950,2400,1183.52,1972.53,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),1050,1700,991.03,1651.72,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),1050,1800,991.03,1651.72,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),1050,1900,1044.4,1740.66,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),1050,2000,1078.7,1797.83,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),1050,2100,1118.24,1863.74,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),1050,2200,1151.6,1919.33,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),1050,2300,1185.9,1976.5,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),1050,2400,1224.02,2040.03,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),1150,1700,1026.77,1711.28,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),1150,1800,1026.77,1711.28,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),1150,1900,1080.13,1800.22,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),1150,2000,1114.91,1858.18,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),1150,2100,1154.93,1924.89,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),1150,2200,1188.76,1981.27,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),1150,2300,1223.54,2039.24,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),1150,2400,1262.14,2103.56,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),1200,1700,1026.77,1711.28,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),1200,1800,1026.77,1711.28,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),1200,1900,1080.13,1800.22,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),1200,2000,1114.91,1858.18,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),1200,2100,1154.93,1924.89,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),1200,2200,1188.76,1981.27,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),1200,2300,1223.54,2039.24,0.6
+p4,MB-86 SI (Optimale Wärmedämmung),1200,2400,1262.14,2103.56,0.6

@@ -1,0 +1,1176 @@
+{
+  "metadata": {
+    "product": "Alu Balkontür",
+    "material": "Aluminium",
+    "hersteller": "ALUPROF",
+    "source_url": "https://confde.fenstermaxx24.com/confapp/ALU-Balkontuer-bestellen/",
+    "api_endpoint": "https://confde.fenstermaxx24.com/confapp/ALU-Balkontuer-bestellen/ajax/berechnen/",
+    "discount_factor": 0.6,
+    "rabattprozent": 40,
+    "width_range_mm": "440-1200",
+    "height_range_mm": "1700-2400"
+  },
+  "profiles": {
+    "p1": {
+      "name": "MB-45 (Nur Innenbereich)"
+    },
+    "p2": {
+      "name": "MB-70 (Gute Wärmedämmung)"
+    },
+    "p3": {
+      "name": "MB-70 HI (Sehr gute Wärmedämmung)"
+    },
+    "p4": {
+      "name": "MB-86 SI (Optimale Wärmedämmung)"
+    }
+  },
+  "price_matrix": {
+    "p1": {
+      "440": {
+        "1700": 437.68,
+        "1800": 433.94,
+        "1900": 463.66,
+        "2000": 474.95,
+        "2100": 492.23,
+        "2200": 503.92,
+        "2300": 516.04,
+        "2400": 535.16
+      },
+      "550": {
+        "1700": 423.27,
+        "1800": 419.66,
+        "1900": 451.36,
+        "2000": 465.94,
+        "2100": 486.43,
+        "2200": 501.46,
+        "2300": 516.04,
+        "2400": 535.16
+      },
+      "650": {
+        "1700": 439.06,
+        "1800": 439.06,
+        "1900": 472.31,
+        "2000": 487.34,
+        "2100": 508.3,
+        "2200": 523.78,
+        "2300": 538.36,
+        "2400": 557.94
+      },
+      "750": {
+        "1700": 457.74,
+        "1800": 457.74,
+        "1900": 491.44,
+        "2000": 506.47,
+        "2100": 527.88,
+        "2200": 543.37,
+        "2300": 558.85,
+        "2400": 578.44
+      },
+      "850": {
+        "1700": 476.41,
+        "1800": 476.41,
+        "1900": 510.57,
+        "2000": 526.06,
+        "2100": 547.46,
+        "2200": 563.86,
+        "2300": 579.35,
+        "2400": 599.39
+      },
+      "950": {
+        "1700": 501.92,
+        "1800": 501.92,
+        "1900": 536.08,
+        "2000": 552.02,
+        "2100": 574.34,
+        "2200": 590.73,
+        "2300": 606.67,
+        "2400": 627.17
+      },
+      "1050": {
+        "1700": 520.13,
+        "1800": 520.13,
+        "1900": 555.2,
+        "2000": 571.15,
+        "2100": 593.47,
+        "2200": 610.77,
+        "2300": 626.71,
+        "2400": 647.66
+      },
+      "1150": {
+        "1700": 538.81,
+        "1800": 538.81,
+        "1900": 573.88,
+        "2000": 590.28,
+        "2100": 613.05,
+        "2200": 630.82,
+        "2300": 647.21,
+        "2400": 668.16
+      },
+      "1200": {
+        "1700": 538.81,
+        "1800": 538.81,
+        "1900": 573.88,
+        "2000": 590.28,
+        "2100": 613.05,
+        "2200": 630.82,
+        "2300": 647.21,
+        "2400": 668.16
+      }
+    },
+    "p2": {
+      "440": {
+        "1700": 709.8,
+        "1800": 703.74,
+        "1900": 743.9,
+        "2000": 764.2,
+        "2100": 791.35,
+        "2200": 811.94,
+        "2300": 833.5,
+        "2400": 864.46
+      },
+      "550": {
+        "1700": 686.43,
+        "1800": 680.57,
+        "1900": 724.18,
+        "2000": 749.69,
+        "2100": 782.03,
+        "2200": 807.99,
+        "2300": 833.5,
+        "2400": 864.46
+      },
+      "650": {
+        "1700": 709.61,
+        "1800": 709.61,
+        "1900": 754.24,
+        "2000": 780.2,
+        "2100": 813.0,
+        "2200": 838.96,
+        "2300": 864.92,
+        "2400": 895.89
+      },
+      "750": {
+        "1700": 739.21,
+        "1800": 739.21,
+        "1900": 784.3,
+        "2000": 810.26,
+        "2100": 843.52,
+        "2200": 869.93,
+        "2300": 896.35,
+        "2400": 927.77
+      },
+      "850": {
+        "1700": 770.64,
+        "1800": 770.64,
+        "1900": 816.19,
+        "2000": 842.6,
+        "2100": 876.31,
+        "2200": 903.18,
+        "2300": 930.05,
+        "2400": 961.93
+      },
+      "950": {
+        "1700": 805.25,
+        "1800": 805.25,
+        "1900": 850.8,
+        "2000": 878.13,
+        "2100": 912.29,
+        "2200": 939.16,
+        "2300": 966.03,
+        "2400": 998.37
+      },
+      "1050": {
+        "1700": 834.86,
+        "1800": 834.86,
+        "1900": 880.86,
+        "2000": 908.19,
+        "2100": 942.8,
+        "2200": 970.13,
+        "2300": 997.46,
+        "2400": 1030.25
+      },
+      "1150": {
+        "1700": 866.29,
+        "1800": 866.29,
+        "1900": 912.74,
+        "2000": 940.52,
+        "2100": 975.59,
+        "2200": 1003.38,
+        "2300": 1031.17,
+        "2400": 1064.41
+      },
+      "1200": {
+        "1700": 866.29,
+        "1800": 866.29,
+        "1900": 912.74,
+        "2000": 940.52,
+        "2100": 975.59,
+        "2200": 1003.38,
+        "2300": 1031.17,
+        "2400": 1064.41
+      }
+    },
+    "p3": {
+      "440": {
+        "1700": 796.91,
+        "1800": 790.11,
+        "1900": 835.25,
+        "2000": 857.63,
+        "2100": 888.33,
+        "2200": 911.51,
+        "2300": 935.8,
+        "2400": 970.37
+      },
+      "550": {
+        "1700": 770.68,
+        "1800": 764.11,
+        "1900": 813.1,
+        "2000": 841.34,
+        "2100": 877.86,
+        "2200": 907.07,
+        "2300": 935.8,
+        "2400": 970.37
+      },
+      "650": {
+        "1700": 796.55,
+        "1800": 796.55,
+        "1900": 846.7,
+        "2000": 875.91,
+        "2100": 912.43,
+        "2200": 941.64,
+        "2300": 970.85,
+        "2400": 1005.42
+      },
+      "750": {
+        "1700": 829.66,
+        "1800": 829.66,
+        "1900": 880.29,
+        "2000": 909.5,
+        "2100": 947.0,
+        "2200": 976.7,
+        "2300": 1005.91,
+        "2400": 1041.45
+      },
+      "850": {
+        "1700": 865.2,
+        "1800": 865.2,
+        "1900": 916.32,
+        "2000": 946.02,
+        "2100": 983.51,
+        "2200": 1013.7,
+        "2300": 1043.89,
+        "2400": 1079.92
+      },
+      "950": {
+        "1700": 903.67,
+        "1800": 903.67,
+        "1900": 954.79,
+        "2000": 985.46,
+        "2100": 1023.92,
+        "2200": 1054.11,
+        "2300": 1084.3,
+        "2400": 1120.82
+      },
+      "1050": {
+        "1700": 937.26,
+        "1800": 937.26,
+        "1900": 988.87,
+        "2000": 1019.54,
+        "2100": 1058.5,
+        "2200": 1089.17,
+        "2300": 1119.84,
+        "2400": 1156.36
+      },
+      "1150": {
+        "1700": 972.31,
+        "1800": 972.31,
+        "1900": 1024.41,
+        "2000": 1055.57,
+        "2100": 1095.01,
+        "2200": 1126.17,
+        "2300": 1157.33,
+        "2400": 1194.82
+      },
+      "1200": {
+        "1700": 972.31,
+        "1800": 972.31,
+        "1900": 1024.41,
+        "2000": 1055.57,
+        "2100": 1095.01,
+        "2200": 1126.17,
+        "2300": 1157.33,
+        "2400": 1194.82
+      }
+    },
+    "p4": {
+      "440": {
+        "1700": 839.56,
+        "1800": 832.4,
+        "1900": 878.04,
+        "2000": 903.85,
+        "2100": 935.83,
+        "2200": 960.92,
+        "2300": 988.17,
+        "2400": 1024.39
+      },
+      "550": {
+        "1700": 811.93,
+        "1800": 805.0,
+        "1900": 854.77,
+        "2000": 886.69,
+        "2100": 924.8,
+        "2200": 956.25,
+        "2300": 988.17,
+        "2400": 1024.39
+      },
+      "650": {
+        "1700": 839.52,
+        "1800": 839.52,
+        "1900": 890.98,
+        "2000": 923.38,
+        "2100": 961.49,
+        "2200": 993.41,
+        "2300": 1025.81,
+        "2400": 1062.5
+      },
+      "750": {
+        "1700": 877.16,
+        "1800": 877.16,
+        "1900": 929.09,
+        "2000": 961.97,
+        "2100": 1000.56,
+        "2200": 1032.96,
+        "2300": 1065.83,
+        "2400": 1103.0
+      },
+      "850": {
+        "1700": 912.89,
+        "1800": 912.89,
+        "1900": 964.82,
+        "2000": 998.18,
+        "2100": 1037.25,
+        "2200": 1070.12,
+        "2300": 1103.48,
+        "2400": 1140.64
+      },
+      "950": {
+        "1700": 953.39,
+        "1800": 953.39,
+        "1900": 1006.28,
+        "2000": 1040.11,
+        "2100": 1079.18,
+        "2200": 1112.05,
+        "2300": 1145.88,
+        "2400": 1183.52
+      },
+      "1050": {
+        "1700": 991.03,
+        "1800": 991.03,
+        "1900": 1044.4,
+        "2000": 1078.7,
+        "2100": 1118.24,
+        "2200": 1151.6,
+        "2300": 1185.9,
+        "2400": 1224.02
+      },
+      "1150": {
+        "1700": 1026.77,
+        "1800": 1026.77,
+        "1900": 1080.13,
+        "2000": 1114.91,
+        "2100": 1154.93,
+        "2200": 1188.76,
+        "2300": 1223.54,
+        "2400": 1262.14
+      },
+      "1200": {
+        "1700": 1026.77,
+        "1800": 1026.77,
+        "1900": 1080.13,
+        "2000": 1114.91,
+        "2100": 1154.93,
+        "2200": 1188.76,
+        "2300": 1223.54,
+        "2400": 1262.14
+      }
+    }
+  },
+  "dimension_increments": [
+    {
+      "type": "width_only",
+      "breite": 440,
+      "hoehe": 2000,
+      "angebotspreis": 474.95,
+      "preisempfehlung": 791.59
+    },
+    {
+      "type": "width_only",
+      "breite": 550,
+      "hoehe": 2000,
+      "angebotspreis": 465.94,
+      "preisempfehlung": 776.56
+    },
+    {
+      "type": "width_only",
+      "breite": 650,
+      "hoehe": 2000,
+      "angebotspreis": 487.34,
+      "preisempfehlung": 812.24
+    },
+    {
+      "type": "width_only",
+      "breite": 750,
+      "hoehe": 2000,
+      "angebotspreis": 506.47,
+      "preisempfehlung": 844.12
+    },
+    {
+      "type": "width_only",
+      "breite": 850,
+      "hoehe": 2000,
+      "angebotspreis": 526.06,
+      "preisempfehlung": 876.76
+    },
+    {
+      "type": "width_only",
+      "breite": 950,
+      "hoehe": 2000,
+      "angebotspreis": 552.02,
+      "preisempfehlung": 920.03
+    },
+    {
+      "type": "width_only",
+      "breite": 1050,
+      "hoehe": 2000,
+      "angebotspreis": 571.15,
+      "preisempfehlung": 951.91
+    },
+    {
+      "type": "width_only",
+      "breite": 1150,
+      "hoehe": 2000,
+      "angebotspreis": 590.28,
+      "preisempfehlung": 983.8
+    },
+    {
+      "type": "width_only",
+      "breite": 1200,
+      "hoehe": 2000,
+      "angebotspreis": 590.28,
+      "preisempfehlung": 983.8
+    },
+    {
+      "type": "height_only",
+      "breite": 700,
+      "hoehe": 1700,
+      "angebotspreis": 439.06,
+      "preisempfehlung": 731.77
+    },
+    {
+      "type": "height_only",
+      "breite": 700,
+      "hoehe": 1800,
+      "angebotspreis": 439.06,
+      "preisempfehlung": 731.77
+    },
+    {
+      "type": "height_only",
+      "breite": 700,
+      "hoehe": 1900,
+      "angebotspreis": 472.31,
+      "preisempfehlung": 787.19
+    },
+    {
+      "type": "height_only",
+      "breite": 700,
+      "hoehe": 2000,
+      "angebotspreis": 487.34,
+      "preisempfehlung": 812.24
+    },
+    {
+      "type": "height_only",
+      "breite": 700,
+      "hoehe": 2100,
+      "angebotspreis": 508.3,
+      "preisempfehlung": 847.16
+    },
+    {
+      "type": "height_only",
+      "breite": 700,
+      "hoehe": 2200,
+      "angebotspreis": 523.78,
+      "preisempfehlung": 872.97
+    },
+    {
+      "type": "height_only",
+      "breite": 700,
+      "hoehe": 2300,
+      "angebotspreis": 538.36,
+      "preisempfehlung": 897.26
+    },
+    {
+      "type": "height_only",
+      "breite": 700,
+      "hoehe": 2400,
+      "angebotspreis": 557.94,
+      "preisempfehlung": 929.9
+    },
+    {
+      "type": "both",
+      "breite": 440,
+      "hoehe": 1700,
+      "angebotspreis": 437.68,
+      "preisempfehlung": 729.46
+    },
+    {
+      "type": "both",
+      "breite": 550,
+      "hoehe": 1800,
+      "angebotspreis": 419.66,
+      "preisempfehlung": 699.43
+    },
+    {
+      "type": "both",
+      "breite": 650,
+      "hoehe": 1900,
+      "angebotspreis": 472.31,
+      "preisempfehlung": 787.19
+    },
+    {
+      "type": "both",
+      "breite": 750,
+      "hoehe": 2000,
+      "angebotspreis": 506.47,
+      "preisempfehlung": 844.12
+    },
+    {
+      "type": "both",
+      "breite": 850,
+      "hoehe": 2100,
+      "angebotspreis": 547.46,
+      "preisempfehlung": 912.44
+    },
+    {
+      "type": "both",
+      "breite": 950,
+      "hoehe": 2200,
+      "angebotspreis": 590.73,
+      "preisempfehlung": 984.55
+    },
+    {
+      "type": "both",
+      "breite": 1050,
+      "hoehe": 2300,
+      "angebotspreis": 626.71,
+      "preisempfehlung": 1044.52
+    },
+    {
+      "type": "both",
+      "breite": 1200,
+      "hoehe": 2400,
+      "angebotspreis": 668.16,
+      "preisempfehlung": 1113.6
+    }
+  ],
+  "surcharges": {
+    "Profil": {
+      "p1": {
+        "label": "MB-45 (Nur Innenbereich)",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      },
+      "p2": {
+        "label": "MB-70 (Gute Wärmedämmung)",
+        "angebotspreis": 749.69,
+        "preisempfehlung": 1249.48,
+        "surcharge": 283.75
+      },
+      "p3": {
+        "label": "MB-70 HI (Sehr gute Wärmedämmung)",
+        "angebotspreis": 841.34,
+        "preisempfehlung": 1402.24,
+        "surcharge": 375.4
+      },
+      "p4": {
+        "label": "MB-86 SI (Optimale Wärmedämmung)",
+        "angebotspreis": 886.69,
+        "preisempfehlung": 1477.81,
+        "surcharge": 420.75
+      }
+    },
+    "Art": {
+      "a1": {
+        "label": "1-flüglige Balkontür",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      },
+      "a2": {
+        "label": "2-flüglige Balkontür",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      }
+    },
+    "Typ": {
+      "typ1": {
+        "label": "1-Flügel Balkontür",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      },
+      "typ1o1": {
+        "label": "1-Flügel mit 1-Flügel Oberlicht",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      },
+      "typ1o2": {
+        "label": "1-Flügel mit 2-Flügel Oberlicht",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      }
+    },
+    "Öffnungsrichtung": {
+      "bt_1_dl": {
+        "label": "Dreh Links",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      },
+      "bt_1_dr": {
+        "label": "Dreh Rechts",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      },
+      "bt_1_dkl": {
+        "label": "Dreh-Kipp Links",
+        "angebotspreis": 463.21,
+        "preisempfehlung": 772.01,
+        "surcharge": -2.73
+      },
+      "bt_1_dkr": {
+        "label": "Dreh-Kipp Rechts",
+        "angebotspreis": 463.21,
+        "preisempfehlung": 772.01,
+        "surcharge": -2.73
+      }
+    },
+    "Kämpfer": {
+      "kaempfer_0": {
+        "label": "Nein",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      },
+      "kaempfer_1": {
+        "label": "Ja",
+        "angebotspreis": 489.45,
+        "preisempfehlung": 815.75,
+        "surcharge": 23.51
+      }
+    },
+    "Farben Rubrik": {
+      "fr1": {
+        "label": "RAL-Farben",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      },
+      "fr2": {
+        "label": "Sonderfarben",
+        "angebotspreis": 605.72,
+        "preisempfehlung": 1009.53,
+        "surcharge": 139.78
+      }
+    },
+    "Dekorfarbe Außen (RAL)": {
+      "fs1_9016": {
+        "label": "Verkehrsweiß RAL 9016 Matt",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      },
+      "fs1_9016g": {
+        "label": "Verkehrsweiß RAL 9016 Glanz",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      },
+      "fs1_7016": {
+        "label": "Anthrazitgrau RAL 7016 Matt",
+        "angebotspreis": 535.82,
+        "preisempfehlung": 893.04,
+        "surcharge": 69.88
+      },
+      "fs1_7016g": {
+        "label": "Anthrazitgrau RAL 7016 Glanz",
+        "angebotspreis": 535.82,
+        "preisempfehlung": 893.04,
+        "surcharge": 69.88
+      },
+      "fs1_8017": {
+        "label": "Schokoladenbraun RAL 8017",
+        "angebotspreis": 535.82,
+        "preisempfehlung": 893.04,
+        "surcharge": 69.88
+      },
+      "fs1_6005": {
+        "label": "Moosgrün RAL 6005",
+        "angebotspreis": 535.82,
+        "preisempfehlung": 893.04,
+        "surcharge": 69.88
+      },
+      "fs1_9005": {
+        "label": "Tiefschwarz RAL 9005 Matt",
+        "angebotspreis": 535.82,
+        "preisempfehlung": 893.04,
+        "surcharge": 69.88
+      },
+      "fs1_9005g": {
+        "label": "Tiefschwarz RAL 9005 Glanz",
+        "angebotspreis": 535.82,
+        "preisempfehlung": 893.04,
+        "surcharge": 69.88
+      },
+      "fs1_9010": {
+        "label": "Reinweiß RAL 9010",
+        "angebotspreis": 535.82,
+        "preisempfehlung": 893.04,
+        "surcharge": 69.88
+      }
+    },
+    "Dekorfarbe Innen (RAL)": {
+      "fs1_9016_i": {
+        "label": "Verkehrsweiß RAL 9016 Matt",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      },
+      "fs1_9016g_i": {
+        "label": "Verkehrsweiß RAL 9016 Glanz",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      },
+      "fs1_7016_i": {
+        "label": "Anthrazitgrau RAL 7016 Matt",
+        "angebotspreis": 535.82,
+        "preisempfehlung": 893.04,
+        "surcharge": 69.88
+      },
+      "fs1_7016g_i": {
+        "label": "Anthrazitgrau RAL 7016 Glanz",
+        "angebotspreis": 535.82,
+        "preisempfehlung": 893.04,
+        "surcharge": 69.88
+      },
+      "fs1_8017_i": {
+        "label": "Schokoladenbraun RAL 8017",
+        "angebotspreis": 535.82,
+        "preisempfehlung": 893.04,
+        "surcharge": 69.88
+      },
+      "fs1_6005_i": {
+        "label": "Moosgrün RAL 6005",
+        "angebotspreis": 535.82,
+        "preisempfehlung": 893.04,
+        "surcharge": 69.88
+      },
+      "fs1_9005_i": {
+        "label": "Tiefschwarz RAL 9005 Matt",
+        "angebotspreis": 535.82,
+        "preisempfehlung": 893.04,
+        "surcharge": 69.88
+      },
+      "fs1_9005g_i": {
+        "label": "Tiefschwarz RAL 9005 Glanz",
+        "angebotspreis": 535.82,
+        "preisempfehlung": 893.04,
+        "surcharge": 69.88
+      },
+      "fs1_9010_i": {
+        "label": "Reinweiß RAL 9010",
+        "angebotspreis": 535.82,
+        "preisempfehlung": 893.04,
+        "surcharge": 69.88
+      }
+    },
+    "Verglasung": {
+      "g1": {
+        "label": "2-fach Verglasung",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      },
+      "g2": {
+        "label": "3-fach Verglasung",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      },
+      "g3": {
+        "label": "3-fach Verglasung Premium",
+        "angebotspreis": 492.32,
+        "preisempfehlung": 820.54,
+        "surcharge": 26.38
+      },
+      "g4": {
+        "label": "3-fach Verglasung Passivhaus",
+        "angebotspreis": 492.32,
+        "preisempfehlung": 820.54,
+        "surcharge": 26.38
+      },
+      "g5": {
+        "label": "2-fach Verglasung Solar",
+        "angebotspreis": 536.71,
+        "preisempfehlung": 894.52,
+        "surcharge": 70.77
+      },
+      "g6": {
+        "label": "3-fach Verglasung Solar",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      }
+    },
+    "Schallschutz": {
+      "schallschutz_nein": {
+        "label": "Nein",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      },
+      "schallschutz_ja": {
+        "label": "Ja",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      }
+    },
+    "Sicherheitsverglasung": {
+      "sicherheitsverglasung_0": {
+        "label": "Nein",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      },
+      "sicherheitsverglasung_1": {
+        "label": "Ja",
+        "angebotspreis": 511.6,
+        "preisempfehlung": 852.66,
+        "surcharge": 45.66
+      }
+    },
+    "Ornamentglas": {
+      "ornament_0": {
+        "label": "Nein",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      },
+      "ornament_1": {
+        "label": "Ja",
+        "angebotspreis": 491.97,
+        "preisempfehlung": 819.95,
+        "surcharge": 26.03
+      }
+    },
+    "Sprossen": {
+      "sprossen_0": {
+        "label": "Nein",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      },
+      "sprossen_1": {
+        "label": "Sprossen innenliegend",
+        "angebotspreis": 478.46,
+        "preisempfehlung": 797.44,
+        "surcharge": 12.52
+      },
+      "sprossen_2": {
+        "label": "Sprossen aufliegend",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      }
+    },
+    "Rollladen": {
+      "rollladen_0": {
+        "label": "Kein Rollladen",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      },
+      "rollladen_1": {
+        "label": "Aufsatzrollladen",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      },
+      "rollladen_2": {
+        "label": "Vorsatzrollladen",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      }
+    },
+    "Rollladen Motor": {
+      "rollladen_motor_0": {
+        "label": "Kein Motor",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      },
+      "rollladen_motor_1": {
+        "label": "Mit Motor",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      }
+    },
+    "Verdeckte Beschläge": {
+      "verdeckt_beschlaege_0": {
+        "label": "Nein",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      },
+      "verdeckt_beschlaege_1": {
+        "label": "Ja",
+        "angebotspreis": 530.09,
+        "preisempfehlung": 883.49,
+        "surcharge": 64.15
+      }
+    },
+    "Griffmuschel & Schnäpper": {
+      "griffmuschel_0": {
+        "label": "Nein",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      },
+      "griffmuschel_1": {
+        "label": "Ja",
+        "angebotspreis": 479.4,
+        "preisempfehlung": 799.0,
+        "surcharge": 13.46
+      }
+    },
+    "Trittschwelle": {
+      "trittschwelle_0": {
+        "label": "Nein",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      },
+      "trittschwelle_1": {
+        "label": "Ja",
+        "angebotspreis": 470.8,
+        "preisempfehlung": 784.67,
+        "surcharge": 4.86
+      }
+    },
+    "Aufbohrschutz": {
+      "aufbohrschutz_0": {
+        "label": "Nein",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      },
+      "aufbohrschutz_1": {
+        "label": "Ja",
+        "angebotspreis": 470.36,
+        "preisempfehlung": 783.94,
+        "surcharge": 4.42
+      }
+    },
+    "Sicherheitsbeschläge": {
+      "sicherheitsbeschlaege_0": {
+        "label": "Nein",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      },
+      "sicherheitsbeschlaege_1": {
+        "label": "Ja",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      }
+    },
+    "Reedkontakt": {
+      "reedkontakte_0": {
+        "label": "Nein",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      },
+      "reedkontakte_1": {
+        "label": "Ja",
+        "angebotspreis": 515.65,
+        "preisempfehlung": 859.42,
+        "surcharge": 49.71
+      }
+    },
+    "Fensterfalzlüfter": {
+      "fensterfalzluefter_0": {
+        "label": "Nein",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      },
+      "fensterfalzluefter_1": {
+        "label": "Ja",
+        "angebotspreis": 559.75,
+        "preisempfehlung": 932.91,
+        "surcharge": 93.81
+      }
+    },
+    "Rahmenverbreiterung": {
+      "rahmenverbreiterung_0": {
+        "label": "Nein",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      },
+      "rahmenverbreiterung_1": {
+        "label": "Ja",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      }
+    },
+    "Rahmenverbreiterung Oben": {
+      "oben_0": {
+        "label": "0 mm",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      },
+      "oben_20": {
+        "label": "20 mm",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      },
+      "oben_30": {
+        "label": "30 mm",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      },
+      "oben_40": {
+        "label": "40 mm",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      },
+      "oben_50": {
+        "label": "50 mm",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      }
+    },
+    "Rahmenverbreiterung Unten": {
+      "unten_0": {
+        "label": "0 mm",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      },
+      "unten_20": {
+        "label": "20 mm",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      },
+      "unten_30": {
+        "label": "30 mm",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      },
+      "unten_40": {
+        "label": "40 mm",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      },
+      "unten_50": {
+        "label": "50 mm",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      }
+    },
+    "Rahmenverbreiterung Links": {
+      "links_0": {
+        "label": "0 mm",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      },
+      "links_20": {
+        "label": "20 mm",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      },
+      "links_30": {
+        "label": "30 mm",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      },
+      "links_40": {
+        "label": "40 mm",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      },
+      "links_50": {
+        "label": "50 mm",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      }
+    },
+    "Rahmenverbreiterung Rechts": {
+      "rechts_0": {
+        "label": "0 mm",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      },
+      "rechts_20": {
+        "label": "20 mm",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      },
+      "rechts_30": {
+        "label": "30 mm",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      },
+      "rechts_40": {
+        "label": "40 mm",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      },
+      "rechts_50": {
+        "label": "50 mm",
+        "angebotspreis": 465.94,
+        "preisempfehlung": 776.56,
+        "surcharge": 0.0
+      }
+    }
+  }
+}
