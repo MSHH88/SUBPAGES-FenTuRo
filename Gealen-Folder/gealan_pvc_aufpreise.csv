@@ -1,0 +1,81 @@
+kategorie,beschreibung,option_id,option_name,angebotspreis_eur,preisempfehlung_eur,aufpreis_angebot_eur,aufpreis_empfehlung_eur
+material,Material type,ma1,Kunststoff (PVC),47.48,79.13,0.0,0.0
+material,Material type,ma5,Kunststoff-Aluminium,47.48,79.13,0.0,0.0
+material,Material type,ma2,Aluminium,47.48,79.13,0.0,0.0
+material,Material type,ma3,Holz,47.48,79.13,0.0,0.0
+material,Material type,ma4,Holz-Aluminium,47.48,79.13,0.0,0.0
+hersteller,Manufacturer,h1,DRUTEX,47.48,79.13,0.0,0.0
+hersteller,Manufacturer,h3,Salamander,47.48,79.13,0.0,0.0
+hersteller,Manufacturer,h8,aluplast,47.48,79.13,0.0,0.0
+hersteller,Manufacturer,h7,GEALAN,47.48,79.13,0.0,0.0
+hersteller,Manufacturer,h9,REHAU,47.48,79.13,0.0,0.0
+hersteller,Manufacturer,h2,VEKA,47.48,79.13,0.0,0.0
+hersteller,Manufacturer,h6,TROCAL,47.48,79.13,0.0,0.0
+hersteller,Manufacturer,h5,Kömmerling,47.48,79.13,0.0,0.0
+blendrahmen,Frame profile width,br_1,Blendrahmenprofil 66mm,47.48,79.13,0.0,0.0
+blendrahmen,Frame profile width,br_2,Blendrahmenprofil 74mm,65.02,108.36,17.54,29.23
+blendrahmen,Frame profile width,br_3,Blendrahmenprofil 81mm,70.29,117.15,22.81,38.02
+fluegel,Sash profile,fl_1,78mm Standard,47.48,79.13,0.0,0.0
+fluegel,Sash profile,fl_3,78mm 8063 halbflächenversetzt,61.59,102.65,14.11,23.52
+fensterart,Window type (number of sashes),a1,Einflügliges Fenster,47.48,79.13,0.0,0.0
+fensterart,Window type (number of sashes),a2,Zweiflügliges Fenster,47.48,79.13,0.0,0.0
+fensterart,Window type (number of sashes),a3,Dreiflügliges Fenster,47.48,79.13,0.0,0.0
+fenstertyp,Window type with lights,typ1,Einflügliges Fenster,47.48,79.13,0.0,0.0
+fenstertyp,Window type with lights,typ1o1,Oberlicht Einerteilung,47.48,79.13,0.0,0.0
+fenstertyp,Window type with lights,typ1o2,Oberlicht Zweierteilung,47.48,79.13,0.0,0.0
+fenstertyp,Window type with lights,typ1o3,Oberlicht Dreierteilung,47.48,79.13,0.0,0.0
+fenstertyp,Window type with lights,typ1u1,Unterlicht Einerteilung,47.48,79.13,0.0,0.0
+fenstertyp,Window type with lights,typ1u2,Unterlicht Zweierteilung,47.48,79.13,0.0,0.0
+fenstertyp,Window type with lights,typ1u3,Unterlicht Dreierteilung,47.48,79.13,0.0,0.0
+oeffnungsrichtung,Opening direction,fn_1_fest_ohne_fluegel,Fest ohne Flügel,47.48,79.13,0.0,0.0
+oeffnungsrichtung,Opening direction,fn_1_fest_fluegel,Fest mit Flügel,82.49,137.49,35.01,58.36
+oeffnungsrichtung,Opening direction,fn_1_kipp,Kipp,146.52,244.2,99.04,165.07
+oeffnungsrichtung,Opening direction,fn_1_drehrechts,Dreh Rechts,142.52,237.53,95.04,158.4
+oeffnungsrichtung,Opening direction,fn_1_drehlinks,Dreh Links,142.52,237.53,95.04,158.4
+oeffnungsrichtung,Opening direction,fn_1_drehkipp_rechts,Drehkipp Rechts,142.52,237.53,95.04,158.4
+oeffnungsrichtung,Opening direction,fn_1_drehkipp_links,Drehkipp Links,142.52,237.53,95.04,158.4
+dichtungsfarbe_aussen,Seal color outside,dfa_1,Lichtgrau,47.48,79.13,0.0,0.0
+dichtungsfarbe_aussen,Seal color outside,dfa_2,Schwarz,47.48,79.13,0.0,0.0
+dichtungsfarbe_innen,Seal color inside,dfi_1,Lichtgrau,47.48,79.13,0.0,0.0
+dichtungsfarbe_innen,Seal color inside,dfi_2,Schwarz,47.48,79.13,0.0,0.0
+kernfarbe,Core color,kf_0,Weiß,47.48,79.13,0.0,0.0
+kernfarbe,Core color,kf_1,Grau,49.78,82.96,2.3,3.83
+kernfarbe,Core color,kf_2,Schwarz,49.78,82.96,2.3,3.83
+dekofarbe_aussen,Decorative color outside,fs1_01,Weiß (Standard),47.48,79.13,0.0,0.0
+dekofarbe_aussen,Decorative color outside,fs1_02,Cremeweiß,53.92,89.87,6.44,10.74
+dekofarbe_aussen,Decorative color outside,fs1_03,Hellgrau,53.92,89.87,6.44,10.74
+dekofarbe_aussen,Decorative color outside,fs1_04,Anthrazit,53.92,89.87,6.44,10.74
+dekofarbe_aussen,Decorative color outside,fs1_05,Schwarzbraun,53.92,89.87,6.44,10.74
+dekofarbe_aussen,Decorative color outside,fs1_06,Dunkelbraun,53.92,89.87,6.44,10.74
+dekofarbe_innen,Decorative color inside,fs1_01_i,Weiß (Standard),47.48,79.13,0.0,0.0
+dekofarbe_innen,Decorative color inside,fs1_02_i,Cremeweiß,58.98,98.3,11.5,19.17
+dekofarbe_innen,Decorative color inside,fs1_03_i,Hellgrau,58.98,98.3,11.5,19.17
+dekofarbe_innen,Decorative color inside,fs1_04_i,Anthrazit,58.98,98.3,11.5,19.17
+dekofarbe_innen,Decorative color inside,fs1_05_i,Schwarzbraun,58.98,98.3,11.5,19.17
+dekofarbe_innen,Decorative color inside,fs1_06_i,Dunkelbraun,58.98,98.3,11.5,19.17
+verglasung,Glazing type,g1,2-fach Verglasung,47.48,79.13,0.0,0.0
+verglasung,Glazing type,g2,3-fach Verglasung,47.48,79.13,0.0,0.0
+verglasung,Glazing type,g3,3-fach Verglasung Premium,62.93,104.89,15.45,25.76
+verglasung,Glazing type,g4,3-fach Verglasung Passivhaus,62.93,104.89,15.45,25.76
+verglasung,Glazing type,g5,2-fach Verglasung Solar,52.57,87.61,5.09,8.48
+verglasung,Glazing type,g6,3-fach Verglasung Solar,46.02,76.7,-1.46,-2.43
+schallschutz,Sound insulation,schallschutz_nein,Nein (Standard SSK1),47.48,79.13,0.0,0.0
+schallschutz,Sound insulation,schallschutz_ja,Ja,47.48,79.13,0.0,0.0
+sicherheitsverglasung,Safety glazing,sicherheitsverglasung_0,Nein,47.48,79.13,0.0,0.0
+sicherheitsverglasung,Safety glazing,sicherheitsverglasung_1,Ja,54.02,90.04,6.54,10.91
+ornament,Ornament & sun protection glass,ornament_0,Nein,47.48,79.13,0.0,0.0
+ornament,Ornament & sun protection glass,ornament_1,Ja,73.28,122.14,25.8,43.01
+druckventil,Pressure equalization valve,drv_0,Nein,47.48,79.13,0.0,0.0
+druckventil,Pressure equalization valve,drv_1,Ja,70.65,117.75,23.17,38.62
+sprossen,Muntins/Bars,sprossen_0,Nein,47.48,79.13,0.0,0.0
+sprossen,Muntins/Bars,sprossen_1,Sprossen innenliegend,57.7,96.17,10.22,17.04
+sprossen,Muntins/Bars,sprossen_2,Sprossen aufliegend,47.48,79.13,0.0,0.0
+rollladen,Roller shutter,roll_0,Nein,47.48,79.13,0.0,0.0
+rollladen,Roller shutter,roll_1,Aufsatzrollladen,128.69,214.49,81.21,135.36
+rollladen,Roller shutter,roll_2,Vorsatzrollladen,128.69,214.49,81.21,135.36
+duenne_schweissnaht,Thin weld seam (V-Perfect),dsd_0,Nein,47.48,79.13,0.0,0.0
+duenne_schweissnaht,Thin weld seam (V-Perfect),dsd_1,Ja,48.1,80.16,0.62,1.03
+rahmenverbreiterung,Frame widening,rahmenverbreiterung_0,Nein,47.48,79.13,0.0,0.0
+rahmenverbreiterung,Frame widening,rahmenverbreiterung_1,Ja,47.48,79.13,0.0,0.0
+fensterbankanschluss,Window sill connection,febaan_0,Nein,47.48,79.13,0.0,0.0
+fensterbankanschluss,Window sill connection,febaan_1,Ja,54.13,90.21,6.65,11.08
