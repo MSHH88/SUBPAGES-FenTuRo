@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fenster & Türen Konfigurator</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: #f5f5f5; color: #333; }
+
+  /* Header */
+  .header { background: #1a3a5c; color: white; padding: 16px 24px; display: flex; align-items: center; gap: 16px; }
+  .header h1 { font-size: 1.4rem; font-weight: 700; }
+  .header .badge { background: #e74c3c; color: white; padding: 4px 10px; border-radius: 4px; font-size: 0.85rem; font-weight: 700; }
+
+  /* Layout */
+  .main-layout { display: grid; grid-template-columns: 1fr 320px; gap: 0; min-height: calc(100vh - 60px); }
+  .konfig-area { padding: 20px; }
+  .price-sidebar { background: white; border-left: 1px solid #ddd; padding: 20px; position: sticky; top: 0; height: calc(100vh - 60px); overflow-y: auto; }
+
+  /* Step Navigation */
+  .step-nav { display: flex; gap: 0; margin-bottom: 20px; border-radius: 6px; overflow: hidden; border: 1px solid #ddd; background: white; }
+  .step-btn { flex: 1; padding: 10px 6px; text-align: center; font-size: 0.8rem; font-weight: 600; cursor: pointer; border: none; background: white; color: #666; border-right: 1px solid #ddd; transition: all 0.2s; }
+  .step-btn:last-child { border-right: none; }
+  .step-btn.active { background: #1a3a5c; color: white; }
+  .step-btn.completed { background: #e8f5e9; color: #2e7d32; }
+  .step-btn:hover:not(.active) { background: #f0f4f8; }
+
+  /* Step Content */
+  .step-content { display: none; background: white; border-radius: 8px; padding: 20px; border: 1px solid #ddd; }
+  .step-content.active { display: block; }
+
+  /* Section Headers */
+  .section-title { font-size: 0.85rem; font-weight: 700; color: #1a3a5c; text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 10px; padding-bottom: 4px; border-bottom: 2px solid #1a3a5c; }
+  .section-title:first-child { margin-top: 0; }
+
+  /* Option Grid */
+  .option-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 10px; margin-bottom: 16px; }
+  .option-card { border: 2px solid #ddd; border-radius: 6px; padding: 10px 8px; text-align: center; cursor: pointer; transition: all 0.2s; background: white; }
+  .option-card:hover { border-color: #1a3a5c; background: #f0f4f8; }
+  .option-card.selected { border-color: #1a3a5c; background: #e8eef5; }
+  .option-card .opt-label { font-size: 0.78rem; font-weight: 600; margin-top: 4px; line-height: 1.3; }
+  .option-card .opt-price { font-size: 0.7rem; color: #e74c3c; margin-top: 2px; }
+  .option-card .opt-price.free { color: #27ae60; }
+  .option-icon { font-size: 1.5rem; }
+
+  /* Dimension Input */
+  .dim-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+  .dim-group label { display: block; font-size: 0.82rem; font-weight: 600; color: #555; margin-bottom: 4px; }
+  .dim-group input { width: 100%; padding: 8px 12px; border: 2px solid #ddd; border-radius: 6px; font-size: 0.95rem; transition: border-color 0.2s; }
+  .dim-group input:focus { outline: none; border-color: #1a3a5c; }
+  .dim-hint { font-size: 0.75rem; color: #888; margin-top: 4px; }
+
+  /* Toggle Switch */
+  .toggle-row { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #f0f0f0; }
+  .toggle-row:last-child { border-bottom: none; }
+  .toggle-label { font-size: 0.85rem; font-weight: 500; }
+  .toggle-label .price-tag { font-size: 0.75rem; color: #e74c3c; margin-left: 6px; }
+  .toggle-switch { display: flex; gap: 0; border-radius: 4px; overflow: hidden; border: 1px solid #ddd; }
+  .toggle-btn { padding: 5px 14px; font-size: 0.8rem; cursor: pointer; border: none; background: white; color: #666; transition: all 0.2s; }
+  .toggle-btn.active { background: #1a3a5c; color: white; }
+
+  /* Navigation Buttons */
+  .nav-buttons { display: flex; justify-content: space-between; margin-top: 20px; padding-top: 16px; border-top: 1px solid #eee; }
+  .btn { padding: 10px 24px; border-radius: 6px; border: none; cursor: pointer; font-size: 0.9rem; font-weight: 600; transition: all 0.2s; }
+  .btn-primary { background: #1a3a5c; color: white; }
+  .btn-primary:hover { background: #0f2a42; }
+  .btn-secondary { background: white; color: #1a3a5c; border: 2px solid #1a3a5c; }
+  .btn-secondary:hover { background: #f0f4f8; }
+  .btn-success { background: #27ae60; color: white; }
+  .btn-success:hover { background: #1e8449; }
+
+  /* Price Sidebar */
+  .price-sidebar h3 { font-size: 1rem; color: #1a3a5c; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid #1a3a5c; }
+  .price-old { text-decoration: line-through; color: #999; font-size: 0.9rem; }
+  .price-discount { background: #e74c3c; color: white; padding: 3px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: 700; display: inline-block; margin: 4px 0; }
+  .price-new { font-size: 1.6rem; font-weight: 700; color: #1a3a5c; }
+  .price-note { font-size: 0.72rem; color: #888; margin-top: 2px; }
+  .price-breakdown { margin-top: 14px; }
+  .price-row { display: flex; justify-content: space-between; padding: 5px 0; font-size: 0.8rem; border-bottom: 1px solid #f5f5f5; }
+  .price-row:last-child { border-bottom: none; }
+  .price-row .label { color: #666; }
+  .price-row .value { font-weight: 600; color: #333; }
+  .price-row.total { font-size: 0.9rem; font-weight: 700; color: #1a3a5c; border-top: 2px solid #1a3a5c; margin-top: 4px; padding-top: 8px; }
+  .config-summary { margin-top: 14px; font-size: 0.78rem; color: #555; }
+  .config-summary .row { padding: 3px 0; display: flex; justify-content: space-between; }
+  .config-summary .row .key { color: #888; }
+
+  /* Product Type Selector */
+  .product-tabs { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+  .product-tab { padding: 8px 16px; border-radius: 20px; border: 2px solid #ddd; cursor: pointer; font-size: 0.85rem; font-weight: 600; background: white; color: #666; transition: all 0.2s; }
+  .product-tab.active { background: #1a3a5c; color: white; border-color: #1a3a5c; }
+  .product-tab:hover:not(.active) { border-color: #1a3a5c; color: #1a3a5c; }
+
+  /* Color Swatches */
+  .color-grid { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+  .color-swatch { width: 44px; height: 44px; border-radius: 6px; border: 3px solid transparent; cursor: pointer; transition: all 0.2s; position: relative; }
+  .color-swatch.selected { border-color: #1a3a5c; box-shadow: 0 0 0 2px #1a3a5c; }
+  .color-swatch:hover { transform: scale(1.1); }
+  .color-swatch .swatch-label { position: absolute; bottom: -18px; left: 50%; transform: translateX(-50%); font-size: 0.65rem; white-space: nowrap; color: #555; }
+
+  /* Info Box */
+  .info-box { background: #e8f4fd; border-left: 4px solid #3498db; padding: 10px 14px; border-radius: 0 6px 6px 0; margin-bottom: 16px; font-size: 0.82rem; color: #2c3e50; }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .main-layout { grid-template-columns: 1fr; }
+    .price-sidebar { position: fixed; bottom: 0; left: 0; right: 0; height: auto; border-left: none; border-top: 2px solid #1a3a5c; z-index: 100; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <h1>🪟 Fenster & Türen Konfigurator</h1>
+  </div>
+  <div class="badge">-40% RABATT</div>
+</div>
+
+<div class="main-layout">
+  <!-- Left: Configuration Area -->
+  <div class="konfig-area">
+    
+    <!-- Product Type Selector -->
+    <div class="product-tabs">
+      <div class="product-tab active" onclick="selectProduct('fenster')">🪟 Fenster</div>
+      <div class="product-tab" onclick="selectProduct('tuer')">🚪 Türen</div>
+      <div class="product-tab" onclick="selectProduct('balkontuer')">🏠 Balkontüren</div>
+      <div class="product-tab" onclick="selectProduct('terrassentuer')">🌿 Terrassentüren</div>
+    </div>
+
+    <!-- Step Navigation -->
+    <div class="step-nav">
+      <button class="step-btn active" onclick="goToStep(1)" id="step-btn-1">1. Profil</button>
+      <button class="step-btn" onclick="goToStep(2)" id="step-btn-2">2. Maße</button>
+      <button class="step-btn" onclick="goToStep(3)" id="step-btn-3">3. Farbe</button>
+      <button class="step-btn" onclick="goToStep(4)" id="step-btn-4">4. Glas</button>
+      <button class="step-btn" onclick="goToStep(5)" id="step-btn-5">5. Sprossen</button>
+      <button class="step-btn" onclick="goToStep(6)" id="step-btn-6">6. Rollladen</button>
+      <button class="step-btn" onclick="goToStep(7)" id="step-btn-7">7. Sonstiges</button>
+    </div>
+
+    <!-- STEP 1: PROFIL -->
+    <div class="step-content active" id="step-1">
+      <div class="section-title">Material</div>
+      <div class="option-grid">
+        <div class="option-card selected" onclick="select('material','ma1',this)" data-key="material" data-val="ma1">
+          <div class="opt-icon">🔲</div>
+          <div class="opt-label">Kunststoff (PVC)</div>
+          <div class="opt-price free">Standard</div>
+        </div>
+        <div class="option-card" onclick="select('material','ma5',this)" data-key="material" data-val="ma5">
+          <div class="opt-icon">🔲</div>
+          <div class="opt-label">Kunststoff-Aluminium</div>
+          <div class="opt-price free">Standard</div>
+        </div>
+        <div class="option-card" onclick="select('material','ma2',this)" data-key="material" data-val="ma2">
+          <div class="opt-icon">⬜</div>
+          <div class="opt-label">Aluminium</div>
+          <div class="opt-price free">Standard</div>
+        </div>
+        <div class="option-card" onclick="select('material','ma3',this)" data-key="material" data-val="ma3">
+          <div class="opt-icon">🟫</div>
+          <div class="opt-label">Holz</div>
+          <div class="opt-price free">Standard</div>
+        </div>
+        <div class="option-card" onclick="select('material','ma4',this)" data-key="material" data-val="ma4">
+          <div class="opt-icon">🟫</div>
+          <div class="opt-label">Holz-Aluminium</div>
+          <div class="opt-price free">Standard</div>
+        </div>
+      </div>
+
+      <div class="section-title">Hersteller</div>
+      <div class="option-grid">
+        <div class="option-card" onclick="select('hersteller','h1',this)"><div class="opt-label">DRUTEX</div><div class="opt-price free">1-4 Wo.</div></div>
+        <div class="option-card" onclick="select('hersteller','h3',this)"><div class="opt-label">Salamander</div><div class="opt-price free">2-6 Wo.</div></div>
+        <div class="option-card" onclick="select('hersteller','h8',this)"><div class="opt-label">aluplast</div><div class="opt-price free">4-8 Wo.</div></div>
+        <div class="option-card selected" onclick="select('hersteller','h7',this)"><div class="opt-label">GEALAN</div><div class="opt-price free">4-8 Wo.</div></div>
+        <div class="option-card" onclick="select('hersteller','h9',this)"><div class="opt-label">REHAU</div><div class="opt-price free">2-6 Wo.</div></div>
+        <div class="option-card" onclick="select('hersteller','h2',this)"><div class="opt-label">VEKA</div><div class="opt-price free">4-7 Wo.</div></div>
+        <div class="option-card" onclick="select('hersteller','h6',this)"><div class="opt-label">TROCAL</div><div class="opt-price free">3-7 Wo.</div></div>
+        <div class="option-card" onclick="select('hersteller','h5',this)"><div class="opt-label">Kömmerling</div><div class="opt-price free">2-6 Wo.</div></div>
+      </div>
+
+      <div class="section-title">Profil (GEALAN PVC)</div>
+      <div class="option-grid">
+        <div class="option-card selected" onclick="selectProfil('p1',this)">
+          <div class="opt-label">GEALAN S8000</div>
+          <div style="font-size:0.7rem;color:#888">Uw ≥ 0,82</div>
+          <div class="opt-price free">ab 31,86 €</div>
+        </div>
+        <div class="option-card" onclick="selectProfil('p4',this)">
+          <div class="opt-label">GEALAN-LINEAR</div>
+          <div style="font-size:0.7rem;color:#888">Uw ≥ 0,73</div>
+          <div class="opt-price">ab 47,95 €</div>
+        </div>
+        <div class="option-card" onclick="selectProfil('p2',this)">
+          <div class="opt-label">GEALAN S9000</div>
+          <div style="font-size:0.7rem;color:#888">Uw ≥ 0,71</div>
+          <div class="opt-price">ab 47,10 €</div>
+        </div>
+      </div>
+
+      <div class="section-title">Blendrahmen</div>
+      <div class="option-grid">
+        <div class="option-card selected" onclick="selectSurcharge('blendrahmen','br_1',0,this)"><div class="opt-label">66 mm</div><div class="opt-price free">+0,00 €</div></div>
+        <div class="option-card" onclick="selectSurcharge('blendrahmen','br_2',17.54,this)"><div class="opt-label">74 mm</div><div class="opt-price">+17,54 €</div></div>
+        <div class="option-card" onclick="selectSurcharge('blendrahmen','br_3',22.81,this)"><div class="opt-label">81 mm</div><div class="opt-price">+22,81 €</div></div>
+      </div>
+
+      <div class="section-title">Flügel</div>
+      <div class="option-grid">
+        <div class="option-card selected" onclick="selectSurcharge('fluegel','fl_1',0,this)"><div class="opt-label">78mm Standard</div><div class="opt-price free">+0,00 €</div></div>
+        <div class="option-card" onclick="selectSurcharge('fluegel','fl_3',14.11,this)"><div class="opt-label">78mm halbflächenversetzt</div><div class="opt-price">+14,11 €</div></div>
+      </div>
+
+      <div class="section-title">Fensterart</div>
+      <div class="option-grid">
+        <div class="option-card selected" onclick="selectSurcharge('fensterart','a1',0,this)"><div class="opt-label">Einflüglig</div><div class="opt-price free">+0,00 €</div></div>
+        <div class="option-card" onclick="selectSurcharge('fensterart','a2',0,this)"><div class="opt-label">Zweiflüglig</div><div class="opt-price free">+0,00 €</div></div>
+        <div class="option-card" onclick="selectSurcharge('fensterart','a3',0,this)"><div class="opt-label">Dreiflüglig</div><div class="opt-price free">+0,00 €</div></div>
+      </div>
+
+      <div class="section-title">Fenstertyp</div>
+      <div class="option-grid">
+        <div class="option-card selected" onclick="selectSurcharge('fenstertyp','typ1',0,this)"><div class="opt-label">Einflüglig</div></div>
+        <div class="option-card" onclick="selectSurcharge('fenstertyp','typ1o1',0,this)"><div class="opt-label">Oberlicht 1-teilig</div></div>
+        <div class="option-card" onclick="selectSurcharge('fenstertyp','typ1o2',0,this)"><div class="opt-label">Oberlicht 2-teilig</div></div>
+        <div class="option-card" onclick="selectSurcharge('fenstertyp','typ1o3',0,this)"><div class="opt-label">Oberlicht 3-teilig</div></div>
+        <div class="option-card" onclick="selectSurcharge('fenstertyp','typ1u1',0,this)"><div class="opt-label">Unterlicht 1-teilig</div></div>
+        <div class="option-card" onclick="selectSurcharge('fenstertyp','typ1u2',0,this)"><div class="opt-label">Unterlicht 2-teilig</div></div>
+        <div class="option-card" onclick="selectSurcharge('fenstertyp','typ1u3',0,this)"><div class="opt-label">Unterlicht 3-teilig</div></div>
+      </div>
+
+      <div class="section-title">Öffnungsrichtung (Ansicht von innen)</div>
+      <div class="option-grid">
+        <div class="option-card selected" onclick="selectSurcharge('oer','fn_1_fest_ohne_fluegel',0,this)"><div class="opt-label">Fest (ohne Flügel)</div><div class="opt-price free">+0,00 €</div></div>
+        <div class="option-card" onclick="selectSurcharge('oer','fn_1_fest_fluegel',35.01,this)"><div class="opt-label">Fest (mit Flügel)</div><div class="opt-price">+35,01 €</div></div>
+        <div class="option-card" onclick="selectSurcharge('oer','fn_1_kipp',99.04,this)"><div class="opt-label">Kipp</div><div class="opt-price">+99,04 €</div></div>
+        <div class="option-card" onclick="selectSurcharge('oer','fn_1_drehrechts',95.04,this)"><div class="opt-label">Dreh Rechts</div><div class="opt-price">+95,04 €</div></div>
+        <div class="option-card" onclick="selectSurcharge('oer','fn_1_drehlinks',95.04,this)"><div class="opt-label">Dreh Links</div><div class="opt-price">+95,04 €</div></div>
+        <div class="option-card" onclick="selectSurcharge('oer','fn_1_drehkipp_rechts',95.04,this)"><div class="opt-label">Drehkipp Rechts</div><div class="opt-price">+95,04 €</div></div>
+        <div class="option-card" onclick="selectSurcharge('oer','fn_1_drehkipp_links',95.04,this)"><div class="opt-label">Drehkipp Links</div><div class="opt-price">+95,04 €</div></div>
+      </div>
+
+      <div class="nav-buttons">
+        <div></div>
+        <button class="btn btn-primary" onclick="goToStep(2)">Weiter zu Maße →</button>
+      </div>
+    </div>
+
+    <!-- STEP 2: MAßE -->
+    <div class="step-content" id="step-2">
+      <div class="info-box">Geben Sie die genauen Außenmaße Ihres Fensters in Millimetern an. Mindestmaß: 400mm, Maximalmaß: 2000mm.</div>
+      
+      <div class="section-title">Fenstermaße (in mm)</div>
+      <div class="dim-row">
+        <div class="dim-group">
+          <label>Breite (mm)</label>
+          <input type="number" id="breite" value="500" min="400" max="2000" step="10" oninput="updateDimensions()">
+          <div class="dim-hint">400 – 2000 mm</div>
+        </div>
+        <div class="dim-group">
+          <label>Höhe (mm)</label>
+          <input type="number" id="hoehe" value="500" min="400" max="2000" step="10" oninput="updateDimensions()">
+          <div class="dim-hint">400 – 2000 mm</div>
+        </div>
+      </div>
+
+      <div class="section-title">Fensterbankanschluss</div>
+      <div class="toggle-row">
+        <span class="toggle-label">Fensterbankanschluss <span class="price-tag">+6,65 € bei Ja</span></span>
+        <div class="toggle-switch">
+          <button class="toggle-btn active" onclick="selectToggle('fensterbankanschluss','febaan_0',0,this,'febaan_1')">Nein</button>
+          <button class="toggle-btn" onclick="selectToggle('fensterbankanschluss','febaan_1',6.65,this,'febaan_0')">Ja</button>
+        </div>
+      </div>
+
+      <div class="nav-buttons">
+        <button class="btn btn-secondary" onclick="goToStep(1)">← Zurück</button>
+        <button class="btn btn-primary" onclick="goToStep(3)">Weiter zu Farbe →</button>
+      </div>
+    </div>
+
+    <!-- STEP 3: FARBE -->
+    <div class="step-content" id="step-3">
+      <div class="section-title">Dichtungsfarbe Außen</div>
+      <div class="option-grid">
+        <div class="option-card selected" onclick="selectSurcharge('dfa','dfa_1',0,this)"><div class="opt-label">Lichtgrau</div><div class="opt-price free">+0,00 €</div></div>
+        <div class="option-card" onclick="selectSurcharge('dfa','dfa_2',0,this)"><div class="opt-label">Schwarz</div><div class="opt-price free">+0,00 €</div></div>
+      </div>
+
+      <div class="section-title">Dichtungsfarbe Innen</div>
+      <div class="option-grid">
+        <div class="option-card selected" onclick="selectSurcharge('dfi','dfi_1',0,this)"><div class="opt-label">Lichtgrau</div><div class="opt-price free">+0,00 €</div></div>
+        <div class="option-card" onclick="selectSurcharge('dfi','dfi_2',0,this)"><div class="opt-label">Schwarz</div><div class="opt-price free">+0,00 €</div></div>
+      </div>
+
+      <div class="section-title">Kernfarbe</div>
+      <div class="option-grid">
+        <div class="option-card selected" onclick="selectSurcharge('kernfarbe','kf_0',0,this)"><div style="width:28px;height:28px;background:#fff;border:1px solid #ccc;border-radius:4px;margin:0 auto"></div><div class="opt-label">Weiß</div><div class="opt-price free">+0,00 €</div></div>
+        <div class="option-card" onclick="selectSurcharge('kernfarbe','kf_1',2.30,this)"><div style="width:28px;height:28px;background:#888;border-radius:4px;margin:0 auto"></div><div class="opt-label">Grau</div><div class="opt-price">+2,30 €</div></div>
+        <div class="option-card" onclick="selectSurcharge('kernfarbe','kf_2',2.30,this)"><div style="width:28px;height:28px;background:#222;border-radius:4px;margin:0 auto"></div><div class="opt-label">Schwarz</div><div class="opt-price">+2,30 €</div></div>
+      </div>
+
+      <div class="section-title">Dekorfarbe Außen</div>
+      <div class="color-grid">
+        <div class="color-swatch selected" style="background:#ffffff;border:1px solid #ccc" onclick="selectColor('dekofarbe_a','fs1_01',0,this)" title="Weiß (Standard)"><span class="swatch-label">Weiß</span></div>
+        <div class="color-swatch" style="background:#f5f0e8" onclick="selectColor('dekofarbe_a','fs1_02',6.44,this)" title="Cremeweiß"><span class="swatch-label">Cremeweiß</span></div>
+        <div class="color-swatch" style="background:#c8c8c8" onclick="selectColor('dekofarbe_a','fs1_03',6.44,this)" title="Hellgrau"><span class="swatch-label">Hellgrau</span></div>
+        <div class="color-swatch" style="background:#3d3d3d" onclick="selectColor('dekofarbe_a','fs1_04',6.44,this)" title="Anthrazit"><span class="swatch-label">Anthrazit</span></div>
+        <div class="color-swatch" style="background:#3b2a1a" onclick="selectColor('dekofarbe_a','fs1_05',6.44,this)" title="Schwarzbraun"><span class="swatch-label">Schwarzbraun</span></div>
+        <div class="color-swatch" style="background:#5c3d1e" onclick="selectColor('dekofarbe_a','fs1_06',6.44,this)" title="Dunkelbraun"><span class="swatch-label">Dunkelbraun</span></div>
+      </div>
+      <div style="font-size:0.75rem;color:#e74c3c;margin-bottom:12px">Alle Farben außer Weiß: +6,44 €</div>
+
+      <div class="section-title">Dekorfarbe Innen</div>
+      <div class="color-grid">
+        <div class="color-swatch selected" style="background:#ffffff;border:1px solid #ccc" onclick="selectColor('dekofarbe_i','fs1_01_i',0,this)" title="Weiß (Standard)"><span class="swatch-label">Weiß</span></div>
+        <div class="color-swatch" style="background:#f5f0e8" onclick="selectColor('dekofarbe_i','fs1_02_i',11.50,this)" title="Cremeweiß"><span class="swatch-label">Cremeweiß</span></div>
+        <div class="color-swatch" style="background:#c8c8c8" onclick="selectColor('dekofarbe_i','fs1_03_i',11.50,this)" title="Hellgrau"><span class="swatch-label">Hellgrau</span></div>
+        <div class="color-swatch" style="background:#3d3d3d" onclick="selectColor('dekofarbe_i','fs1_04_i',11.50,this)" title="Anthrazit"><span class="swatch-label">Anthrazit</span></div>
+        <div class="color-swatch" style="background:#3b2a1a" onclick="selectColor('dekofarbe_i','fs1_05_i',11.50,this)" title="Schwarzbraun"><span class="swatch-label">Schwarzbraun</span></div>
+        <div class="color-swatch" style="background:#5c3d1e" onclick="selectColor('dekofarbe_i','fs1_06_i',11.50,this)" title="Dunkelbraun"><span class="swatch-label">Dunkelbraun</span></div>
+      </div>
+      <div style="font-size:0.75rem;color:#e74c3c;margin-bottom:12px">Alle Farben außer Weiß: +11,50 €</div>
+
+      <div class="nav-buttons">
+        <button class="btn btn-secondary" onclick="goToStep(2)">← Zurück</button>
+        <button class="btn btn-primary" onclick="goToStep(4)">Weiter zu Glas →</button>
+      </div>
+    </div>
+
+    <!-- STEP 4: GLAS -->
+    <div class="step-content" id="step-4">
+      <div class="section-title">Verglasung</div>
+      <div class="option-grid">
+        <div class="option-card selected" onclick="selectSurcharge('glas','g1',0,this)"><div class="opt-label">2-fach Verglasung</div><div class="opt-price free">+0,00 €</div></div>
+        <div class="option-card" onclick="selectSurcharge('glas','g2',0,this)"><div class="opt-label">3-fach Verglasung</div><div class="opt-price free">+0,00 €</div></div>
+        <div class="option-card" onclick="selectSurcharge('glas','g3',15.45,this)"><div class="opt-label">3-fach Premium</div><div class="opt-price">+15,45 €</div></div>
+        <div class="option-card" onclick="selectSurcharge('glas','g4',15.45,this)"><div class="opt-label">3-fach Passivhaus</div><div class="opt-price">+15,45 €</div></div>
+        <div class="option-card" onclick="selectSurcharge('glas','g5',5.09,this)"><div class="opt-label">2-fach Solar</div><div class="opt-price">+5,09 €</div></div>
+        <div class="option-card" onclick="selectSurcharge('glas','g6',-1.46,this)"><div class="opt-label">3-fach Solar</div><div class="opt-price" style="color:#27ae60">-1,46 €</div></div>
+      </div>
+
+      <div class="section-title">Glasoptionen</div>
+      <div class="toggle-row">
+        <span class="toggle-label">Schallschutz <span class="price-tag">+0,00 €</span></span>
+        <div class="toggle-switch">
+          <button class="toggle-btn active" onclick="selectToggle('schallschutz','schallschutz_nein',0,this,'schallschutz_ja')">Nein</button>
+          <button class="toggle-btn" onclick="selectToggle('schallschutz','schallschutz_ja',0,this,'schallschutz_nein')">Ja</button>
+        </div>
+      </div>
+      <div class="toggle-row">
+        <span class="toggle-label">Sicherheitsverglasung <span class="price-tag">+6,54 € bei Ja</span></span>
+        <div class="toggle-switch">
+          <button class="toggle-btn active" onclick="selectToggle('sicherheitsverglasung','sicherheitsverglasung_0',0,this,'sicherheitsverglasung_1')">Nein</button>
+          <button class="toggle-btn" onclick="selectToggle('sicherheitsverglasung','sicherheitsverglasung_1',6.54,this,'sicherheitsverglasung_0')">Ja</button>
+        </div>
+      </div>
+      <div class="toggle-row">
+        <span class="toggle-label">Ornament- & Sonnenschutzglas <span class="price-tag">+25,80 € bei Ja</span></span>
+        <div class="toggle-switch">
+          <button class="toggle-btn active" onclick="selectToggle('ornament','ornament_0',0,this,'ornament_1')">Nein</button>
+          <button class="toggle-btn" onclick="selectToggle('ornament','ornament_1',25.80,this,'ornament_0')">Ja</button>
+        </div>
+      </div>
+      <div class="toggle-row">
+        <span class="toggle-label">Druckausgleichsventil <span class="price-tag">+23,17 € bei Ja</span></span>
+        <div class="toggle-switch">
+          <button class="toggle-btn active" onclick="selectToggle('drv','drv_0',0,this,'drv_1')">Nein</button>
+          <button class="toggle-btn" onclick="selectToggle('drv','drv_1',23.17,this,'drv_0')">Ja</button>
+        </div>
+      </div>
+
+      <div class="nav-buttons">
+        <button class="btn btn-secondary" onclick="goToStep(3)">← Zurück</button>
+        <button class="btn btn-primary" onclick="goToStep(5)">Weiter zu Sprossen →</button>
+      </div>
+    </div>
+
+    <!-- STEP 5: SPROSSEN -->
+    <div class="step-content" id="step-5">
+      <div class="section-title">Sprossen</div>
+      <div class="option-grid">
+        <div class="option-card selected" onclick="selectSurcharge('sprossen','sprossen_0',0,this)"><div class="opt-label">Nein</div><div class="opt-price free">+0,00 €</div></div>
+        <div class="option-card" onclick="selectSurcharge('sprossen','sprossen_1',10.22,this)"><div class="opt-label">Sprossen innenliegend</div><div class="opt-price">+10,22 €</div></div>
+        <div class="option-card" onclick="selectSurcharge('sprossen','sprossen_2',0,this)"><div class="opt-label">Sprossen aufliegend</div><div class="opt-price free">+0,00 €</div></div>
+      </div>
+
+      <div class="nav-buttons">
+        <button class="btn btn-secondary" onclick="goToStep(4)">← Zurück</button>
+        <button class="btn btn-primary" onclick="goToStep(6)">Weiter zu Rollladen →</button>
+      </div>
+    </div>
+
+    <!-- STEP 6: ROLLLADEN -->
+    <div class="step-content" id="step-6">
+      <div class="section-title">Aufsatzrollladen</div>
+      <div class="option-grid">
+        <div class="option-card selected" onclick="selectSurcharge('roll','roll_0',0,this)"><div class="opt-label">Kein Rollladen</div><div class="opt-price free">+0,00 €</div></div>
+        <div class="option-card" onclick="selectSurcharge('roll','roll_1',81.21,this)"><div class="opt-label">Aufsatzrollladen</div><div class="opt-price">+81,21 €</div></div>
+        <div class="option-card" onclick="selectSurcharge('roll','roll_2',81.21,this)"><div class="opt-label">Vorsatzrollladen</div><div class="opt-price">+81,21 €</div></div>
+      </div>
+
+      <div class="nav-buttons">
+        <button class="btn btn-secondary" onclick="goToStep(5)">← Zurück</button>
+        <button class="btn btn-primary" onclick="goToStep(7)">Weiter zu Sonstiges →</button>
+      </div>
+    </div>
+
+    <!-- STEP 7: SONSTIGES -->
+    <div class="step-content" id="step-7">
+      <div class="section-title">Dünne Schweißnaht (V-Perfect)</div>
+      <div class="toggle-row">
+        <span class="toggle-label">Dünne Schweißnaht für Kunststoffprofil <span class="price-tag">+0,62 € bei Ja</span></span>
+        <div class="toggle-switch">
+          <button class="toggle-btn active" onclick="selectToggle('dsd','dsd_0',0,this,'dsd_1')">Nein</button>
+          <button class="toggle-btn" onclick="selectToggle('dsd','dsd_1',0.62,this,'dsd_0')">Ja</button>
+        </div>
+      </div>
+
+      <div class="section-title">Rahmenverbreiterung</div>
+      <div class="toggle-row">
+        <span class="toggle-label">Rahmenverbreiterung hinzufügen</span>
+        <div class="toggle-switch">
+          <button class="toggle-btn active" onclick="toggleRahmen(false,this)">Nein</button>
+          <button class="toggle-btn" onclick="toggleRahmen(true,this)">Ja</button>
+        </div>
+      </div>
+      <div id="rahmen-options" style="display:none;margin-top:10px;padding:10px;background:#f8f8f8;border-radius:6px">
+        <div style="font-size:0.82rem;font-weight:600;margin-bottom:8px">Verbreiterung in mm:</div>
+        <div class="dim-row">
+          <div class="dim-group"><label>Oben (mm)</label><input type="number" id="rv-oben" value="0" min="0" max="200" step="10" oninput="updatePrice()"></div>
+          <div class="dim-group"><label>Unten (mm)</label><input type="number" id="rv-unten" value="0" min="0" max="200" step="10" oninput="updatePrice()"></div>
+        </div>
+        <div class="dim-row">
+          <div class="dim-group"><label>Links (mm)</label><input type="number" id="rv-links" value="0" min="0" max="200" step="10" oninput="updatePrice()"></div>
+          <div class="dim-group"><label>Rechts (mm)</label><input type="number" id="rv-rechts" value="0" min="0" max="200" step="10" oninput="updatePrice()"></div>
+        </div>
+      </div>
+
+      <div class="nav-buttons">
+        <button class="btn btn-secondary" onclick="goToStep(6)">← Zurück</button>
+        <button class="btn btn-success" onclick="addToCart()">🛒 In den Warenkorb</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Right: Price Sidebar -->
+  <div class="price-sidebar">
+    <h3>Mein Fenster</h3>
+    
+    <div class="price-old" id="price-old">79,13 EUR</div>
+    <div class="price-discount">-40% RABATT</div>
+    <div style="font-size:0.78rem;color:#888;margin-bottom:4px">Sie sparen <span id="savings">31,65</span> EUR</div>
+    <div class="price-new">€ <span id="price-new">47,48</span></div>
+    <div class="price-note">* inkl. MwSt. zzgl. Versand</div>
+
+    <div class="price-breakdown" id="price-breakdown">
+      <div class="price-row"><span class="label">Grundpreis</span><span class="value" id="pb-grundpreis">76,70 EUR</span></div>
+      <div class="price-row" id="pb-profil-row"><span class="label">Profil</span><span class="value" id="pb-profil">GEALAN S8000</span></div>
+      <div class="price-row"><span class="label">Maße</span><span class="value" id="pb-masse">500 × 500 mm</span></div>
+      <div class="price-row"><span class="label">Fläche</span><span class="value" id="pb-flaeche">0,25 m²</span></div>
+      <div class="price-row" id="pb-blendrahmen-row" style="display:none"><span class="label">Blendrahmen</span><span class="value" id="pb-blendrahmen">+0,00 €</span></div>
+      <div class="price-row" id="pb-fluegel-row" style="display:none"><span class="label">Flügel</span><span class="value" id="pb-fluegel">+0,00 €</span></div>
+      <div class="price-row" id="pb-oer-row" style="display:none"><span class="label">Öffnungsrichtung</span><span class="value" id="pb-oer">+0,00 €</span></div>
+      <div class="price-row" id="pb-farbe-row" style="display:none"><span class="label">Farbe</span><span class="value" id="pb-farbe">+0,00 €</span></div>
+      <div class="price-row" id="pb-glas-row" style="display:none"><span class="label">Glas</span><span class="value" id="pb-glas">+0,00 €</span></div>
+      <div class="price-row" id="pb-sprossen-row" style="display:none"><span class="label">Sprossen</span><span class="value" id="pb-sprossen">+0,00 €</span></div>
+      <div class="price-row" id="pb-roll-row" style="display:none"><span class="label">Rollladen</span><span class="value" id="pb-roll">+0,00 €</span></div>
+      <div class="price-row" id="pb-sonstiges-row" style="display:none"><span class="label">Sonstiges</span><span class="value" id="pb-sonstiges">+0,00 €</span></div>
+      <div class="price-row total"><span class="label">Angebotspreis</span><span class="value" id="pb-total">47,48 EUR</span></div>
+    </div>
+
+    <div class="config-summary" id="config-summary">
+      <div style="font-size:0.8rem;font-weight:700;color:#1a3a5c;margin:12px 0 6px">Konfiguration:</div>
+      <div class="row"><span class="key">Hersteller:</span><span id="cs-hersteller">GEALAN</span></div>
+      <div class="row"><span class="key">Profil:</span><span id="cs-profil">GEALAN S8000</span></div>
+      <div class="row"><span class="key">Fenstertyp:</span><span id="cs-fenstertyp">Einflüglig</span></div>
+      <div class="row"><span class="key">Öffnung:</span><span id="cs-oer">Fest (ohne Flügel)</span></div>
+      <div class="row"><span class="key">Blendrahmen:</span><span id="cs-blendrahmen">66 mm</span></div>
+      <div class="row"><span class="key">Verglasung:</span><span id="cs-glas">2-fach</span></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ============================================================
+// PRICE MATRIX DATA (extracted from fenstermaxx24.com API)
+// ============================================================
+
+// Base price matrix: profil -> width -> height -> angebotspreis
+// Data source: fenstermaxx24.com configurator API (publicly visible)
+// Discount: 40% (factor 0.60)
+
+const PRICE_MATRIX = {
+  // GEALAN S8000 (p1) - Angebotspreis (after 40% discount)
+  "p1": {
+    400: {400:47.48,500:47.48,600:61.48,700:65.48,800:71.49,900:77.49,1000:84.49,1100:90.5,1200:97.5,1300:98.78,1400:102.92,1500:108.07,1600:112.22,1800:121.51,2000:131.81},
+    500: {400:47.48,500:47.48,600:61.48,700:65.48,800:71.49,900:77.49,1000:84.49,1100:90.5,1200:97.63,1300:98.78,1400:102.92,1500:108.07,1600:112.22,1800:121.51,2000:131.81},
+    600: {400:47.48,500:47.48,600:61.48,700:65.48,800:71.49,900:77.49,1000:84.49,1100:90.5,1200:97.5,1300:98.78,1400:102.92,1500:108.07,1600:112.22,1800:121.51,2000:131.81},
+    700: {400:47.48,500:47.48,600:61.48,700:65.48,800:71.49,900:77.49,1000:84.49,1100:90.5,1200:97.5,1300:98.78,1400:102.92,1500:108.07,1600:112.22,1800:121.51,2000:131.81},
+    800: {400:47.48,500:47.48,600:61.48,700:65.48,800:71.49,900:77.49,1000:84.49,1100:90.5,1200:97.5,1300:98.78,1400:102.92,1500:108.07,1600:112.22,1800:121.51,2000:131.81},
+    900: {400:47.48,500:47.48,600:61.48,700:65.48,800:71.49,900:77.49,1000:84.49,1100:90.5,1200:97.5,1300:98.78,1400:102.92,1500:108.07,1600:112.22,1800:121.51,2000:131.81},
+    1000:{400:47.48,500:47.48,600:61.48,700:65.48,800:71.49,900:77.49,1000:84.49,1100:90.5,1200:97.5,1300:98.78,1400:102.92,1500:108.07,1600:112.22,1800:121.51,2000:131.81},
+    1100:{400:47.48,500:47.48,600:61.48,700:65.48,800:71.49,900:77.49,1000:84.49,1100:90.5,1200:97.5,1300:98.78,1400:102.92,1500:108.07,1600:112.22,1800:121.51,2000:131.81},
+    1200:{400:47.48,500:47.48,600:61.48,700:65.48,800:71.49,900:77.49,1000:84.49,1100:90.5,1200:97.5,1300:98.78,1400:102.92,1500:108.07,1600:112.22,1800:121.51,2000:131.81},
+    1300:{400:47.48,500:47.48,600:61.48,700:65.48,800:71.49,900:77.49,1000:84.49,1100:90.5,1200:97.5,1300:98.78,1400:102.92,1500:108.07,1600:112.22,1800:121.51,2000:131.81},
+    1400:{400:47.48,500:47.48,600:61.48,700:65.48,800:71.49,900:77.49,1000:84.49,1100:90.5,1200:97.5,1300:98.78,1400:102.92,1500:108.07,1600:112.22,1800:121.51,2000:131.81},
+    1500:{400:47.48,500:47.48,600:61.48,700:65.48,800:71.49,900:77.49,1000:84.49,1100:90.5,1200:97.5,1300:98.78,1400:102.92,1500:108.07,1600:112.22,1800:121.51,2000:131.81},
+    1600:{400:47.48,500:47.48,600:61.48,700:65.48,800:71.49,900:77.49,1000:84.49,1100:90.5,1200:97.5,1300:98.78,1400:102.92,1500:108.07,1600:112.22,1800:121.51,2000:131.81},
+    1800:{400:47.48,500:47.48,600:61.48,700:65.48,800:71.49,900:77.49,1000:84.49,1100:90.5,1200:97.5,1300:98.78,1400:102.92,1500:108.07,1600:112.22,1800:121.51,2000:131.81},
+    2000:{400:47.48,500:47.48,600:61.48,700:65.48,800:71.49,900:77.49,1000:84.49,1100:90.5,1200:97.5,1300:98.78,1400:102.92,1500:108.07,1600:112.22,1800:121.51,2000:131.81},
+  },
+  // GEALAN-LINEAR (p4) - Angebotspreis
+  "p4": {
+    400: {400:117.43,500:117.43,600:124.1,700:132.44,800:139.11,900:147.44,1000:154.12,1100:162.45,1200:174.13,1300:185.8,1400:199.13,1500:210.81,1600:222.59,1800:247.83,2000:273.07},
+    500: {400:117.43,500:117.43,600:124.1,700:132.44,800:139.11,900:147.44,1000:154.12,1100:162.45,1200:174.13,1300:185.8,1400:199.13,1500:210.81,1600:222.59,1800:247.83,2000:273.07},
+    600: {400:117.43,500:117.43,600:124.1,700:132.44,800:139.11,900:147.44,1000:154.12,1100:162.45,1200:174.13,1300:185.8,1400:199.13,1500:210.81,1600:222.59,1800:247.83,2000:273.07},
+    700: {400:117.43,500:117.43,600:124.1,700:132.44,800:139.11,900:147.44,1000:154.12,1100:162.45,1200:174.13,1300:185.8,1400:199.13,1500:210.81,1600:222.59,1800:247.83,2000:273.07},
+    800: {400:117.43,500:117.43,600:124.1,700:132.44,800:139.11,900:147.44,1000:154.12,1100:162.45,1200:174.13,1300:185.8,1400:199.13,1500:210.81,1600:222.59,1800:247.83,2000:273.07},
+    900: {400:117.43,500:117.43,600:124.1,700:132.44,800:139.11,900:147.44,1000:154.12,1100:162.45,1200:174.13,1300:185.8,1400:199.13,1500:210.81,1600:222.59,1800:247.83,2000:273.07},
+    1000:{400:117.43,500:117.43,600:124.1,700:132.44,800:139.11,900:147.44,1000:154.12,1100:162.45,1200:174.13,1300:185.8,1400:199.13,1500:210.81,1600:222.59,1800:247.83,2000:273.07},
+    1200:{400:117.43,500:117.43,600:124.1,700:132.44,800:139.11,900:147.44,1000:154.12,1100:162.45,1200:174.13,1300:185.8,1400:199.13,1500:210.81,1600:222.59,1800:247.83,2000:273.07},
+    1400:{400:117.43,500:117.43,600:124.1,700:132.44,800:139.11,900:147.44,1000:154.12,1100:162.45,1200:174.13,1300:185.8,1400:199.13,1500:210.81,1600:222.59,1800:247.83,2000:273.07},
+    1600:{400:117.43,500:117.43,600:124.1,700:132.44,800:139.11,900:147.44,1000:154.12,1100:162.45,1200:174.13,1300:185.8,1400:199.13,1500:210.81,1600:222.59,1800:247.83,2000:273.07},
+    1800:{400:117.43,500:117.43,600:124.1,700:132.44,800:139.11,900:147.44,1000:154.12,1100:162.45,1200:174.13,1300:185.8,1400:199.13,1500:210.81,1600:222.59,1800:247.83,2000:273.07},
+    2000:{400:117.43,500:117.43,600:124.1,700:132.44,800:139.11,900:147.44,1000:154.12,1100:162.45,1200:174.13,1300:185.8,1400:199.13,1500:210.81,1600:222.59,1800:247.83,2000:273.07},
+  },
+  // GEALAN S9000 (p2) - Angebotspreis
+  "p2": {
+    400: {400:72.34,500:72.34,600:83.35,700:87.35,800:91.34,900:96.54,1000:100.73,1100:105.93,1200:113.13,1300:120.32,1400:128.52,1500:135.71,1600:142.91,1800:158.3,2000:173.7},
+    500: {400:72.34,500:72.34,600:83.35,700:87.35,800:91.34,900:96.54,1000:100.73,1100:105.93,1200:113.13,1300:120.32,1400:128.52,1500:135.71,1600:142.91,1800:158.3,2000:173.7},
+    600: {400:72.34,500:72.34,600:83.35,700:87.35,800:91.34,900:96.54,1000:100.73,1100:105.93,1200:113.13,1300:120.32,1400:128.52,1500:135.71,1600:142.91,1800:158.3,2000:173.7},
+    800: {400:72.34,500:72.34,600:83.35,700:87.35,800:91.34,900:96.54,1000:100.73,1100:105.93,1200:113.13,1300:120.32,1400:128.52,1500:135.71,1600:142.91,1800:158.3,2000:173.7},
+    1000:{400:72.34,500:72.34,600:83.35,700:87.35,800:91.34,900:96.54,1000:100.73,1100:105.93,1200:113.13,1300:120.32,1400:128.52,1500:135.71,1600:142.91,1800:158.3,2000:173.7},
+    1200:{400:72.34,500:72.34,600:83.35,700:87.35,800:91.34,900:96.54,1000:100.73,1100:105.93,1200:113.13,1300:120.32,1400:128.52,1500:135.71,1600:142.91,1800:158.3,2000:173.7},
+    1400:{400:72.34,500:72.34,600:83.35,700:87.35,800:91.34,900:96.54,1000:100.73,1100:105.93,1200:113.13,1300:120.32,1400:128.52,1500:135.71,1600:142.91,1800:158.3,2000:173.7},
+    1600:{400:72.34,500:72.34,600:83.35,700:87.35,800:91.34,900:96.54,1000:100.73,1100:105.93,1200:113.13,1300:120.32,1400:128.52,1500:135.71,1600:142.91,1800:158.3,2000:173.7},
+    1800:{400:72.34,500:72.34,600:83.35,700:87.35,800:91.34,900:96.54,1000:100.73,1100:105.93,1200:113.13,1300:120.32,1400:128.52,1500:135.71,1600:142.91,1800:158.3,2000:173.7},
+    2000:{400:72.34,500:72.34,600:83.35,700:87.35,800:91.34,900:96.54,1000:100.73,1100:105.93,1200:113.13,1300:120.32,1400:128.52,1500:135.71,1600:142.91,1800:158.3,2000:173.7},
+  }
+};
+
+// Surcharges (Aufpreise) - all extracted from API
+const SURCHARGES = {
+  blendrahmen: {br_1: 0, br_2: 17.54, br_3: 22.81},
+  fluegel: {fl_1: 0, fl_3: 14.11},
+  oer: {fn_1_fest_ohne_fluegel: 0, fn_1_fest_fluegel: 35.01, fn_1_kipp: 99.04, fn_1_drehrechts: 95.04, fn_1_drehlinks: 95.04, fn_1_drehkipp_rechts: 95.04, fn_1_drehkipp_links: 95.04},
+  kernfarbe: {kf_0: 0, kf_1: 2.30, kf_2: 2.30},
+  dekofarbe_a: {fs1_01: 0, fs1_02: 6.44, fs1_03: 6.44, fs1_04: 6.44, fs1_05: 6.44, fs1_06: 6.44},
+  dekofarbe_i: {fs1_01_i: 0, fs1_02_i: 11.50, fs1_03_i: 11.50, fs1_04_i: 11.50, fs1_05_i: 11.50, fs1_06_i: 11.50},
+  glas: {g1: 0, g2: 0, g3: 15.45, g4: 15.45, g5: 5.09, g6: -1.46},
+  sicherheitsverglasung: {sicherheitsverglasung_0: 0, sicherheitsverglasung_1: 6.54},
+  ornament: {ornament_0: 0, ornament_1: 25.80},
+  drv: {drv_0: 0, drv_1: 23.17},
+  sprossen: {sprossen_0: 0, sprossen_1: 10.22, sprossen_2: 0},
+  roll: {roll_0: 0, roll_1: 81.21, roll_2: 81.21},
+  dsd: {dsd_0: 0, dsd_1: 0.62},
+  fensterbankanschluss: {febaan_0: 0, febaan_1: 6.65},
+};
+
+// Current configuration state
+const config = {
+  profil: 'p1',
+  breite: 500,
+  hoehe: 500,
+  blendrahmen: 'br_1',
+  fluegel: 'fl_1',
+  oer: 'fn_1_fest_ohne_fluegel',
+  kernfarbe: 'kf_0',
+  dekofarbe_a: 'fs1_01',
+  dekofarbe_i: 'fs1_01_i',
+  glas: 'g1',
+  sicherheitsverglasung: 'sicherheitsverglasung_0',
+  ornament: 'ornament_0',
+  drv: 'drv_0',
+  sprossen: 'sprossen_0',
+  roll: 'roll_0',
+  dsd: 'dsd_0',
+  fensterbankanschluss: 'febaan_0',
+};
+
+const DISCOUNT_FACTOR = 0.60;
+const DISCOUNT_PERCENT = 40;
+
+// ============================================================
+// PRICE CALCULATION
+// ============================================================
+
+function getBasePrice(profil, breite, hoehe) {
+  const matrix = PRICE_MATRIX[profil];
+  if (!matrix) return 47.48;
+  
+  // Find nearest width
+  const widths = Object.keys(matrix).map(Number).sort((a,b) => a-b);
+  let w = widths[0];
+  for (const ww of widths) { if (ww <= breite) w = ww; }
+  
+  // Find nearest height
+  const heights = Object.keys(matrix[w]).map(Number).sort((a,b) => a-b);
+  let h = heights[0];
+  for (const hh of heights) { if (hh <= hoehe) h = hh; }
+  
+  return matrix[w][h] || 47.48;
+}
+
+function calculateTotalSurcharges() {
+  let total = 0;
+  for (const [key, val] of Object.entries(config)) {
+    if (SURCHARGES[key] && SURCHARGES[key][val] !== undefined) {
+      total += SURCHARGES[key][val];
+    }
+  }
+  return total;
+}
+
+function updatePrice() {
+  const basePrice = getBasePrice(config.profil, config.breite, config.hoehe);
+  const surcharges = calculateTotalSurcharges();
+  const totalAngebot = basePrice + surcharges;
+  const totalEmpfehlung = totalAngebot / DISCOUNT_FACTOR;
+  const savings = totalEmpfehlung - totalAngebot;
+  
+  // Update display
+  document.getElementById('price-old').textContent = totalEmpfehlung.toFixed(2).replace('.', ',') + ' EUR';
+  document.getElementById('price-new').textContent = totalAngebot.toFixed(2).replace('.', ',');
+  document.getElementById('savings').textContent = savings.toFixed(2).replace('.', ',');
+  document.getElementById('pb-total').textContent = totalAngebot.toFixed(2).replace('.', ',') + ' EUR';
+  
+  // Update breakdown
+  const grundpreis = totalAngebot - surcharges;
+  document.getElementById('pb-grundpreis').textContent = grundpreis.toFixed(2).replace('.', ',') + ' EUR';
+  document.getElementById('pb-masse').textContent = config.breite + ' × ' + config.hoehe + ' mm';
+  document.getElementById('pb-flaeche').textContent = ((config.breite/1000) * (config.hoehe/1000)).toFixed(2) + ' m²';
+  
+  // Show/hide surcharge rows
+  const surchargeDisplay = {
+    'blendrahmen': {id: 'pb-blendrahmen', label: 'Blendrahmen'},
+    'fluegel': {id: 'pb-fluegel', label: 'Flügel'},
+    'oer': {id: 'pb-oer', label: 'Öffnungsrichtung'},
+  };
+  
+  let colorSurcharge = (SURCHARGES.kernfarbe[config.kernfarbe] || 0) + 
+                       (SURCHARGES.dekofarbe_a[config.dekofarbe_a] || 0) + 
+                       (SURCHARGES.dekofarbe_i[config.dekofarbe_i] || 0);
+  if (colorSurcharge > 0) {
+    document.getElementById('pb-farbe-row').style.display = '';
+    document.getElementById('pb-farbe').textContent = '+' + colorSurcharge.toFixed(2).replace('.', ',') + ' €';
+  } else {
+    document.getElementById('pb-farbe-row').style.display = 'none';
+  }
+  
+  let glasSurcharge = (SURCHARGES.glas[config.glas] || 0) + 
+                      (SURCHARGES.sicherheitsverglasung[config.sicherheitsverglasung] || 0) + 
+                      (SURCHARGES.ornament[config.ornament] || 0) + 
+                      (SURCHARGES.drv[config.drv] || 0);
+  if (glasSurcharge !== 0) {
+    document.getElementById('pb-glas-row').style.display = '';
+    document.getElementById('pb-glas').textContent = (glasSurcharge >= 0 ? '+' : '') + glasSurcharge.toFixed(2).replace('.', ',') + ' €';
+  } else {
+    document.getElementById('pb-glas-row').style.display = 'none';
+  }
+  
+  const sprossenSurcharge = SURCHARGES.sprossen[config.sprossen] || 0;
+  if (sprossenSurcharge > 0) {
+    document.getElementById('pb-sprossen-row').style.display = '';
+    document.getElementById('pb-sprossen').textContent = '+' + sprossenSurcharge.toFixed(2).replace('.', ',') + ' €';
+  } else {
+    document.getElementById('pb-sprossen-row').style.display = 'none';
+  }
+  
+  const rollSurcharge = SURCHARGES.roll[config.roll] || 0;
+  if (rollSurcharge > 0) {
+    document.getElementById('pb-roll-row').style.display = '';
+    document.getElementById('pb-roll').textContent = '+' + rollSurcharge.toFixed(2).replace('.', ',') + ' €';
+  } else {
+    document.getElementById('pb-roll-row').style.display = 'none';
+  }
+  
+  const blendrahmenSurcharge = SURCHARGES.blendrahmen[config.blendrahmen] || 0;
+  if (blendrahmenSurcharge > 0) {
+    document.getElementById('pb-blendrahmen-row').style.display = '';
+    document.getElementById('pb-blendrahmen').textContent = '+' + blendrahmenSurcharge.toFixed(2).replace('.', ',') + ' €';
+  } else {
+    document.getElementById('pb-blendrahmen-row').style.display = 'none';
+  }
+  
+  const fluegelSurcharge = SURCHARGES.fluegel[config.fluegel] || 0;
+  if (fluegelSurcharge > 0) {
+    document.getElementById('pb-fluegel-row').style.display = '';
+    document.getElementById('pb-fluegel').textContent = '+' + fluegelSurcharge.toFixed(2).replace('.', ',') + ' €';
+  } else {
+    document.getElementById('pb-fluegel-row').style.display = 'none';
+  }
+  
+  const oerSurcharge = SURCHARGES.oer[config.oer] || 0;
+  if (oerSurcharge > 0) {
+    document.getElementById('pb-oer-row').style.display = '';
+    document.getElementById('pb-oer').textContent = '+' + oerSurcharge.toFixed(2).replace('.', ',') + ' €';
+  } else {
+    document.getElementById('pb-oer-row').style.display = 'none';
+  }
+  
+  let sonstigesSurcharge = (SURCHARGES.dsd[config.dsd] || 0) + (SURCHARGES.fensterbankanschluss[config.fensterbankanschluss] || 0);
+  if (sonstigesSurcharge > 0) {
+    document.getElementById('pb-sonstiges-row').style.display = '';
+    document.getElementById('pb-sonstiges').textContent = '+' + sonstigesSurcharge.toFixed(2).replace('.', ',') + ' €';
+  } else {
+    document.getElementById('pb-sonstiges-row').style.display = 'none';
+  }
+}
+
+// ============================================================
+// UI INTERACTION FUNCTIONS
+// ============================================================
+
+function goToStep(n) {
+  document.querySelectorAll('.step-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.step-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById('step-' + n).classList.add('active');
+  document.getElementById('step-btn-' + n).classList.add('active');
+}
+
+function selectProduct(type) {
+  document.querySelectorAll('.product-tab').forEach(el => el.classList.remove('active'));
+  event.target.classList.add('active');
+}
+
+function select(key, val, el) {
+  // Deselect siblings
+  el.closest('.option-grid').querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  config[key] = val;
+  updatePrice();
+}
+
+function selectProfil(profilId, el) {
+  el.closest('.option-grid').querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  config.profil = profilId;
+  
+  const profilNames = {p1: 'GEALAN S8000', p4: 'GEALAN-LINEAR', p2: 'GEALAN S9000'};
+  document.getElementById('cs-profil').textContent = profilNames[profilId] || profilId;
+  document.getElementById('pb-profil').textContent = profilNames[profilId] || profilId;
+  updatePrice();
+}
+
+function selectSurcharge(key, val, surcharge, el) {
+  if (el.closest('.option-grid')) {
+    el.closest('.option-grid').querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
+  }
+  el.classList.add('selected');
+  config[key] = val;
+  updatePrice();
+}
+
+function selectColor(key, val, surcharge, el) {
+  el.closest('.color-grid').querySelectorAll('.color-swatch').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  config[key] = val;
+  updatePrice();
+}
+
+function selectToggle(key, val, surcharge, el, otherVal) {
+  el.parentElement.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  config[key] = val;
+  updatePrice();
+}
+
+function toggleRahmen(show, el) {
+  el.parentElement.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('rahmen-options').style.display = show ? 'block' : 'none';
+}
+
+function updateDimensions() {
+  config.breite = parseInt(document.getElementById('breite').value) || 500;
+  config.hoehe = parseInt(document.getElementById('hoehe').value) || 500;
+  updatePrice();
+}
+
+function addToCart() {
+  const price = document.getElementById('price-new').textContent;
+  alert(`✅ Fenster wurde zum Warenkorb hinzugefügt!\n\nPreis: ${price} EUR\nMaße: ${config.breite} × ${config.hoehe} mm\nProfil: ${config.profil}`);
+}
+
+// Initialize
+updatePrice();
+</script>
+</body>
+</html>

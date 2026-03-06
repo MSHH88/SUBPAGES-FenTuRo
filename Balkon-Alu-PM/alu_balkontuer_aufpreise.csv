@@ -1,0 +1,92 @@
+kategorie,option_key,option_label,angebotspreis_eur,aufpreis_eur
+Profil,p1,MB-45 (Nur Innenbereich),465.94,0.0
+Profil,p2,MB-70 (Gute Wärmedämmung),749.69,283.75
+Profil,p3,MB-70 HI (Sehr gute Wärmedämmung),841.34,375.4
+Profil,p4,MB-86 SI (Optimale Wärmedämmung),886.69,420.75
+Art,a1,1-flüglige Balkontür,465.94,0.0
+Art,a2,2-flüglige Balkontür,465.94,0.0
+Typ,typ1,1-Flügel Balkontür,465.94,0.0
+Typ,typ1o1,1-Flügel mit 1-Flügel Oberlicht,465.94,0.0
+Typ,typ1o2,1-Flügel mit 2-Flügel Oberlicht,465.94,0.0
+Öffnungsrichtung,bt_1_dl,Dreh Links,465.94,0.0
+Öffnungsrichtung,bt_1_dr,Dreh Rechts,465.94,0.0
+Öffnungsrichtung,bt_1_dkl,Dreh-Kipp Links,463.21,-2.73
+Öffnungsrichtung,bt_1_dkr,Dreh-Kipp Rechts,463.21,-2.73
+Kämpfer,kaempfer_0,Nein,465.94,0.0
+Kämpfer,kaempfer_1,Ja,489.45,23.51
+Farben Rubrik,fr1,RAL-Farben,465.94,0.0
+Farben Rubrik,fr2,Sonderfarben,605.72,139.78
+Dekorfarbe Außen (RAL),fs1_9016,Verkehrsweiß RAL 9016 Matt,465.94,0.0
+Dekorfarbe Außen (RAL),fs1_9016g,Verkehrsweiß RAL 9016 Glanz,465.94,0.0
+Dekorfarbe Außen (RAL),fs1_7016,Anthrazitgrau RAL 7016 Matt,535.82,69.88
+Dekorfarbe Außen (RAL),fs1_7016g,Anthrazitgrau RAL 7016 Glanz,535.82,69.88
+Dekorfarbe Außen (RAL),fs1_8017,Schokoladenbraun RAL 8017,535.82,69.88
+Dekorfarbe Außen (RAL),fs1_6005,Moosgrün RAL 6005,535.82,69.88
+Dekorfarbe Außen (RAL),fs1_9005,Tiefschwarz RAL 9005 Matt,535.82,69.88
+Dekorfarbe Außen (RAL),fs1_9005g,Tiefschwarz RAL 9005 Glanz,535.82,69.88
+Dekorfarbe Außen (RAL),fs1_9010,Reinweiß RAL 9010,535.82,69.88
+Dekorfarbe Innen (RAL),fs1_9016_i,Verkehrsweiß RAL 9016 Matt,465.94,0.0
+Dekorfarbe Innen (RAL),fs1_9016g_i,Verkehrsweiß RAL 9016 Glanz,465.94,0.0
+Dekorfarbe Innen (RAL),fs1_7016_i,Anthrazitgrau RAL 7016 Matt,535.82,69.88
+Dekorfarbe Innen (RAL),fs1_7016g_i,Anthrazitgrau RAL 7016 Glanz,535.82,69.88
+Dekorfarbe Innen (RAL),fs1_8017_i,Schokoladenbraun RAL 8017,535.82,69.88
+Dekorfarbe Innen (RAL),fs1_6005_i,Moosgrün RAL 6005,535.82,69.88
+Dekorfarbe Innen (RAL),fs1_9005_i,Tiefschwarz RAL 9005 Matt,535.82,69.88
+Dekorfarbe Innen (RAL),fs1_9005g_i,Tiefschwarz RAL 9005 Glanz,535.82,69.88
+Dekorfarbe Innen (RAL),fs1_9010_i,Reinweiß RAL 9010,535.82,69.88
+Verglasung,g1,2-fach Verglasung,465.94,0.0
+Verglasung,g2,3-fach Verglasung,465.94,0.0
+Verglasung,g3,3-fach Verglasung Premium,492.32,26.38
+Verglasung,g4,3-fach Verglasung Passivhaus,492.32,26.38
+Verglasung,g5,2-fach Verglasung Solar,536.71,70.77
+Verglasung,g6,3-fach Verglasung Solar,465.94,0.0
+Schallschutz,schallschutz_nein,Nein,465.94,0.0
+Schallschutz,schallschutz_ja,Ja,465.94,0.0
+Sicherheitsverglasung,sicherheitsverglasung_0,Nein,465.94,0.0
+Sicherheitsverglasung,sicherheitsverglasung_1,Ja,511.6,45.66
+Ornamentglas,ornament_0,Nein,465.94,0.0
+Ornamentglas,ornament_1,Ja,491.97,26.03
+Sprossen,sprossen_0,Nein,465.94,0.0
+Sprossen,sprossen_1,Sprossen innenliegend,478.46,12.52
+Sprossen,sprossen_2,Sprossen aufliegend,465.94,0.0
+Rollladen,rollladen_0,Kein Rollladen,465.94,0.0
+Rollladen,rollladen_1,Aufsatzrollladen,465.94,0.0
+Rollladen,rollladen_2,Vorsatzrollladen,465.94,0.0
+Rollladen Motor,rollladen_motor_0,Kein Motor,465.94,0.0
+Rollladen Motor,rollladen_motor_1,Mit Motor,465.94,0.0
+Verdeckte Beschläge,verdeckt_beschlaege_0,Nein,465.94,0.0
+Verdeckte Beschläge,verdeckt_beschlaege_1,Ja,530.09,64.15
+Griffmuschel & Schnäpper,griffmuschel_0,Nein,465.94,0.0
+Griffmuschel & Schnäpper,griffmuschel_1,Ja,479.4,13.46
+Trittschwelle,trittschwelle_0,Nein,465.94,0.0
+Trittschwelle,trittschwelle_1,Ja,470.8,4.86
+Aufbohrschutz,aufbohrschutz_0,Nein,465.94,0.0
+Aufbohrschutz,aufbohrschutz_1,Ja,470.36,4.42
+Sicherheitsbeschläge,sicherheitsbeschlaege_0,Nein,465.94,0.0
+Sicherheitsbeschläge,sicherheitsbeschlaege_1,Ja,465.94,0.0
+Reedkontakt,reedkontakte_0,Nein,465.94,0.0
+Reedkontakt,reedkontakte_1,Ja,515.65,49.71
+Fensterfalzlüfter,fensterfalzluefter_0,Nein,465.94,0.0
+Fensterfalzlüfter,fensterfalzluefter_1,Ja,559.75,93.81
+Rahmenverbreiterung,rahmenverbreiterung_0,Nein,465.94,0.0
+Rahmenverbreiterung,rahmenverbreiterung_1,Ja,465.94,0.0
+Rahmenverbreiterung Oben,oben_0,0 mm,465.94,0.0
+Rahmenverbreiterung Oben,oben_20,20 mm,465.94,0.0
+Rahmenverbreiterung Oben,oben_30,30 mm,465.94,0.0
+Rahmenverbreiterung Oben,oben_40,40 mm,465.94,0.0
+Rahmenverbreiterung Oben,oben_50,50 mm,465.94,0.0
+Rahmenverbreiterung Unten,unten_0,0 mm,465.94,0.0
+Rahmenverbreiterung Unten,unten_20,20 mm,465.94,0.0
+Rahmenverbreiterung Unten,unten_30,30 mm,465.94,0.0
+Rahmenverbreiterung Unten,unten_40,40 mm,465.94,0.0
+Rahmenverbreiterung Unten,unten_50,50 mm,465.94,0.0
+Rahmenverbreiterung Links,links_0,0 mm,465.94,0.0
+Rahmenverbreiterung Links,links_20,20 mm,465.94,0.0
+Rahmenverbreiterung Links,links_30,30 mm,465.94,0.0
+Rahmenverbreiterung Links,links_40,40 mm,465.94,0.0
+Rahmenverbreiterung Links,links_50,50 mm,465.94,0.0
+Rahmenverbreiterung Rechts,rechts_0,0 mm,465.94,0.0
+Rahmenverbreiterung Rechts,rechts_20,20 mm,465.94,0.0
+Rahmenverbreiterung Rechts,rechts_30,30 mm,465.94,0.0
+Rahmenverbreiterung Rechts,rechts_40,40 mm,465.94,0.0
+Rahmenverbreiterung Rechts,rechts_50,50 mm,465.94,0.0

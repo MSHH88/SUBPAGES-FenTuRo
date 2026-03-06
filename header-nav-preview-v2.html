@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Menu Code — v4</title>
+    <style>
+        /* =====================================================
+           NAVIGATION MENU STYLES ONLY
+           (Header is integrated separately)
+           ===================================================== */
+        
+        /* RESET & BASE */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        a { text-decoration: none; color: inherit; }
+        ul, li { list-style: none; }
+
+        /* MAIN NAVIGATION BAR */
+        .main-nav {
+            background: linear-gradient(135deg, #6690CC 0%, #000C49 100%);
+            position: relative;
+            z-index: 200;
+            font-family: 'Berlin Sans FB Demi', 'Segoe UI Semibold', 'Arial Black', sans-serif;
+        }
+        .nav-inner { 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            padding: 0 20px 0 50px; /* 30px shift right */
+        }
+        .nav-menu { 
+            display: flex; 
+            gap: 110px; /* increased spacing between nav items */
+        }
+        .nav-item { 
+            position: relative; 
+        }
+        .nav-link {
+            display: block;
+            padding: 9px 20px; /* Reduced by 2mm more (~4px per side) for sleeker look */
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        /* Elegant underline hover effect - animated slide in */
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 6px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ffffff, transparent);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        .nav-link:hover::after,
+        .nav-item.active .nav-link::after {
+            width: 80%;
+        }
+        
+        /* Subtle glow effect on hover */
+        .nav-link:hover,
+        .nav-item.active .nav-link {
+            text-shadow: 0 0 10px rgba(255,255,255,0.5);
+        }
+
+        /* DROPDOWN BASE - Default opens right+down */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(255, 255, 255, 0.2); /* 20% opaque white */
+            backdrop-filter: blur(10px); /* 10px blur */
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            border-radius: 0 0 8px 8px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px) scale(0.98);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 300;
+            min-height: 350px;
+            max-height: 400px;
+        }
+        
+        /* Connector arrow pointing up to nav item */
+        .dropdown::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 30px;
+            border: 8px solid transparent;
+            border-bottom-color: rgba(255, 255, 255, 0.3); /* visible against blur */
+        }
+        
+        /* SMART POSITIONING - JavaScript will handle edge detection */
+        /* Default: try to center, JS adjusts if needed */
+        .nav-item:not(.konfigurator) .dropdown {
+            /* Initial position - will be adjusted by JS */
+            left: 50%;
+            transform: translateX(-50%) translateY(-10px) scale(0.98);
+        }
+        .nav-item:not(.konfigurator):hover .dropdown {
+            transform: translateX(-50%) translateY(0) scale(1);
+        }
+        
+        /* Edge-left: dropdown left edge touches SCREEN left edge */
+        /* Position is set dynamically via JavaScript */
+        .nav-item.edge-left .dropdown {
+            transform: translateY(-10px) scale(0.98) !important;
+            border-radius: 0 0 8px 0;
+        }
+        .nav-item.edge-left:hover .dropdown {
+            transform: translateY(0) scale(1) !important;
+        }
+        .nav-item.edge-left .dropdown::before {
+            left: 80px;
+        }
+        
+        /* Edge-right: dropdown right edge touches SCREEN right edge */
+        /* Position is set dynamically via JavaScript */
+        .nav-item.edge-right .dropdown {
+            transform: translateY(-10px) scale(0.98) !important;
+            border-radius: 0 0 0 8px;
+        }
+        .nav-item.edge-right:hover .dropdown {
+            transform: translateY(0) scale(1) !important;
+        }
+        .nav-item.edge-right .dropdown::before {
+            left: auto;
+            right: 80px;
+        }
+        
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+
+        /* KONFIGURATOR DROPDOWN - FULL WIDTH, height decreased by 40px */
+        .nav-item.konfigurator { 
+            position: static; 
+        }
+        .nav-item.konfigurator .dropdown {
+            left: 0;
+            right: 0;
+            width: 100vw;
+            border-radius: 0;
+            min-height: 310px;
+            max-height: 360px;
+        }
+        .konfigurator .dropdown-inner {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 19px 40px; /* 25% less vertical padding */
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* OTHER DROPDOWNS - SPREAD LEFT TO RIGHT */
+        .nav-item:not(.konfigurator) .dropdown { 
+            width: 800px; 
+        }
+        .nav-item:not(.konfigurator) .dropdown-inner {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            padding: 19px 30px; /* 25% less vertical padding */
+        }
+        
+        /* SPECIFIC CONTAINER HEIGHTS */
+        /* Balkontüren: same height as Fenster, width reduced by 60% - FORCE CENTERED */
+        .nav-item.balkontueren .dropdown {
+            min-height: 110px;
+            max-height: 150px;
+            width: 330px; /* 320px + 10px for button text to fit */
+            /* Force center - not affected by edge detection */
+            left: 50% !important;
+            right: auto !important;
+            transform: translateX(-50%) translateY(-10px) scale(0.98) !important;
+        }
+        .nav-item.balkontueren:hover .dropdown {
+            transform: translateX(-50%) translateY(0) scale(1) !important;
+        }
+        .nav-item.balkontueren .dropdown::before {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Terrassentüren: simplified, 3 columns with buttons - FORCE CENTERED */
+        .nav-item.terrassentueren .dropdown {
+            min-height: 150px;
+            max-height: 200px;
+            width: 826px; /* 700px + 18% to fit all text */
+            /* Force center - not affected by edge detection */
+            left: 50% !important;
+            right: auto !important;
+            transform: translateX(-50%) translateY(-10px) scale(0.98) !important;
+        }
+        .nav-item.terrassentueren:hover .dropdown {
+            transform: translateX(-50%) translateY(0) scale(1) !important;
+        }
+        .nav-item.terrassentueren .dropdown::before {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        /* Türen: narrower by 15% (650 → 552px), shorter by 2cm (~76px), smaller gap between sections - FORCE CENTERED */
+        .nav-item.tueren .dropdown {
+            width: 552px; /* 650px reduced by 15% */
+            min-height: 183px; /* 244px reduced by 25% */
+            max-height: 213px; /* 284px reduced by 25% */
+            /* Force center - not affected by edge detection */
+            left: 50% !important;
+            right: auto !important;
+            transform: translateX(-50%) translateY(-10px) scale(0.98) !important;
+        }
+        .nav-item.tueren:hover .dropdown {
+            transform: translateX(-50%) translateY(0) scale(1) !important;
+        }
+        .nav-item.tueren .dropdown::before {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .nav-item.tueren .dropdown-inner {
+            gap: 12px; /* sections even closer together for narrower width */
+        }
+        /* Rollläden: decrease by 80px, width +15px to fit text - JavaScript edge detection */
+        .nav-item.rolllaeden .dropdown {
+            min-height: 202px; /* 270px reduced by 25% */
+            max-height: 240px; /* 320px reduced by 25% */
+            width: 575px; /* 560px + 15px to fit all words */
+        }
+        .nav-item.rolllaeden .dropdown-inner {
+            gap: 15px; /* sections closer together */
+        }
+        /* When JavaScript detects right edge constraint */
+        .nav-item.rolllaeden.edge-right .dropdown {
+            border-radius: 0 0 0 8px; /* Only left corner rounded */
+        }
+        .nav-item.rolllaeden.edge-right .dropdown::before {
+            left: auto;
+            right: 30px;
+        }
+        /* Fenster: compact size, width reduced by 30% (800 → 560px) - FORCE CENTERED */
+        .nav-item.fenster .dropdown {
+            min-height: 110px;
+            max-height: 150px;
+            width: 560px;
+            /* Force center - not affected by edge detection */
+            left: 50% !important;
+            right: auto !important;
+            transform: translateX(-50%) translateY(-10px) scale(0.98) !important;
+        }
+        .nav-item.fenster:hover .dropdown {
+            transform: translateX(-50%) translateY(0) scale(1) !important;
+        }
+        .nav-item.fenster .dropdown::before {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .nav-item.fenster .dropdown-inner {
+            gap: 15px; /* sections closer together */
+        }
+
+        /* SECTION COLUMN */
+        .section-col {
+            display: flex;
+            flex-direction: column;
+            min-width: 120px;
+            flex: 1;
+        }
+        .section-header {
+            font-size: 16px;
+            font-weight: 600;
+            color: #000C49;
+            margin-bottom: 9px; /* 25% less: was 12px */
+            padding-bottom: 6px; /* 25% less: was 8px */
+            border-bottom: 2px solid #6690CC;
+            font-family: 'Berlin Sans FB Demi', 'Segoe UI Semibold', 'Arial Black', sans-serif;
+            white-space: nowrap; /* Prevent header wrapping */
+        }
+        .section-links {
+            display: flex;
+            flex-direction: column;
+            gap: 4px; /* 25% less: was 6px */
+            flex: 1;
+        }
+        .section-links a {
+            font-size: 14px;
+            font-weight: 500;
+            color: #333333;
+            padding: 3px 6px; /* Added horizontal padding for glow effect */
+            margin-left: -6px; /* Compensate for added padding */
+            border-radius: 4px;
+            transition: all 0.25s ease;
+            font-family: 'Berlin Sans FB Demi', 'Segoe UI Semibold', 'Arial Black', sans-serif;
+            white-space: nowrap; /* Prevent link text wrapping */
+            position: relative;
+        }
+        .section-links a:hover { 
+            color: #333333; /* Stay black, no blue */
+            font-weight: 600; /* Already bold */
+            transform: scale(1.05); /* 5% larger on hover */
+            background: radial-gradient(ellipse at center, rgba(102, 144, 204, 0.35) 0%, transparent 70%); /* 10% stronger shine */
+            text-shadow: 0 0 8px rgba(102, 144, 204, 0.5); /* 10% stronger glow */
+        }
+        .section-btn {
+            margin-top: 11px; /* 25% less: was 15px */
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px; /* 25% less vertical: was 10px */
+            /* Glassmorphism effect with MORE POTENT light blue */
+            background: linear-gradient(135deg, rgba(102, 144, 204, 0.6) 0%, rgba(102, 144, 204, 0.35) 100%);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(102, 144, 204, 0.5);
+            color: #333333; /* Dark text for contrast on glass */
+            font-size: 13px; /* 1px less: was 14px */
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.25s ease;
+            width: fit-content;
+            font-family: 'Berlin Sans FB Demi', 'Segoe UI Semibold', 'Arial Black', sans-serif;
+            box-shadow: 
+                0 4px 15px rgba(102, 144, 204, 0.35),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4); /* Glass highlight */
+        }
+        .section-btn:hover {
+            background: linear-gradient(135deg, rgba(102, 144, 204, 0.75) 0%, rgba(102, 144, 204, 0.45) 100%);
+            transform: translateY(-2px);
+            box-shadow: 
+                0 6px 20px rgba(102, 144, 204, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        }
+        .section-btn svg { 
+            display: none; /* Remove checkmark/swoosh icon */
+        }
+
+        /* DEMO STYLING (for preview only) */
+        body {
+            font-family: 'Berlin Sans FB Demi', 'Segoe UI Semibold', 'Arial Black', sans-serif;
+            background: #f4f4f4;
+            min-height: 100vh;
+        }
+        .demo-header-placeholder {
+            height: 155px;
+            background: rgba(255,255,255,0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 16px;
+            border-bottom: 1px solid #ddd;
+        }
+        .demo-content {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background: #fff;
+            border-radius: 10px;
+        }
+        .demo-content h1 { color: #000C49; margin-bottom: 15px; }
+        .demo-content p { color: #555; line-height: 1.6; margin-bottom: 10px; }
+        .demo-content ul { margin: 15px 0; padding-left: 25px; list-style: disc; }
+        .demo-content li { margin: 5px 0; color: #555; }
+    </style>
+</head>
+<body>
+    <!-- HEADER PLACEHOLDER (Header is integrated separately) -->
+    <div class="demo-header-placeholder">
+        [Header is integrated separately - this is just a placeholder for preview]
+    </div>
+
+    <!-- =====================================================
+         NAVIGATION MENU CODE
+         (Copy this section for integration)
+         ===================================================== -->
+    <nav class="main-nav">
+        <div class="nav-inner">
+            <ul class="nav-menu">
+                <!-- ========== KONFIGURATOR (Full Width) ========== -->
+                <li class="nav-item konfigurator">
+                    <a href="https://www.fenstermaxx24.com/konfigurator" class="nav-link">Konfigurator</a>
+                    <div class="dropdown">
+                        <div class="dropdown-inner">
+                            <!-- Column 1: Fensterkonfigurator -->
+                            <div class="section-col">
+                                <h3 class="section-header">Fensterkonfigurator</h3>
+                                <div class="section-links">
+                                    <a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-fenster">Kunststofffenster</a>
+                                    <a href="https://www.fenstermaxx24.com/konfigurator/pvc-alu-fenster">Kunststoff-Alu Fenster</a>
+                                    <a href="https://www.fenstermaxx24.com/konfigurator/alu-fenster">Alu Fenster</a>
+                                    <a href="https://www.fenstermaxx24.com/konfigurator/holz-fenster">Holzfenster</a>
+                                    <a href="https://www.fenstermaxx24.com/konfigurator/holz-alu-fenster">Holz-Alu Fenster</a>
+                                    <a href="https://www.fenstermaxx24.com/konfigurator/alu-schiebefenster">Schiebefenster</a>
+                                </div>
+                                <a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-fenster" class="section-btn">
+                                    <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                    Zum Fenster-Konfigurator
+                                </a>
+                            </div>
+
+                            <!-- Column 2: Balkontürkonfigurator -->
+                            <div class="section-col">
+                                <h3 class="section-header">Balkontürkonfigurator</h3>
+                                <div class="section-links">
+                                    <a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-balkontueren">Kunststoff Balkontüren</a>
+                                    <a href="https://www.fenstermaxx24.com/konfigurator/gealan-balkontuer-pvc-alu">Kunststoff-Alu Balkontüren</a>
+                                    <a href="https://www.fenstermaxx24.com/konfigurator/alu-balkontuer">Alu Balkontüren</a>
+                                    <a href="https://www.fenstermaxx24.com/konfigurator/holz-balkontuer">Holz Balkontüren</a>
+                                    <a href="https://www.fenstermaxx24.com/konfigurator/holz-alu-balkontuer">Holz-Alu Balkontüren</a>
+                                </div>
+                                <a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-balkontueren" class="section-btn">
+                                    <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                    Zum Balkontür-Konfigurator
+                                </a>
+                            </div>
+
+                            <!-- Column 3: Terrassentürkonfigurator -->
+                            <div class="section-col">
+                                <h3 class="section-header">Terrassentürkonfigurator</h3>
+                                <div class="section-links">
+                                    <a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-parallel-schiebe-kipp-tueren-psk">Parallel-Schiebe-Kipptüren</a>
+                                    <a href="https://www.fenstermaxx24.com/konfigurator/gealan-schiebetuer/">Smart-Slide-Schiebetüren</a>
+                                    <a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-hebe-schiebe-tueren-hs">Hebe-Schiebetüren</a>
+                                    <a href="https://www.fenstermaxx24.com/konfigurator/alu-faltschiebetuer">Falt-Schiebetüren</a>
+                                </div>
+                                <a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-parallel-schiebe-kipp-tueren-psk/" class="section-btn" target="_blank">
+                                    Zum Terassen-Konfigurator
+                                </a>
+                            </div>
+
+                            <!-- Column 4: Türenkonfigurator -->
+                            <div class="section-col">
+                                <h3 class="section-header">Türenkonfigurator</h3>
+                                <div class="section-links">
+                                    <a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-haustueren">Kunststoff Haustüren</a>
+                                    <a href="https://www.fenstermaxx24.com/konfigurator/alu-haustuer">Alu Haustüren</a>
+                                    <a href="https://www.fenstermaxx24.com/konfigurator/holz-haustuer">Holz Haustüren</a>
+                                    <a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-nebeneingangstueren">Kunststoff Nebeneingangstüren</a>
+                                    <a href="https://www.fenstermaxx24.com/konfigurator/alu-nebentuer">Alu Nebeneingangstüren</a>
+                                    <a href="https://www.fenstermaxx24.com/konfigurator/holz-nebeneingangstuer">Holz Nebeneingangstüren</a>
+                                </div>
+                                <a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-haustueren" class="section-btn">
+                                    <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                    Zum Türen-Konfigurator
+                                </a>
+                            </div>
+
+                            <!-- Column 5: Rolladenkonfigurator -->
+                            <div class="section-col">
+                                <h3 class="section-header">Rolladenkonfigurator</h3>
+                                <div class="section-links">
+                                    <a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-aufsatzrollladen">Aufsatzrollladen</a>
+                                    <a href="https://www.fenstermaxx24.com/konfigurator/aufsatzrollladen-styropor">Styropor Aufsatzrollladen</a>
+                                    <a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-vorsatzrollladen">Vorsatzrollladen</a>
+                                    <a href="https://www.fenstermaxx24.com/konfigurator/raffstores">Raffstore</a>
+                                    <a href="https://www.fenstermaxx24.com/konfigurator/alu-insektenschutz-plissee">Insektenschutz-Plissee</a>
+                                </div>
+                                <a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-aufsatzrollladen" class="section-btn">
+                                    <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                    Zum Rollladen-Konfigurator
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- ========== FENSTER ========== -->
+                <li class="nav-item fenster">
+                    <a href="https://www.fenstermaxx24.com/fenster" class="nav-link">Fenster</a>
+                    <div class="dropdown">
+                        <div class="dropdown-inner">
+                            <div class="section-col">
+                                <h3 class="section-header">Fenster</h3>
+                                <div class="section-links">
+                                    <a href="#fenturo-fenster-material-uebersicht">Material Übersicht</a>
+                                </div>
+                                <a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-fenster" class="section-btn">
+                                    <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                    Zum Fenster-Konfigurator
+                                </a>
+                            </div>
+                            <div class="section-col">
+                                <h3 class="section-header">Fensterhersteller</h3>
+                                <div class="section-links">
+                                    <a href="#fenturo-fenster-hersteller-uebersicht">Hersteller Übersicht</a>
+                                </div>
+                                <a href="https://www.fenstermaxx24.com/fensterhersteller" class="section-btn">
+                                    <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                    Alle Fensterhersteller
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- ========== BALKONTÜREN ========== -->
+                <li class="nav-item balkontueren">
+                    <a href="https://www.fenstermaxx24.com/balkontueren" class="nav-link">Balkontüren</a>
+                    <div class="dropdown">
+                        <div class="dropdown-inner">
+                            <div class="section-col">
+                                <h3 class="section-header">Balkontüren</h3>
+                                <div class="section-links">
+                                    <a href="#FenTuRo-Balkontüren-Material-Übersicht">Material Übersicht</a>
+                                </div>
+                                <a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-balkontueren" class="section-btn">
+                                    <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                    Zum Balkontüren-Konfigurator
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- ========== TERRASSENTÜREN ========== -->
+                <li class="nav-item terrassentueren">
+                    <a href="https://www.fenstermaxx24.com/terrassentueren" class="nav-link">Terrassentüren</a>
+                    <div class="dropdown">
+                        <div class="dropdown-inner">
+                            <div class="section-col">
+                                <h3 class="section-header">Parallel-Schiebe-Kipp-Türen</h3>
+                                <div class="section-links">
+                                    <a href="https://www.fenstermaxx24.com/terrassentueren/parallel-schiebe-kipp-tueren">PSK-Türen Übersicht</a>
+                                </div>
+                                <a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-parallel-schiebe-kipp-tueren-psk/" class="section-btn" target="_blank">Zum PSK Konfigurator</a>
+                            </div>
+                            <div class="section-col">
+                                <h3 class="section-header">Hebeschiebetüren (HST)</h3>
+                                <div class="section-links">
+                                    <a href="https://www.fenstermaxx24.com/terrassentueren/hebe-schiebe-tueren">HST-Türen Übersicht</a>
+                                </div>
+                                <a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-hebe-schiebe-tueren-hs/" class="section-btn" target="_blank">Zum HST Konfigurator</a>
+                            </div>
+                            <div class="section-col">
+                                <h3 class="section-header">Weitere</h3>
+                                <div class="section-links">
+                                    <a href="https://www.fenstermaxx24.com/terrassentueren/faltanlagen">Faltschiebetüren (FST) Übersicht</a>
+                                    <a href="https://www.fenstermaxx24.com/terrassentueren/wintergaerten">Wintergärten</a>
+                                </div>
+                                <a href="https://www.fenstermaxx24.com/konfigurator/alu-faltschiebetuer/" class="section-btn" target="_blank">Zum FST Konfigurator</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- ========== TÜREN ========== -->
+                <li class="nav-item tueren">
+                    <a href="https://www.fenstermaxx24.com/tueren" class="nav-link">Türen</a>
+                    <div class="dropdown">
+                        <div class="dropdown-inner">
+                            <div class="section-col">
+                                <h3 class="section-header">Haustüren &amp; Hersteller</h3>
+                                <div class="section-links">
+                                    <a href="#FenTuRo-Tueren-Material-Uebersicht">Material Übersicht</a>
+                                    <a href="#FenTuRo-Tueren-Hersteller-Uebersicht">Hersteller Übersicht</a>
+                                </div>
+                                <a href="https://www.fenstermaxx24.com/konfigurator#jump_tueren" class="section-btn">
+                                    <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                    Zum Türen-Konfigurator
+                                </a>
+                            </div>
+                            <div class="section-col">
+                                <h3 class="section-header">Nebeneingangstüren</h3>
+                                <div class="section-links">
+                                    <a href="https://www.fenstermaxx24.com/tueren/nebeneingangstueren">Nebeneingangstüren Übersicht</a>
+                                    <a href="https://www.fenstermaxx24.com/tueren/brandschutztueren">Brandschutztüren</a>
+                                </div>
+                                <a href="https://www.haven-exclusive.com" target="_blank" class="section-btn">
+                                    <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                    HAVEN Exclusive
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- ========== ROLLLÄDEN ========== -->
+                <li class="nav-item rolllaeden">
+                    <a href="https://www.fenstermaxx24.com/rolllaeden" class="nav-link">Rollläden</a>
+                    <div class="dropdown">
+                        <div class="dropdown-inner">
+                            <div class="section-col">
+                                <h3 class="section-header">Rollläden</h3>
+                                <div class="section-links">
+                                    <a href="#FenTuRo-Rolllaeden-Uebersicht">Rollläden Übersicht</a>
+                                    <a href="#FenTuRo-Rolllaeden-Hersteller">Rollläden Hersteller</a>
+                                </div>
+                                <a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-aufsatzrollladen" class="section-btn">Zum Rollladen Konfigurator</a>
+                            </div>
+                            <div class="section-col">
+                                <h3 class="section-header">Rollladen Konfiguratoren</h3>
+                                <div class="section-links">
+                                    <a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-aufsatzrollladen">Aufsatzrollladen Konfigurator</a>
+                                    <a href="https://www.fenstermaxx24.com/konfigurator/konfigurator-vorsatzrollladen">Vorsatzrollladen Konfigurator</a>
+                                    <a href="https://www.fenstermaxx24.com/konfigurator/raffstores">Raffstore Konfigurator</a>
+                                    <a href="https://www.fenstermaxx24.com/konfigurator/alu-insektenschutz-plissee">Insektenschutz Konfigurator</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- END NAVIGATION MENU CODE -->
+
+    <!-- SMART DROPDOWN POSITIONING SCRIPT -->
+    <script>
+        /**
+         * Smart Dropdown Positioning
+         * - Default: Center dropdown below nav item
+         * - If left edge would go off-screen: ALIGN LEFT EDGE TO SCREEN LEFT (left: 0 fixed)
+         * - If right edge would go off-screen: ALIGN RIGHT EDGE TO SCREEN RIGHT (right: 0 fixed)
+         * - Applies to: rolllaeden (will trigger right edge detection)
+         */
+        function positionDropdowns() {
+            const viewportWidth = window.innerWidth;
+            
+            // Only apply edge detection to items that need it
+            // SKIP: konfigurator (full width), fenster, balkontueren, terrassentueren, tueren (force centered)
+            // INCLUDE: rolllaeden (JavaScript edge detection - right edge = screen right)
+            const navItems = document.querySelectorAll('.nav-item:not(.konfigurator):not(.balkontueren):not(.terrassentueren):not(.tueren):not(.fenster)');
+            
+            navItems.forEach(navItem => {
+                const dropdown = navItem.querySelector('.dropdown');
+                if (!dropdown) return;
+                
+                // Get nav item position relative to viewport
+                const navRect = navItem.getBoundingClientRect();
+                const navCenter = navRect.left + (navRect.width / 2);
+                
+                // Get dropdown width
+                const dropdownWidth = dropdown.offsetWidth || 800;
+                
+                // Calculate where centered dropdown would be
+                const centeredLeft = navCenter - (dropdownWidth / 2);
+                const centeredRight = navCenter + (dropdownWidth / 2);
+                
+                // Remove previous edge classes and inline styles
+                navItem.classList.remove('edge-left', 'edge-right');
+                dropdown.style.left = '';
+                dropdown.style.right = '';
+                dropdown.style.transform = '';
+                
+                // Check edges and SET POSITION RELATIVE TO SCREEN
+                if (centeredLeft < 0) {
+                    // Would go off LEFT edge → position at screen left (left: 0)
+                    navItem.classList.add('edge-left');
+                    // Calculate how far left the dropdown needs to move to hit screen edge
+                    dropdown.style.left = `-${navRect.left}px`;
+                    dropdown.style.right = 'auto';
+                } else if (centeredRight > viewportWidth) {
+                    // Would go off RIGHT edge → position at screen right (right: 0)
+                    navItem.classList.add('edge-right');
+                    // Calculate how far right the dropdown needs to move to hit screen edge
+                    const rightEdge = viewportWidth - navRect.right;
+                    dropdown.style.right = `-${rightEdge}px`;
+                    dropdown.style.left = 'auto';
+                } else {
+                    // Center it
+                    const centerOffset = navCenter - (dropdownWidth / 2) - navRect.left;
+                    dropdown.style.left = `${centerOffset}px`;
+                }
+            });
+        }
+        
+        // Run on load and resize
+        window.addEventListener('load', positionDropdowns);
+        window.addEventListener('resize', positionDropdowns);
+        
+        // Also run when hovering to ensure correct positioning
+        // AND add/remove 'active' class for hover indicator
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                positionDropdowns();
+                // Remove active from all, add to current
+                document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            });
+            item.addEventListener('mouseleave', function() {
+                // Only remove active if not hovering on dropdown
+                setTimeout(() => {
+                    if (!this.matches(':hover')) {
+                        this.classList.remove('active');
+                    }
+                }, 100);
+            });
+        });
+    </script>
+
+    <!-- DEMO CONTENT (for preview only) -->
+    <main class="demo-content">
+        <h1>Navigation Menu Code — v3</h1>
+        <p>This file contains ONLY the navigation menu code (no header).</p>
+        <p><strong>Changes in this version:</strong></p>
+        <ul>
+            <li>Removed header code (header is integrated separately)</li>
+            <li>Columns spread from left to right (justify-content: space-between)</li>
+            <li>Font sizes: 16px headers, 14px links/buttons</li>
+            <li>ALL links from v2 included (except images)</li>
+            <li>ALL buttons from v2 included</li>
+        </ul>
+        <p style="margin-top: 20px;">Hover over navigation items to see dropdowns.</p>
+    </main>
+</body>
+</html>

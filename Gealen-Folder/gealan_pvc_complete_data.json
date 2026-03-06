@@ -1,0 +1,891 @@
+{
+  "product": "GEALAN PVC Fenster",
+  "url": "https://confde.fenstermaxx24.com/confapp/Gealan/PVC-Fenster-bestellen-gealan/",
+  "discount_factor": 0.6,
+  "discount_percent": 40,
+  "base_config": {
+    "profil": "GEALAN S8000",
+    "breite_mm": 500,
+    "hoehe_mm": 500,
+    "base_angebotspreis": 47.48,
+    "base_preisempfehlung": 79.13
+  },
+  "profil_base_prices": [
+    {
+      "profil_id": "p1",
+      "profil_name": "GEALAN S8000",
+      "uw_wert": "0.82",
+      "breite_mm": 500,
+      "hoehe_mm": 500,
+      "grundpreis_eur": 76.7,
+      "preisempfehlung_eur": 79.13,
+      "angebotspreis_eur": 47.48,
+      "rabatt_faktor": 0.6
+    },
+    {
+      "profil_id": "p4",
+      "profil_name": "GEALAN-LINEAR",
+      "uw_wert": "0.73",
+      "breite_mm": 500,
+      "hoehe_mm": 500,
+      "grundpreis_eur": 193.22,
+      "preisempfehlung_eur": 195.72,
+      "angebotspreis_eur": 117.43,
+      "rabatt_faktor": 0.6
+    },
+    {
+      "profil_id": "p2",
+      "profil_name": "GEALAN S9000",
+      "uw_wert": "0.71",
+      "breite_mm": 500,
+      "hoehe_mm": 500,
+      "grundpreis_eur": 117.99,
+      "preisempfehlung_eur": 120.56,
+      "angebotspreis_eur": 72.34,
+      "rabatt_faktor": 0.6
+    }
+  ],
+  "surcharges": {
+    "material": {
+      "description": "Material type",
+      "base_price": 47.48,
+      "options": [
+        {
+          "option_id": "ma1",
+          "option_name": "Kunststoff (PVC)",
+          "angebotspreis_eur": 47.48,
+          "preisempfehlung_eur": 79.13,
+          "aufpreis_angebot_eur": 0.0,
+          "aufpreis_empfehlung_eur": 0.0
+        },
+        {
+          "option_id": "ma5",
+          "option_name": "Kunststoff-Aluminium",
+          "angebotspreis_eur": 47.48,
+          "preisempfehlung_eur": 79.13,
+          "aufpreis_angebot_eur": 0.0,
+          "aufpreis_empfehlung_eur": 0.0
+        },
+        {
+          "option_id": "ma2",
+          "option_name": "Aluminium",
+          "angebotspreis_eur": 47.48,
+          "preisempfehlung_eur": 79.13,
+          "aufpreis_angebot_eur": 0.0,
+          "aufpreis_empfehlung_eur": 0.0
+        },
+        {
+          "option_id": "ma3",
+          "option_name": "Holz",
+          "angebotspreis_eur": 47.48,
+          "preisempfehlung_eur": 79.13,
+          "aufpreis_angebot_eur": 0.0,
+          "aufpreis_empfehlung_eur": 0.0
+        },
+        {
+          "option_id": "ma4",
+          "option_name": "Holz-Aluminium",
+          "angebotspreis_eur": 47.48,
+          "preisempfehlung_eur": 79.13,
+          "aufpreis_angebot_eur": 0.0,
+          "aufpreis_empfehlung_eur": 0.0
+        }
+      ]
+    },
+    "hersteller": {
+      "description": "Manufacturer",
+      "base_price": 47.48,
+      "options": [
+        {
+          "option_id": "h1",
+          "option_name": "DRUTEX",
+          "angebotspreis_eur": 47.48,
+          "preisempfehlung_eur": 79.13,
+          "aufpreis_angebot_eur": 0.0,
+          "aufpreis_empfehlung_eur": 0.0
+        },
+        {
+          "option_id": "h3",
+          "option_name": "Salamander",
+          "angebotspreis_eur": 47.48,
+          "preisempfehlung_eur": 79.13,
+          "aufpreis_angebot_eur": 0.0,
+          "aufpreis_empfehlung_eur": 0.0
+        },
+        {
+          "option_id": "h8",
+          "option_name": "aluplast",
+          "angebotspreis_eur": 47.48,
+          "preisempfehlung_eur": 79.13,
+          "aufpreis_angebot_eur": 0.0,
+          "aufpreis_empfehlung_eur": 0.0
+        },
+        {
+          "option_id": "h7",
+          "option_name": "GEALAN",
+          "angebotspreis_eur": 47.48,
+          "preisempfehlung_eur": 79.13,
+          "aufpreis_angebot_eur": 0.0,
+          "aufpreis_empfehlung_eur": 0.0
+        },
+        {
+          "option_id": "h9",
+          "option_name": "REHAU",
+          "angebotspreis_eur": 47.48,
+          "preisempfehlung_eur": 79.13,
+          "aufpreis_angebot_eur": 0.0,
+          "aufpreis_empfehlung_eur": 0.0
+        },
+        {
+          "option_id": "h2",
+          "option_name": "VEKA",
+          "angebotspreis_eur": 47.48,
+          "preisempfehlung_eur": 79.13,
+          "aufpreis_angebot_eur": 0.0,
+          "aufpreis_empfehlung_eur": 0.0
+        },
+        {
+          "option_id": "h6",
+          "option_name": "TROCAL",
+          "angebotspreis_eur": 47.48,
+          "preisempfehlung_eur": 79.13,
+          "aufpreis_angebot_eur": 0.0,
+          "aufpreis_empfehlung_eur": 0.0
+        },
+        {
+          "option_id": "h5",
+          "option_name": "Kömmerling",
+          "angebotspreis_eur": 47.48,
+          "preisempfehlung_eur": 79.13,
+          "aufpreis_angebot_eur": 0.0,
+          "aufpreis_empfehlung_eur": 0.0
+        }
+      ]
+    },
+    "blendrahmen": {
+      "description": "Frame profile width",
+      "base_price": 47.48,
+      "options": [
+        {
+          "option_id": "br_1",
+          "option_name": "Blendrahmenprofil 66mm",
+          "angebotspreis_eur": 47.48,
+          "preisempfehlung_eur": 79.13,
+          "aufpreis_angebot_eur": 0.0,
+          "aufpreis_empfehlung_eur": 0.0
+        },
+        {
+          "option_id": "br_2",
+          "option_name": "Blendrahmenprofil 74mm",
+          "angebotspreis_eur": 65.02,
+          "preisempfehlung_eur": 108.36,
+          "aufpreis_angebot_eur": 17.54,
+          "aufpreis_empfehlung_eur": 29.23
+        },
+        {
+          "option_id": "br_3",
+          "option_name": "Blendrahmenprofil 81mm",
+          "angebotspreis_eur": 70.29,
+          "preisempfehlung_eur": 117.15,
+          "aufpreis_angebot_eur": 22.81,
+          "aufpreis_empfehlung_eur": 38.02
+        }
+      ]
+    },
+    "fluegel": {
+      "description": "Sash profile",
+      "base_price": 47.48,
+      "options": [
+        {
+          "option_id": "fl_1",
+          "option_name": "78mm Standard",
+          "angebotspreis_eur": 47.48,
+          "preisempfehlung_eur": 79.13,
+          "aufpreis_angebot_eur": 0.0,
+          "aufpreis_empfehlung_eur": 0.0
+        },
+        {
+          "option_id": "fl_3",
+          "option_name": "78mm 8063 halbflächenversetzt",
+          "angebotspreis_eur": 61.59,
+          "preisempfehlung_eur": 102.65,
+          "aufpreis_angebot_eur": 14.11,
+          "aufpreis_empfehlung_eur": 23.52
+        }
+      ]
+    },
+    "fensterart": {
+      "description": "Window type (number of sashes)",
+      "base_price": 47.48,
+      "options": [
+        {
+          "option_id": "a1",
+          "option_name": "Einflügliges Fenster",
+          "angebotspreis_eur": 47.48,
+          "preisempfehlung_eur": 79.13,
+          "aufpreis_angebot_eur": 0.0,
+          "aufpreis_empfehlung_eur": 0.0
+        },
+        {
+          "option_id": "a2",
+          "option_name": "Zweiflügliges Fenster",
+          "angebotspreis_eur": 47.48,
+          "preisempfehlung_eur": 79.13,
+          "aufpreis_angebot_eur": 0.0,
+          "aufpreis_empfehlung_eur": 0.0
+        },
+        {
+          "option_id": "a3",
+          "option_name": "Dreiflügliges Fenster",
+          "angebotspreis_eur": 47.48,
+          "preisempfehlung_eur": 79.13,
+          "aufpreis_angebot_eur": 0.0,
+          "aufpreis_empfehlung_eur": 0.0
+        }
+      ]
+    },
+    "fenstertyp": {
+      "description": "Window type with lights",
+      "base_price": 47.48,
+      "options": [
+        {
+          "option_id": "typ1",
+          "option_name": "Einflügliges Fenster",
+          "angebotspreis_eur": 47.48,
+          "preisempfehlung_eur": 79.13,
+          "aufpreis_angebot_eur": 0.0,
+          "aufpreis_empfehlung_eur": 0.0
+        },
+        {
+          "option_id": "typ1o1",
+          "option_name": "Oberlicht Einerteilung",
+          "angebotspreis_eur": 47.48,
+          "preisempfehlung_eur": 79.13,
+          "aufpreis_angebot_eur": 0.0,
+          "aufpreis_empfehlung_eur": 0.0
+        },
+        {
+          "option_id": "typ1o2",
+          "option_name": "Oberlicht Zweierteilung",
+          "angebotspreis_eur": 47.48,
+          "preisempfehlung_eur": 79.13,
+          "aufpreis_angebot_eur": 0.0,
+          "aufpreis_empfehlung_eur": 0.0
+        },
+        {
+          "option_id": "typ1o3",
+          "option_name": "Oberlicht Dreierteilung",
+          "angebotspreis_eur": 47.48,
+          "preisempfehlung_eur": 79.13,
+          "aufpreis_angebot_eur": 0.0,
+          "aufpreis_empfehlung_eur": 0.0
+        },
+        {
+          "option_id": "typ1u1",
+          "option_name": "Unterlicht Einerteilung",
+          "angebotspreis_eur": 47.48,
+          "preisempfehlung_eur": 79.13,
+          "aufpreis_angebot_eur": 0.0,
+          "aufpreis_empfehlung_eur": 0.0
+        },
+        {
+          "option_id": "typ1u2",
+          "option_name": "Unterlicht Zweierteilung",
+          "angebotspreis_eur": 47.48,
+          "preisempfehlung_eur": 79.13,
+          "aufpreis_angebot_eur": 0.0,
+          "aufpreis_empfehlung_eur": 0.0
+        },
+        {
+          "option_id": "typ1u3",
+          "option_name": "Unterlicht Dreierteilung",
+          "angebotspreis_eur": 47.48,
+          "preisempfehlung_eur": 79.13,
+          "aufpreis_angebot_eur": 0.0,
+          "aufpreis_empfehlung_eur": 0.0
+        }
+      ]
+    },
+    "oeffnungsrichtung": {
+      "description": "Opening direction",
+      "base_price": 47.48,
+      "options": [
+        {
+          "option_id": "fn_1_fest_ohne_fluegel",
+          "option_name": "Fest ohne Flügel",
+          "angebotspreis_eur": 47.48,
+          "preisempfehlung_eur": 79.13,
+          "aufpreis_angebot_eur": 0.0,
+          "aufpreis_empfehlung_eur": 0.0
+        },
+        {
+          "option_id": "fn_1_fest_fluegel",
+          "option_name": "Fest mit Flügel",
+          "angebotspreis_eur": 82.49,
+          "preisempfehlung_eur": 137.49,
+          "aufpreis_angebot_eur": 35.01,
+          "aufpreis_empfehlung_eur": 58.36
+        },
+        {
+          "option_id": "fn_1_kipp",
+          "option_name": "Kipp",
+          "angebotspreis_eur": 146.52,
+          "preisempfehlung_eur": 244.2,
+          "aufpreis_angebot_eur": 99.04,
+          "aufpreis_empfehlung_eur": 165.07
+        },
+        {
+          "option_id": "fn_1_drehrechts",
+          "option_name": "Dreh Rechts",
+          "angebotspreis_eur": 142.52,
+          "preisempfehlung_eur": 237.53,
+          "aufpreis_angebot_eur": 95.04,
+          "aufpreis_empfehlung_eur": 158.4
+        },
+        {
+          "option_id": "fn_1_drehlinks",
+          "option_name": "Dreh Links",
+          "angebotspreis_eur": 142.52,
+          "preisempfehlung_eur": 237.53,
+          "aufpreis_angebot_eur": 95.04,
+          "aufpreis_empfehlung_eur": 158.4
+        },
+        {
+          "option_id": "fn_1_drehkipp_rechts",
+          "option_name": "Drehkipp Rechts",
+          "angebotspreis_eur": 142.52,
+          "preisempfehlung_eur": 237.53,
+          "aufpreis_angebot_eur": 95.04,
+          "aufpreis_empfehlung_eur": 158.4
+        },
+        {
+          "option_id": "fn_1_drehkipp_links",
+          "option_name": "Drehkipp Links",
+          "angebotspreis_eur": 142.52,
+          "preisempfehlung_eur": 237.53,
+          "aufpreis_angebot_eur": 95.04,
+          "aufpreis_empfehlung_eur": 158.4
+        }
+      ]
+    },
+    "dichtungsfarbe_aussen": {
+      "description": "Seal color outside",
+      "base_price": 47.48,
+      "options": [
+        {
+          "option_id": "dfa_1",
+          "option_name": "Lichtgrau",
+          "angebotspreis_eur": 47.48,
+          "preisempfehlung_eur": 79.13,
+          "aufpreis_angebot_eur": 0.0,
+          "aufpreis_empfehlung_eur": 0.0
+        },
+        {
+          "option_id": "dfa_2",
+          "option_name": "Schwarz",
+          "angebotspreis_eur": 47.48,
+          "preisempfehlung_eur": 79.13,
+          "aufpreis_angebot_eur": 0.0,
+          "aufpreis_empfehlung_eur": 0.0
+        }
+      ]
+    },
+    "dichtungsfarbe_innen": {
+      "description": "Seal color inside",
+      "base_price": 47.48,
+      "options": [
+        {
+          "option_id": "dfi_1",
+          "option_name": "Lichtgrau",
+          "angebotspreis_eur": 47.48,
+          "preisempfehlung_eur": 79.13,
+          "aufpreis_angebot_eur": 0.0,
+          "aufpreis_empfehlung_eur": 0.0
+        },
+        {
+          "option_id": "dfi_2",
+          "option_name": "Schwarz",
+          "angebotspreis_eur": 47.48,
+          "preisempfehlung_eur": 79.13,
+          "aufpreis_angebot_eur": 0.0,
+          "aufpreis_empfehlung_eur": 0.0
+        }
+      ]
+    },
+    "kernfarbe": {
+      "description": "Core color",
+      "base_price": 47.48,
+      "options": [
+        {
+          "option_id": "kf_0",
+          "option_name": "Weiß",
+          "angebotspreis_eur": 47.48,
+          "preisempfehlung_eur": 79.13,
+          "aufpreis_angebot_eur": 0.0,
+          "aufpreis_empfehlung_eur": 0.0
+        },
+        {
+          "option_id": "kf_1",
+          "option_name": "Grau",
+          "angebotspreis_eur": 49.78,
+          "preisempfehlung_eur": 82.96,
+          "aufpreis_angebot_eur": 2.3,
+          "aufpreis_empfehlung_eur": 3.83
+        },
+        {
+          "option_id": "kf_2",
+          "option_name": "Schwarz",
+          "angebotspreis_eur": 49.78,
+          "preisempfehlung_eur": 82.96,
+          "aufpreis_angebot_eur": 2.3,
+          "aufpreis_empfehlung_eur": 3.83
+        }
+      ]
+    },
+    "dekofarbe_aussen": {
+      "description": "Decorative color outside",
+      "base_price": 47.48,
+      "options": [
+        {
+          "option_id": "fs1_01",
+          "option_name": "Weiß (Standard)",
+          "angebotspreis_eur": 47.48,
+          "preisempfehlung_eur": 79.13,
+          "aufpreis_angebot_eur": 0.0,
+          "aufpreis_empfehlung_eur": 0.0
+        },
+        {
+          "option_id": "fs1_02",
+          "option_name": "Cremeweiß",
+          "angebotspreis_eur": 53.92,
+          "preisempfehlung_eur": 89.87,
+          "aufpreis_angebot_eur": 6.44,
+          "aufpreis_empfehlung_eur": 10.74
+        },
+        {
+          "option_id": "fs1_03",
+          "option_name": "Hellgrau",
+          "angebotspreis_eur": 53.92,
+          "preisempfehlung_eur": 89.87,
+          "aufpreis_angebot_eur": 6.44,
+          "aufpreis_empfehlung_eur": 10.74
+        },
+        {
+          "option_id": "fs1_04",
+          "option_name": "Anthrazit",
+          "angebotspreis_eur": 53.92,
+          "preisempfehlung_eur": 89.87,
+          "aufpreis_angebot_eur": 6.44,
+          "aufpreis_empfehlung_eur": 10.74
+        },
+        {
+          "option_id": "fs1_05",
+          "option_name": "Schwarzbraun",
+          "angebotspreis_eur": 53.92,
+          "preisempfehlung_eur": 89.87,
+          "aufpreis_angebot_eur": 6.44,
+          "aufpreis_empfehlung_eur": 10.74
+        },
+        {
+          "option_id": "fs1_06",
+          "option_name": "Dunkelbraun",
+          "angebotspreis_eur": 53.92,
+          "preisempfehlung_eur": 89.87,
+          "aufpreis_angebot_eur": 6.44,
+          "aufpreis_empfehlung_eur": 10.74
+        }
+      ]
+    },
+    "dekofarbe_innen": {
+      "description": "Decorative color inside",
+      "base_price": 47.48,
+      "options": [
+        {
+          "option_id": "fs1_01_i",
+          "option_name": "Weiß (Standard)",
+          "angebotspreis_eur": 47.48,
+          "preisempfehlung_eur": 79.13,
+          "aufpreis_angebot_eur": 0.0,
+          "aufpreis_empfehlung_eur": 0.0
+        },
+        {
+          "option_id": "fs1_02_i",
+          "option_name": "Cremeweiß",
+          "angebotspreis_eur": 58.98,
+          "preisempfehlung_eur": 98.3,
+          "aufpreis_angebot_eur": 11.5,
+          "aufpreis_empfehlung_eur": 19.17
+        },
+        {
+          "option_id": "fs1_03_i",
+          "option_name": "Hellgrau",
+          "angebotspreis_eur": 58.98,
+          "preisempfehlung_eur": 98.3,
+          "aufpreis_angebot_eur": 11.5,
+          "aufpreis_empfehlung_eur": 19.17
+        },
+        {
+          "option_id": "fs1_04_i",
+          "option_name": "Anthrazit",
+          "angebotspreis_eur": 58.98,
+          "preisempfehlung_eur": 98.3,
+          "aufpreis_angebot_eur": 11.5,
+          "aufpreis_empfehlung_eur": 19.17
+        },
+        {
+          "option_id": "fs1_05_i",
+          "option_name": "Schwarzbraun",
+          "angebotspreis_eur": 58.98,
+          "preisempfehlung_eur": 98.3,
+          "aufpreis_angebot_eur": 11.5,
+          "aufpreis_empfehlung_eur": 19.17
+        },
+        {
+          "option_id": "fs1_06_i",
+          "option_name": "Dunkelbraun",
+          "angebotspreis_eur": 58.98,
+          "preisempfehlung_eur": 98.3,
+          "aufpreis_angebot_eur": 11.5,
+          "aufpreis_empfehlung_eur": 19.17
+        }
+      ]
+    },
+    "verglasung": {
+      "description": "Glazing type",
+      "base_price": 47.48,
+      "options": [
+        {
+          "option_id": "g1",
+          "option_name": "2-fach Verglasung",
+          "angebotspreis_eur": 47.48,
+          "preisempfehlung_eur": 79.13,
+          "aufpreis_angebot_eur": 0.0,
+          "aufpreis_empfehlung_eur": 0.0
+        },
+        {
+          "option_id": "g2",
+          "option_name": "3-fach Verglasung",
+          "angebotspreis_eur": 47.48,
+          "preisempfehlung_eur": 79.13,
+          "aufpreis_angebot_eur": 0.0,
+          "aufpreis_empfehlung_eur": 0.0
+        },
+        {
+          "option_id": "g3",
+          "option_name": "3-fach Verglasung Premium",
+          "angebotspreis_eur": 62.93,
+          "preisempfehlung_eur": 104.89,
+          "aufpreis_angebot_eur": 15.45,
+          "aufpreis_empfehlung_eur": 25.76
+        },
+        {
+          "option_id": "g4",
+          "option_name": "3-fach Verglasung Passivhaus",
+          "angebotspreis_eur": 62.93,
+          "preisempfehlung_eur": 104.89,
+          "aufpreis_angebot_eur": 15.45,
+          "aufpreis_empfehlung_eur": 25.76
+        },
+        {
+          "option_id": "g5",
+          "option_name": "2-fach Verglasung Solar",
+          "angebotspreis_eur": 52.57,
+          "preisempfehlung_eur": 87.61,
+          "aufpreis_angebot_eur": 5.09,
+          "aufpreis_empfehlung_eur": 8.48
+        },
+        {
+          "option_id": "g6",
+          "option_name": "3-fach Verglasung Solar",
+          "angebotspreis_eur": 46.02,
+          "preisempfehlung_eur": 76.7,
+          "aufpreis_angebot_eur": -1.46,
+          "aufpreis_empfehlung_eur": -2.43
+        }
+      ]
+    },
+    "schallschutz": {
+      "description": "Sound insulation",
+      "base_price": 47.48,
+      "options": [
+        {
+          "option_id": "schallschutz_nein",
+          "option_name": "Nein (Standard SSK1)",
+          "angebotspreis_eur": 47.48,
+          "preisempfehlung_eur": 79.13,
+          "aufpreis_angebot_eur": 0.0,
+          "aufpreis_empfehlung_eur": 0.0
+        },
+        {
+          "option_id": "schallschutz_ja",
+          "option_name": "Ja",
+          "angebotspreis_eur": 47.48,
+          "preisempfehlung_eur": 79.13,
+          "aufpreis_angebot_eur": 0.0,
+          "aufpreis_empfehlung_eur": 0.0
+        }
+      ]
+    },
+    "sicherheitsverglasung": {
+      "description": "Safety glazing",
+      "base_price": 47.48,
+      "options": [
+        {
+          "option_id": "sicherheitsverglasung_0",
+          "option_name": "Nein",
+          "angebotspreis_eur": 47.48,
+          "preisempfehlung_eur": 79.13,
+          "aufpreis_angebot_eur": 0.0,
+          "aufpreis_empfehlung_eur": 0.0
+        },
+        {
+          "option_id": "sicherheitsverglasung_1",
+          "option_name": "Ja",
+          "angebotspreis_eur": 54.02,
+          "preisempfehlung_eur": 90.04,
+          "aufpreis_angebot_eur": 6.54,
+          "aufpreis_empfehlung_eur": 10.91
+        }
+      ]
+    },
+    "ornament": {
+      "description": "Ornament & sun protection glass",
+      "base_price": 47.48,
+      "options": [
+        {
+          "option_id": "ornament_0",
+          "option_name": "Nein",
+          "angebotspreis_eur": 47.48,
+          "preisempfehlung_eur": 79.13,
+          "aufpreis_angebot_eur": 0.0,
+          "aufpreis_empfehlung_eur": 0.0
+        },
+        {
+          "option_id": "ornament_1",
+          "option_name": "Ja",
+          "angebotspreis_eur": 73.28,
+          "preisempfehlung_eur": 122.14,
+          "aufpreis_angebot_eur": 25.8,
+          "aufpreis_empfehlung_eur": 43.01
+        }
+      ]
+    },
+    "druckventil": {
+      "description": "Pressure equalization valve",
+      "base_price": 47.48,
+      "options": [
+        {
+          "option_id": "drv_0",
+          "option_name": "Nein",
+          "angebotspreis_eur": 47.48,
+          "preisempfehlung_eur": 79.13,
+          "aufpreis_angebot_eur": 0.0,
+          "aufpreis_empfehlung_eur": 0.0
+        },
+        {
+          "option_id": "drv_1",
+          "option_name": "Ja",
+          "angebotspreis_eur": 70.65,
+          "preisempfehlung_eur": 117.75,
+          "aufpreis_angebot_eur": 23.17,
+          "aufpreis_empfehlung_eur": 38.62
+        }
+      ]
+    },
+    "sprossen": {
+      "description": "Muntins/Bars",
+      "base_price": 47.48,
+      "options": [
+        {
+          "option_id": "sprossen_0",
+          "option_name": "Nein",
+          "angebotspreis_eur": 47.48,
+          "preisempfehlung_eur": 79.13,
+          "aufpreis_angebot_eur": 0.0,
+          "aufpreis_empfehlung_eur": 0.0
+        },
+        {
+          "option_id": "sprossen_1",
+          "option_name": "Sprossen innenliegend",
+          "angebotspreis_eur": 57.7,
+          "preisempfehlung_eur": 96.17,
+          "aufpreis_angebot_eur": 10.22,
+          "aufpreis_empfehlung_eur": 17.04
+        },
+        {
+          "option_id": "sprossen_2",
+          "option_name": "Sprossen aufliegend",
+          "angebotspreis_eur": 47.48,
+          "preisempfehlung_eur": 79.13,
+          "aufpreis_angebot_eur": 0.0,
+          "aufpreis_empfehlung_eur": 0.0
+        }
+      ]
+    },
+    "rollladen": {
+      "description": "Roller shutter",
+      "base_price": 47.48,
+      "options": [
+        {
+          "option_id": "roll_0",
+          "option_name": "Nein",
+          "angebotspreis_eur": 47.48,
+          "preisempfehlung_eur": 79.13,
+          "aufpreis_angebot_eur": 0.0,
+          "aufpreis_empfehlung_eur": 0.0
+        },
+        {
+          "option_id": "roll_1",
+          "option_name": "Aufsatzrollladen",
+          "angebotspreis_eur": 128.69,
+          "preisempfehlung_eur": 214.49,
+          "aufpreis_angebot_eur": 81.21,
+          "aufpreis_empfehlung_eur": 135.36
+        },
+        {
+          "option_id": "roll_2",
+          "option_name": "Vorsatzrollladen",
+          "angebotspreis_eur": 128.69,
+          "preisempfehlung_eur": 214.49,
+          "aufpreis_angebot_eur": 81.21,
+          "aufpreis_empfehlung_eur": 135.36
+        }
+      ]
+    },
+    "duenne_schweissnaht": {
+      "description": "Thin weld seam (V-Perfect)",
+      "base_price": 47.48,
+      "options": [
+        {
+          "option_id": "dsd_0",
+          "option_name": "Nein",
+          "angebotspreis_eur": 47.48,
+          "preisempfehlung_eur": 79.13,
+          "aufpreis_angebot_eur": 0.0,
+          "aufpreis_empfehlung_eur": 0.0
+        },
+        {
+          "option_id": "dsd_1",
+          "option_name": "Ja",
+          "angebotspreis_eur": 48.1,
+          "preisempfehlung_eur": 80.16,
+          "aufpreis_angebot_eur": 0.62,
+          "aufpreis_empfehlung_eur": 1.03
+        }
+      ]
+    },
+    "rahmenverbreiterung": {
+      "description": "Frame widening",
+      "base_price": 47.48,
+      "options": [
+        {
+          "option_id": "rahmenverbreiterung_0",
+          "option_name": "Nein",
+          "angebotspreis_eur": 47.48,
+          "preisempfehlung_eur": 79.13,
+          "aufpreis_angebot_eur": 0.0,
+          "aufpreis_empfehlung_eur": 0.0
+        },
+        {
+          "option_id": "rahmenverbreiterung_1",
+          "option_name": "Ja",
+          "angebotspreis_eur": 47.48,
+          "preisempfehlung_eur": 79.13,
+          "aufpreis_angebot_eur": 0.0,
+          "aufpreis_empfehlung_eur": 0.0
+        }
+      ]
+    },
+    "fensterbankanschluss": {
+      "description": "Window sill connection",
+      "base_price": 47.48,
+      "options": [
+        {
+          "option_id": "febaan_0",
+          "option_name": "Nein",
+          "angebotspreis_eur": 47.48,
+          "preisempfehlung_eur": 79.13,
+          "aufpreis_angebot_eur": 0.0,
+          "aufpreis_empfehlung_eur": 0.0
+        },
+        {
+          "option_id": "febaan_1",
+          "option_name": "Ja",
+          "angebotspreis_eur": 54.13,
+          "preisempfehlung_eur": 90.21,
+          "aufpreis_angebot_eur": 6.65,
+          "aufpreis_empfehlung_eur": 11.08
+        }
+      ]
+    }
+  },
+  "masse": {
+    "fensterbankanschluss": [
+      {
+        "option": "Nein",
+        "angebotspreis": 47.48,
+        "preisempfehlung": 79.13,
+        "aufpreis": 0.0
+      },
+      {
+        "option": "Ja",
+        "angebotspreis": 54.13,
+        "preisempfehlung": 90.21,
+        "aufpreis": 6.65
+      }
+    ]
+  },
+  "rollladen": [
+    {
+      "option_id": "roll_0",
+      "option_name": "Kein Rollladen",
+      "angebotspreis": 47.48,
+      "preisempfehlung": 79.13,
+      "aufpreis": 0.0
+    },
+    {
+      "option_id": "roll_1",
+      "option_name": "Aufsatzrollladen",
+      "angebotspreis": 128.69,
+      "preisempfehlung": 214.49,
+      "aufpreis": 81.21
+    },
+    {
+      "option_id": "roll_2",
+      "option_name": "Vorsatzrollladen",
+      "angebotspreis": 128.69,
+      "preisempfehlung": 214.49,
+      "aufpreis": 81.21
+    }
+  ],
+  "sonstiges": {
+    "duenne_schweissnaht": [
+      {
+        "option": "Nein",
+        "angebotspreis": 47.48,
+        "preisempfehlung": 79.13,
+        "aufpreis": 0.0
+      },
+      {
+        "option": "Ja (V-Perfect)",
+        "angebotspreis": 48.1,
+        "preisempfehlung": 80.16,
+        "aufpreis": 0.62
+      }
+    ],
+    "rahmenverbreiterung": [
+      {
+        "option": "Nein",
+        "angebotspreis": 47.48,
+        "preisempfehlung": 79.13,
+        "aufpreis": 0.0
+      },
+      {
+        "option": "Ja (alle Seiten 30mm)",
+        "angebotspreis": 47.48,
+        "preisempfehlung": 79.13,
+        "aufpreis": 0.0
+      }
+    ]
+  }
+}

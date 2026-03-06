@@ -1,0 +1,664 @@
+{
+  "Profil": {
+    "p1": {
+      "label": "Softline-68 (Kiefer)",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    },
+    "p2": {
+      "label": "Softline-78 (Kiefer)",
+      "angebotspreis": 214.54,
+      "preisempfehlung": 357.57,
+      "surcharge": 30.55
+    },
+    "p3": {
+      "label": "Softline-88 (Kiefer)",
+      "angebotspreis": 229.3,
+      "preisempfehlung": 382.17,
+      "surcharge": 45.31
+    },
+    "p4": {
+      "label": "Softline-68 (Meranti)",
+      "angebotspreis": 202.34,
+      "preisempfehlung": 337.23,
+      "surcharge": 18.35
+    },
+    "p5": {
+      "label": "Softline-78 (Meranti)",
+      "angebotspreis": 274.88,
+      "preisempfehlung": 458.14,
+      "surcharge": 90.89
+    },
+    "p6": {
+      "label": "Softline-88 (Meranti)",
+      "angebotspreis": 299.35,
+      "preisempfehlung": 498.92,
+      "surcharge": 115.36
+    }
+  },
+  "Öffnungsrichtung": {
+    "fn_1_fest_ohne_fluegel": {
+      "label": "Fest (ohne Flügel)",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    },
+    "fn_1_fest_fluegel": {
+      "label": "Fest (mit Flügel)",
+      "angebotspreis": 305.16,
+      "preisempfehlung": 508.6,
+      "surcharge": 121.17
+    },
+    "fn_1_kipp": {
+      "label": "Kipp",
+      "angebotspreis": 311.89,
+      "preisempfehlung": 519.82,
+      "surcharge": 127.9
+    },
+    "fn_1_drehlinks": {
+      "label": "Dreh Links",
+      "angebotspreis": 318.62,
+      "preisempfehlung": 531.04,
+      "surcharge": 134.63
+    },
+    "fn_1_drehrechts": {
+      "label": "Dreh Rechts",
+      "angebotspreis": 318.62,
+      "preisempfehlung": 531.04,
+      "surcharge": 134.63
+    },
+    "fn_1_drehkipp_links": {
+      "label": "Dreh-Kipp Links",
+      "angebotspreis": 337.32,
+      "preisempfehlung": 562.2,
+      "surcharge": 153.33
+    },
+    "fn_1_drehkipp_rechts": {
+      "label": "Dreh-Kipp Rechts",
+      "angebotspreis": 337.32,
+      "preisempfehlung": 562.2,
+      "surcharge": 153.33
+    }
+  },
+  "Silikonfarbe": {
+    "sif1": {
+      "label": "Transparent",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    },
+    "sif2": {
+      "label": "Weiß",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    },
+    "sif3": {
+      "label": "Golden Oak (Goldeiche)",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    },
+    "sif4": {
+      "label": "Sepia Braun",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    }
+  },
+  "Farben Auswahl (Rubrik)": {
+    "fr1": {
+      "label": "RAL-Farben",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    },
+    "fr3": {
+      "label": "Holz-Farben",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    }
+  },
+  "Dekorfarbe Außen (Holz)": {
+    "fr3_ho01": {
+      "label": "Holz unbehandelt (Rohholz)",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    },
+    "fr3_ho02": {
+      "label": "Holz imprägniert",
+      "angebotspreis": 264.49,
+      "preisempfehlung": 440.82,
+      "surcharge": 80.5
+    },
+    "fr3_ho03": {
+      "label": "Holz mit Grundierung transparent",
+      "angebotspreis": 264.49,
+      "preisempfehlung": 440.82,
+      "surcharge": 80.5
+    },
+    "fr3_ho04": {
+      "label": "Lack transparent",
+      "angebotspreis": 264.49,
+      "preisempfehlung": 440.82,
+      "surcharge": 80.5
+    },
+    "fr3_ho05": {
+      "label": "Weiß (deckend)",
+      "angebotspreis": 264.49,
+      "preisempfehlung": 440.82,
+      "surcharge": 80.5
+    },
+    "fr3_ho06": {
+      "label": "Eiche Hell - Lasur 006",
+      "angebotspreis": 264.49,
+      "preisempfehlung": 440.82,
+      "surcharge": 80.5
+    },
+    "fr3_ho07": {
+      "label": "Eiche Dunkel - Lasur 009",
+      "angebotspreis": 264.49,
+      "preisempfehlung": 440.82,
+      "surcharge": 80.5
+    },
+    "fr3_ho08": {
+      "label": "Nussbaum - Lasur 010",
+      "angebotspreis": 264.49,
+      "preisempfehlung": 440.82,
+      "surcharge": 80.5
+    },
+    "fr3_ho09": {
+      "label": "Mahagoni - Lasur 045",
+      "angebotspreis": 264.49,
+      "preisempfehlung": 440.82,
+      "surcharge": 80.5
+    },
+    "fr3_ho10": {
+      "label": "Palisander - Lasur 048",
+      "angebotspreis": 264.49,
+      "preisempfehlung": 440.82,
+      "surcharge": 80.5
+    },
+    "fr3_ho11": {
+      "label": "Teak - Lasur 085",
+      "angebotspreis": 264.49,
+      "preisempfehlung": 440.82,
+      "surcharge": 80.5
+    }
+  },
+  "Dekorfarbe Innen (Holz)": {
+    "fr3_ho01_i": {
+      "label": "Holz unbehandelt (Rohholz)",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    },
+    "fr3_ho02_i": {
+      "label": "Holz imprägniert",
+      "angebotspreis": 264.49,
+      "preisempfehlung": 440.82,
+      "surcharge": 80.5
+    },
+    "fr3_ho03_i": {
+      "label": "Holz mit Grundierung transparent",
+      "angebotspreis": 264.49,
+      "preisempfehlung": 440.82,
+      "surcharge": 80.5
+    },
+    "fr3_ho04_i": {
+      "label": "Lack transparent",
+      "angebotspreis": 264.49,
+      "preisempfehlung": 440.82,
+      "surcharge": 80.5
+    },
+    "fr3_ho05_i": {
+      "label": "Weiß (deckend)",
+      "angebotspreis": 264.49,
+      "preisempfehlung": 440.82,
+      "surcharge": 80.5
+    },
+    "fr3_ho06_i": {
+      "label": "Eiche Hell - Lasur 006",
+      "angebotspreis": 264.49,
+      "preisempfehlung": 440.82,
+      "surcharge": 80.5
+    },
+    "fr3_ho07_i": {
+      "label": "Eiche Dunkel - Lasur 009",
+      "angebotspreis": 264.49,
+      "preisempfehlung": 440.82,
+      "surcharge": 80.5
+    },
+    "fr3_ho08_i": {
+      "label": "Nussbaum - Lasur 010",
+      "angebotspreis": 264.49,
+      "preisempfehlung": 440.82,
+      "surcharge": 80.5
+    },
+    "fr3_ho09_i": {
+      "label": "Mahagoni - Lasur 045",
+      "angebotspreis": 264.49,
+      "preisempfehlung": 440.82,
+      "surcharge": 80.5
+    },
+    "fr3_ho10_i": {
+      "label": "Palisander - Lasur 048",
+      "angebotspreis": 264.49,
+      "preisempfehlung": 440.82,
+      "surcharge": 80.5
+    },
+    "fr3_ho11_i": {
+      "label": "Teak - Lasur 085",
+      "angebotspreis": 264.49,
+      "preisempfehlung": 440.82,
+      "surcharge": 80.5
+    }
+  },
+  "Verglasung": {
+    "g1": {
+      "label": "2-fach Verglasung",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    },
+    "g2": {
+      "label": "3-fach Verglasung",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    },
+    "g3": {
+      "label": "3-fach Verglasung Premium",
+      "angebotspreis": 188.75,
+      "preisempfehlung": 314.58,
+      "surcharge": 4.76
+    },
+    "g4": {
+      "label": "3-fach Verglasung Passivhaus",
+      "angebotspreis": 188.75,
+      "preisempfehlung": 314.58,
+      "surcharge": 4.76
+    },
+    "g5": {
+      "label": "2-fach Verglasung Solar",
+      "angebotspreis": 198.23,
+      "preisempfehlung": 330.39,
+      "surcharge": 14.24
+    },
+    "g6": {
+      "label": "3-fach Verglasung Solar",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    }
+  },
+  "Schallschutz": {
+    "schallschutz_nein": {
+      "label": "Nein",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    },
+    "schallschutz_ja": {
+      "label": "Ja",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    }
+  },
+  "Sicherheitsverglasung": {
+    "sicherheitsverglasung_0": {
+      "label": "Nein",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    },
+    "sicherheitsverglasung_1": {
+      "label": "Ja",
+      "angebotspreis": 198.23,
+      "preisempfehlung": 330.39,
+      "surcharge": 14.24
+    }
+  },
+  "Ornament- & Sonnenschutzglas": {
+    "ornament_0": {
+      "label": "Nein",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    },
+    "ornament_1": {
+      "label": "Ja",
+      "angebotspreis": 189.95,
+      "preisempfehlung": 316.59,
+      "surcharge": 5.96
+    }
+  },
+  "Sprossen": {
+    "sprossen_0": {
+      "label": "Nein",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    },
+    "sprossen_1": {
+      "label": "Sprossen innenliegend",
+      "angebotspreis": 195.77,
+      "preisempfehlung": 326.29,
+      "surcharge": 11.78
+    },
+    "sprossen_2": {
+      "label": "Sprossen aufliegend",
+      "angebotspreis": 195.77,
+      "preisempfehlung": 326.29,
+      "surcharge": 11.78
+    }
+  },
+  "Rollladen": {
+    "rollladen_0": {
+      "label": "Kein Rollladen",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    },
+    "rollladen_1": {
+      "label": "Aufsatzrollladen",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    },
+    "rollladen_2": {
+      "label": "Vorsatzrollladen",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    }
+  },
+  "Rollladen Motor": {
+    "rollladen_motor_0": {
+      "label": "Kein Motor",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    },
+    "rollladen_motor_1": {
+      "label": "Mit Motor",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    }
+  },
+  "Fensterbankfräsung": {
+    "rfr1": {
+      "label": "Standardfalz - Fräsung beidseitig",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    },
+    "rfr2": {
+      "label": "Fräsung außen",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    },
+    "rfr3": {
+      "label": "Fräsung innen",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    },
+    "rfr4": {
+      "label": "Ohne Fräsung",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    }
+  },
+  "Wetterschenkel": {
+    "wr1": {
+      "label": "Aluminium Wetterschenkel - Weiß",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    },
+    "wr2": {
+      "label": "Aluminium Wetterschenkel - Silber",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    },
+    "wr3": {
+      "label": "Aluminium Wetterschenkel - Bronze Hell",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    },
+    "wr4": {
+      "label": "Aluminium Wetterschenkel - Bronze Dunkel",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    },
+    "wr5": {
+      "label": "Holz Retro - Fensterfarbe",
+      "angebotspreis": 205.21,
+      "preisempfehlung": 342.01,
+      "surcharge": 21.22
+    }
+  },
+  "Fensterbankanschluss": {
+    "fensterbankanschluss_0": {
+      "label": "Nein",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    },
+    "fensterbankanschluss_1": {
+      "label": "Ja",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    }
+  },
+  "Aufbohrschutz": {
+    "aufbohrschutz_0": {
+      "label": "Nein",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    },
+    "aufbohrschutz_1": {
+      "label": "Ja",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    }
+  },
+  "Sicherheitsbeschläge": {
+    "sicherheitsbeschlaege_0": {
+      "label": "Nein",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    },
+    "sicherheitsbeschlaege_1": {
+      "label": "Ja",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    }
+  },
+  "Reedkontakt": {
+    "reedkontakte_0": {
+      "label": "Nein",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    },
+    "reedkontakte_1": {
+      "label": "Ja",
+      "angebotspreis": 230.77,
+      "preisempfehlung": 384.61,
+      "surcharge": 46.78
+    }
+  },
+  "Fensterfalzlüfter": {
+    "fensterfalzluefter_0": {
+      "label": "Nein",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    },
+    "fensterfalzluefter_1": {
+      "label": "Ja",
+      "angebotspreis": 231.01,
+      "preisempfehlung": 385.02,
+      "surcharge": 47.02
+    }
+  },
+  "Rahmenverbreiterung": {
+    "rahmenverbreiterung_0": {
+      "label": "Nein",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    },
+    "rahmenverbreiterung_1": {
+      "label": "Ja",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    }
+  },
+  "Rahmenverbreiterung Oben": {
+    "oben_0": {
+      "label": "0 mm",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    },
+    "oben_20": {
+      "label": "20 mm",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    },
+    "oben_30": {
+      "label": "30 mm",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    },
+    "oben_40": {
+      "label": "40 mm",
+      "angebotspreis": 198.49,
+      "preisempfehlung": 330.82,
+      "surcharge": 14.5
+    },
+    "oben_50": {
+      "label": "50 mm",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    }
+  },
+  "Rahmenverbreiterung Unten": {
+    "unten_0": {
+      "label": "0 mm",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    },
+    "unten_20": {
+      "label": "20 mm",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    },
+    "unten_30": {
+      "label": "30 mm",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    },
+    "unten_40": {
+      "label": "40 mm",
+      "angebotspreis": 198.49,
+      "preisempfehlung": 330.82,
+      "surcharge": 14.5
+    },
+    "unten_50": {
+      "label": "50 mm",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    }
+  },
+  "Rahmenverbreiterung Links": {
+    "links_0": {
+      "label": "0 mm",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    },
+    "links_20": {
+      "label": "20 mm",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    },
+    "links_30": {
+      "label": "30 mm",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    },
+    "links_40": {
+      "label": "40 mm",
+      "angebotspreis": 198.49,
+      "preisempfehlung": 330.82,
+      "surcharge": 14.5
+    },
+    "links_50": {
+      "label": "50 mm",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    }
+  },
+  "Rahmenverbreiterung Rechts": {
+    "rechts_0": {
+      "label": "0 mm",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    },
+    "rechts_20": {
+      "label": "20 mm",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    },
+    "rechts_30": {
+      "label": "30 mm",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    },
+    "rechts_40": {
+      "label": "40 mm",
+      "angebotspreis": 198.49,
+      "preisempfehlung": 330.82,
+      "surcharge": 14.5
+    },
+    "rechts_50": {
+      "label": "50 mm",
+      "angebotspreis": 183.99,
+      "preisempfehlung": 306.65,
+      "surcharge": 0.0
+    }
+  }
+}
